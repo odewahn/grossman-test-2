@@ -21,14 +21,13 @@
     "appb.html",
     "appc.html",
     "appd.html",
-    "ix.html",
     "colo.html"
   ],
   "formats": {
     "pdf": {
       "version": "web",
       "toc": true,
-      "index": true
+      "index": false
     },
     "epub": {
       "index": false,
