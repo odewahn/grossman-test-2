@@ -1,0 +1,284 @@
+<section xmlns="http://www.w3.org/1999/xhtml" id="loop_structures" data-type="chapter" class="pagenumrestart"><h1>Loop Structures</h1><aside data-type="sidebar"><h5>In This Chapter</h5><ul><li><p>While loops</p></li><li><p>Until loops</p></li><li><p>For loops and nested loops</p></li><li><p>Infinite loops</p></li></ul></aside><section id="fivedot1_introduction" data-type="sect1"><h1>5.1 Introduction</h1><p>The preceding chapter introduced conditional structures and the idea
+    of logic and control flow. Now it is time to use these concepts within a
+    new context: loop structures. This chapter explains the logic of loop
+    structures and presents the tools that allow them to work. These tools
+    include the <em>while</em> loop, the
+    <em>until</em> loop, the <em>for</em> loop, and
+    the concept of nested loops.</p></section><section id="fivedot2_while_loops" data-type="sect1"><h1>5.2 While Loops</h1><p>The job of any loop is to perform iteration or repetition, and the
+    simplest construct for doing this is known as a <em>while
+    loop</em>. The general structure of a <em>while</em>
+    loop is shown in <a href="#while_loop_and_flowchart" data-type="xref"/>. Its
+    corresponding flowchart is shown in <a href="#fig0501" data-type="xref"/>.</p><div id="while_loop_and_flowchart" data-type="example"><h5>While loop construct</h5><pre data-type="programlisting" data-code-language="ruby">    1 while (condition)
+    2 	# statement 1
+    3 	# statement 2
+    4 	# ...
+    5 	# statement n
+    6 end
+</pre></div><figure id="fig0501" style="float: 0"><img src="figs/cspr_0501.png"/><figcaption>While loop flowchart</figcaption></figure><p>The control flow enters the while loop at the instruction: <code>while</code> (condition). This statement determines
+    whether the control enters the body of the loop. If the condition
+    evaluates to true, then the statements within the loop are executed. If
+    the condition evaluates to false, then the control flow goes to the
+    instruction, <code>end</code>, and the loop is
+    exited. In the case where <code>condition</code> is
+    <code>true</code>, the control flow will continue
+    through all the statements between 1 and <em>n</em>, where
+    <em>n</em> is any number greater than 0. Once a statement has
+    finished executing, the control flow jumps back to the first instruction,
+    <code>while</code> (condition), and the whole
+    process starts over.</p><p>To clarify, a Ruby example is shown in <a href="#counting_program_and_flowchart" data-type="xref"/>. Its corresponding flowchart
+    is shown in <a href="#fig0502" data-type="xref"/>.</p><div id="counting_program_and_flowchart" data-type="example"><h5>Counting program</h5><pre data-type="programlisting" data-code-language="ruby">    1 n = 5
+    2 i = 0
+    3 while (i &lt;= n)
+    4 	puts i
+    5 	i = i + 1
+    6 end
+</pre></div><figure id="fig0502" style="float: 0"><img src="figs/cspr_0502.png"/><figcaption>Counting program flowchart</figcaption></figure><p>The presented code is a simple program that prints every number
+    between 0 and 5. Walk through lines 1 through 6 and make sure you
+    understand the code before moving on. The loop repeats and prints the
+    value in variable <code>i</code> and then increments
+    the value by one. The loop continues as long as, or while, the value in
+    <code>i</code> is less than or equal to the value in
+    <code>n</code>. Every loop must eventually cause the
+    condition to change; otherwise, it loops infinitely (known as an
+    <em>infinite loop</em>). In the example, the variable <code>i</code> is incremented; so, after six iterations,
+    <code>i</code> will be larger than <code>n</code>.</p></section><?hard-pagebreak?><section id="fivedot3_until_loops" data-type="sect1"><h1>5.3 Until Loops</h1><div id="ch05note01" data-type="note"><h1>Gem of Wisdom</h1><p>An infinite loop is a <em>logic</em> problem, not a
+      <em>syntax</em> problem. Recall that syntax problems are
+      things like misspelling <code>else</code> (try it
+      sometime, and see what happens). Logic errors are much harder to fix, so
+      take your time, trace the flow of execution, and step very slowly
+      through the program.</p></div><p>The <em>until loop</em> is just the opposite of a while
+    loop. Instead of occurring while some condition remains true, an until
+    loop occurs until some condition becomes true. The code and semantics of
+    the until loop are presented in <a href="#until_loop_and_flowchart" data-type="xref"/>. Its corresponding flowchart is
+    shown in <a href="#fig0503" data-type="xref"/>.</p><div id="until_loop_and_flowchart" data-type="example"><h5>Until loop construct</h5><pre data-type="programlisting" data-code-language="ruby">    1 until (condition)
+    2 	# statement 1
+    3 	# statement 2
+    4 	# ...
+    5 	# statement n
+    6 end
+</pre></div><figure id="fig0503" style="float: 0"><img src="figs/cspr_0503.png"/><figcaption>Until loop flowchart</figcaption></figure><p>Until loops execute the same way as while loops; the only difference
+    is the way they terminate. If we want the counting program to work with
+    until loops, only one line of the program needs to be changed: <code>while(i &lt;= n)</code> becomes <code>until(i &gt; n)</code>. The until and while loops are
+    logical opposites, and the change in the counting program illustrates
+    this, as a greater-than conditional operator (<em>&gt;</em>)
+    is used instead of less than or equal to (<em>&lt;</em>=).
+    <a href="#logical_operators_and_their_opposites" data-type="xref"/> shows every
+    logical operator and its opposite operator.</p><table id="logical_operators_and_their_opposites"><caption>Logical operators and their opposites</caption><thead><tr><th>Operator</th><th>Opposite operator</th></tr></thead><tbody><tr><td><p>==</p></td><td><p>!=</p></td></tr><tr><td><p>&gt;</p></td><td><p>&lt;=</p></td></tr><tr><td><p>&lt;</p></td><td><p>&gt;=</p></td></tr></tbody></table><p>Switching from a while loop to an until loop is easy; simply switch
+    the operator in the condition to its opposite. However, this raises an
+    interesting point: these loop constructs are interchangeable. There is
+    never any case where you must use an until loop instead of a while loop,
+    or vice versa. A Ruby programmer could go her or his entire life only
+    knowing one of these loops and never have any problem writing any
+    program.</p><p>At this point you are probably wondering why both loop types even
+    exist. The reason for having both is to improve the clarity of a program.
+    Some things are simply expressed in a clearer manner with while loops than
+    with until loops, and vice versa. Instead of saying “while this is not
+    true” we can say “until this is true,” and instead of saying “until this
+    is not true” we can say “while this is true.” Frequently it is easier for
+    someone to understand a program that simply tests for the existence of
+    true instead of not true.</p><p>In the counting program from <a href="#counting_program_and_flowchart" data-type="xref"/>, the variable <code>i</code> is a counter. Using counters is common to many
+    tasks that require automation. Anytime a given set of instructions needs
+    to be executed a certain number of times, we will be using counters. Ruby
+    actually does not require us to set up the counter at all. Instead, it is
+    possible to give a set of numbers for a loop to iterate through.</p></section><section id="fivedot4_for_loops_and_nested_loops" data-type="sect1"><h1>5.4 For Loops and Nested Loops</h1><section id="for_loops" data-type="sect2"><h2>For Loops</h2><p>A <em>for loop</em> takes a group of elements and runs
+      the code within the loop for each element. This can be used to run a
+      piece of code a certain number of times, or the operations can actually
+      be based on the value. In <a href="#for_loop" data-type="xref"/>, we see <code>puts num</code> is executed once for each value of
+      <code>num</code>. That is, the loop will execute
+      six times, and six lines with numbers 0 through 5 written one number per
+      line will be generated. The range of values for <code>num</code> is defined by the construct <code>0..5</code> (see line 1), which represents all the
+      integer values between 0 and 5 inclusive.</p><div id="for_loop" data-type="example"><h5>For loop</h5><pre data-type="programlisting" data-code-language="ruby">    1 for num in (0..5)
+    2 	puts num
+    3 end
+</pre></div></section><section id="nested_loops" data-type="sect2"><h2>Nested Loops</h2><p>A <em>nested loop</em> is a loop inside another loop.
+      Although all kinds of loops can be nested, the most common nested loop
+      involves for loops. These loops are particularly useful when displaying
+      multidimensional data.</p><p>When using these loops, the first iteration of the first loop will
+      initialize, followed by the second loop. The second loop will completely
+      finish before the first loop moves on to its next iteration. If that
+      sounds confusing, the example in <a href="#nested_loop_and_flowchart" data-type="xref"/> should help you understand the
+      concept. Its corresponding flowchart is shown in <a href="#fig0505" data-type="xref"/>.</p><div id="nested_loop_and_flowchart" data-type="example"><h5>Nested loop construct</h5><pre data-type="programlisting" data-code-language="ruby">    1 for i in (1..3)
+    2 	puts "Outer loop: i = " + i.to_s
+    3 for k in (1..4)
+    4   puts "Inner loop: k = " + k.to_s
+    5 	end
+    6 end
+</pre></div><p>If you execute the program presented, you will see that the outer
+      loop is displayed three times. However, between each outer loop, four
+      iterations of the inner loop are run.</p><p>The flowchart illustrates the internal computation necessary to
+      execute the code presented. The code itself, however, is easier to
+      follow than the actual flowchart. Note thus the essence of using the
+      proper code structure for a particular task.</p><p>Nested loops can be a powerful tool when displaying data involving
+      both rows and columns. For example, it is possible to make a program
+      that would print a calendar that displays 12 different months, and for
+      each month, displays each day.</p><figure id="fig0505" style="float: 0"><img src="figs/cspr_0505.png"/><figcaption>Nested loop flowchart</figcaption></figure></section></section><section id="fivedot5_infinite_loops" data-type="sect1"><h1>5.5 Infinite Loops</h1><p>A classic problem, especially among new programmers, is that a small
+    mistake can lead to implementing a program that simply will not
+    stop.</p><p><a href="#infinite_loops" data-type="xref"/> has an initial value of 5 stored
+    in the variable <code>i</code> in line 3. The loop
+    indicates that we should continue as long as <code>i</code> is greater than zero. Line 5 increments
+    <code>i</code>. Hence, the loop condition of
+    <code>i &gt; 0</code> is always true; so the loop
+    will never terminate. When you run the program, it will look like nothing
+    is happening, but in actuality, your computer is quite busy. It is happily
+    repeating lines 4 and 5 forever. To terminate the program, hold down the
+    Ctrl key and press C. This is an old key sequence that is an abbreviation
+    for cancel, one of the arcane things you should memorize. (Ctrl-C cancels
+    execution, and Ctrl-D ends the file.) There are a few other Ctrl
+    sequences, but these two are all you need to make it through this
+    book.</p><div id="infinite_loops" data-type="example"><h5>Infinite loops</h5><pre data-type="programlisting" data-code-language="ruby">    1 puts "Count from 0 to ? "
+    2 n = gets.to_i
+    3 i = 5
+    4 while (i &gt; 0)
+    5 	i = i + 2
+    6 end
+</pre></div><p>Assume you realize that you are in an endless loop, and you want to
+    fix it. Sometimes new programmers simply execute the program again
+    <em>with no changes</em>. Let us assure you that if you do not
+    make a change, nothing will change. The program will once again run
+    indefinitely.</p><p>The secret to fixing an endless loop is to check the terminating
+    condition and make sure that it will ultimately be satisfied. Hence,
+    change something but do not change things randomly. Identify the cause of
+    the problem, make a change that makes sense, and then test to see if your
+    change has fixed the problem.</p></section><section id="fivedot6_example_finding_prime_numbers" data-type="sect1"><h1>5.6 Example: Finding Prime Numbers</h1><p>You now know enough to write numerous computer programs in Ruby, and
+    we will soon finally be able to stop worrying about the details of a
+    programming language and return to the fundamentals of computer science.
+    In fact, at this point, you really know enough to compute mathematically
+    just about anything that can be computed. To provide a little more
+    practice with the topics we have discussed, let’s return to our prime
+    number example. First we present a Ruby implementation (<a href="#prime_numbers" data-type="xref"/>), and then we explain the algorithm illustrated
+    in detail.</p><div id="prime_numbers" data-type="example"><h5>Prime numbers</h5><pre data-type="programlisting" data-code-language="ruby">     1 # Initialize our counter
+     2 i = 1
+     3 
+     4 # i: [0, 100]
+     5 while (i &lt;= 100)
+     6   # Initialize prime flag
+     7   prime_flag = true
+     8   j = 2
+     9   # Test divisibility of i from [0, i/2]
+    10   while (j &lt;= i / 2)
+    11     # puts " i ==&gt; " + i.to_s + " j ==&gt; " + j.to_s
+    12     if (i % j == 0)
+    13       prime_flag = false
+    14       # break
+    15     end
+    16     j = j + 1
+    17   end
+    18   # We found a prime!
+    19   if prime_flag
+    20     puts "Prime ==&gt; " + i.to_s
+    21   end
+    22   # Increment the counter
+    23   i += 1
+    24 end
+</pre></div><p>Recall that a number is considered prime if and only if its only
+    divisors, commonly called factors, are 1 and itself. For example, 9 is not
+    prime while 7 is. As hinted in <a href="#core_programming_elements" data-type="xref"/>, it is unnecessary to check for
+    factors until you reach the actual number (minus one) since the largest
+    divisor must be no greater than half the number itself. A prime number
+    implementation can be optimized by using the knowledge that we can
+    terminate the loop early.</p><p>The Ruby implementation shown in <a href="#prime_numbers" data-type="xref"/>
+    includes a main loop that terminates at half the number rather than
+    continuing until the actual number (minus one). Using this modification,
+    we eliminate roughly half the number of loop iterations needed to
+    determine if the number is a prime. If the number being tested is large,
+    such a reduction can be significant in terms of the actual execution
+    time.</p><div id="ch05note02" data-type="note"><h1>Gem of Wisdom</h1><p>Step through <a href="#prime_numbers" data-type="xref"/> and make sure you
+      agree that this finds prime numbers. Does it think 7 is a prime number?
+      Try 9. Try 17. Convince yourself that this approach works.</p></div><?hard-pagebreak?><p>Now let’s go through the code in detail.</p><ul><li><p>Line 2 initializes <code>i</code> to 1 and
+        defines <code>i</code> as an integer.</p></li><li><p>Line 5 starts an outer loop to begin the prime number
+        search.</p></li><li><p>Line 7 sets a flag to <code>true</code>.
+        The idea is that for each potential prime we assume it is indeed a
+        prime number until we know differently.</p></li><li><p>Line 10 begins an inner loop that tests all values from 2 to
+        <code>i/2</code>.</p></li><li><p>Line 11 is our first example of the debugging process we
+        discussed at the end of <a href="#conditional_structures" data-type="xref"/>. As
+        seen in our prime number implementation, we commented out line 11.
+        Thus, the computer simply skips everything from the pound sign (#)
+        until the end of the line. However, if we were in the debugging stage
+        of program development and wanted to see the values of <code>i</code> and <code>j</code>
+        at a key point, this is a great place to look at them. You can
+        uncomment this line just to watch how this program works. Many people
+        will tell you, “Put in some output statements to see what is going
+        on,” but part of the art to this is finding out the best place to put
+        them so that they give you the most information with the least number
+        of output statements. Too many output statements may overwhelm the
+        programmer and result in having her or him looking erroneously for the
+        needle in the haystack.</p><p>Many real-world programs are filled with statements, like the
+        one on line 11, that are commented out once everything is working.
+        Programmers like to leave them in so that they will be handy if
+        anything goes wrong in the future. Furthermore, although commented
+        lines are nonexecutable, in trying to delete them you might
+        accidentally delete executable lines. Thus, since their presence can
+        only potentially help in the future, and their deletion might
+        accidentally cause the deletion of executable lines, we strongly
+        suggest that you never delete a properly placed debugging
+        statement.</p></li><li><p>In line 12, the key test is performed to see if the value we are
+        testing divides evenly by a value between 2 and its half. If no
+        remainder exists, the number divides evenly by something other than 1
+        and itself, and thus is not a prime. We then turn the flag off.</p></li><li><p>Line 14 has a new command called <code>break</code>. The
+        <code>break</code> statement is an optimization that simply says
+        that, once you know that a given condition is met, there is no need to
+        further execute the loop. In our case, we can terminate the loop once
+        we know that the value is not prime; there is no need to test for any
+        additional potential factors. That is, once we find any factor other
+        than 1 or itself, the candidate number is not a prime number, so we
+        can end the testing of all values. In our case, this means the next
+        statement executed will be line 16.</p><p>Line 14 is currently commented out. You should try the program
+        once keeping the line commented out as is and once with it included in
+        the execution. You should see that including the <code>break</code> statement results in the program
+        running faster; you may need to try to find all primes from 1 to
+        10,000 (change line 2 from 100 to 10,000) to really see a
+        difference.</p></li><li><p>Line 16 increments <code>j</code>, and
+        line 17 ends the inner prime search loop.</p></li><li><p>Line 19 executes for each value being tested, and if <code>prime_flag</code> remains <code>true</code> despite running through the entire
+        inner loop, then the prime value is output. The <code>to_s</code> method converts the integer <code>i</code> to a string to display it (output) with
+        the <code>puts</code> (output string)
+        command.</p></li><li><p>Line 23 increments the value of <code>i</code>, and processing continues. The syntax used
+        to increment <code>i</code> adds, subtracts,
+        multiplies, or divides a variable by a value and immediately stores
+        the result in the original variable. We can use the shorthand notation
+        shown on line 23 of <a href="#prime_numbers" data-type="xref"/>.</p></li></ul><div id="ch05note03" data-type="note"><h1>Gem of Wisdom</h1><p>Note that in line 23 of <a href="#prime_numbers" data-type="xref"/>, we
+      introduce a new shorthand construct known as <code>op=</code>, where the <code>op</code> can be any legal operator between two
+      variables. So, <code>a op= b</code> means <code>a = a op b</code>. In line 23, the variable <code>i</code> is incremented by one.</p></div><p>Here is the output of this program. We changed it so that it checks
+    for primes only between 1 and 25.</p><pre id="pro_id00035" data-type="programlisting" data-code-language="ruby">$ ruby prime.rb
+Prime ==$&gt;$ 1
+Prime ==$&gt;$ 2
+Prime ==$&gt;$ 3
+Prime ==$&gt;$ 5
+Prime ==$&gt;$ 7
+Prime ==$&gt;$ 11
+Prime ==$&gt;$ 13
+Prime ==$&gt;$ 17
+Prime ==$&gt;$ 19
+Prime ==$&gt;$ 23</pre><p>We suggest that you do not look at the program we have supplied for
+    too long and just look at the algorithm. See if you can write your own
+    program to find prime numbers. Then just use our program as a guide if you
+    run into any problems.</p></section><section id="fivedot7_summary" data-type="sect1"><h1>5.7 Summary</h1><p>You are now able to write numerous programs in Ruby. You also now
+    have a better idea of what an algorithm is. What remains are topics that
+    simplify the writing of complex algorithms and programs.</p><section id="fivedot7dot1_key_concepts" data-type="sect2"><h2>5.7.1 Key Concepts</h2><ul><li><p><em>Loop structures</em> force the computer to
+          repeat a set of steps until a condition is met. This powerful tool
+          greatly decreases the amount of code that must be written for a task
+          to be repeated.</p></li><li><p>While loops, until loops, and for loops can be used to create
+          a <em>loop structure</em>.</p></li><li><p><em>Nested loops</em> are loops within
+          loops.</p></li></ul></section><section id="fivedot7dot2_key_definitions" data-type="sect2"><h2>5.7.2 Key Definitions</h2><ul><li><p><em>Loop structure</em>: A structure used to
+          repeatedly execute a set of instructions.</p></li><li><p><em>Nested loop</em>: A loop contained within a
+          loop.</p></li></ul></section></section><section id="fivedot8_exercises" data-type="sect1"><h1>5.8 Exercises</h1><ol class="qonly"><li><p>For each of the following subproblems, convert the given loop
+        type (while, until) into its opposite.</p><ol type="a"><li><p><code>while</code> <code>(x == 5)</code></p></li><li><p><code>until</code> <code>(x <em>&lt;</em> 7)</code></p></li><li><p><code>until</code> <code>((x != 0) and (y <em>&gt;</em> 2))</code></p></li></ol></li><li><p>Walk through the program in <a href="#code_for_exercise_5dot2" data-type="xref"/> and explain what it does.</p><div id="code_for_exercise_5dot2" data-type="example"><h5>Code for Exercise 2</h5><pre data-type="programlisting" data-code-language="ruby">    1 puts "Enter a number &gt;= 0: "
+    2 n = gets.to_i
+    3 a = 1
+    4 while (n &gt; 1)
+    5 	a = (n * (n - 1)) * a
+    6 	n = n - 2
+    7 end
+    8 puts a
+</pre></div></li><li><p>Write a program to calculate compounded interest using a while
+        loop. The user inputs the amount deposited, the interest rate (as a
+        percentage) per period, and the number of periods the deposit
+        accumulates interest. Compound interest means that every period, your
+        new balance is calculated using the last period’s balance times the
+        interest rate.</p></li><li><p>Implement the mod operator without using the mod operator but
+        using a loop. (Assume the numerator is always greater than the
+        denominator and both are greater than 0.)</p></li><li><p>Make a simple calculator. It should read in two numbers, apply
+        an operator (+, -, *, /), and display the result. It should continue
+        to do this until a condition of your choosing stops it.</p></li><li><p>Write a program that outputs the first 20 numbers in the
+        Fibonacci sequence. In the Fibonacci sequence, the current number is
+        the sum of the previous two numbers. The first two numbers in the
+        sequence are 1 and 1.</p></li></ol></section></section>

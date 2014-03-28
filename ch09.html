@@ -1,0 +1,300 @@
+<section xmlns="http://www.w3.org/1999/xhtml" id="defining_classes_and_creating_objects" data-type="chapter" class="pagenumrestart"><h1>Defining Classes and Creating Objects</h1><aside data-type="sidebar"><h5>In This Chapter</h5><ul><li><p>Instantiating objects from classes</p></li><li><p>Data and methods in objects</p></li></ul></aside><section id="ninedot1_introduction" data-type="sect1"><h1>9.1 Introduction</h1><p>The preceding chapter introduced classes and objects and some of the
+    vocabulary associated with objects. It also delved into a few of the
+    built-in objects within Ruby. Now it is time to explore the true power of
+    objects: the ability to create your own.</p></section><section id="ninedot2_instantiating_objects_from_clas" data-type="sect1"><h1>9.2 Instantiating Objects from Classes</h1><p>As we mentioned in previous chapters, a class is a description of
+    objects. A particular object is an instantiation of the class, having a
+    unique name selected for it by the programmers. As with all information in
+    a computer system, the various classes are stored in files. When reading
+    the previous chapters, you probably noticed the following syntax in some
+    examples:</p><pre id="pro_id00059" data-type="programlisting" data-code-language="ruby">customer = String.new</pre><p>This is essentially the syntax for instantiating a new object. The
+    example shows that you are instantiating an object whose class is <code>String</code>. The object’s name is <code>customer</code>, and <span class="keep-together">the
+    name</span> is used as a variable from the class <code>String</code>. Now you can manipulate the <span class="keep-together"><code>customer</code>
+    variable</span> using the different methods learned in the preceding
+    chapters.</p><p>Ruby provides many built-in classes like strings and arrays, but you
+    can also create your own class. User-defined classes are a great way to
+    group and categorize something’s characteristics. For example, if you want
+    to organize a database for bank accounts, you can create a class
+    describing the properties and behaviors of each bank account.</p><p><a href="#class_definition_syntax" data-type="xref"/> provides an outline for
+    defining your own class.</p><div id="class_definition_syntax" data-type="example"><h5>Class definition syntax</h5><pre data-type="programlisting" data-code-language="ruby">     1 class Classname
+     2 	def initialize(var1, var2, ..., varn)
+     3 		@variable_1 = var1
+     4 		@variable_2 = var2
+     5 		...
+     6 		@variable_n = varn
+     7 	end
+     8 
+     9 	def method_1
+    10 		# code
+    11 	end
+    12 
+    13 	def method_2
+    14 		# code
+    15 	end
+    16 end
+</pre></div><div id="ch09note01" data-type="note"><h1>Gem of Wisdom</h1><p>In Ruby, class names must begin with an uppercase letter.</p></div><p>We now describe lines 1–7 (the rest will be covered in the following
+    sections), which define a class and initialize variables local to the
+    class. To define a class, use the <code>class</code>
+    keyword followed by a descriptive name that characterizes an object. For
+    example, if you wanted to create a class for a bank account called
+    <code>Account</code>, define the class by
+    typing:</p><pre id="pro_id00060" data-type="programlisting" data-code-language="ruby">class Account
+end</pre><p>Another important keyword you should notice in the class definition
+    is <code>def</code> (short for define). This keyword
+    is used to define new activities (called <em>methods</em>)
+    that may be performed on the object. This keyword is also used to define
+    the special method <span class="keep-together"><code>initialize</code></span>, which is called every time
+    a new instance of the class, that is, a new object, is created. All
+    classes have this special method, which is called a
+    <em>constructor</em>. We will explain class generation using
+    an example of a class describing bank accounts called <code>Account</code>, the first iteration of which can be
+    seen in <a href="#account_version_hash1" data-type="xref"/>.</p><div id="account_version_hash1" data-type="example"><h5>Account version 1</h5><pre data-type="programlisting" data-code-language="ruby">    1 class Account
+    2 	def initialize(balance)
+    3 		@balance = balance
+    4 	end
+    5 end
+</pre></div><p>The variables inside the parentheses after <code>initialize</code> are the parameters that are assigned
+    when creating, or instantiating, the object.</p><p>Now when instantiating an object using the <code>Account</code> class, the object will have a variable
+    called <code>balance</code> with an initial value
+    that you can assign using a parameter. The special character (<code>@</code>) is used to indicate that this is an
+    <em>instance variable</em>, meaning that it is a parameter of
+    the object. Variables might be specific to a single method in the class,
+    but these instance variables can be accessed by any method in the object
+    description. These instance variables are sometimes referred to
+    <em>as storing the properties of an object</em>.</p><p>We have just created a user-defined class, but how do you use it?
+    You can instantiate an object of the <code>Account</code> class the same way you create new
+    strings and arrays:</p><pre id="pro_id00061" data-type="programlisting" data-code-language="ruby">bob = Account.new(10.00)</pre><div id="ch09note02" data-type="note"><h1>Gem of Wisdom</h1><p>Each created instance of a class will have its own unique instance
+      variables. If a variable is prefixed with @@, it becomes a class
+      variable that is <em>shared</em> across
+      <em>all</em> instances of the class. We do not discuss class
+      variables in this book.</p></div><p>This example creates an object called <code>bob</code> of the <code>Account</code> class. Remember when you created the
+    <code>initialize</code> method? You assigned one
+    parameter called <code>balance</code>; this is the
+    value in the parentheses. The parameter passed in the parentheses will
+    become the initial balance of Bob’s account.</p><p>What other variables should you consider adding to the <code>Account</code> class? What kind of behaviors should the
+    class contain? In the following sections, we describe grouping data, as
+    well as adding your own methods and working with the data through the
+    object’s methods.</p></section><section id="ninedot3_data_and_methods" data-type="sect1"><h1>9.3 Data and Methods</h1><p>Objects are made up of two important concepts: the data the object
+    holds (the instance variables) and the actions the object can perform (the
+    methods).</p><section id="ninedot3dot1_grouping_data_and_methods" data-type="sect2"><h2>9.3.1 Grouping Data and Methods</h2><p>The previous section detailed how to create and instantiate an
+      object of an <code>Account</code> class, and while
+      reading it you might have been thinking to yourself, “How was I supposed
+      to know that an <code>Account</code> class needs a
+      <code>balance</code> variable?” The answer is that
+      no class requires any particular piece of data, but classes are used to
+      group related pieces of data together, and it only makes sense that an
+      account has a balance. Likewise, there are other things that would come
+      as a part of a bank account. Depending on the nature of the bank
+      account, the type of data included would change. For example, a savings
+      account wouldn’t necessarily include the same data as a checking
+      account. Regardless, we are talking about a generic bank account, and
+      additional data possibly included are name, phone number, Social
+      Security number, minimum balance, and maximum balance. We now introduce
+      two additional instance variables to our <code>Account</code> class, as shown in <a href="#account_version_hash2" data-type="xref"/>.</p><div id="account_version_hash2" data-type="example"><h5>Account version 2</h5><pre data-type="programlisting" data-code-language="ruby">    1 class Account
+    2 	def initialize(balance, name, phone_number)
+    3 		@balance = balance
+    4 		@name = name
+    5 		@phone_number = phone_number
+    6 	end
+    7 end
+</pre></div><div id="ch09note03" data-type="note"><h1>Gem of Wisdom</h1><p>Note that the instance variables <code>balance</code>, <code>name</code>, and <code>phone_number</code> are assigned in the order the
+        parameters were passed to the <code>initialize</code> method; however, this is not
+        required. It is done merely for convenience to the reader. Also, the
+        actual names can be chosen arbitrarily. For example, <code>@cash = balance</code>, while allowed, is
+        discouraged.</p></div><p>Our bank account is beginning to make a bit more sense. On top of
+      just having a balance, there is a name and a phone number attached to
+      the account, so we can uniquely determine whose account it is. Now that
+      our <code>Account</code> class constructor has
+      changed, let’s see how to initialize Bob’s bank account when he has $10
+      as his starting balance, and has a phone number of 716-634-9483.</p><pre id="pro_id00062" data-type="programlisting" data-code-language="ruby">bob = Account.new(10.00, "Bob", 7166349483)</pre><p>An object also contains methods. Just like data, methods are
+      logically grouped together based on the class. The purpose of a method
+      is to accomplish a task, so we must ask ourselves, what actions should a
+      bank account have? We would expect that at the very least we could
+      withdraw from and deposit to our account. Let’s add these methods to our
+      <code>Account</code> class, as shown in <a href="#account_version_hash3" data-type="xref"/>.</p><div id="account_version_hash3" data-type="example"><h5>Account version 3</h5><pre data-type="programlisting" data-code-language="ruby">     1 class Account
+     2 	def initialize(balance, name, phone_number)
+     3 		@balance = balance
+     4 		@name = name
+     5 		@phone_number = phone_number
+     6 	end
+     7 
+     8 	def deposit(amount)
+     9 		# code
+    10 	end
+    11 
+    12 	def withdraw(amount)
+    13 		# code
+    14 	end
+    15 end
+</pre></div><p>Aside from the missing implementation code on lines 9 and 13, our
+      <code>Account</code> class implementation is
+      looking pretty good. Not only can Bob open an account, but he can also
+      deposit or withdraw money when he desires.</p><p>The <code>Account</code> class is almost
+      finished, and the only thing left to do before Bob is able to open a
+      bank account is to implement the deposit and withdraw methods.</p></section><section id="ninedot3dot2_implementing_methods" data-type="sect2"><h2>9.3.2 Implementing Methods</h2><p>A key advantage of objects is that they abstract the details of
+      their operations away from the code that uses them. Once the details of
+      the <code>Account</code> class are finalized, a
+      programmer can use the class without knowing any of those details. The
+      programmer need only know what data are required to initialize the
+      class, and what data are required for each method in the class. For
+      example, consider the <code>String</code> class
+      provided in the Ruby standard library. When we use the <code>capitalize</code> method, we do not know how <code>String</code> stores the data, nor how the data get
+      accessed. All we need to know is that the <code>capitalize</code> method capitalizes the first letter
+      of the string.</p><p>As we implement an object, we must consider every detail of its
+      operation. The <span class="keep-together"><code>deposit</code> method</span>, for example, must add
+      the value of the parameter passed to the previous <code>@balance</code> and store the result back in <code>@balance</code>. Let’s take a look at the
+      implementation of the deposit and withdraw methods, as shown in <a href="#account_version_hash4" data-type="xref"/>.</p><div id="account_version_hash4" data-type="example"><h5>Account version 4</h5><pre data-type="programlisting" data-code-language="ruby">     1 class Account
+     2 	def initialize(balance, name, phone_number)
+     3 		@balance = balance
+     4 		@name = name
+     5 		@phone_number = phone_number
+     6 	end
+     7 
+     8 	def deposit(amount)
+     9 		@balance += amount
+    10 	end
+    11 
+    12 	def withdraw(amount)
+    13 		@balance -= amount
+    14 	end
+    15 end
+</pre></div><div id="ch09note04" data-type="note"><h1>Gem of Wisdom</h1><p>Recalling our earlier Gem of Wisdom and looking at <a href="#account_version_hash4" data-type="xref"/>, using our shorthand construct
+        known as <code>op=</code>, in line 9, the
+        variable <code>@balance</code> is incremented by
+        the value of <code>amount</code>, meaning
+        <code>@balance = @balance + amount</code>, and
+        in line 13, the meaning of the statement is <code>@balance = @balance - amount</code>.</p></div><p>To use these newly defined methods, we must initialize the classes
+      and then access them as we did with built-in methods. Note in the
+      following code that this is the first time we import definitions using
+      the <code>require</code> command. For example, to
+      create an account for Mary, with $500, and then to deposit another $200,
+      we would perform the following steps in <code>irb</code>:</p><pre id="pro_id00063" data-type="programlisting" data-code-language="ruby">irb(main):003:0&gt; require 'account_4.rb'
+=&gt; true
+irb(main):004:0&gt; mary_account = Account.new(500, "Mary", 8181000000)
+=&gt; #&lt;Account:0x3dfa68 @balance=500, @name="Mary", @phone_number=8181000000&gt;
+irb(main):005:0&gt; mary_account.deposit(200)
+=&gt; 700
+irb(main):006:0&gt; mary_account
+=&gt; #&lt;Account:0x3dfa68 @balance=700, @name="Mary", @phone_number=8181000000&gt;</pre><p>As can be seen from the output, Mary’s account now holds 700 in
+      its <code>@balance</code> variable. However, it
+      would be much nicer to provide a helper method to display this
+      information. The <code>display</code> method is an
+      often-used method for outputting the contents of an object’s instance.
+      For the <code>Account</code> class, we can output
+      the name, phone number, and account balance to the screen with the code
+      shown in <a href="#display_method" data-type="xref"/>.</p><div id="display_method" data-type="example"><h5>Display method</h5><pre data-type="programlisting" data-code-language="ruby">    1 def display()
+    2   puts "Name: " + @name
+    3   puts "Phone Number: " + @phone_number.to_s
+    4   puts "Balance: " + @balance.to_s
+    5 end
+</pre></div><p>Now we can immediately see the result of our actions. For example,
+      try running the following code, which indirectly transfers $200 from
+      Bob’s account to Mary’s:</p><pre id="pro_id00064" data-type="programlisting" data-code-language="ruby">bob_account = Account.new(500, "Bob", 8181000000)
+mary_account = Account.new(500, "Mary", 8881234567)
+bob_account.withdraw(200)
+mary_account.deposit(200)
+bob_account.display()
+mary_account.display()</pre><p>Note that in both the method definition in <a href="#display_method" data-type="xref"/> and in its use in the preceding code, empty
+      parentheses are included. Such use is optional; however, we include it
+      to reinforce the fact that parameters are needed.</p><p>At the end of executing those instructions, <code>bob_account</code> would have $300 as its balance,
+      and <code>mary_account</code> would have $700.
+      However, every time we would want to use the <code>Account</code> class to transfer money, we would have
+      to write two lines: one for withdrawing from the old account and another
+      for depositing to a new one. It would be much easier to use the <code>Account</code> class if the two functionalities were
+      combined into a single method. This single method would need to affect
+      two separate instances of a single class. This is done by passing an
+      account object to a new method called <code>transfer</code>, shown in <a href="#transfer_method" data-type="xref"/>.</p><div id="transfer_method" data-type="example"><h5>Transfer method</h5><pre data-type="programlisting" data-code-language="ruby">    1 def transfer(amount, target_account)
+    2   @balance -= amount
+    3   target_account.deposit(amount)
+    4 end
+</pre></div><p>Finally, all our methods thus far affected values stored in the
+      program.</p><p>However, none of our defined methods returned a value to the
+      invoking statement. That is, if one wished to assign the balance of an
+      account to a variable, this balance would need to be returned after a
+      sequence of deposits and withdrawals. To obtain this value, a method
+      must be defined that returns a value. We define such a method, called
+      <span class="keep-together"><code>status</code>,
+      as</span> shown in <a href="#status_method" data-type="xref"/>.</p><div id="status_method" data-type="example"><h5>Status method</h5><pre data-type="programlisting" data-code-language="ruby">    1 def status
+    2   return @balance
+    3 end
+</pre></div><p>Two items are critical to note about the definition of the
+      <code>status</code> method. First, the <code>return</code> construct returns the value of <code>@balance</code> to the method-invoking element. For
+      the sophisticated Ruby programmer, the reality is that Ruby always
+      returns the value of the last statement executed. However, if a
+      different value or better clarity is desired, a <code>return</code> statement is often used.</p><p>Second, since there is no local overriding parameter called
+      <code>@balance</code>, the global value for
+      <code>@balance</code> is accessed. <a href="#account_en_dash_final_version_left_paren" data-type="xref"/> contains the full
+      implementation of our <span class="keep-together"><code>Account</code> class.</span></p><div id="account_en_dash_final_version_left_paren" data-type="example"><h5>Account—final version (version 5)</h5><pre data-type="programlisting" data-code-language="ruby">     1 class Account
+     2 	def initialize(balance, name, phone_number)
+     3 		@balance = balance
+     4 		@name = name
+     5 		@phone_number = phone_number
+     6 	end
+     7 
+     8 	def deposit(amount)
+     9 		@balance += amount
+    10 	end
+    11 
+    12 	def withdraw(amount)
+    13 		@balance -= amount
+    14 	end
+    15 
+    16 	def display
+    17 		puts "Name: " + @name
+    18 		puts "Phone number: " + @phone_number.to_s
+    19 		puts "Balance: " + @balance.to_s
+    20 	end
+    21 
+    22 	def transfer(amount, target_account)
+    23 		@balance -= amount
+    24 		target_account.deposit(amount)
+    25 	end
+    26 
+    27 	def status
+    28 		return @balance
+    29 	end
+    30 end
+</pre></div></section></section><section id="ninedot4_summary" data-type="sect1"><h1>9.4 Summary</h1><p>We described how to create objects and methods. The special method
+    <code>initialize</code> was discussed as the means
+    to implement a constructor. Also, class variables were described.</p><section id="ninedot4dot1_key_concepts" data-type="sect2"><h2>9.4.1 Key Concepts</h2><ul><li><p><em>Objects</em> are created by
+          <em>instantiation</em>. This is done via the
+          <em>constructor</em> contained in the class
+          definition.</p></li><li><p>When creating a class, it is important to keep in mind that
+          objects from the class are meant to group data and methods
+          together.</p></li><li><p>A key point to keep in mind when working with objects is that
+          once an object has been created, it abstracts the details away from
+          the program that uses it. In other words, you can use an object
+          without seeing the details of that object directly.</p></li></ul></section><section id="ninedot4dot2_key_definitions" data-type="sect2"><h2>9.4.2 Key Definitions</h2><ul><li><p><em>Instantiating objects from classes</em>: The
+          creation of new objects.</p></li><li><p><em>Constructor</em>: A special method that all
+          classes have that initializes the data in an object each time a new
+          object is created.</p></li><li><p><em>Instance variable</em>: A variable that is
+          unique to an instance of a class. It stores information relevant to
+          the object.</p></li></ul></section></section><section id="ninedot5_exercises" data-type="sect1"><h1>9.5 Exercises</h1><ol class="qonly"><li><p>Create two classes to represent the following two objects:
+        televisions and speakers. Include an <code>initialize</code> function and several methods to
+        interact with your objects.</p></li><li><p>Given two Cartesian points
+        (<em>x</em><sub>1</sub>,
+        <em>y</em><sub>1</sub>) and
+        (<em>x</em><sub>2</sub>,
+        <em>y</em><sub>2</sub>), the slope of the line
+        segment connecting them is given by the formula
+        (<em>y</em><sub>2</sub> -
+        <em>y</em><sub>1</sub>)/(<em>x</em><sub>2</sub>
+        - <em>x</em><sub>1</sub>).</p><p>Write a class that represents a Cartesian point. Define a method
+        <code>find_slope</code> that takes in a
+        Cartesian point object and finds the slope between the two points.
+        Test your class with the following:</p><ol><li><p>(0,0) (3,4)</p></li><li><p>(2,3) (6,5)</p></li><li><p>(2,2) (2,7)</p></li></ol><p>What happens in the last case? Why does that happen?</p></li><li><p>Define a class that compares two numbers and outputs the larger
+        one. Test your solution.</p></li><li><p>Briefly explain the code illustrated in <a href="#code_for_exercise_9dot4" data-type="xref"/>.</p><div id="code_for_exercise_9dot4" data-type="example"><h5>Code for Exercise 4</h5><pre data-type="programlisting" data-code-language="ruby">     1 class Profile
+     2 	def initialize(name, phone_number)
+     3 		@name = name
+     4 		@phone_number = phone_number
+     5 	end
+     6 
+     7 	def display
+     8 		puts "Name ==&gt; " + @name
+     9 		puts "Phone number ==&gt; " + @phone_number.to_s
+    10 	end
+    11 end
+</pre></div></li><li><p>Write a <code>Student</code> class that
+        contains a student’s name, gender, phone number, and exam score. It
+        should also include the <code>initialize</code>,
+        <code>accumulated_score</code>, and <span class="keep-together"><code>display</code>
+        methods.</span></p></li></ol></section></section>

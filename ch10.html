@@ -1,0 +1,266 @@
+<section xmlns="http://www.w3.org/1999/xhtml" id="object_inheritance" data-type="chapter" class="pagenumrestart"><h1>Object Inheritance</h1><aside data-type="sidebar"><h5>In This Chapter</h5><ul><li><p>Inheritance</p></li><li><p>Overriding methods</p></li><li><p>Accessing the superclass</p></li><li><p>Applications of inheritance</p></li></ul></aside><section id="one0dot1_introduction" data-type="sect1"><h1>10.1 Introduction</h1><p>The preceding two chapters introduced you to the use and creation of
+    simple objects. Now it is time to show how objects can be created from
+    other objects. This chapter covers inheritance, method overriding, and
+    various applications of objects.</p></section><section id="one0dot2_inheritance" data-type="sect1"><h1>10.2 Inheritance</h1><p>At this point in the book, your programming style is starting to
+    become more sophisticated. No longer are you writing code where one long
+    file encompasses everything you do. Now you are using objects, and you are
+    also beginning to program in an object-oriented manner. Object-oriented
+    programming (OOP) is a powerful form of programming that is currently
+    extremely popular and the backbone for many new <span class="keep-together">languages</span>, including Ruby.</p><div id="ch10note01" data-type="note"><h1>Gem of Wisdom</h1><p>Object inheritance is one of the most powerful parts of
+      object-oriented programming. Inheritance enables hierarchical
+      decomposition of structures into logically encapsulated units.</p></div><p>Thus far, we have talked about creating simple objects that are
+    independent of one another. However, one of the most powerful abilities
+    OOP has is the ability to define relationships between objects. The first
+    of these relationships is known as <em>inheritance</em>. To
+    understand the concept of inheritance, imagine a ball (any spherical
+    object that could pass for a ball will do). Perhaps you are thinking of a
+    baseball, a tennis ball, or a ping-pong ball; it does not matter which
+    because all those balls have a large degree of similarity among them,
+    despite being different types of balls or even different objects. If we
+    needed to accomplish some task and asked you for a ball, they could all
+    work despite their differences. Inheritance allows us to define these
+    types of relationships with Ruby objects. This ends up saving the
+    programmer significant time and code because she or he need not redefine
+    parts of the objects that are similar.</p><p>Let’s return to our bank account example from the preceding chapter.
+    It defined what is essentially a checking account, and our bank is no
+    longer happy with just this one type of account; now it wants to expand to
+    include savings accounts. The first thing to notice are the similarities
+    between a savings account and a checking account: they both maintain a
+    balance and can have money withdrawn from them and deposited to them. The
+    class that defines the similarities in the relationship is referred to as
+    the parent class, or the <em>superclass</em>.</p><p>The main differences between the two bank accounts are that you
+    cannot withdraw beyond the minimum balance from a savings account (we will
+    touch on this in the next section) and that a savings account generates
+    interest. The class that defines the differences in the relationship is
+    referred to as the child class or the <em>subclass</em>. Now
+    we will use inheritance to define this <code>SavingsAccount</code> class (see <a href="#savingsaccount_version_hash1" data-type="xref"/>).</p><div id="savingsaccount_version_hash1" data-type="example"><h5>SavingsAccount version 1</h5><pre data-type="programlisting" data-code-language="ruby">     1 require_relative '../chapter_09/account_5.rb'
+     2 
+     3 class SavingsAccount &lt; Account
+     4 	def initialize(balance, name, phone_number, interest, minimum)
+     5 		super(balance, name, phone_number)
+     6 		@interest = interest
+     7 		@minimum = minimum
+     8 	end
+     9 
+    10 	def accumulate_interest
+    11 		@balance += @balance * @interest
+    12 	end
+    13 end
+</pre></div><p>Note that we use the <code>require_relative</code> command instead of the <code>require</code> command. <code>require</code> loads files that are installed as Ruby
+    libraries or files for which the full path to the file is given. <code>require_relative</code> is used to load files without
+    specifying the full path to the file; it looks for files in a location
+    relative to the file <code>require_relative</code>
+    is used in.</p><p>The first thing to note in the code provided in <a href="#savingsaccount_version_hash1" data-type="xref"/> is the <code>&lt;</code> symbol (on line 3). This is the symbol used
+    to define inheritance in Ruby. In this case, the parent class is <span class="keep-together">the <code>Account</code></span> class, which is predefined via
+    line 1, and the child class is the <span class="keep-together"><code>SavingsAccount</code> class. See the <code>account</code> class in <a href="#account_en_dash_final_version_left_paren" data-type="xref"/>.</span></p><p>The next thing to look over is the constructor of the <code>SavingsAccount</code> class, expressed by the <code>initialize</code> method on line 4. Immediately, in
+    line 5, this method calls a method named <code>super()</code>, which is the equivalent of calling the
+    <code>initialize</code> method for the superclass
+    <code>Account</code>. After this, we initialize the
+    instance variables <code>@interest</code> and
+    <span class="keep-together"><code>@minimum</code>.
+    It is important to note that these pieces of data distinguish a <code>SavingsAccount</code></span> from a <code>CheckingAccount</code> and the subclass from the
+    superclass.</p><p>Finally, there is the <code>accumulate_interest</code> method, which is just a
+    simple interest <span class="keep-together">calculation</span>.</p><p>However, thanks to inheritance, the <code>SavingsAccount</code> class can do more than just
+    accumulate interest. It also inherits all the data and methods from the
+    <code>Account</code> class. <a href="#savingsaccount_inherited_summary" data-type="xref"/> is a summary of everything
+    inherited by the <code>SavingsAccount</code>
+    class.</p><table id="savingsaccount_inherited_summary"><caption>SavingsAccount inherited summary</caption><thead><tr><th>Data</th><th>Methods</th></tr></thead><tbody><tr><td><p><code>@balance</code></p></td><td><p><code>withdraw(amount)</code></p></td></tr><tr><td><p><code>@name</code></p></td><td><p><code>deposit(amount)</code></p></td></tr><tr><td><p><code>@phone_number</code></p></td><td><p><code>transfer(amount, targetAccount)
+            </code></p></td></tr><tr><td/><td><code>display</code></td></tr></tbody></table><p>If we create an instance of the <code>SavingsAccount</code> class:</p><pre id="pro_id00065" data-type="programlisting" data-code-language="ruby">account = SavingsAccount.new(200.00, "Reynolds",
+9694905555, 0.015, 150)</pre><p>we can then call any of the following methods:</p><ul class="simplelist"><li><code>account.deposit(amount)</code></li><li><code>account.withdraw(amount)</code></li><li><code>account.transfer(amount,
+      targetAccount)</code></li><li><code>account.accumulate_interest</code></li><li><code>account.display</code></li></ul><?hard-pagebreak?><p>This explicitly shows the power of inheritance. Although we never
+    defined four of the five methods shown for the <code>SavingsAccount</code> class, we can use them because
+    they are inherited from the parent class, <code>Account</code>. The <code>SavingsAccount</code> class consists of only 11 lines
+    of code, but it has as much functionality as 41 lines of code (the number
+    of lines of code in <a href="#savingsaccount_version_hash1" data-type="xref"/> plus
+    <a href="#account_en_dash_final_version_left_paren" data-type="xref"/>).</p><p>If we were to return to the <code>transfer(amount, targetAccount)</code> method from the
+    <span class="keep-together">preceding</span> chapter we would see that
+    it was designed to transfer money from one <span class="keep-together">account to</span> another. At the time we created
+    the method, we had not designed a <span class="keep-together"><code>SavingsAccount</code> </span>and were content with it
+    working only on <code>Account</code> objects.
+    However, it will work on <code>SavingsAccount</code>
+    objects, because a <code>SavingsAccount</code> is an
+    <code>Account</code>; it has enough similarity for a
+    transfer between accounts to be possible. This is another <span class="keep-together">powerful</span> ability granted by inheritance, and
+    it is known as <em>polymorphism</em>. <span class="keep-together">Polymorphism, however,</span> does not work both
+    ways. With the <code>transfer(amount, </code><span class="keep-together"><code>targetAccount)</code>
+    </span>method example, the polymorphism is from the subclass to the
+    superclass. Polymorphism will not work when you are trying to morph from a
+    superclass to a subclass, because the subclass has abilities the
+    superclass does not. To express this in an example, imagine trying to call
+    the <code>accumulate_interest()</code> method from
+    an <code>Account</code> object; it won’t work
+    because only <code>SavingsAccount</code> objects,
+    not <code>Account</code> objects, have the <code>accumulate_interest()</code> method.</p></section><section id="one0dot3_basic_method_overriding" data-type="sect1"><h1>10.3 Basic Method Overriding</h1><p>When extending a class, it is sometimes convenient to alter methods
+    that already exist in the class’s superclass. For example, both the
+    checking and saving accounts need a method for withdrawing money. However,
+    the methods are only the same on the outside. Unlike the regular checking
+    account, the savings account needs to check if the balance would fall
+    below the minimum allowed. To achieve this, the <code>SavingsAccount</code> class will need to override the
+    <code>withdraw</code> method by defining its own
+    withdraw functionality, as shown in <a href="#savingsaccount_version_hash2" data-type="xref"/>. Overriding is accomplished by
+    using the same name in the local class. The local definition always
+    supersedes the parent definition.</p><div id="savingsaccount_version_hash2" data-type="example"><h5>SavingsAccount version 2</h5><pre data-type="programlisting" data-code-language="ruby">     1 require_relative '../chapter_09/account_5.rb'
+     2 
+     3 class SavingsAccount &lt; Account
+     4 	def initialize(balance, name, phone_number, interest, minimum)
+     5 		super(balance, name, phone_number)
+     6 		@interest = interest
+     7 		@minimum = minimum
+     8 	end
+     9 
+    10 	def accumulate_interest
+    11 		@balance += @balance * @interest
+    12 	end
+    13 
+    14 	def withdraw(amount)
+    15 		if (@balance - amount &gt;= @minimum)
+    16 			@balance -= amount
+    17 		else
+    18 			puts "Balance cannot drop below: " + @minimum.to_s
+    19 		end
+    20 	end
+    21 end
+</pre></div><p>Instead of calling on the <code>withdraw</code> method that belongs to <code>Account</code>, the <span class="keep-together"><code>SavingsAccount</code>
+    </span>class will use the new <code>withdraw</code> method that overrode it. As a result,
+    any instances of <code>SavingsAccount</code> will
+    not be able to fall below their minimum account balances. This powerful
+    property of OOP has its problems. It implies that the writer of a subclass
+    be fully cognizant of the methods and instance variables of the
+    superclass.</p></section><section id="one0dot4_accessing_the_superclass" data-type="sect1"><h1>10.4 Accessing the Superclass</h1><p>In many cases, the overriding methods will have similar
+    functionality to the methods they override. It is counterproductive to the
+    concept of inheritance to just rewrite the same methods again with
+    slightly altered code. Inheritance exists to make code reuse as easy as
+    possible. As such, it provides a way to avoid rewriting the superclass
+    method. Simply insert the word <code>super</code>
+    with all the parameters that would be used to call the superclass method
+    bearing the same name wherever you would like the superclass’s method,
+    just like the <code>initialize</code> method.
+    Applying this to our new <code>SavingsAccount</code>
+    class, we get the code in <a href="#savingsaccount_version_hash3" data-type="xref"/>.</p><div id="savingsaccount_version_hash3" data-type="example"><h5>SavingsAccount version 3</h5><pre data-type="programlisting" data-code-language="ruby">     1 require_relative '../chapter_09/account_5.rb'
+     2 
+     3 class SavingsAccount &lt; Account
+     4 	def initialize(balance, name, phone_number, interest, minimum)
+     5 		super(balance, name, phone_number)
+     6 		@interest = interest
+     7 		@minimum = minimum
+     8 	end
+     9 
+    10 	def accumulate_interest
+    11 		@balance += @balance * @interest
+    12 	end
+    13 
+    14 	def withdraw(amount)
+    15 		if (@balance - amount &gt;= @minimum)
+    16 			super(amount)
+    17 		else
+    18 			puts "Balance cannot drop below: " + @minimum.to_s
+    19 		end
+    20 	end
+    21 end
+</pre></div><p>In our example, obviously the benefits seem minimal. However, for
+    complex programs, the advantages of using predefined classes are
+    tremendous. Not only are we saving ourselves the time of rewriting the
+    class, but we are also making code maintenance easier. If the <code>withdraw</code> method needs to be updated, we can
+    update it in the <code>Account</code> class. Any
+    subclasses that use it as their superclass will be updated accordingly,
+    wherever they have called <code>super</code>.</p></section><section id="one0dot5_applications" data-type="sect1"><h1>10.5 Applications</h1><p>Inheritance is a way to form new classes that borrow attributes and
+    behaviors of previously defined classes. After learning about inheritance
+    and method overriding, you are probably wondering when you will ever need
+    to use them. What is the big deal about inheritance? Why can’t we just
+    make a bunch of different classes? To put it simply, it saves significant
+    unnecessary coding by eliminating code duplication, and it simplifies
+    software testing and maintenance since functionality and local data are
+    isolated. Here are several other examples for which you can use
+    inheritance.</p><section id="person_database" data-type="sect2"><h2>10.5.1 Person Database</h2><p>A contractor is looking for a way to keep track of all the people
+      in his organization. He has full-time and part-time employees, student
+      interns, and volunteers. In this example, you can make a class called
+      <code>Person</code>. This class can have the
+      individual’s name, address, phone number, email address, and weekly
+      hours worked. You can have a method called <code>email</code> that emails all the employees to remind
+      them to turn in their time sheets. Then you can have subclasses called
+      <code>Full</code>, <code>Part</code>, <code>Intern</code>, and <code>Volunteer</code>. For the <code>Full</code> subclass, you can include variables like
+      hourly wage and overtime pay. For a behavior you can have a <code>process_payment</code> method to deposit money into
+      the employee’s bank account. A student <code>Intern</code> would have different variables. Maybe
+      you want to keep track of who has the highest grade-point average or
+      test scores to see which one is the top intern. Thus, you would create
+      some variables for the aforementioned categories. For members of the
+      <code>Volunteer</code> subclass, you probably
+      would not want to send them an email about turning in their time sheets
+      to get paid, so you should make a custom method that asks them how many
+      hours they volunteered. You can create an <code>email</code> method that overrides the previous
+      one.</p></section><section id="grocery_store" data-type="sect2"><h2>10.5.2 Grocery Store</h2><p>You go to a small grocery store and overhear the owner complaining
+      about keeping track of his food. He orders food every week, but his
+      employees have no idea what to do with the food when it comes in. You
+      can create a database program with a class called <code>Food</code>. This class can have variables like the
+      name of the item, the price, and the location where it is stored. You
+      can have a method called <code>PrintLabel</code>
+      to create price labels to stick on the food. Possible subclasses to
+      consider are <code>Fruit</code>, <code>Meat</code>, and <code>Grain</code>. Most of the foods will have traits in
+      common, so you won’t need to worry about creating too many variables.
+      The <code>PrintLabel</code> method will create
+      tiny stickers you can put on the food, but what if you had a <code>Fruit</code> like raisins or grapes? There is no
+      possible way you can print labels to stick on each individual fruit. You
+      will probably want to use method overriding to print bigger labels you
+      can stick on the shelf near the respective fruit.</p></section><section id="video_games" data-type="sect2"><h2>10.5.3 Video Games</h2><p>You have been hired to create a role-playing video game called
+      “Pirates and Ninjas of the Pacific,” where players can choose to play as
+      ninjas or pirates. How are you going to keep track of all the players’
+      characters? You can create a class called <code>Player</code> with variables for name, health points,
+      and experience. You should also include methods for walking and fighting
+      so that the player can move around and kill monsters by fighting with
+      them. Since pirates and ninjas obviously have different skills, you will
+      probably want to create subclasses called <code>Pirate</code> and <code>Ninja</code>. Ninjas generally fight using
+      hand-to-hand combat; so you would not need to change their <code>Fight</code> method. Pirates, on the other hand,
+      generally lack hand-to-hand combat skills and use guns instead. What’s
+      the solution? Override their <code>Fight</code>
+      method with something that allows them to shoot guns. But ninjas don’t
+      always just fight with their hands, so you could create additional
+      <span class="keep-together">methods</span> like <code>throw</code> and <code>jump</code>.</p><p>Looking at this and the preceding examples, you can get the
+      general idea for when classes, inheritance, and method overriding can be
+      useful. These techniques are used in every field of computer science.
+      You can implement inheritance whether you are programming for a
+      contractor, a grocer, or a video game company. As an exercise, try to
+      come up with three of your own examples for which you can use classes,
+      inheritance, and method overriding.</p></section></section><section id="one0dot6_summary" data-type="sect1"><h1>10.6 Summary</h1><p>We have introduced the notion of object inheritance and shown some
+    examples.</p><section id="one0dot6dot1_key_concepts" data-type="sect2"><h2>10.6.1 Key Concepts</h2><ul><li><p>One of the most powerful tools in <em>object-oriented
+          programming</em> (OOP) is that objects can be created from
+          other objects and use the resources of the parent object. This is
+          known as <em>inheritance</em>. In this relationship, the
+          parent class or superclass defines the relationship with the child
+          class or subclass.</p></li><li><p><em>Subclasses</em> inherit both data and methods
+          from their <em>parent class</em>.</p></li><li><p>A key point to keep in mind when working with inheritance is
+          that <em>polymorphism</em> often takes place, which in
+          some cases can lead to a need for method overriding.</p></li></ul></section><section id="one0dot6dot2_key_definitions" data-type="sect2"><h2>10.6.2 Key Definitions</h2><ul><li><p><em>Inheritance</em>: When the relationship
+          between two classes is defined.</p></li><li><p><em>Superclass</em>: The class that defines the
+          object for the relationship.</p></li><li><p><em>Subclass</em>: The class for which the
+          relationship is defined.</p></li><li><p><em>Method overriding</em>: When the method for a
+          parent class is redefined for a child class.</p></li><li><p><em>Polymorphism</em>: Allows different data types
+          to be handled by a unified interface.</p></li></ul></section></section><section id="one0dot7_exercises" data-type="sect1"><h1>10.7 Exercises</h1><ol class="qonly"><li><p>The class shown in <a href="#code_for_exercise_10dot1" data-type="xref"/>
+        is used to keep track of the inventory for a company. It allows the
+        user to assign a name and a manufacturer to each item. Write a class
+        <code>ItemNumber</code> that inherits from
+        <code>Item</code> that lets the user input a
+        number of items owned for each item. Create an instance of the
+        <code>Item</code> class and then an instance of
+        the <code>ItemNumber</code> class.</p><div id="code_for_exercise_10dot1" data-type="example"><h5>Code for Exercise 1</h5><pre data-type="programlisting" data-code-language="ruby">     1 class Item
+     2 	def initialize(item, maker)
+     3 		@item = item
+     4 		@maker = maker
+     5 	end
+     6 
+     7 	def display
+     8 		puts "Item ==&gt; " + @item
+     9 		puts "Maker ==&gt; " + @maker
+    10 	end
+    11 end
+</pre></div></li><li><p>Explain polymorphism.</p></li><li><p>Define OOP.</p></li><li><p>A university has three kinds of students: full-time students,
+        part-time students, and off-campus students. Each student has the
+        following information: name, address, phone number, Social Security
+        number, student ID, and GPA. The full-time students should take at
+        least 12 credits per semester. The part-time students should take less
+        than 12 credits per semester. The off-campus students have no limit on
+        credits per semester. The tuition fee for full-time students is $8,500
+        for up to 18 credits per semester and $600 for every credit over 18
+        credits. The tuition fee for part-time students is $750 per credit.
+        The tuition fee for off-campus students is $520 per credit. Write a
+        program that lists student information and calculates their tuition
+        fees.</p></li><li><p>Write a program for the grocery store example described in <a href="#grocery_store" data-type="link">Section 10.5.2, “Grocery Store.”</a></p></li></ol></section></section>

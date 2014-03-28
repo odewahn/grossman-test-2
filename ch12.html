@@ -1,0 +1,453 @@
+<section xmlns="http://www.w3.org/1999/xhtml" id="putting_it_all_together_tic-tac-toe" data-type="chapter" class="pagenumrestart"><h1>Putting It All Together: Tic-Tac-Toe</h1><aside data-type="sidebar"><h5>In This Chapter</h5><ul><li><p>Approaching the problem</p></li><li><p>Implementing tic-tac-toe</p></li></ul></aside><section data-type="sect1"><h1>12.1 Introduction</h1><p>It is finally time to put everything you know all together. You will
+    no longer use programming elements in isolation; writing programs rarely
+    involves using only if statements, loops, or objects. Typically, all
+    programming elements are interleaved. For clarity, we described these
+    elements in isolation; now we integrate them. The challenge is to create a
+    task that requires integration that is not too simple to be uninteresting
+    but not so complex that it requires 500 pages of text.</p><p>After much thought, we decided to develop the simple, well-known
+    game of tic-tac-toe. The idea is to initially develop a program that
+    facilitates two people playing against each other, and then to enhance the
+    program so that a person can play against a computer. As correct play
+    guarantees at least a tie, we provide sufficient algorithm detail to
+    guarantee that the computer will never lose. We provide sufficient code
+    segments to illustrate the development of the program but leave it to you
+    to complete it. Good luck; you are ready for it.</p><p>Using what you have learned so far, it is time to put all of your
+    knowledge together into one fun program. The game of tic-tac-toe is a
+    classic, and the rules can be easily looked up if you are not familiar
+    with them. First you will learn how to build a Ruby program that will
+    allow two users to play the game. After this program has been established,
+    we will extend the program to allow a user to play against the
+    computer.</p><p>Our tic-tac-toe game will not have a nice user interface. User
+    interfaces are a more advanced topic that is beyond the scope of this
+    book. We want you to focus on problem solving in this course and not on
+    figuring out how to create a pretty user interface.</p><p>Our board will be drawn with simple X’s and O’s and will be invoked
+    from the command line of your operating system.</p><p>We will first talk about how to approach the problem, and then how
+    to implement the solution in an incremental fashion.</p><div id="ch12note01" data-type="note"><h1>Gem of Wisdom</h1><p>If you can write a tic-tac-toe game in Ruby that works, most
+      people would agree that you know Ruby and that you have a clue about
+      programming. It is not the easiest thing to do. If you grasp everything
+      in this chapter, then you are ready to move beyond just an introduction
+      to computer science.</p></div></section><section id="one2dot1_programming_approach" data-type="sect1"><h1>12.2 Programming Approach</h1><p>First we need to break the problem into key steps. Many programmers
+    are tempted to run to the computer and start writing code immediately and
+    then debug their code. This is not recommended.</p><p>It is strongly suggested that you step away from the computer, grab
+    paper and pencil, and write out the key algorithms that will be needed to
+    solve the problem. As part of this effort, you should be able to describe
+    the key objects and methods that will be involved.</p><p>The key steps of a tic-tac-toe game are rather straightforward.
+    Until the board is full and there is no winner, do the following:</p><ol><li><p>Draw the current board.</p></li><li><p>Ask the player for a move.</p></li><li><p>Make sure the move is valid (e.g., you can’t move to a square
+        that is already taken).</p></li><li><p>Store the current move.</p></li></ol><p>You should write out the key objects and the key methods and then
+    implement them gradually.</p></section><section id="one2dot2_tic-tac-toe" data-type="sect1"><h1>12.3 Tic-Tac-Toe</h1><p>When two players initiate a game of tic-tac-toe, what is the first
+    thing they do? They draw a board. Therefore, we will worry about the board
+    first. A key object we will need is a <code>Board</code> object that stores the tic-tac-toe board.
+    Think about the properties of such a board. A board is typically a large
+    square made up of 3 <span> ×</span> 3 smaller squares. At the start of
+    the game all the little squares will be empty, but later they will be
+    filled in with X’s and O’s as the game progresses. Therefore, we will need
+    a 3 <span> ×</span> 3 array that is initially empty and can be filled
+    in later while the game is being played. Using objects, we will be able to
+    design the board construction.</p><div id="ch12note02" data-type="note"><h1>Gem of Wisdom</h1><p>In <a href="#initial_board_and_constructor" data-type="xref"/>, we use a
+      shorthand way of declaring an array and its members. <code>Array.new(5)</code> { <code>3</code> } creates an array of five elements, with
+      each value initialized to 3. Lines 8–10 declare an array (line 8), with
+      each element being an array initialized to <code>EMPTY_POS</code> (line 9).</p></div><p>Using our knowledge of arrays and objects, we are able to set up the
+    board constructor as shown in <a href="#initial_board_and_constructor" data-type="xref"/>.</p><div id="initial_board_and_constructor" data-type="example"><h5>Initial board and constructor</h5><pre data-type="programlisting" data-code-language="ruby">     1 class Board
+     2 
+     3 	BOARD_MAX_INDEX = 2
+     4 	EMPTY_POS = ' '
+     5 
+     6 	def initialize(current_player)
+     7 		@current_player = current_player
+     8 		@board  = Array.new(BOARD_MAX_INDEX + 1) {
+     9 			Array.new(BOARD_MAX_INDEX + 1) { EMPTY_POS }
+    10 		}
+    11 	end
+    12 end
+</pre></div><ul><li><p>Line 3 defines the largest index (remember, array indices start
+        at 0).</p></li><li><p>Line 4 defines what is considered an <em>empty
+        position</em>, or a position not occupied by either an X or an
+        O.</p></li><li><p>Lines 6–11 define the constructor for our board.</p></li><li><p>Line 7 assigns an instance variable that represents the current
+        player.</p></li><li><p>Lines 8–10 create the board instance variable, a 3
+        <span> ×</span> 3 array.</p></li></ul><p>The main program (<code data-type="filename">tictactoe.rb</code>)
+    will use the board class. The start of the main program is given in <a href="#beginning_of_tictactoedotrb" data-type="xref"/>.</p><div id="beginning_of_tictactoedotrb" data-type="example"><h5>Beginning of tictactoe.rb</h5><pre data-type="programlisting" data-code-language="ruby">    1 require_relative 'board.rb'
+    2 
+    3 puts "Starting tic-tac-toe..."
+    4 players = ['X', 'O']
+    5 current_player = players[rand(2)]
+    6 b = Board.new(current_player)
+    7 b.display()
+    8 puts
+</pre></div><ul><li><p>Lines 4 and 5 randomly pick an initial player (either X or
+        O).</p></li><li><p>Line 6 creates an instance of the <code>Board</code> class and assigns it to <code>b</code>.</p></li><li><p>Lines 7 and 8 display the initial blank board and output a fresh
+        blank line for readability.</p></li></ul><p>The display method (which is part of <code data-type="filename">board.rb</code>) is given in <a href="#display_method_for_board_class" data-type="xref"/>.</p><div id="display_method_for_board_class" data-type="example"><h5>Display method for Board class</h5><pre data-type="programlisting" data-code-language="ruby">     1 def display
+     2 	puts "+- - - - - -+"
+     3 	for row in 0..BOARD_MAX_INDEX
+     4 		# print has to be used when we don't want to output a line break
+     5 		print "| "
+     6 		for col in 0..BOARD_MAX_INDEX
+     7 			s = @board[row][col]
+     8 			if s == EMPTY_POS
+     9 				print col + (row * 3) + 1
+    10 			else
+    11 				print s
+    12 			end
+    13 			print " | "
+    14 		end
+    15 		puts "\n+- - - - - -+"
+    16 	end
+    17 end
+</pre></div><ul><li><p>Line 2 prints a row of dashes (the top of the board).</p></li><li><p>Line 3 starts an outer loop that runs through each row.</p></li><li><p>Line 6 starts an inner loop that traverses each column.</p></li><li><p>Line 7 assigns the current cell to the variable <code>s</code>.</p></li><li><p>Lines 8–12 print the number of the cell if it’s currently
+        unoccupied or the current occupant if the cell is occupied.</p></li></ul><p>Note the difference between <code>print</code>
+    and <code>puts</code>: <code>print</code> simply writes the characters passed to it
+    without writing an end of line upon completion. Thus, if one wishes to
+    continue writing to a given line, <code>print</code>
+    would be used. Remember, however, that if using <code>print</code> and a new line is desired, the newline
+    character (<code>\n</code>) must be entered, as
+    shown in line 15. This is in contrast to <code>puts</code>, which automatically inserts the newline
+    character every time.</p><p>Returning to our main program, the key loop that runs the game will
+    be implemented. The code is presented in <a href="#continuation_of_tictactoedotrb" data-type="xref"/>. (The code begins at line 1;
+    however, this is a continuation of <code data-type="filename">tictactoe.rb</code>.)</p><div id="continuation_of_tictactoedotrb" data-type="example"><h5>Continuation of tictactoe.rb</h5><pre data-type="programlisting" data-code-language="ruby">     1 while not b.board_full() and not b.winner()
+     2       b.ask_player_for_move(current_player)
+     3       current_player = b.get_next_turn()
+     4       b.display()
+     5       puts
+     6 end
+     7 
+     8 if b.winner()
+     9    puts "Player " +  b.get_next_turn() + " wins." 
+    10 else
+    11    puts "Tie Game."
+    12 end
+    13 puts "Game Over"
+</pre></div><ul><li><p>Line 1 starts a loop that continues as long as the board is not
+        full and there is no winner.</p></li><li><p>Line 2 prompts the current player for a move.</p></li><li><p>Line 3 gets the next player.</p></li><li><p>Lines 4 and 5 display the current board.</p></li><li><p>Lines 8–13 print the winner’s name if there was a winner, or
+        “Tie Game” if the game ended in a tie.</p></li></ul><p>The loop ends when there is a winner or there is a full board
+    detected. At this point, you can see we need to discuss the <code>board_full</code> method, the <code>winner</code> method, and the <code>get_next_turn</code> method. The code presented in
+    <a href="#board_full_method" data-type="xref"/> is for the <code>board_full</code> method. This method determines if the
+    board is full, meaning that no more pieces may be placed.</p><div id="board_full_method" data-type="example"><h5>board_full method</h5><pre data-type="programlisting" data-code-language="ruby">     1 def board_full
+     2 	for row in 0..BOARD_MAX_INDEX
+     3 		for col in 0..BOARD_MAX_INDEX
+     4 			if @board[row][col] == EMPTY_POS
+     5 				return false
+     6 			end
+     7 		end
+     8 	end
+     9 	# Since we found no open positions, the board is full
+    10 	return true
+    11 end
+</pre></div><ul><li><p>Line 4 checks each cell to see if it is unoccupied. If at least
+        one cell is unoccupied, the board is not full and the game must
+        continue.</p></li><li><p>Line 10 returns <code>true</code> in the
+        event that none of the cells are open for possible capture.</p></li></ul><p>The <code>winner</code> method is more
+    complex. Essentially, we must check every row, every column, and every
+    diagonal for a winner. The method is presented in <a href="#winner_method" data-type="xref"/>.</p><div id="winner_method" data-type="example"><h5>Winner method</h5><pre data-type="programlisting" data-code-language="ruby">     1 def winner
+     2 	winner = winner_rows()
+     3 	if winner
+     4 		return winner
+     5 	end
+     6 	winner = winner_cols()
+     7 	if winner
+     8 		return winner
+     9 	end
+    10 	winner = winner_diagonals()
+    11 	if winner
+    12 		return winner
+    13 	end
+    14 	# No winners
+    15 	return
+    16 end
+</pre></div><p>The <code>winner</code> method uses the helper
+    methods <code>winner_rows</code>, <code>winner_cols</code>, and <span class="keep-together"><code>winner_diagonals</code>,</span> which return the
+    player’s symbol if the player won by connecting the rows, columns, or
+    diagonals with her or his pieces, respectively. If <code>winner</code> is set, then we know that the current
+    value of <code>winner</code> is the player who won
+    the game. Otherwise, we return nothing, signifying there is no winner
+    yet.</p><p>The methods <code>winner_rows</code>, <code>winner_cols</code>, and <code>winner_diagonals</code> are good examples of class
+    methods, as explained in <a href="#defining_classes_and_creating_objects" data-type="xref"/>. They are all fairly
+    straightforward, as they all look for three of the same values with regard
+    to their given task. The method<span class="keep-together"> <code>winner_rows</code> </span>is shown in <a href="#winner_rows_method" data-type="xref"/>.</p><div id="winner_rows_method" data-type="example"><h5>winner_rows method</h5><pre data-type="programlisting" data-code-language="ruby">     1 def winner_rows
+     2 	for row_index in 0..BOARD_MAX_INDEX
+     3 		first_symbol = @board[row_index][0]
+     4 		for col_index in 1..BOARD_MAX_INDEX
+     5 			if first_symbol != @board[row_index][col_index]
+     6 				break
+     7 			elsif col_index == BOARD_MAX_INDEX and first_symbol != EMPTY_POS
+     8 				return first_symbol
+     9 			end
+    10 		end
+    11 	end
+    12 	return
+    13 end
+</pre></div><div id="ch12note03" data-type="note"><h1>Gem of Wisdom</h1><p>Aside from being able to return values, the <code>return</code> keyword immediately stops execution of
+      the current method and returns to the one from which it was called. This
+      is used heavily in the <code>winner</code> method.
+      If the winner is found in the rows, the columns and diagonals are not
+      searched. Likewise, if the winner is found in the columns, the diagonals
+      are not searched.</p></div><ul><li><p>Line 2 begins an outer loop to look for a winner across a row.
+        For each row, all the columns are checked. The variable <code>first_symbol</code> contains the symbol that must
+        match.</p></li><li><p>Line 3 initializes <code>first_symbol</code> for row 0.</p></li><li><p>Lines 4–10 provide an inner loop that looks at all elements in
+        the given column. If a cell does not match the <code>first_symbol</code> value, then it is not a winning
+        combination.</p><p>For example, if the <code>first_symbol</code> value was initially an O and
+        now we encounter an X in the same column, then this is not a winning
+        combination. If we reach the end of the columns, we have a winner, and
+        we return the winner as its name is in the
+        <code>first_symbol</code> column.</p></li></ul><ul><li><p>Line 7 contains a final check to make sure we have not found
+        three empty positions in a column. If we do not return a winner, then
+        we simply return on line 12 (this is essentially returning a <code>nil</code> or <code>false</code> value) to the caller of this
+        method.</p></li></ul><p>The next method, presented in <a href="#winner_cols_method" data-type="xref"/>,
+    is very similar in that it looks for a winning column. This time, a given
+    column is checked, and we travel down the column checking to see if we
+    have all matching symbols.</p><div id="winner_cols_method" data-type="example"><h5>winner_cols method</h5><pre data-type="programlisting" data-code-language="ruby">     1 def winner_cols
+     2 	for col_index in 0..BOARD_MAX_INDEX
+     3 		first_symbol = @board[0][col_index]
+     4 		for row_index in 1..BOARD_MAX_INDEX
+     5 			if first_symbol != @board[row_index][col_index]
+     6 				break
+     7 			elsif row_index == BOARD_MAX_INDEX and first_symbol != EMPTY_POS
+     8 				return first_symbol
+     9 			end
+    10 		end
+    11 	end
+    12 	return
+    13 end
+</pre></div><p>Finally, we look for a win across a diagonal. This is inherently
+    more difficult because it requires a backward traversal of the columns.
+    This is done with the <span class="keep-together"><code>winner_diagonals</code> </span>method shown in <a href="#winner_diagonals_method" data-type="xref"/>.</p><div id="winner_diagonals_method" data-type="example"><h5>winner_diagonals method</h5><pre data-type="programlisting" data-code-language="ruby">     1 def winner_diagonals
+     2 	first_symbol = @board[0][0]
+     3 	for index in 1..BOARD_MAX_INDEX
+     4 		if first_symbol != @board[index][index]
+     5 			break
+     6 		elsif index == BOARD_MAX_INDEX and first_symbol != EMPTY_POS
+     7 			return first_symbol
+     8 		end
+     9 	end
+    10 	first_symbol = @board[0][BOARD_MAX_INDEX]
+    11 	row_index = 0
+    12 	col_index = BOARD_MAX_INDEX
+    13 	while row_index &lt; BOARD_MAX_INDEX
+    14 		row_index = row_index + 1
+    15 		col_index = col_index - 1
+    16 		if first_symbol != @board[row_index][col_index]
+    17 			break
+    18 		elsif row_index == BOARD_MAX_INDEX and first_symbol != EMPTY_POS
+    19 			return first_symbol
+    20 		end
+    21 	end
+    22 	return
+    23 end
+</pre></div><ul><li><p>Line 2 initializes our search with the upper-lefthand corner of
+        the board.</p></li><li><p>Lines 3–9 traverse the diagonal from the top left to the bottom
+        right, continuing as long as there is a match.</p></li><li><p>Line 10 sets the initial value to the top right.</p></li><li><p>Lines 11–20 check the diagonal from the top right to the bottom
+        left. If no matches are found, we return nothing (line 22).</p></li></ul><p>The only methods we have not yet described are the <code>ask_player_for_move</code> method and the <code>validate_position</code> method, which simply prompt
+    the user for a move and ensures that the move is allowed. The <code>ask_player_for_move</code> method is presented in <a href="#ask_player_for_current_move_method" data-type="xref"/>.</p><div id="ask_player_for_current_move_method" data-type="example"><h5>ask_player_for_move method</h5><pre data-type="programlisting" data-code-language="ruby">     1 def ask_player_for_move(current_player)
+     2 	played = false
+     3 	while not played
+     4 		puts "Player " + current_player + ": Where would you like to play?"
+     5 		move = gets.to_i - 1
+     6 		col = move % @board.size
+     7 		row = (move - col) / @board.size
+     8 		if validate_position(row, col)
+     9 			@board[row][col] = current_player
+    10 			played = true
+    11 		end
+    12 	end
+    13 end
+</pre></div><ul><li><p>Line 3 starts a loop that keeps processing until a valid move is
+        obtained. The flag <code>played</code> is
+        initially set to <code>false</code>.</p></li><li><p>Line 4 asks the user for her or his move.</p></li><li><p>Line 5 obtains the user’s response with a call to <code>gets</code>, which obtains a string and then
+        converts it to an integer.</p></li><li><p>Line 6 converts the number 1–9 into column number 0–2, and line
+        7 converts it into a row number. These conversions stem from the
+        equation that took each cell of the array and assigned a cell number.
+        Convince yourself that lines 6 and 7 are correct.</p></li><li><p>Line 8 calls another internal method, <code>validate_position</code>, which is a method that
+        makes sure the user chooses a spot on the board and a spot that is not
+        already taken. If a valid position is obtained, then line 10 sets the
+        <code>played</code> flag to be <code>true</code>, and the loop will end when line 3 is
+        encountered. For an invalid move, the <code>played</code> flag is not set to <code>true</code>, so the loop will continue
+        again.</p></li></ul><p>The <code>validate_position</code> method is
+    given in <a href="#validate_position_method" data-type="xref"/>.</p><div id="validate_position_method" data-type="example"><h5>validate_position method</h5><pre data-type="programlisting" data-code-language="ruby">     1 def validate_position(row, col)
+     2 	if row &lt;= @board.size and col &lt;= @board.size
+     3 		if @board[row][col] == EMPTY_POS
+     4 			return true
+     5 		else
+     6 			puts "That position is occupied."
+     7 		end
+     8 	else
+     9 		puts "Invalid position."
+    10 	end
+    11 	return false
+    12 end
+</pre></div><ul><li><p>Line 2 makes sure the row and column are within the range of the
+        board. We know it’s a three row by three column game, but by using the
+        <code>size</code> variable we could easily
+        expand this to larger board sizes for other games, like Connect Four.
+        In this case the size is three elements, 0, 1, and 2. The size was
+        established earlier, but this will allow us to easily change the size
+        of the board.</p></li><li><p>Line 3 checks to make sure the user has selected a position that
+        was previously empty. If so, <code>true</code>
+        is returned, and we are done.</p></li><li><p>Lines 5–7 handle the case for when a user selects an occupied
+        position.</p></li><li><p>Lines 8–10 handle the case for when a user selects a position
+        off the board.</p></li><li><p>Line 11 returns <code>false</code>, which
+        indicates that an invalid move occurred. Note that line 11 is reached
+        only when an invalid move is attempted.</p></li></ul><p>Finally, we need to discuss the <code>get_next_turn</code> method, and we are done. It is
+    very simple and is shown in <a href="#getunderscorenextunderscoreturnunderscor" data-type="xref"/>.</p><div id="getunderscorenextunderscoreturnunderscor" data-type="example"><h5>get_next_turn_method</h5><pre data-type="programlisting" data-code-language="ruby">    1 def get_next_turn
+    2 	if @current_player == 'X'
+    3 		@current_player = 'O'
+    4 	else
+    5 		@current_player = 'X'
+    6 	end
+    7 	return @current_player
+    8 end
+</pre></div><ul><li><p>Line 2 checks to see if we were using an X, and if so, we change
+        to the <code>O</code> in line 3; otherwise, it was an
+        <code>O</code>, so in line 5 we turn it into an X.</p></li></ul><p>At this point, we have created a working game of tic-tac-toe that
+    you can play against yourself or a friend. The code written for this game
+    encompasses almost all the topics covered in this book. If you understood
+    it all, give yourself a pat on the back. If you are frustrated with this
+    chapter and do not understand all the ideas presented, it is a good idea
+    to go back to previous chapters and play around with the Ruby concepts
+    presented in those chapters.</p><p>Don’t get too comfortable if you’ve done well thus far. The next
+    section will add artificial intelligence to our tic-tac-toe game, enabling
+    you to play against the computer.</p></section><section id="one2dot3_tic-tac-toe_revised" data-type="sect1"><h1>12.4 Tic-Tac-Toe Revised</h1><p>Although a player-versus-player version of tic-tac-toe is nice,
+    chances are you will not have a friend who wants to spend time playing
+    computerized tic-tac-toe with you for long. Perhaps it will be more
+    satisfying if you create a version of tic-tac-toe that will play against
+    you. This is what we will do in this section.</p><p>First, let’s understand the change we are trying to make. Instead of
+    always having the player input the position on the board to fill, we want
+    the computer to take one of the turns. Therefore, we will make a clearer
+    distinction between the human’s move and the computer’s move. The code in
+    <a href="#revisedunderscoreaskunderscoreplayerunde" data-type="xref"/> illustrates
+    this change.</p><div id="revisedunderscoreaskunderscoreplayerunde" data-type="example"><h5>Revised ask_player_for_move method</h5><pre data-type="programlisting" data-code-language="ruby">    1 def ask_player_for_move(current_player)
+    2 	if current_player == COMPUTER_PLAYER
+    3 		computer_move(current_player)
+    4 	else
+    5 		human_move(current_player)
+    6 	end
+    7 end
+</pre></div><p>The purpose of the <code>ask_player_for_move</code> method is to switch between
+    player input and computer AI (artificial intelligence) based on the
+    current player. If the current player is the computer (line 2), let the
+    computer take its move (line 3); otherwise (line 4), let the user take her
+    or his move (line 5). Make sure to define the constant <span class="keep-together"><code>COMPUTER_PLAYER</code>.</span> It may be set equal to
+    <code>X</code> or <code>O</code>. This would also be a good time to define the
+    constant <code>HUMAN_PLAYER</code>. This should be
+    set equal to <code>O</code> if <code>COMPUTER_PLAYER</code> is equal to <code>X</code>, or <code>X</code> if
+    <code>COMPUTER_PLAYER</code> is equal to <code>O</code>.</p><p>If you have been reading carefully, you will have noticed that
+    <code>ask_player_for_move</code> was already defined
+    pages ago, and now we have changed its definition here. Previously, the
+    method prompted either player one or player two for which turn she or he
+    wanted to make, and then took the turn if it was valid. That code was
+    relocated to the method <code>human_move</code>. The
+    code for <code>human_move</code> is identical to our
+    old <code>ask_player_for_move</code> method.</p><p>At this point, we have a mechanism for changing between the human’s
+    and the computer’s turn, and we have slightly changed the definition of
+    the human’s turn. From here it should be clear that the next logical step
+    is to define the <code>computer_move</code> method,
+    and it is defined in <a href="#computer_move_method" data-type="xref"/>.</p><div id="computer_move_method" data-type="example"><h5>computer_move method</h5><pre data-type="programlisting" data-code-language="ruby">     1 def computer_move(current_player)
+     2 	row = -1
+     3 	col = -1
+     4 	found = "F"
+     5 
+     6 	check_rows(COMPUTER_PLAYER, found)
+     7 	check_cols(COMPUTER_PLAYER, found)
+     8 	check_diagonals(COMPUTER_PLAYER, found)
+     9 
+    10 	check_rows(HUMAN_PLAYER, found)
+    11 	check_cols(HUMAN_PLAYER, found)
+    12 	check_diagonals(HUMAN_PLAYER, found)
+    13 
+    14 	if found == "F"
+    15 		if @board[1][1] == EMPTY_POS
+    16 			row = 1
+    17 			col = 1
+    18 			@board[row][col] = current_player
+    19 		elsif available_corner()
+    20 			pick_corner(current_player)
+    21 		else
+    22 			until validate_position(row, col)
+    23 				row = rand(@board.size)
+    24 				col = rand(@board.size)
+    25 			end
+    26 			@board[row][col] = current_player
+    27 		end
+    28 	end
+    29 end
+</pre></div><p>If this method looks complicated, don’t worry. First, let’s walk
+    through the code at an algorithmic level. The <code>computer_move </code>method does the following in
+    order, picking the first rule it can successfully complete:</p><ol><li><p>Check the rows, columns, and diagonals to see if either the
+        computer can win or the human can win. If such a spot exists, take it
+        to either win the game or prevent the human from winning. Note that we
+        intentionally do not include the code for those methods, as their
+        implementation is straightforward and their details are unnecessary
+        for the purposes of our discussion.</p></li><li><p>If the middle cell is unoccupied, take the middle cell.</p></li><li><p>If there is an available corner, take any of the available
+        corner spots.</p></li><li><p>If none of the prior conditions are true, pick a random
+        cell.</p><p>For simplicity, we did not include all the necessary code to
+        guarantee at least a draw for the AI. However, in tic-tac-toe, correct
+        play guarantees at least a draw. To guarantee <em>at
+        least</em> a draw, the computer’s corner selection option should
+        be modified as follows:</p><p>If a corner spot is available, then select a corner spot, with
+        the following corner selection preference. If the computer went first,
+        randomly choose among the available corners that are not adjacent to
+        the human’s noncenter spot(s). If the human went first, then check for
+        one exception condition; otherwise, randomly choose among the
+        available corners that are adjacent to the human’s noncenter spot(s).
+        The exception condition is one in which only three squares are
+        occupied, the computer has the center square, and the human has both
+        corners on the same diagonal; in such a case, override the corner
+        selection option and randomly choose a noncorner spot. If none of the
+        aforementioned conditions are met, then choose any available
+        corner.</p></li></ol><p>This description defines a high-level algorithm for the game of
+    tic-tac-toe. You now have all the needed skills to design, develop, and
+    debug all the implementation specifics. Please do so and enjoy playing
+    your computerized opponent.</p></section><section id="one2dot4_summary" data-type="sect1"><h1>12.5 Summary</h1><p>Now that we have walked through a more detailed example, you should
+    be able to implement some fun games in Ruby. Games like blackjack and
+    poker are now all within your grasp.</p><p>We have combined the concepts covered in the previous chapters in
+    this example. With the file processing we discussed in <a href="#file_inputsolidusoutput" data-type="xref"/>, you can even make it so that you can
+    save the state of these games or the current high score to a file. These
+    concepts are common among most programming languages. So, as a programmer,
+    it is much more effective to learn these concepts and how they can be used
+    to solve certain problems than to direct your focus onto learning syntax,
+    which is just the tool that allows us to implement our ideas.</p><p>The best way to become more comfortable with these types of problems
+    is to practice doing them. Take your time with the following problems,
+    draw out what the problem requires, and design a solution. Eventually,
+    this process becomes much easier, and you will be able to implement the
+    solution in any language.</p></section><?hard-pagebreak?><section id="one2dot5_exercises" data-type="sect1"><h1>12.6 Exercises</h1><ol class="qonly"><li><p>Give a detailed explanation of the relationship between the
+        board and the tic-tac-toe objects.</p></li><li><p>Design and implement a game of “pick a number.” This is a simple
+        guessing game where you think of a number between 1 and
+        <em>n</em> in your head (don’t let the computer know this
+        number). Tell the computer what <em>n</em> is, and then
+        let the computer guess the number. If the guess is too low, you should
+        let the computer know that the guess was too low; likewise, if the
+        guess was too high you should also let the computer know. The computer
+        can take multiple turns (hint: it should take log
+        <em>n</em> turns), but simply guessing every number
+        between 1 and <em>n</em> is far from an acceptable answer.
+        Implement this program two different ways: procedurally and
+        object-oriented.</p></li><li><p>Design and implement a simplified version of the card game
+        blackjack. The rules are as follows:</p><ol><li><p>A standard 52-card deck is used and shuffled well.</p></li><li><p>The cards have the following values: 2 to 10 are the value
+            of the card, jack to king have a value of 10, and ace has a value
+            of 1 or 11.</p></li><li><p>Only you are playing, trying to get the cards to add up to
+            21 without going over 21. If you go over 21, you lose.</p></li><li><p>Initially you are dealt two cards. If you are dissatisfied
+            with these cards, you can ask for more. It is not a trade;
+            additional cards are added. If you feel like you have enough cards
+            and do not want to bust, you can “stay” and end this round of
+            blackjack.</p></li></ol><p>After the game has ended, the user should be able to play again,
+        if she or he chooses to do so. If so, the game will restart like a
+        brand-new game. Implement this in an OO fashion. If you split the work
+        among your objects properly, you will be able to reuse a significant
+        chunk of code on the next problem.</p></li><li><p>Add scoreboard functionality to Exercise 3. To do this, you need
+        to make a few game modifications. First, you need to ask for the
+        user’s name at the beginning of every game. Next, you need the ability
+        to view the scoreboard during a game; this should be done directly
+        after prompting for a name. If a user’s name already exists on the
+        scoreboard, you will modify that user’s score. Otherwise, the new user
+        will be added to the scoreboard in the proper position. The scoreboard
+        needs to remember scores even after the program is exited (hint: write
+        scores out to a file). If a score surpasses another score, the
+        ordering of scores on the scoreboard needs to change. The highest
+        score should be listed first, the lowest score last. The scoring
+        criteria are defined in <a href="#blackjack_scoring_criteria" data-type="xref"/>.</p><table id="blackjack_scoring_criteria"><caption>Blackjack scoring criteria</caption><thead><tr><th>Total card value</th><th>Points given</th></tr></thead><tbody><tr><td><p>Bust</p></td><td><p>–15</p></td></tr><tr><td><p>21</p></td><td><p>40</p></td></tr><tr><td><p>20</p></td><td><p>30</p></td></tr><tr><td><p>19</p></td><td><p>20</p></td></tr><tr><td><p>18</p></td><td><p>10</p></td></tr><tr><td><p>17</p></td><td><p>5</p></td></tr><tr><td><p>16</p></td><td><p>1</p></td></tr><tr><td><p><em>&lt;</em>
+                16</p></td><td><p>0</p></td></tr></tbody></table></li><li><p>Being able to read and modify other people’s code is essential
+        to being a successful computer scientist. Modify <code data-type="filename">tictactoe.rb</code> and <code data-type="filename">board.rb</code> to play tic-tac-toe on boards of
+        size 3 <span> ×</span> 3, 6 <span> ×</span> 6, and 9
+        <span> ×</span> 9 based on the user’s choice. Adjust everything so
+        that the game works as well on 6 <span> ×</span> 6 and 9
+        <span> ×</span> 9 boards as it does on 3 <span> ×</span> 3
+        boards.</p></li><li><p>The current AI for the tic-tac-toe game is not perfect.
+        Implement the behavior discussed in this chapter’s summary to
+        guarantee at least a draw, and ensure its correctness.</p></li></ol></section></section>
