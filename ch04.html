@@ -378,7 +378,7 @@ Cost: 18</pre>
     13 puts &quot;Ticket cost: &quot; + cost.to_s
 </pre>
 
-<div><a href="https://www.nitrous.io/hack_button?source=embed&amp;runtime=rails&amp;repo=odewahn%2Fcs-basics-ruby&amp;file_to_open=ch4%2F4-6.rb" style="border:0;text-decoration:none"><img alt="Hack odewahn/cs-basics-ruby on Nitrous.IO" src="https://d3o0mnbgv6k92a.cloudfront.net/assets/hack-l-v1-3cc067e71372f6045e1949af9d96095b.png" /></a></div>
+<div><a data-original-title="" href="https://www.nitrous.io/hack_button?source=embed&amp;runtime=rails&amp;repo=odewahn%2Fcs-basics-ruby&amp;file_to_open=ch4%2F4-9.rb" style="border:0;text-decoration:none" title=""><img alt="Hack odewahn/cs-basics-ruby on Nitrous.IO" src="https://d3o0mnbgv6k92a.cloudfront.net/assets/hack-l-v1-3cc067e71372f6045e1949af9d96095b.png" /></a></div>
 
 <p>&nbsp;</p>
 </div>
@@ -438,7 +438,7 @@ Cost: 18</pre>
 <div data-type="example" id="advanced_conditionals">
 <h5>Advanced conditionals</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
+<pre data-code-language="ruby" data-original-title="" data-type="programlisting" title="">
      1 puts &quot;Enter the customer's age: &quot;
      2 # Get an integer age value from the user
      3 age = gets.to_i
@@ -465,7 +465,7 @@ Cost: 18</pre>
 <div data-type="example" id="case_statement">
 <h5>Case statement</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
+<pre data-code-language="ruby" data-original-title="" data-type="programlisting" title="">
     1 case
     2 when (expression1)
     3 	# section 1
@@ -484,7 +484,7 @@ Cost: 18</pre>
 <div data-type="example" id="theater_hash4">
 <h5>Theater 4</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
+<pre data-code-language="ruby" data-original-title="" data-type="programlisting" title="">
      1 puts &quot;Enter the customer's age: &quot;
      2 # Get an integer age value from the user
      3 age = gets.to_i
@@ -502,6 +502,10 @@ Cost: 18</pre>
     15 # Print out the final cost
     16 puts &quot;Ticket cost: &quot; + cost.to_s
 </pre>
+
+<div><a href="https://www.nitrous.io/hack_button?source=embed&amp;runtime=rails&amp;repo=odewahn%2Fcs-basics-ruby&amp;file_to_open=ch4%2F4-12.rb" style="border:0;text-decoration:none"><img alt="Hack odewahn/cs-basics-ruby on Nitrous.IO" src="https://d3o0mnbgv6k92a.cloudfront.net/assets/hack-l-v1-3cc067e71372f6045e1949af9d96095b.png" /></a></div>
+
+<p>&nbsp;</p>
 </div>
 </section>
 
@@ -513,7 +517,7 @@ Cost: 18</pre>
 <div data-type="example" id="debugging_example_hash1">
 <h5>Debugging example 1</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
+<pre data-code-language="ruby" data-original-title="" data-type="programlisting" title="">
      1 puts &quot;Enter the customer's age: &quot;
      2 # Get an integer age value from the user
      3 age = gets.to_i
@@ -532,6 +536,10 @@ Cost: 18</pre>
     16 # Print out the final cost
     17 puts &quot;Ticket cost: &quot; + cost.to_s
 </pre>
+
+<div><a href="https://www.nitrous.io/hack_button?source=embed&amp;runtime=rails&amp;repo=odewahn%2Fcs-basics-ruby&amp;file_to_open=ch4%2F4-13.rb" style="border:0;text-decoration:none"><img alt="Hack odewahn/cs-basics-ruby on Nitrous.IO" src="https://d3o0mnbgv6k92a.cloudfront.net/assets/hack-l-v1-3cc067e71372f6045e1949af9d96095b.png" /></a></div>
+
+<p>&nbsp;</p>
 </div>
 
 <p>If you run the example, it will not matter what age you input; it will always output the ticket cost as <code>9</code>. This is because you are not comparing <code>age</code> to the integer 12 but instead assigning 12 to <code>age</code>, which is something that will evaluate to true. Edit the program to match .</p>
@@ -539,7 +547,7 @@ Cost: 18</pre>
 <div data-type="example" id="debugging_example_hash2">
 <h5>Debugging example 2</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
+<pre data-code-language="ruby" data-original-title="" data-type="programlisting" title="">
      1 puts &quot;Enter the customer's age: &quot;
      2 # Get an integer age value from the user
      3 age = gets.to_i
@@ -564,6 +572,10 @@ Cost: 18</pre>
 </pre>
 <!--?hard-pagebreak?--></div>
 
+<div><a href="https://www.nitrous.io/hack_button?source=embed&amp;runtime=rails&amp;repo=odewahn%2Fcs-basics-ruby&amp;file_to_open=ch4%2F4-14.rb" style="border:0;text-decoration:none"><img alt="Hack odewahn/cs-basics-ruby on Nitrous.IO" src="https://d3o0mnbgv6k92a.cloudfront.net/assets/hack-l-v1-3cc067e71372f6045e1949af9d96095b.png" /></a></div>
+
+<p>&nbsp;</p>
+
 <p>By adding <code>puts</code> statements before the <code>case</code> statement and at the end of the program, you are checking what value is stored after it is entered and after the <code>case</code> statement was executed. If you run the new program, you will see that the first output will equal whatever age value you originally entered. However, at the end of the program, the <code>puts</code> will output the value 12, no matter what value was previously entered for age.</p>
 
 <p>From this, you can infer that the value of <code>age</code> changed somewhere between the two <code>puts</code> statements. As you remember, we changed the comparison operator (<code>&lt;=</code>) to the assignment operator (<code>=</code>). The assignment operator <code>=</code> is often mistyped when programmers meant to use the comparison operator <code>==</code>.</p>
@@ -580,7 +592,7 @@ Cost: 18</pre>
 <div data-type="example" id="debugging_example_hash3">
 <h5>Debugging example 3</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
+<pre data-code-language="ruby" data-original-title="" data-type="programlisting" title="">
      1 # Flag for debugging (change to false when finished debugging)
      2 DEBUG_MODULE_1 = true
      3 
@@ -608,6 +620,10 @@ Cost: 18</pre>
     25 # Print out the final cost
     26 puts &quot;Ticket cost: &quot; + cost.to_s
 </pre>
+
+<div><a href="https://www.nitrous.io/hack_button?source=embed&amp;runtime=rails&amp;repo=odewahn%2Fcs-basics-ruby&amp;file_to_open=ch4%2F4-15.rb" style="border:0;text-decoration:none"><img alt="Hack odewahn/cs-basics-ruby on Nitrous.IO" src="https://d3o0mnbgv6k92a.cloudfront.net/assets/hack-l-v1-3cc067e71372f6045e1949af9d96095b.png" /></a></div>
+
+<p>&nbsp;</p>
 </div>
 
 <p>Line 2 defines the constant to be used as our debug flag. Lines 9&ndash;11 and 21&ndash;23 represent code that should be run only during debug mode to help ensure that the program is running correctly. Compare the output of the code with <code>DEBUG_MODULE_1</code> set to <code>true</code> and <code>false</code>.</p>
