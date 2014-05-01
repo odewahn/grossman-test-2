@@ -1,27 +1,7 @@
 {
   "branch": "master",
   "files": [
-    "01-titlepage.html",
-    "02-copyright.html",
-    "03-toc.html",
-    "ch00.html",
-    "ch01.html",
-    "ch02.html",
-    "ch03.html",
-    "ch04.html",
-    "ch05.html",
-    "ch06.html",
-    "ch07.html",
-    "ch08.html",
-    "ch09.html",
-    "ch10.html",
-    "ch11.html",
-    "ch12.html",
-    "appa.html",
-    "appb.html",
-    "appc.html",
-    "appd.html",
-    "colo.html"
+    "ch01.html"
   ],
   "formats": {
     "pdf": {
