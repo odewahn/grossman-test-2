@@ -1,4 +1,10 @@
 <section class="pagenumrestart" data-type="chapter" id="introduction_to_computer_science" xmlns="http://www.w3.org/1999/xhtml">
+<aside data-type="sidebar">
+<h5>Amusing Digression</h5>
+
+<p>Once upon a time, we worked in a computer lab helping students with their programming problems. &nbsp;There was a keypunch machine in the room to make punched cards which were submitted to computers. &nbsp; Students would stick chewing gum in the keypunch machine to help retrieve stuck cards. &nbsp; Our job at the end of day was to clean the lab and clean out all the chewing gum. &nbsp;SO just remember, however bad your life might be -- at least you aren't cleaning out used chewing gum. &nbsp;</p>
+</aside>
+
 <h1>Introduction to Computer Science</h1>
 
 <aside data-type="sidebar">
@@ -9,10 +15,28 @@
 	<p>Defining computer science</p>
 	</li>
 	<li>
-	<p>Programming techniques</p>
+	<p>Define Programming</p>
 	</li>
 	<li>
-	<p>Algorithms and algorithm efficiency</p>
+	<p>Define Blackjack, the game we will be writing all course</p>
+	</li>
+	<li>
+	<p>Define how we are doing this course (US Master, you apprentice)</p>
+	</li>
+	<li>
+	<p>Teach you how to do something -- output the rules of blackjack</p>
+	</li>
+	<li>
+	<p>Show you how to break what you just did and then fix it so you start to get the hang of how to get something to work</p>
+	</li>
+	<li>
+	<p>Introduce the idea of methods</p>
+	</li>
+	<li>
+	<p>introduce the idea of data types</p>
+	</li>
+	<li>
+	<p>introduce the idea of variables</p>
 	</li>
 </ul>
 </aside>
@@ -76,9 +100,83 @@ this link</div>
 
 <p>&nbsp;</p>
 
+<p>Now click here and enter this into the ruby code editor that launches and type the following:</p>
+
+<p>puts &quot;Welcome to Blackjack. &nbsp;Dealer will always hit on a 17, over 21 and you lose&quot;</p>
+
+<p><span style="line-height: 1.5em;">Enter those this line and try it and see if the computer does the right thing. &nbsp;IF its works CONGRATULATIONS you have hammered your first nail. &nbsp;Remember to use double quotes around the rules (the key two to the right of the L key on your keyboard and you have to hit shift to get the quotes to display).</span></p>
+
+<p>Now lets learn how picky this stuff can be.&nbsp;</p>
+
+<p>Change one of the<strong> puts </strong>commands to <strong>put</strong>.&nbsp;</p>
+
+<p>You'll get a great message:</p>
+
+<p class="p1"><strong>NoMethodError: undefined method `put' for main:Object</strong></p>
+
+<p>You'll get a nice message of &quot;NoMethodError: undefined method for put&quot;. &nbsp;So annoying that computers have to always care about every last little letter. &nbsp; &nbsp;Notice that its speaking greek immediately. &nbsp; Well first it tells you the type of error you have followed by a colon. &nbsp;In this case you got yourself a nice NoMethodError. &nbsp; What on earth is a method and why in heavens is it bad to not have one? &nbsp;</p>
+
+<p>Well it turns out a method is piece of code that you might want to repeat. &nbsp;Terrific name isn't it. &nbsp; Some languages call it a function. &nbsp;Bet that doesn't help either, but if you remember in math, functions are used to make life easier to express equations. &nbsp;You could say y = x + 2 but if you define a function on x you'd have f(x) = x + 2 and then you could then say y &nbsp;= f(x) . &nbsp;For really long equations y=f(x) is way easier to look at then the whole equation.</p>
+
+<p>Anyway, &nbsp;you simplify your computer programs with methods and we'll get to all that later. &nbsp;We just wanted you to know its a thing that comes in handy to make it so you don't have to write the same programming code over and over. So Ruby has a way to make it so you can define new methods. &nbsp;When you entered <strong>puts</strong>, that actually referenced a method the people who invented ruby built to output whatever you put &nbsp;in quotes to the screen. &nbsp;</p>
+
+<p>When you got rid of the S, the ruby interpreter (the thing that processes each Ruby command) decided you must have written your own grand method called PUT and it looked for it. &nbsp;It couldn't find it so it threw up its hands and said, HEY you must be so SMART that you have written your very own method and now sadly I can't find it. &nbsp;</p>
+
+<p>Now fix your PUT to PUTS and get it to work again. &nbsp;</p>
+
+<p>Now lets break something else. &nbsp;Lets get rid of the double quotes.&nbsp;</p>
+
+<p>so your code will now look like</p>
+
+<p>puts Welcome to Blackjack. &nbsp;Dealer will always hit on a 17, over 21 and you lose</p>
+
+<p>Now you get a nice error message</p>
+
+<p class="p1"><strong>NameError: undefined local variable or method `blackjack' for main:Object</strong></p>
+
+<p>Aren't you glad you are doing this with such friendly error messages? &nbsp;Well now the Ruby interpreter says you entered PUTS correctly so it was thinking you would follow it with a nice piece of text in quotes so that Ruby (and a lot of other languages) would think you were referring to a thing called a STRING. &nbsp;A STRING is a type of data that can be output nicely to the screen and it can include numbers and letters. &nbsp;You can't do math on a string like ask the computer to divide one string by another string.&nbsp;</p>
+
+<p>The truth is the Ruby interpreter when using the&nbsp;<strong>puts&nbsp;</strong>method looks for a variable that is of type STRING to come next. &nbsp;</p>
+
+<p>So you could say puts &quot;hello&quot; and that assigns &quot;hello&quot; to a variable (a thing that hold different values over time) and then displays it.&nbsp;</p>
+
+<p>if you said&nbsp;</p>
+
+<p>x = &quot;hello&quot;</p>
+
+<p>puts x</p>
+
+<p>that will assign &quot;hello&quot; to the variable named x and then output x.&nbsp;</p>
+
+<p>When you took off the quotes around Welcome to blackjack -- ruby thought you were referring to a variable named WELCOME. &nbsp;It thought somewhere you must have been smart enough to assign it a value. &nbsp;So it looked in its entire lexicon of variables for welcome and didn't find it so it gave you a NAME ERROR thinking you must have mis-spelled the variable. &nbsp;Then it said undefined local variable. &nbsp; In Ruby you can use a method to obtain values so either a variable or method would work so it went ahead and looked for methods named blackjack as well. &nbsp;It didn't find one so it said &quot;undefined local variable or method&quot; then it was nice enough to tell you what it couldn't find -- it was hunting for blackjack and it didn't find it and so it even told you what it was hunting for (and we just put it in italix).&nbsp;</p>
+
+<p><strong>NameError: undefined local variable or method <em>`blackjack' </em>for main:Object</strong></p>
+
+<p>Ruby uses a thing called OBJECTS and they are just containers that &nbsp;contain methods and variables -- we'll be using them for various things in the game. &nbsp;CARD, DEALER, PLAYER are all good objects, but we'll &nbsp;talk more about that later.&nbsp;</p>
+
+<p>Anyway the Ruby interpreter hunted in the current object called MAIN and couldn't find anything so it told you where it was looking in main:object.&nbsp;</p>
+
+<p>So the Ruby interpreter spat out a bunch of gibberish but if you take a deep breath and read it slowly it can often contains hints on how to fix things. &nbsp;Most people new to programming see an error message and it has stuff in it that makes zero sense and so they just skip it and ask the teacher how to fix the problem. &nbsp;As your MASTER and you as APPRENTICE we now COMMAND you to READ EVERY ERROR MESSAGE TEN TIMES before doing anything else. &nbsp;Read it slowly. &nbsp;Trust us, it'll make you far more productive. &nbsp;</p>
+
+<p>Anyway, fix your program, put the quotes back and get it to work again.</p>
+
+<p>&nbsp;</p>
+
+<p>Ready for your next nail?</p>
+
 <p>&nbsp;</p>
 
 <p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p class="p1">&nbsp;</p>
 
 <p>&nbsp;</p>
 
@@ -193,7 +291,7 @@ this link</div>
 <div data-type="example" id="english_rarr_ruby_code">
 <h5>Plain language &acirc; Ruby code</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
+<pre class="pre " data-code-language="ruby" data-type="programlisting">
         1 puts &quot;Enter first name: &quot;	# Ask for the first name
         2 first_name = gets		# Store the first name
         3 puts &quot;Enter last name: &quot;	# Ask for the last name
