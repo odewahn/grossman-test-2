@@ -142,13 +142,17 @@ this link</div>
 
 <p>if you said&nbsp;</p>
 
-<p>x = &quot;hello&quot;</p>
+<pre class="pre " data-type="programlisting">
+&lt;p&gt;x = &quot;hello&quot;&lt;br&gt;&lt;/p&gt;
+</pre>
 
-<p>puts x</p>
+<pre class="pre " data-type="programlisting">
+&lt;p&gt;puts x&lt;/p&gt;
+</pre>
 
 <p>that will assign &quot;hello&quot; to the variable named x and then output x.&nbsp;</p>
 
-<p>When you took off the quotes around Welcome to blackjack -- ruby thought you were referring to a variable named WELCOME. &nbsp;It thought somewhere you must have been smart enough to assign it a value. &nbsp;So it looked in its entire lexicon of variables for welcome and didn't find it so it gave you a NAME ERROR thinking you must have mis-spelled the variable. &nbsp;Then it said undefined local variable. &nbsp; In Ruby you can use a method to obtain values so either a variable or method would work so it went ahead and looked for methods named blackjack as well. &nbsp;It didn't find one so it said &quot;undefined local variable or method&quot; then it was nice enough to tell you what it couldn't find -- it was hunting for blackjack and it didn't find it and so it even told you what it was hunting for (and we just put it in italix).&nbsp;</p>
+<p>When you took off the quotes around Welcome to blackjack -- ruby thought you were referring to a variable named WELCOME. &nbsp;It thought somewhere you must have been smart enough to assign it a value. &nbsp;So it looked in its entire lexicon of variables for welcome and didn't find it so it gave you a NAME ERROR thinking you must have mis-spelled the variable. &nbsp;Then it said undefined local variable. &nbsp; In Ruby you can use a method to obtain values so either a variable or method would work so it went ahead and looked for methods named blackjack as well. &nbsp;It didn't find one so it said &quot;undefined local variable or method&quot; then it was nice enough to tell you what it couldn't find -- it was hunting for blackjack and it didn't find it and so it even told you what it was hunting for (and we just put it in italic).&nbsp;</p>
 
 <p><strong>NameError: undefined local variable or method <em>`blackjack' </em>for main:Object</strong></p>
 
@@ -200,9 +204,9 @@ this link</div>
 
 <p>When writing a program, it is important to keep in mind that the computer will do exactly what you tell it to do. It cannot think as a human would, so you must provide clear instructions for every step.</p>
 
-<p>When giving instructions to others, people will often fill in blanks in logic without even realizing it. For example, if you instruct someone to &acirc;go to the bank,&acirc; you may not say what mode of transportation should be used. A computer, however, does not have the ability to &acirc;fill in the blanks.&acirc; A computer will only do exactly what you tell it to do.</p>
+<p>When giving instructions to others, people will often fill in blanks in logic without even realizing it. For example, if you instruct someone to &acirc;&Acirc;&Acirc;go to the bank,&acirc;&Acirc;&Acirc; you may not say what mode of transportation should be used. A computer, however, does not have the ability to &acirc;&Acirc;&Acirc;fill in the blanks.&acirc;&Acirc;&Acirc; A computer will only do exactly what you tell it to do.</p>
 
-<p>Imagine, for example, explaining to a person and to a computer how to make a peanut butter and jelly sandwich. To the person, all you might need to say is, &acirc;Spread the peanut butter on one slice of bread, the jelly on the other slice of bread, and then put the pieces of bread together.&acirc; If these instructions were given to a computer, however, the computer would not know where to start. Implied in these instructions are many logical steps that a human can automatically infer and the computer cannot. For example, the human would know that the jar must first be opened to scoop peanut butter out before you can spread it onto a slice of bread. The computer might try to spread the actual jar across the bread, without taking the peanut butter or jelly out&acirc;assuming it could even find them!</p>
+<p>Imagine, for example, explaining to a person and to a computer how to make a peanut butter and jelly sandwich. To the person, all you might need to say is, &acirc;&Acirc;&Acirc;Spread the peanut butter on one slice of bread, the jelly on the other slice of bread, and then put the pieces of bread together.&acirc;&Acirc;&Acirc; If these instructions were given to a computer, however, the computer would not know where to start. Implied in these instructions are many logical steps that a human can automatically infer and the computer cannot. For example, the human would know that the jar must first be opened to scoop peanut butter out before you can spread it onto a slice of bread. The computer might try to spread the actual jar across the bread, without taking the peanut butter or jelly out&acirc;&Acirc;&Acirc;assuming it could even find them!</p>
 
 <p>Computer science is ultimately about problem solving. The following is a basic approach to solving problems:</p>
 
@@ -286,10 +290,10 @@ this link</div>
 
 <p>Once the plain-language version is written, it is time to translate it into actual code. The Ruby code for the preceding example is shown in , but you are certainly not expected to understand it yet.</p>
 
-<p>Note the pound sign (#) on the righthand side. This sign means that the remainder of the line is a <em>comment</em>. A comment is not part of the instructions given to the computer. That is, a comment is a nonexecutable segment of code. Typically, comments are used to explain what the code does. Not only is it critical to comment code for the sake of readability and understanding, but using comments is considered good programming style, and the liberal use of comments is essential. Always remember that you (or someone else) may have to fix errors&acirc;colloquially referred to as bugs&acirc;years after you write a program; comments will help you understand what your code does years after you initially wrote it.</p>
+<p>Note the pound sign (#) on the righthand side. This sign means that the remainder of the line is a <em>comment</em>. A comment is not part of the instructions given to the computer. That is, a comment is a nonexecutable segment of code. Typically, comments are used to explain what the code does. Not only is it critical to comment code for the sake of readability and understanding, but using comments is considered good programming style, and the liberal use of comments is essential. Always remember that you (or someone else) may have to fix errors&acirc;&Acirc;&Acirc;colloquially referred to as bugs&acirc;&Acirc;&Acirc;years after you write a program; comments will help you understand what your code does years after you initially wrote it.</p>
 
 <div data-type="example" id="english_rarr_ruby_code">
-<h5>Plain language &acirc; Ruby code</h5>
+<h5>Plain language &acirc;&Acirc;&Acirc; Ruby code</h5>
 
 <pre class="pre " data-code-language="ruby" data-type="programlisting">
         1 puts &quot;Enter first name: &quot;	# Ask for the first name
@@ -322,7 +326,7 @@ this link</div>
 
 <p>Imagine a website like Google Maps, which has an algorithm to get directions from one point to another in either North America or Europe. It typically requires two inputs: a source and a destination. It also gives two outputs: the narrative directions to get from the source to the destination, and a map of the route.</p>
 
-<p>The directions produced are also an algorithm; they accomplish the task of getting from the source to the destination. Imagine getting the directions to your friend&acirc;s house shown on the map in .</p>
+<p>The directions produced are also an algorithm; they accomplish the task of getting from the source to the destination. Imagine getting the directions to your friend&acirc;&Acirc;&Acirc;s house shown on the map in .</p>
 
 <ol>
 	<li>
@@ -338,20 +342,20 @@ this link</div>
 	<p>Turn left (east) toward Algorithm Circle.</p>
 	</li>
 	<li>
-	<p>Continue until you come to 345 Algorithm Circle (your friend&acirc;s house).</p>
+	<p>Continue until you come to 345 Algorithm Circle (your friend&acirc;&Acirc;&Acirc;s house).</p>
 	</li>
 </ol>
 
 <figure id="directions_quotation_markalgorithmquotat" style="float: 0"><img src="images/cspr_0102.png" />
-<figcaption>Directions &acirc;algorithm&acirc;</figcaption>
+<figcaption>Directions &acirc;&Acirc;&Acirc;algorithm&acirc;&Acirc;&Acirc;</figcaption>
 </figure>
 
-<p>First notice that the directions are numbered; each step happens in sequential order. Additionally, it describes general steps like, &acirc;Turn left (east) on Main Street.&acirc; It does not say, &acirc;Turn on your left turn signal and wait for the light to turn green, and then turn left on Main Street.&acirc; That is not the point of an algorithm. An algorithm does not need to write out every single detail, but it needs to have all the important parts.</p>
+<p>First notice that the directions are numbered; each step happens in sequential order. Additionally, it describes general steps like, &acirc;&Acirc;&Acirc;Turn left (east) on Main Street.&acirc;&Acirc;&Acirc; It does not say, &acirc;&Acirc;&Acirc;Turn on your left turn signal and wait for the light to turn green, and then turn left on Main Street.&acirc;&Acirc;&Acirc; That is not the point of an algorithm. An algorithm does not need to write out every single detail, but it needs to have all the important parts.</p>
 
 <section data-type="sect2" id="onedot3dot1_algorithm_efficiency">
 <h2>1.3.1 Algorithm Efficiency</h2>
 
-<p>Different algorithms may accomplish the same task, but some will do it much faster than others. Consider the algorithm just described for going to your friend&acirc;s house, which certainly is not the only route to her or his home. Instead of getting on Ruby Lane, you could have hopped on the expressway, gone to the airport, and then taken a cab from the airport to your friend&acirc;s house&acirc;but that would be extremely inefficient. Likewise, there may be a more efficient route to your friend&acirc;s house than the one described. Just because you have created an algorithm does not make it efficient, and being able to create efficient algorithms is one of the factors that distinguishes a good computer scientist. For example, imagine receiving the following set of directions to your friend&acirc;s house instead of the ones shown in the previous section, illustrated on the map in :</p>
+<p>Different algorithms may accomplish the same task, but some will do it much faster than others. Consider the algorithm just described for going to your friend&acirc;&Acirc;&Acirc;s house, which certainly is not the only route to her or his home. Instead of getting on Ruby Lane, you could have hopped on the expressway, gone to the airport, and then taken a cab from the airport to your friend&acirc;&Acirc;&Acirc;s house&acirc;&Acirc;&Acirc;but that would be extremely inefficient. Likewise, there may be a more efficient route to your friend&acirc;&Acirc;&Acirc;s house than the one described. Just because you have created an algorithm does not make it efficient, and being able to create efficient algorithms is one of the factors that distinguishes a good computer scientist. For example, imagine receiving the following set of directions to your friend&acirc;&Acirc;&Acirc;s house instead of the ones shown in the previous section, illustrated on the map in :</p>
 
 <ol>
 	<li>
@@ -361,12 +365,12 @@ this link</div>
 	<p>Turn left (east) one block south of Main Street onto Algorithm Circle.</p>
 	</li>
 	<li>
-	<p>Continue until you come to 345 Algorithm Circle (your friend&acirc;s house).</p>
+	<p>Continue until you come to 345 Algorithm Circle (your friend&acirc;&Acirc;&Acirc;s house).</p>
 	</li>
 </ol>
 
 <figure id="directions_quotation_markalgorit-id00001" style="float: 0"><img src="images/cspr_0103.png" />
-<figcaption>Directions &acirc;efficient algorithm&acirc;</figcaption>
+<figcaption>Directions &acirc;&Acirc;&Acirc;efficient algorithm&acirc;&Acirc;&Acirc;</figcaption>
 </figure>
 
 <p>Here we use a different algorithm that accomplishes the same task, and it does so slightly more efficiently. That is, fewer turns are involved.</p>
@@ -383,7 +387,7 @@ this link</div>
 
 <ul>
 	<li>
-	<p>The essence of computer science is problem solving. Computer science involves using the computer as a tool to model or solve various problems, from storing names in a database to finding efficient directions to a friend&acirc;s house.</p>
+	<p>The essence of computer science is problem solving. Computer science involves using the computer as a tool to model or solve various problems, from storing names in a database to finding efficient directions to a friend&acirc;&Acirc;&Acirc;s house.</p>
 	</li>
 	<li>
 	<p>When programming, it is important to understand that the computer is never wrong. It is merely following the directions you have given it.</p>
@@ -399,7 +403,7 @@ this link</div>
 	</ul>
 	</li>
 	<li>
-	<p>Algorithms are step-by-step methods for solving problems. When writing an algorithm, it is important to keep in mind the algorithm&acirc;s efficiency.</p>
+	<p>Algorithms are step-by-step methods for solving problems. When writing an algorithm, it is important to keep in mind the algorithm&acirc;&Acirc;&Acirc;s efficiency.</p>
 	</li>
 </ul>
 
@@ -445,15 +449,15 @@ this link</div>
 
 	<ol type="a">
 		<li>
-		<p>Craft an algorithm that will sum the first <em>n</em> numbers (assuming <em>n</em> &acirc;&yen; 1). How many steps does your algorithm take to complete when <em>n</em> = 100? How many steps does it take when <em>n</em> = 1,000?</p>
+		<p>Craft an algorithm that will sum the first <em>n</em> numbers (assuming <em>n</em> &acirc;&Acirc;&yen; 1). How many steps does your algorithm take to complete when <em>n</em> = 100? How many steps does it take when <em>n</em> = 1,000?</p>
 		</li>
 		<li>
-		<p>Can you create an algorithm like Gauss&acirc;s where the number of steps does not depend on <em>n</em>?</p>
+		<p>Can you create an algorithm like Gauss&acirc;&Acirc;&Acirc;s where the number of steps does not depend on <em>n</em>?</p>
 		</li>
 	</ol>
 	</li>
 	<li>
-	<p>A palindrome is a word or phrase that reads the same way forward and backward, like &acirc;racecar.&acirc; Describe a sequence of steps that determines if a word or phrase is a palindrome.</p>
+	<p>A palindrome is a word or phrase that reads the same way forward and backward, like &acirc;&Acirc;&Acirc;racecar.&acirc;&Acirc;&Acirc; Describe a sequence of steps that determines if a word or phrase is a palindrome.</p>
 	</li>
 	<li>
 	<p>Consider the three mazes shown in . Describe two different algorithms for solving a maze. Discuss advantages and disadvantages of each algorithm. Then look at the maze and predict which algorithm will complete first. See if your predictions were correct by applying your algorithms to the mazes.</p>
@@ -463,11 +467,11 @@ this link</div>
 	</figure>
 	</li>
 	<li>
-	<p>shows an alternative way to represent an algorithm. (Note: we introduce this construct in detail later on. If it looks too intimidating, skip it until after you&acirc;ve read .)</p>
+	<p>shows an alternative way to represent an algorithm. (Note: we introduce this construct in detail later on. If it looks too intimidating, skip it until after you&acirc;&Acirc;&Acirc;ve read .)</p>
 
 	<ol type="a">
 		<li>
-		<p>Starting at the circle labeled &acirc;Start&acirc; work your way through the figure. What is the purpose of this algorithm?</p>
+		<p>Starting at the circle labeled &acirc;&Acirc;&Acirc;Start&acirc;&Acirc;&Acirc; work your way through the figure. What is the purpose of this algorithm?</p>
 		</li>
 		<li>
 		<p>Translate the figure into simple language. Note that a diamond in the figure represents a condition that may be true or false.</p>
@@ -479,20 +483,20 @@ this link</div>
 	</figure>
 	</li>
 	<li>
-	<p>A cable company must use cables to connect 15 homes together so that every home is reachable by every other home. The company has estimated the costs of different cable routes ( shows the numbers associated with each link). One engineer provides an algorithm, shown in , that will find the cheapest set of routes to pick. Does the engineer&acirc;s algorithm work for this case? Why or why not?</p>
+	<p>A cable company must use cables to connect 15 homes together so that every home is reachable by every other home. The company has estimated the costs of different cable routes ( shows the numbers associated with each link). One engineer provides an algorithm, shown in , that will find the cheapest set of routes to pick. Does the engineer&acirc;&Acirc;&Acirc;s algorithm work for this case? Why or why not?</p>
 
 	<figure id="cable_company_dilemma_em_dash_problem_1d" style="float: 0"><img src="images/cspr_0105.png" />
 	<figcaption>Cable company dilemma for Exercise 6</figcaption>
 	</figure>
 
-	<p><strong>Engineer&acirc;s Algorithm:</strong></p>
+	<p><strong>Engineer&acirc;&Acirc;&Acirc;s Algorithm:</strong></p>
 
 	<ol>
 		<li>
 		<p>Pick one cable route with the lowest cost not already picked. Add this route to the set of cheapest routes.</p>
 		</li>
 		<li>
-		<p>Check if every house is connected to every other house through any series of cables. If it isn&acirc;t, go back to step 1. If every house is connected, then the cheapest set of routes has been found.</p>
+		<p>Check if every house is connected to every other house through any series of cables. If it isn&acirc;&Acirc;&Acirc;t, go back to step 1. If every house is connected, then the cheapest set of routes has been found.</p>
 		</li>
 	</ol>
 	</li>
