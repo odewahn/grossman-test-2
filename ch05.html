@@ -59,14 +59,14 @@
 <div data-type="example" id="counting_program_and_flowchart">
 <h5>Counting program</h5>
 
-<pre class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting">
+<textarea class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting">
  n = 5
  i = 0
- while (i &lt;= n)
+ while (i >= n)
     puts i
     i = i + 1
  end
-</pre>
+</textarea>
 </div>
 
 <figure id="fig0502" style="float: 0"><img src="images/cspr_0502.png" />
@@ -210,16 +210,13 @@
 
 <div data-type="example" id="infinite_loops">
 <h5>Infinite loops</h5>
-
-<textarea class="pre " data-code-language="ruby" data-type="programlisting">
-    1 puts "Count from 0 to ?"
+<textarea class="pre " data-code-language="ruby" data-type="programlisting">    1 puts &quot;Count from 0 to ?&quot;
     2 n = gets.to_i
     3 i = 5
-    4 while (i > 0)
+    4 while (i &gt; 0)
     5 	i = i + 2
     6 end
-</textarea>
-</div>
+</textarea></div>
 
 <p>Assume you realize that you are in an endless loop, and you want to fix it. Sometimes new programmers simply execute the program again <em>with no changes</em>. Let us assure you that if you do not make a change, nothing will change. The program will once again run indefinitely.</p>
 
@@ -233,9 +230,7 @@
 
 <div data-type="example" id="prime_numbers">
 <h5>Prime numbers</h5>
-
-<textarea class="pre" data-code-language="ruby" data-executable="true" data-type="programlisting">
-# Initialize our counter
+<textarea class="pre" data-code-language="ruby" data-executable="true" data-type="programlisting"># Initialize our counter
 i = 1
 # i: [0, 100]
 while (i &lt;= 100)
@@ -258,8 +253,7 @@ while (i &lt;= 100)
    # Increment the counter
    i += 1
 end
-</textarea>
-</div>
+</textarea></div>
 
 <p>Recall that a number is considered prime if and only if its only divisors, commonly called factors, are 1 and itself. For example, 9 is not prime while 7 is. As hinted in , it is unnecessary to check for factors until you reach the actual number (minus one) since the largest divisor must be no greater than half the number itself. A prime number implementation can be optimized by using the knowledge that we can terminate the loop early.</p>
 
