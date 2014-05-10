@@ -34,7 +34,7 @@
 <div data-type="example" id="while_loop_and_flowchart">
 <h5>While loop construct</h5>
 
-<pre data-code-language="ruby" data-original-title="" data-type="programlisting" title="">
+<pre class="pre " data-code-language="ruby" data-original-title="" data-type="programlisting" title="">
     1 while (condition)
     2 	# statement 1
     3 	# statement 2
@@ -59,13 +59,13 @@
 <div data-type="example" id="counting_program_and_flowchart">
 <h5>Counting program</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
-    1 n = 5
-    2 i = 0
-    3 while (i &lt;= n)
-    4 	puts i
-    5 	i = i + 1
-    6 end
+<pre class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting">
+ n = 5
+ i = 0
+ while (i &lt;= n)
+    puts i
+    i = i + 1
+ end
 </pre>
 </div>
 
@@ -91,7 +91,7 @@
 <div data-type="example" id="until_loop_and_flowchart">
 <h5>Until loop construct</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
+<pre class="pre " data-code-language="ruby" data-type="programlisting">
     1 until (condition)
     2 	# statement 1
     3 	# statement 2
@@ -161,10 +161,10 @@
 <div data-type="example" id="for_loop">
 <h5>For loop</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
-    1 for num in (0..5)
-    2 	puts num
-    3 end
+<pre class="pre" data-code-language="ruby" data-executable="true" data-type="programlisting">
+ for num in (0..5)
+    puts num
+ end
 </pre>
 </div>
 </section>
@@ -179,13 +179,13 @@
 <div data-type="example" id="nested_loop_and_flowchart">
 <h5>Nested loop construct</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
-    1 for i in (1..3)
-    2 	puts &quot;Outer loop: i = &quot; + i.to_s
-    3 for k in (1..4)
-    4   puts &quot;Inner loop: k = &quot; + k.to_s
-    5 	end
-    6 end
+<pre class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting">
+ for i in (1..3)
+    puts &quot;Outer loop: i = &quot; + i.to_s
+    for k in (1..4)
+       puts &quot;Inner loop: k = &quot; + k.to_s
+    end
+ end
 </pre>
 </div>
 
@@ -211,7 +211,7 @@
 <div data-type="example" id="infinite_loops">
 <h5>Infinite loops</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
+<pre class="pre " data-code-language="ruby" data-type="programlisting">
     1 puts &quot;Count from 0 to ? &quot;
     2 n = gets.to_i
     3 i = 5
@@ -234,31 +234,30 @@
 <div data-type="example" id="prime_numbers">
 <h5>Prime numbers</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
-     1 # Initialize our counter
-     2 i = 1
-     3 
-     4 # i: [0, 100]
-     5 while (i &lt;= 100)
-     6   # Initialize prime flag
-     7   prime_flag = true
-     8   j = 2
-     9   # Test divisibility of i from [0, i/2]
-    10   while (j &lt;= i / 2)
-    11     # puts &quot; i ==&gt; &quot; + i.to_s + &quot; j ==&gt; &quot; + j.to_s
-    12     if (i % j == 0)
-    13       prime_flag = false
-    14       # break
-    15     end
-    16     j = j + 1
-    17   end
-    18   # We found a prime!
-    19   if prime_flag
-    20     puts &quot;Prime ==&gt; &quot; + i.to_s
-    21   end
-    22   # Increment the counter
-    23   i += 1
-    24 end
+<pre class="pre" data-code-language="ruby" data-executable="true" data-type="programlisting">
+# Initialize our counter
+i = 1
+# i: [0, 100]
+while (i &lt;= 100)
+   # Initialize prime flag
+   prime_flag = true
+   j = 2
+   # Test divisibility of i from [0, i/2]
+   while (j &lt;= i / 2)
+     # puts &quot; i ==&gt; &quot; + i.to_s + &quot; j ==&gt; &quot; + j.to_s
+     if (i % j == 0)
+       prime_flag = false
+       # break
+     end
+     j = j + 1
+   end
+   # We found a prime!
+   if prime_flag
+     puts &quot;Prime ==&gt; &quot; + i.to_s
+   end
+   # Increment the counter
+   i += 1
+end
 </pre>
 </div>
 
@@ -320,7 +319,7 @@
 
 <p>Here is the output of this program. We changed it so that it checks for primes only between 1 and 25.</p>
 
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00035">
+<pre class="pre " data-code-language="ruby" data-type="programlisting" id="pro_id00035">
 $ ruby prime.rb
 Prime ==$&gt;$ 1
 Prime ==$&gt;$ 2
@@ -396,7 +395,7 @@ Prime ==$&gt;$ 23</pre>
 	<div data-type="example" id="code_for_exercise_5dot2">
 	<h5>Code for Exercise 2</h5>
 
-	<pre data-code-language="ruby" data-type="programlisting">
+	<pre class="pre " data-code-language="ruby" data-type="programlisting">
     1 puts &quot;Enter a number &gt;= 0: &quot;
     2 n = gets.to_i
     3 a = 1
