@@ -58,16 +58,13 @@
 
 <div data-type="example" id="counting_program_and_flowchart">
 <h5>Counting program</h5>
-
-<textarea class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting">
- n = 5
+<textarea class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting"> n = 5
  i = 0
- while (i >= n)
+ while (i &gt;= n)
     puts i
     i = i + 1
  end
-</textarea>
-</div>
+</textarea></div>
 
 <figure id="fig0502" style="float: 0"><img src="images/cspr_0502.png" />
 <figcaption>Counting program flowchart</figcaption>
@@ -179,14 +176,14 @@
 <div data-type="example" id="nested_loop_and_flowchart">
 <h5>Nested loop construct</h5>
 
-<pre class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting">
+<textarea class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting">
  for i in (1..3)
     puts &quot;Outer loop: i = &quot; + i.to_s
     for k in (1..4)
        puts &quot;Inner loop: k = &quot; + k.to_s
     end
  end
-</pre>
+</textarea>
 </div>
 
 <p>If you execute the program presented, you will see that the outer loop is displayed three times. However, between each outer loop, four iterations of the inner loop are run.</p>
