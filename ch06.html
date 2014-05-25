@@ -1,134 +1,317 @@
-<section xmlns="http://www.w3.org/1999/xhtml" id="arrays" data-type="chapter" class="pagenumrestart"><h1>Arrays</h1><aside data-type="sidebar"><h5>In This Chapter</h5><ul><li><p>Arrays</p></li><li><p>Hashes</p></li></ul></aside><section id="sixdot1_introduction" data-type="sect1"><h1>6.1 Introduction</h1><p>In previous chapters, we discussed various programming structures,
-    namely, sequential, conditional, and loop, which can be employed in
-    algorithms and programs. This chapter will increase the power of these
-    structures by introducing a new data structure that can be employed with
-    any of them, that is, the <em>array</em>. A data structure is
-    any organized means of storage, an array being among the simplest of
-    structures.</p></section><section id="sixdot2_array_types" data-type="sect1"><h1>6.2 Array Types</h1><section id="sixdot2dot1_one_dimensional_arrays" data-type="sect2"><h2>6.2.1 One-Dimensional Arrays</h2><p>An array is an ordered list of variables. To get the idea, imagine
-      a row of compartments, each of the compartments can contain something or
-      be empty, and they are numbered sequentially starting at 0, as you see
-      on the left side of <a href="#diagram_of_an_array_and_array_access_in" data-type="xref"/>.</p><p>Arrays start counting their <em>elements</em>, or
-      individual variables, at index 0, as the <em>index</em> is
-      the offset from the beginning of the <em>array</em>. Index 0
-      is the position of the first element in any array that contains at least
-      one element. Likewise, the
-      <em>n</em><sup>th</sup> element can be found
-      at index <em>n</em> – 1. Starting at 0 and ending at
-      <em>n</em> – 1 may seem odd, but it is common among most
-      programming languages.</p><figure id="diagram_of_an_array_and_array_access_in" style="float: 0"><img src="images/cspr_0601.png"/><figcaption>Diagram of an array and array access in Ruby</figcaption></figure><div id="ch06note01" data-type="note"><h1>Gem of Wisdom</h1><p>Array indices are the <em>offset</em> from the first
-        element. As a result, the first element is stored at index 0.</p></div><p>The arrays in <a href="#diagram_of_an_array_and_array_access_in" data-type="xref"/> are known as
-      <em>one-dimensional arrays</em> because there is only
-      <span class="keep-together">one index</span> or dimension. To access
-      an element in an array in Ruby, the notation is <span class="keep-together"><code><code>array_name</code>[<code>index</code>]</code>,</span> where <code>array_name</code> indicates the name of the array and
-      <code>index</code> indicates the element of the
-      array being referenced.</p><p>Consider an array named <code>arr</code>
-      that stores a list of five test scores for a student. The student
-      received the scores 73, 98, 86, 61, and 96. The first step of creating
-      an array is the statement: <code>array_name =
-      Array.new</code>. The example code in <a href="#initializing_an_array" data-type="xref"/> shows how to initialize an array to
-      store test scores.</p><div id="initializing_an_array" data-type="example"><h5>Initializing an array</h5><pre data-type="programlisting" data-code-language="ruby">    1 arr = Array.new()
-    2 arr[0] = 73 
-    3 arr[1] = 98 
-    4 arr[2] = 86 
-    5 arr[3] = 61 
-    6 arr[4] = 96
-</pre></div><p>The code shown is actual Ruby syntax for initializing array
-      indices 0 through 4. The result of the code is much like the array in
-      the righthand side of <a href="#diagram_of_an_array_and_array_access_in" data-type="xref"/>, an array of size 5
-      with every element initialized. However, there is a quicker way to
-      initialize an array, as shown in <a href="#initializing_an_array-id00005" data-type="xref"/>.</p><div id="initializing_an_array-id00005" data-type="example"><h5>Initializing an array</h5><pre data-type="programlisting" data-code-language="ruby">    1 arr = [73, 98, 86, 61, 96]
-</pre></div><p>No matter which way the array is initialized, the result is the
-      same. To use the array, you access <code>array_name[index]</code>, as if it were a variable of
-      the data type expected, as shown in <a href="#changing_the_value_of_an_element" data-type="xref"/>.</p><div id="changing_the_value_of_an_element" data-type="example"><h5>Changing the value of an element</h5><pre data-type="programlisting" data-code-language="ruby">    1 arr = [5,6]
-    2 arr[0] = arr[0] + 10
-    3 puts arr[0]
-</pre></div><p>The key advantage of arrays is highlighted when used in
-      conjunction with loops. Since the syntax for accessing an element in an
-      array is <em>array_name</em>[<em>index</em>], we
-      can use a variable for the index instead of literal numbers, as in the
-      examples just shown. Thus, we can change the index in every loop
-      iteration, and <em>traverse</em> or move through every
-      element in the array. To know when to stop traversing the array, we can
-      get the number of elements in an array by using the following
-      statement:</p><pre id="pro_id00036" data-type="programlisting" data-code-language="ruby">arr.size</pre><p>New programmers often make errors when dealing with the bounds of
-      an array. These are the basic rules for array bounds:</p><ul><li><p>The first element in an array is at index 0.</p></li><li><p><code>arr.size</code> returns the number
-          of elements in the array, not the highest indexed element.</p></li><li><p>The last element in an array is at index <code>arr.size - 1</code>.</p></li></ul><p>If we want to use a while loop to traverse an array, we need to
-      initialize the index to 0 and increment it for every loop iteration. It
-      is important to note that the condition in the while loop is <code>index</code> <em>&lt;</em> <code>arr.size</code>, not <code>index</code> <em>&lt;</em>= <code>arr.size</code>, for the reasons just mentioned. The
-      code in <a href="#displaying_array_content" data-type="xref"/> is an example of
-      basic array traversal that prints out every element in the array.</p><div id="ch06note02" data-type="note"><h1>Gem of Wisdom</h1><p>Using arrays is a flexible and organized way of expressing
-        multiple related items. Every programming language has them. As an
-        abstraction, arrays are expanded variables. A variable holds one
-        value; an array holds many. For example, to record names of multiple
-        institutions using variables requires the use of variables such
-        <span>as <code>institution1</code>, <code>institution2</code>, <code>institution3</code>, and so on. With
-        arrays,</span> <span class="keep-together"><code>institutions[]</code> stores all
-        institutions.</span></p></div><div id="displaying_array_content" data-type="example"><h5>Displaying array content</h5><pre data-type="programlisting" data-code-language="ruby">    1 arr = [73, 98, 86, 61, 96]
-    2 index = 0
-    3 while (index &lt; arr.size)
-    4 	puts arr[index]
-    5 	index = index + 1
-    6 end
-</pre></div><p>Running the code (stored in a file called <code data-type="filename">array_4.rb</code>) gives the following
-      output:</p><pre id="pro_id00037" data-type="programlisting" data-code-language="ruby">$ ruby array_4.rb
+<section class="pagenumrestart" data-type="chapter" id="arrays" xmlns="http://www.w3.org/1999/xhtml">
+<h1>Arrays</h1>
+
+<aside data-type="sidebar">
+<h5>In This Chapter</h5>
+
+<ul>
+	<li>
+	<p>Arrays</p>
+	</li>
+	<li>
+	<p>Hashes</p>
+	</li>
+</ul>
+</aside>
+
+<section data-type="sect1" id="sixdot1_introduction">
+<h1>6.1 Introduction</h1>
+
+<p>In previous chapters, we discussed various programming structures, namely, sequential, conditional, and loop, which can be employed in algorithms and programs. This chapter will increase the power of these structures by introducing a new data structure that can be employed with any of them, that is, the <em>array</em>. A data structure is any organized means of storage, an array being among the simplest of structures.</p>
+</section>
+
+<section data-type="sect1" id="sixdot2_array_types">
+<h1>6.2 Array Types</h1>
+
+<section data-type="sect2" id="sixdot2dot1_one_dimensional_arrays">
+<h2>6.2.1 One-Dimensional Arrays</h2>
+
+<p>An array is an ordered list of variables. To get the idea, imagine a row of compartments, each of the compartments can contain something or be empty, and they are numbered sequentially starting at 0, as you see on the left side of .</p>
+
+<p>Arrays start counting their <em>elements</em>, or individual variables, at index 0, as the <em>index</em> is the offset from the beginning of the <em>array</em>. Index 0 is the position of the first element in any array that contains at least one element. Likewise, the <em>n</em><sup>th</sup> element can be found at index <em>n</em> &ndash; 1. Starting at 0 and ending at <em>n</em> &ndash; 1 may seem odd, but it is common among most programming languages.</p>
+
+<figure id="diagram_of_an_array_and_array_access_in" style="float: 0"><img src="images/cspr_0601.png" />
+<figcaption>Diagram of an array and array access in Ruby</figcaption>
+</figure>
+
+<div data-type="note" id="ch06note01">
+<h1>Gem of Wisdom</h1>
+
+<p>Array indices are the <em>offset</em> from the first element. As a result, the first element is stored at index 0.</p>
+</div>
+
+<p>The arrays in are known as <em>one-dimensional arrays</em> because there is only <span class="keep-together">one index</span> or dimension. To access an element in an array in Ruby, the notation is <span class="keep-together"><code><code>array_name</code>[<code>index</code>]</code>,</span> where <code>array_name</code> indicates the name of the array and <code>index</code> indicates the element of the array being referenced.</p>
+
+<p>Consider an array named <code>arr</code> that stores a list of five test scores for a student. The student received the scores 73, 98, 86, 61, and 96. The first step of creating an array is the statement: <code>array_name = Array.new</code>. The example code in shows how to initialize an array to store test scores.</p>
+
+<div data-type="example" id="initializing_an_array">
+<h5>Initializing an array</h5>
+
+<pre class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting">
+arr = Array.new()
+arr[0] = 73 
+arr[1] = 98 
+arr[2] = 86 
+arr[3] = 61 
+arr[4] = 96
+puts arr</pre>
+</div>
+
+<p>The code shown is actual Ruby syntax for initializing array indices 0 through 4. The result of the code is much like the array in the righthand side of , an array of size 5 with every element initialized. However, there is a quicker way to initialize an array, as shown in .</p>
+
+<div data-type="example" id="initializing_an_array-id00005">
+<h5>Initializing an array</h5>
+
+<pre class="pre" data-code-language="ruby" data-executable="true" data-type="programlisting">
+arr = [73, 98, 86, 61, 96]
+puts arr</pre>
+
+<p>&nbsp;</p>
+</div>
+
+<p>No matter which way the array is initialized, the result is the same. To use the array, you access <code>array_name[index]</code>, as if it were a variable of the data type expected, as shown in .</p>
+
+<div data-type="example" id="changing_the_value_of_an_element">
+<h5>Changing the value of an element</h5>
+
+<pre class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting">
+arr = [5,6]
+arr[0] = arr[0] + 10
+puts arr[0]
+</pre>
+</div>
+
+<p>The key advantage of arrays is highlighted when used in conjunction with loops. Since the syntax for accessing an element in an array is <em>array_name</em>[<em>index</em>], we can use a variable for the index instead of literal numbers, as in the examples just shown. Thus, we can change the index in every loop iteration, and <em>traverse</em> or move through every element in the array. To know when to stop traversing the array, we can get the number of elements in an array by using the following statement:</p>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting" id="pro_id00036">
+arr.size</pre>
+
+<p>New programmers often make errors when dealing with the bounds of an array. These are the basic rules for array bounds:</p>
+
+<ul>
+	<li>
+	<p>The first element in an array is at index 0.</p>
+	</li>
+	<li>
+	<p><code>arr.size</code> returns the number of elements in the array, not the highest indexed element.</p>
+	</li>
+	<li>
+	<p>The last element in an array is at index <code>arr.size - 1</code>.</p>
+	</li>
+</ul>
+
+<p>If we want to use a while loop to traverse an array, we need to initialize the index to 0 and increment it for every loop iteration. It is important to note that the condition in the while loop is <code>index</code> <em>&lt;</em> <code>arr.size</code>, not <code>index</code> <em>&lt;</em>= <code>arr.size</code>, for the reasons just mentioned. The code in is an example of basic array traversal that prints out every element in the array.</p>
+
+<div data-type="note" id="ch06note02">
+<h1>Gem of Wisdom</h1>
+
+<p>Using arrays is a flexible and organized way of expressing multiple related items. Every programming language has them. As an abstraction, arrays are expanded variables. A variable holds one value; an array holds many. For example, to record names of multiple institutions using variables requires the use of variables such <span>as <code>institution1</code>, <code>institution2</code>, <code>institution3</code>, and so on. With arrays,</span> <span class="keep-together"><code>institutions[]</code> stores all institutions.</span></p>
+</div>
+
+<div data-type="example" id="displaying_array_content">
+<h5>Displaying array content</h5>
+
+<pre class="pre" data-code-language="ruby" data-executable="true" data-type="programlisting">
+arr = [73, 98, 86, 61, 96]
+index = 0
+while (index &lt; arr.size)
+   puts arr[index]
+   index = index + 1
+end
+</pre>
+</div>
+
+<p>Running the code (stored in a file called <code data-type="filename">array_4.rb</code>) gives the following output:</p>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting" id="pro_id00037">
+$ ruby array_4.rb
 73
 98
 86
 61
-96</pre><p>However, in Ruby it is possible to accomplish the same goal in one
-      line of code:</p><pre id="pro_id00039" data-type="programlisting" data-code-language="ruby">puts arr</pre><p>This example is meant to be merely an introduction to simple array
-      traversal. More practical reasons to use loops and arrays together are
-      illustrated later.</p></section><section id="example_find_the_max" data-type="sect2"><h2>Example: Find the Max</h2><p>The example in <a href="#find_the_max" data-type="xref"/> shows how to find
-      the maximum of a list of five non-negative numbers. What would you need
-      to change to support negative numbers?</p><div id="find_the_max" data-type="example"><h5>Find the max</h5><pre data-type="programlisting" data-code-language="ruby">     1 # Initialize array and loop values
-     2 arr = [73, 98, 86, 61, 96]
-     3 index = 0
-     4 max = 0
-     5 
-     6 # Loop over each element in arr
-     7 while (index &lt; arr.size)
-     8 	if (arr[index] &gt; max)
-     9 		# Update max
-    10 		max = arr[index]
-    11 	end
-    12 	index = index + 1
-    13 end
-    14 
-    15 # Output calculated max
-    16 puts "Max ==&gt; " + max.to_s
-</pre><?hard-pagebreak?><ul><li><p>Line 2 creates a new array named <code>arr</code> and initializes its
-            variables.</p></li><li><p>Line 3 sets a counter named <code>index</code> that will serve as an index into
-            the array.</p></li><li><p>Line 4 declares a variable called <code>max</code> that will be used to store the
-            maximum number.</p></li><li><p>Lines 7–13 implement a loop that scans every element of the
-            array.</p></li><li><p>Line 16 prints the maximum element at the end.</p></li></ul></div><p>Each time the index variable <code>index</code> is incremented in line 12, the <code>if</code> statement in lines 8–11 tests to see
-      whether the current value in the array indexed at <code>index</code> is higher than the current value in
-      <code>max</code>. If the current value is higher,
-      then the <code>max</code> variable is updated with
-      the highest value.</p><p>Run this program, called <code data-type="filename">find_the_max.rb</code>. Your output should
-      be:</p><pre id="pro_id00040" data-type="programlisting" data-code-language="ruby">$ ruby find_the_max.rb
-Max ==&gt; 98</pre><p>As an exercise to make sure you understand the preceding code,
-      change the example to output the lowest value in the array.</p></section><section id="sixdot2dot2_multi-dimensional_arrays" data-type="sect2"><h2>6.2.2 Multidimensional Arrays</h2><p>Arrays that have more than one dimension are called
-      <em>multidimensional arrays</em>. A common multidimensional
-      array is the two-dimensional array, which can be used to represent
-      matrices and coordinate systems. Unlike some other programming
-      languages, Ruby does not provide built-in support for multidimensional
-      arrays. The way to work around this is to put an array inside an array,
-      which is essentially what a multidimensional array is anyway.</p><p>Consider the example in the previous section of an array that
-      stores a list of five test scores for a student. Now, what if you had
-      students with the following scores?</p><p>Geraldo: 73, 98, 86, 61, 96</p><p>Brittany: 60, 90, 96, 92, 77</p><p>Michael: 44, 50, 99, 65, 10</p><table id="multi-dimensional_array"><caption>Multidimensional array</caption><thead><tr><th/><th>[0]</th><th>[1]</th><th>[2]</th><th>[3]</th><th>[4]</th></tr></thead><tbody><tr><td><p><strong>[0]</strong></p></td><td><p>73</p></td><td><p>98</p></td><td><p>86</p></td><td><p>61</p></td><td><p>96</p></td></tr><tr><td><p><strong>[1]</strong></p></td><td><p>60</p></td><td><p>90</p></td><td><p>96</p></td><td><p>92</p></td><td><p>77</p></td></tr><tr><td><p><strong>[2]</strong></p></td><td><p>44</p></td><td><p>50</p></td><td><p>99</p></td><td><p>65</p></td><td><p>10</p></td></tr></tbody></table><p>The best way to represent this data is to create one array with
-      three indices and to have each index contain five elements. This is
-      basically an array with three rows and five columns. To create such an
-      array in Ruby, type in the following:</p><pre id="pro_id00041" data-type="programlisting" data-code-language="ruby">arr = [[73, 98, 86, 61, 96],
+96</pre>
+
+<p>However, in Ruby it is possible to accomplish the same goal in one line of code:</p>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting" id="pro_id00039">
+puts arr</pre>
+
+<p>This example is meant to be merely an introduction to simple array traversal. More practical reasons to use loops and arrays together are illustrated later.</p>
+</section>
+
+<section data-type="sect2" id="example_find_the_max">
+<h2>Example: Find the Max</h2>
+
+<p>The example in shows how to find the maximum of a list of five non-negative numbers. What would you need to change to support negative numbers?</p>
+
+<div data-type="example" id="find_the_max">
+<h5>Find the max</h5>
+
+<pre class="pre " data-code-language="ruby" data-executable="true" data-type="programlisting">
+# Initialize array and loop values
+arr = [73, 98, 86, 61, 96]
+index = 0
+max = 0
+
+# Loop over each element in arr
+while (index &lt; arr.size)
+   if (arr[index] &gt; max)
+      # Update max
+      max = arr[index]
+    end
+    index = index + 1
+end
+
+# Output calculated max
+puts &quot;Max ==&gt; &quot; + max.to_s
+</pre>
+<!--?hard-pagebreak?-->
+
+<ul>
+	<li>
+	<p>Line 2 creates a new array named <code>arr</code> and initializes its variables.</p>
+	</li>
+	<li>
+	<p>Line 3 sets a counter named <code>index</code> that will serve as an index into the array.</p>
+	</li>
+	<li>
+	<p>Line 4 declares a variable called <code>max</code> that will be used to store the maximum number.</p>
+	</li>
+	<li>
+	<p>Lines 7&ndash;13 implement a loop that scans every element of the array.</p>
+	</li>
+	<li>
+	<p>Line 16 prints the maximum element at the end.</p>
+	</li>
+</ul>
+</div>
+
+<p>Each time the index variable <code>index</code> is incremented in line 12, the <code>if</code> statement in lines 8&ndash;11 tests to see whether the current value in the array indexed at <code>index</code> is higher than the current value in <code>max</code>. If the current value is higher, then the <code>max</code> variable is updated with the highest value.</p>
+
+<p>Run this program, called <code data-type="filename">find_the_max.rb</code>. Your output should be:</p>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting" id="pro_id00040">
+$ ruby find_the_max.rb
+Max ==&gt; 98</pre>
+
+<p>As an exercise to make sure you understand the preceding code, change the example to output the lowest value in the array.</p>
+</section>
+
+<section data-type="sect2" id="sixdot2dot2_multi-dimensional_arrays">
+<h2>6.2.2 Multidimensional Arrays</h2>
+
+<p>Arrays that have more than one dimension are called <em>multidimensional arrays</em>. A common multidimensional array is the two-dimensional array, which can be used to represent matrices and coordinate systems. Unlike some other programming languages, Ruby does not provide built-in support for multidimensional arrays. The way to work around this is to put an array inside an array, which is essentially what a multidimensional array is anyway.</p>
+
+<p>Consider the example in the previous section of an array that stores a list of five test scores for a student. Now, what if you had students with the following scores?</p>
+
+<p>Geraldo: 73, 98, 86, 61, 96</p>
+
+<p>Brittany: 60, 90, 96, 92, 77</p>
+
+<p>Michael: 44, 50, 99, 65, 10</p>
+
+<table id="multi-dimensional_array">
+	<caption>Multidimensional array</caption>
+	<thead>
+		<tr>
+			<th>&nbsp;</th>
+			<th>[0]</th>
+			<th>[1]</th>
+			<th>[2]</th>
+			<th>[3]</th>
+			<th>[4]</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+			<p><strong>[0]</strong></p>
+			</td>
+			<td>
+			<p>73</p>
+			</td>
+			<td>
+			<p>98</p>
+			</td>
+			<td>
+			<p>86</p>
+			</td>
+			<td>
+			<p>61</p>
+			</td>
+			<td>
+			<p>96</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p><strong>[1]</strong></p>
+			</td>
+			<td>
+			<p>60</p>
+			</td>
+			<td>
+			<p>90</p>
+			</td>
+			<td>
+			<p>96</p>
+			</td>
+			<td>
+			<p>92</p>
+			</td>
+			<td>
+			<p>77</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p><strong>[2]</strong></p>
+			</td>
+			<td>
+			<p>44</p>
+			</td>
+			<td>
+			<p>50</p>
+			</td>
+			<td>
+			<p>99</p>
+			</td>
+			<td>
+			<p>65</p>
+			</td>
+			<td>
+			<p>10</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>The best way to represent this data is to create one array with three indices and to have each index contain five elements. This is basically an array with three rows and five columns. To create such an array in Ruby, type in the following:</p>
+
+<pre class="pre" data-code-language="ruby" data-executable="true" data-type="programlisting" id="pro_id00041">
+arr = [[73, 98, 86, 61, 96],
        [60, 90, 96, 92, 77],
-       [44, 50, 99, 65, 10]]</pre><p>By typing in this assignment statement, you have created a 3
-      <span> ×</span> 5 table where the first, second, and third rows
-      represent Geraldo’s, Brittany’s, and Michael’s test scores,
-      respectively. To access an individual score, use the format <code>array[row][column]</code>. So, if you wanted to know
-      what Brittany scored on her third exam (remember, each index starts with
-      0, not 1), type:</p><pre id="pro_id00042" data-type="programlisting" data-code-language="ruby">puts "Brittany's Third Exam: " + arr[1][2].to_s</pre><p>The output should be:</p><pre id="pro_id00043" data-type="programlisting" data-code-language="ruby">Brittany's Third Exam: 96</pre><p>The rules for traversing a multidimensional array are similar to
-      traversing a one-dimensional array, except you have to add a nested loop
-      for each extra dimension. In <a href="#outputting_multidimensional_arrays" data-type="xref"/>, we illustrate how to
-      print out each value in the array <code>arr</code>.</p><div id="outputting_multidimensional_arrays" data-type="example"><h5>Outputting multidimensional arrays</h5><pre data-type="programlisting" data-code-language="ruby">     1 # Initialize array and loop values
+       [44, 50, 99, 65, 10]]
+
+puts &quot;Brittany's Third Exam: &quot; + arr[1][2].to_s</pre>
+
+<p><span style="line-height: 1.5em;">By typing in this assignment statement, you have created a 3 </span><span style="line-height: 1.5em;"> &times;</span><span style="line-height: 1.5em;"> 5 table where the first, second, and third rows represent Geraldo&rsquo;s, Brittany&rsquo;s, and Michael&rsquo;s test scores, respectively. To access an individual score, use the format </span><code style="line-height: 1.5em;">array[row][column]</code><span style="line-height: 1.5em;">. So, if you wanted to know what Brittany scored on her third exam (remember, each index starts with 0, not 1), type:</span></p>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting" id="pro_id00042">
+puts &quot;Brittany's Third Exam: &quot; + arr[1][2].to_s</pre>
+
+<p>The output should be:</p>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting" id="pro_id00043">
+Brittany's Third Exam: 96</pre>
+
+<p>The rules for traversing a multidimensional array are similar to traversing a one-dimensional array, except you have to add a nested loop for each extra dimension. In , we illustrate how to print out each value in the array <code>arr</code>.</p>
+
+<div data-type="example" id="outputting_multidimensional_arrays">
+<h5>Outputting multidimensional arrays</h5>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting">
+     1 # Initialize array and loop values
      2 arr = [[73, 98, 86, 61, 96], 
      3        [60, 90, 96, 92, 77], 
      4        [44, 50, 99, 65, 10]] 
@@ -137,7 +320,7 @@ Max ==&gt; 98</pre><p>As an exercise to make sure you understand the preceding c
      7 
      8 # Loop over each row
      9 while (row &lt; arr.size)
-    10 	puts "Row: " + row.to_s
+    10 	puts &quot;Row: &quot; + row.to_s
     11 	# Loop over each column
     12 	while (column &lt; arr[row].size)
     13 		# Print the item at position row x column
@@ -148,21 +331,36 @@ Max ==&gt; 98</pre><p>As an exercise to make sure you understand the preceding c
     18 	column = 0
     19 	row = row + 1
     20 end
-</pre></div><div id="ch06note03" data-type="note"><h1>Gem of Wisdom</h1><p>Step through <a href="#outputting_multidimensional_arrays" data-type="xref"/> and convince yourself
-        that it generates the values you expect. What output values will be
-        generated? What would happen if we added an <code>if</code> statement after line 13 that asked to
-        skip values that were prime? Give that a try, as it uses our prime
-        number work.</p></div><?hard-pagebreak?><p>Like one-dimensional arrays, you can output everything using one
-      line of code:</p><pre id="pro_id00044" data-type="programlisting" data-code-language="ruby">puts arr</pre><p>The only problem with this statement is that Ruby will list all
-      the values without any formatting. So it would be difficult to sort
-      through all the data. We address means to format output in one
-      particular case as part of our tic-tac-toe example in <a href="#putting_it_all_together_tic-tac-toe" data-type="xref"/>. We do not address
-      formatting generally in this book.</p></section><section id="example_find_the_max_en_dash_modified" data-type="sect2"><h2>Example: Find the Max—Modified</h2><p>In the previous example, we created a program that finds the
-      highest score in the array. Now we will create a program that stores the
-      five scores for all three students. Using what you learned previously,
-      modify the program to find out which student has the highest score.
-      Print out the highest score.</p><p>When you are done with your program, compare your program to the
-      code in <a href="#modified_find_the_max" data-type="xref"/>.</p><div id="modified_find_the_max" data-type="example"><h5>Find the max, modified</h5><pre data-type="programlisting" data-code-language="ruby">     1 # initialize the array and index/score variables
+</pre>
+</div>
+
+<div data-type="note" id="ch06note03">
+<h1>Gem of Wisdom</h1>
+
+<p>Step through and convince yourself that it generates the values you expect. What output values will be generated? What would happen if we added an <code>if</code> statement after line 13 that asked to skip values that were prime? Give that a try, as it uses our prime number work.</p>
+</div>
+<!--?hard-pagebreak?-->
+
+<p>Like one-dimensional arrays, you can output everything using one line of code:</p>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting" id="pro_id00044">
+puts arr</pre>
+
+<p>The only problem with this statement is that Ruby will list all the values without any formatting. So it would be difficult to sort through all the data. We address means to format output in one particular case as part of our tic-tac-toe example in . We do not address formatting generally in this book.</p>
+</section>
+
+<section data-type="sect2" id="example_find_the_max_en_dash_modified">
+<h2>Example: Find the Max&mdash;Modified</h2>
+
+<p>In the previous example, we created a program that finds the highest score in the array. Now we will create a program that stores the five scores for all three students. Using what you learned previously, modify the program to find out which student has the highest score. Print out the highest score.</p>
+
+<p>When you are done with your program, compare your program to the code in .</p>
+
+<div data-type="example" id="modified_find_the_max">
+<h5>Find the max, modified</h5>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting">
+     1 # initialize the array and index/score variables
      2 arr = [[73, 98, 86, 61, 96], 
      3        [60, 90, 96, 92, 77], 
      4        [44, 50, 99, 65, 10]] 
@@ -191,78 +389,121 @@ Max ==&gt; 98</pre><p>As an exercise to make sure you understand the preceding c
     27 
     28 # output name and high score information
     29 if maxrow == 0
-    30    puts "Geraldo has the highest score."
+    30    puts &quot;Geraldo has the highest score.&quot;
     31 elsif maxrow == 1
-    32    puts "Brittany has the highest score."
+    32    puts &quot;Brittany has the highest score.&quot;
     33 elsif maxrow == 2
-    34    puts "Michael has the highest score."
+    34    puts &quot;Michael has the highest score.&quot;
     35 else
-    36    puts "Something didn't work correctly."
+    36    puts &quot;Something didn't work correctly.&quot;
     37 end
-    38 puts "The high score was: " + maxscore.to_s
-</pre></div><ul><li><p>Lines 2–4 initialize a 3 <span> ×</span> 5 array called
-          <code>arr</code>.</p></li><li><p>Lines 6–7 initialize the initial location of the row and
-          column to start traversing the array.</p></li><li><p>Lines 8–9 declare <code>maxscore</code>
-          that will keep track of the highest score and <code>maxrow</code> that will keep track of who has the
-          highest score.</p></li><li><p>Lines 12–26 implement a loop that scans each element of the
-          array.</p></li><li><p>Lines 29–37 compare the value of <code>maxrow</code> and output the corresponding
-          person’s name as the individual with the highest score.</p></li><li><p>Line 38 outputs the highest score.</p></li></ul><p>Intuitively, like the previous example, there is a marker for the
-      highest score. Whenever the program finds a score higher than the
-      current value of <code>maxscore</code>, it updates
-      <span class="keep-together"><code>maxrow</code>
-      to</span> contain the value of the row in which the program found the
-      high score (line 17) and <code>maxscore</code> to
-      reflect the highest score (line 18). The program then uses <code>if-else</code> statements to find out who has the
-      highest score (lines 29–37). Notice again how rows 0, 1, and 2
-      correspond with Geraldo, Brittany, and Michael, respectively. When you
-      run the program, the output should read:</p><pre id="pro_id00045" data-type="programlisting" data-code-language="ruby">$ ruby find_the_max_modified.rb
+    38 puts &quot;The high score was: &quot; + maxscore.to_s
+</pre>
+</div>
+
+<ul>
+	<li>
+	<p>Lines 2&ndash;4 initialize a 3 <span> &times;</span> 5 array called <code>arr</code>.</p>
+	</li>
+	<li>
+	<p>Lines 6&ndash;7 initialize the initial location of the row and column to start traversing the array.</p>
+	</li>
+	<li>
+	<p>Lines 8&ndash;9 declare <code>maxscore</code> that will keep track of the highest score and <code>maxrow</code> that will keep track of who has the highest score.</p>
+	</li>
+	<li>
+	<p>Lines 12&ndash;26 implement a loop that scans each element of the array.</p>
+	</li>
+	<li>
+	<p>Lines 29&ndash;37 compare the value of <code>maxrow</code> and output the corresponding person&rsquo;s name as the individual with the highest score.</p>
+	</li>
+	<li>
+	<p>Line 38 outputs the highest score.</p>
+	</li>
+</ul>
+
+<p>Intuitively, like the previous example, there is a marker for the highest score. Whenever the program finds a score higher than the current value of <code>maxscore</code>, it updates <span class="keep-together"><code>maxrow</code> to</span> contain the value of the row in which the program found the high score (line 17) and <code>maxscore</code> to reflect the highest score (line 18). The program then uses <code>if-else</code> statements to find out who has the highest score (lines 29&ndash;37). Notice again how rows 0, 1, and 2 correspond with Geraldo, Brittany, and Michael, respectively. When you run the program, the output should read:</p>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting" id="pro_id00045">
+$ ruby find_the_max_modified.rb
 Michael has the highest score.
-The high score was: 99</pre></section></section><section id="sixdot3_hashes" data-type="sect1"><h1>6.3 Hashes</h1><p>Unlike arrays, which strictly use integer indices,
-    <em>hashes</em> can use any data type as their index. What
-    Ruby calls a “hash” is really a clever way of using a string data type to
-    map quickly to a specific element inside an array.</p><p>The string is referred to as a hash <em>key</em>. Some
-    kind of function must exist to map a string to a number. For example, a
-    simple hash function could add up the ASCII codes for each letter and
-    implement a modulo for the number of keys we have. A hash collision occurs
-    when our hash function returns the same number for two different keys,
-    which can be handled with various collision resolution algorithms. A
-    simple collision resolution algorithm simply places all keys that have a
-    collision into a <em>bucket</em>, and the bucket is
-    sequentially scanned for the specific key that is requested when a
-    collision occurs. A detailed discussion of hashing is beyond the scope of
-    this book, but we wanted to illustrate the differences between a
-    <em>hash</em> table and an <em>array</em>.</p><p>In most cases, strings are used to associate keys to values. For
-    example, instead of using a two-dimensional array, we can use a hash to
-    store student test scores by name as seen in <a href="#example_hash_usage" data-type="xref"/>. As shown, similar to arrays, line 1
-    creates a new hash structure. Likewise, element assignment, lines 2–4,
-    follow the same process done for arrays.</p><div id="example_hash_usage" data-type="example"><h5>Example hash usage</h5><pre data-type="programlisting" data-code-language="ruby">    1 scores = Hash.new
-    2 scores["Geraldo"] = [98, 95, 93, 96]
-    3 scores["Brittany"] = [74, 90, 84, 92]
-    4 scores["Michael"] = [72, 87, 68, 54, 10]
-</pre></div><?hard-pagebreak?><section id="example_hash" data-type="sect2"><h2>Example: Hash</h2><p>To access Brittany’s score, we could simply call on <code>scores["Brittany"]</code>. Of course, the string
-      <code>"Brittany"</code> can also be replaced by a
-      variable that holds that string.</p><div id="ch06note04" data-type="note"><h1>Gem of Wisdom</h1><p>Arrays are accessed with a numerical index, as in <code>array[5]</code>. Hashes are accessed with a string
-        as the index, as in <code>scores["Brittany"]</code>.</p></div></section><section id="example_accessing_a_hash" data-type="sect2"><h2>Example: Accessing a Hash</h2><div id="example_hash_accessor_usage" data-type="example"><h5>Example hash accessor usage</h5><pre data-type="programlisting" data-code-language="ruby">    1 scores = Hash.new
-    2 scores["Geraldo"] = [98, 95, 93, 96]
-    3 scores["Brittany"] = [74, 90, 84, 92]
-    4 scores["Michael"] = [72, 87, 68, 54, 10]
-    5 name = "Brittany"
-    6 puts name + " first score is: " + scores[name][0].to_s
-</pre></div><p>In line 5 of <a href="#example_hash_accessor_usage" data-type="xref"/>, we
-      assigned “Brittany” to the variable <code>name</code>; so, assuming that the code of <a href="#example_hash_accessor_usage" data-type="xref"/> is stored in file <code data-type="filename">hash_2.rb</code>, executing the code should display
-      Brittany’s first score on the screen:</p><pre id="pro_id00046" data-type="programlisting" data-code-language="ruby">$ ruby hash_2.rb
-Brittany first score is: 74</pre><p>It is possible to get an array of all the keys by calling on
-      <code>scores.keys</code>. We can then go through
-      each key by using a for loop. We can now rewrite the maximum score
-      example to work for any number of students, no matter what their names
-      are or how many scores each student has.</p><p>Note that in our example, the number of individual scores varies
-      among the students. That is, in <a href="#example_hash_accessor_usage" data-type="xref"/>, both "Geraldo" and "Brittany"
-      have four scores each, while "Michael" has five. The ability to have
-      varying numbers of entries provides great <span class="keep-together">flexibility</span>.</p></section><?hard-pagebreak?><section id="example_find_the_max_en_dash_hash" data-type="sect2"><h2>Example: Find the Max—Hash</h2><div id="find_the_max_en_dash_hash" data-type="example"><h5>Find the max—hash</h5><pre data-type="programlisting" data-code-language="ruby">     1 scores = Hash.new
+The high score was: 99</pre>
+</section>
+</section>
+
+<section data-type="sect1" id="sixdot3_hashes">
+<h1>6.3 Hashes</h1>
+
+<p>Unlike arrays, which strictly use integer indices, <em>hashes</em> can use any data type as their index. What Ruby calls a &ldquo;hash&rdquo; is really a clever way of using a string data type to map quickly to a specific element inside an array.</p>
+
+<p>The string is referred to as a hash <em>key</em>. Some kind of function must exist to map a string to a number. For example, a simple hash function could add up the ASCII codes for each letter and implement a modulo for the number of keys we have. A hash collision occurs when our hash function returns the same number for two different keys, which can be handled with various collision resolution algorithms. A simple collision resolution algorithm simply places all keys that have a collision into a <em>bucket</em>, and the bucket is sequentially scanned for the specific key that is requested when a collision occurs. A detailed discussion of hashing is beyond the scope of this book, but we wanted to illustrate the differences between a <em>hash</em> table and an <em>array</em>.</p>
+
+<p>In most cases, strings are used to associate keys to values. For example, instead of using a two-dimensional array, we can use a hash to store student test scores by name as seen in . As shown, similar to arrays, line 1 creates a new hash structure. Likewise, element assignment, lines 2&ndash;4, follow the same process done for arrays.</p>
+
+<div data-type="example" id="example_hash_usage">
+<h5>Example hash usage</h5>
+
+<pre data-code-language="ruby" data-type="programlisting">
+    1 scores = Hash.new
+    2 scores[&quot;Geraldo&quot;] = [98, 95, 93, 96]
+    3 scores[&quot;Brittany&quot;] = [74, 90, 84, 92]
+    4 scores[&quot;Michael&quot;] = [72, 87, 68, 54, 10]
+</pre>
+</div>
+<!--?hard-pagebreak?-->
+
+<section data-type="sect2" id="example_hash">
+<h2>Example: Hash</h2>
+
+<p>To access Brittany&rsquo;s score, we could simply call on <code>scores[&quot;Brittany&quot;]</code>. Of course, the string <code>&quot;Brittany&quot;</code> can also be replaced by a variable that holds that string.</p>
+
+<div data-type="note" id="ch06note04">
+<h1>Gem of Wisdom</h1>
+
+<p>Arrays are accessed with a numerical index, as in <code>array[5]</code>. Hashes are accessed with a string as the index, as in <code>scores[&quot;Brittany&quot;]</code>.</p>
+</div>
+</section>
+
+<section data-type="sect2" id="example_accessing_a_hash">
+<h2>Example: Accessing a Hash</h2>
+
+<div data-type="example" id="example_hash_accessor_usage">
+<h5>Example hash accessor usage</h5>
+
+<pre data-code-language="ruby" data-type="programlisting">
+    1 scores = Hash.new
+    2 scores[&quot;Geraldo&quot;] = [98, 95, 93, 96]
+    3 scores[&quot;Brittany&quot;] = [74, 90, 84, 92]
+    4 scores[&quot;Michael&quot;] = [72, 87, 68, 54, 10]
+    5 name = &quot;Brittany&quot;
+    6 puts name + &quot; first score is: &quot; + scores[name][0].to_s
+</pre>
+</div>
+
+<p>In line 5 of , we assigned &ldquo;Brittany&rdquo; to the variable <code>name</code>; so, assuming that the code of is stored in file <code data-type="filename">hash_2.rb</code>, executing the code should display Brittany&rsquo;s first score on the screen:</p>
+
+<pre data-code-language="ruby" data-type="programlisting" id="pro_id00046">
+$ ruby hash_2.rb
+Brittany first score is: 74</pre>
+
+<p>It is possible to get an array of all the keys by calling on <code>scores.keys</code>. We can then go through each key by using a for loop. We can now rewrite the maximum score example to work for any number of students, no matter what their names are or how many scores each student has.</p>
+
+<p>Note that in our example, the number of individual scores varies among the students. That is, in , both &quot;Geraldo&quot; and &quot;Brittany&quot; have four scores each, while &quot;Michael&quot; has five. The ability to have varying numbers of entries provides great <span class="keep-together">flexibility</span>.</p>
+</section>
+<!--?hard-pagebreak?-->
+
+<section data-type="sect2" id="example_find_the_max_en_dash_hash">
+<h2>Example: Find the Max&mdash;Hash</h2>
+
+<div data-type="example" id="find_the_max_en_dash_hash">
+<h5>Find the max&mdash;hash</h5>
+
+<pre class="pre " data-code-language="ruby" data-type="programlisting">
+     1 scores = Hash.new
      2 
-     3 scores["Geraldo"] = [98, 95, 93, 96]
-     4 scores["Brittany"] = [74, 90, 84, 92]
-     5 scores["Michael"] = [72, 87, 68, 54, 10]
+     3 scores[&quot;Geraldo&quot;] = [98, 95, 93, 96]
+     4 scores[&quot;Brittany&quot;] = [74, 90, 84, 92]
+     5 scores[&quot;Michael&quot;] = [72, 87, 68, 54, 10]
      6 
      7 maxscore = 0
      8 for name in scores.keys
@@ -277,57 +518,101 @@ Brittany first score is: 74</pre><p>It is possible to get an array of all the ke
     17 	end
     18 end
     19 
-    20 puts maxname + " has the highest score."
-    21 puts "The highest score is: " + maxscore.to_s
-</pre></div><p>We see that running the code from <a href="#find_the_max_en_dash_hash" data-type="xref"/>, stored in file <code data-type="filename">find_max_hash.rb</code>, will output the following
-      result:</p><pre id="pro_id00047" data-type="programlisting" data-code-language="ruby">$ ruby find_max_hash.rb
+    20 puts maxname + &quot; has the highest score.&quot;
+    21 puts &quot;The highest score is: &quot; + maxscore.to_s
+</pre>
+</div>
+
+<p>We see that running the code from , stored in file <code data-type="filename">find_max_hash.rb</code>, will output the following result:</p>
+
+<pre data-code-language="ruby" data-type="programlisting" id="pro_id00047">
+$ ruby find_max_hash.rb
 Geraldo has the highest score.
-The highest score is: 98</pre><p>Note that the entries in this hash differ from the entries used in
-      the array example.</p><p>Hashes cannot replace arrays outright. Due to the nature of their
-      keys, they do not actually have any sensible sequence for their
-      elements. Hashes and arrays serve separate but similar roles. Hashes
-      excel at lookup. A hash keyed on name with a phone number as a value is
-      much easier to work with than a multidimensional array of names and
-      phone numbers.</p><p>Arrays refer to a sequence of variables where each variable does
-      not have a name; instead, it is referenced by an integer index. That is,
-      <code>arr[i]</code> refers to the
-      <em>i</em><sup>th</sup> element in the
-      sequence, remembering that indices start at 0. In contrast, a hash table
-      uses a key-value pairing to identify the particular entry. In the
-      earlier example, we wish to access test scores based on a person’s name.
-      That is, the hash table <code>arr</code>[<code>'Geraldo'</code>] identifies <span class="keep-together">Geraldo’s</span> test scores even though Geraldo
-      is not an integer. Such referencing supports both efficient access and
-      logical correlations.</p></section></section><section id="sixdot4_summary" data-type="sect1"><h1>6.4 Summary</h1><p>We discussed one-dimensional arrays, arrays of arrays, and hashes.
-    These are constructs that often take students time to learn, so we
-    strongly suggest that you work through all the exercises in this chapter
-    to ensure that you have a full understanding of these <span class="keep-together">concepts</span>.</p><section id="sixdot4dot1_key_concepts" data-type="sect2"><h2>6.4.1 Key Concepts</h2><ul><li><p><em>Arrays</em> are structures that use a table
-          format to store variables. The data stored in an array is accessed
-          using numbers as an index starting at 0. They can be used in any
-          programming structure, but they are most commonly associated with
-          the loop structure.</p></li><li><p>One key concept when working with <em>arrays</em>
-          is that they can have an infinite number of
-          <em>dimensions</em>. This means that a memory location
-          within an array can either store a single piece of data or store an
-          entirely new array.</p></li><li><p><em>Hashes</em> are much like arrays, except that
-          rather than using only an integer to look up a memory location, any
-          variable can be used as a key.</p></li></ul></section><section id="sixdot4dot2_key_definitions" data-type="sect2"><h2>6.4.2 Key Definitions</h2><ul><li><p><em>Array</em>: A consecutively numbered list of
-          variables.</p></li><li><p><em>Element</em>: A variable contained within an
-          array.</p></li><li><p><em>Multidimensional array</em>: An array whose
-          elements are also arrays.</p></li><li><p><em>Index</em>: The number associated with a
-          certain element within an array.</p></li><li><p><em>Traverse</em>: To move from one element to
-          another within an array.</p></li><li><p><em>Hash</em>: A data structure that can map any
-          data type (key) to a value.</p></li></ul></section></section><section id="sixdot5_exercises" data-type="sect1"><h1>6.5 Exercises</h1><ol class="qonly"><li><p>Using the array <code>arr</code> with
-        value <code>a[0] = 9, a[1] = 2, a[2] = 5, a[3] = 4,
-        a[4] = 3,</code> determine the output of the code in <a href="#code_for_exercise_6dot1" data-type="xref"/>.</p><div id="code_for_exercise_6dot1" data-type="example"><h5>Code for Exercise 1</h5><pre data-type="programlisting" data-code-language="ruby">    1 i = 0
+The highest score is: 98</pre>
+
+<p>Note that the entries in this hash differ from the entries used in the array example.</p>
+
+<p>Hashes cannot replace arrays outright. Due to the nature of their keys, they do not actually have any sensible sequence for their elements. Hashes and arrays serve separate but similar roles. Hashes excel at lookup. A hash keyed on name with a phone number as a value is much easier to work with than a multidimensional array of names and phone numbers.</p>
+
+<p>Arrays refer to a sequence of variables where each variable does not have a name; instead, it is referenced by an integer index. That is, <code>arr[i]</code> refers to the <em>i</em><sup>th</sup> element in the sequence, remembering that indices start at 0. In contrast, a hash table uses a key-value pairing to identify the particular entry. In the earlier example, we wish to access test scores based on a person&rsquo;s name. That is, the hash table <code>arr</code>[<code>'Geraldo'</code>] identifies <span class="keep-together">Geraldo&rsquo;s</span> test scores even though Geraldo is not an integer. Such referencing supports both efficient access and logical correlations.</p>
+</section>
+</section>
+
+<section data-type="sect1" id="sixdot4_summary">
+<h1>6.4 Summary</h1>
+
+<p>We discussed one-dimensional arrays, arrays of arrays, and hashes. These are constructs that often take students time to learn, so we strongly suggest that you work through all the exercises in this chapter to ensure that you have a full understanding of these <span class="keep-together">concepts</span>.</p>
+
+<section data-type="sect2" id="sixdot4dot1_key_concepts">
+<h2>6.4.1 Key Concepts</h2>
+
+<ul>
+	<li>
+	<p><em>Arrays</em> are structures that use a table format to store variables. The data stored in an array is accessed using numbers as an index starting at 0. They can be used in any programming structure, but they are most commonly associated with the loop structure.</p>
+	</li>
+	<li>
+	<p>One key concept when working with <em>arrays</em> is that they can have an infinite number of <em>dimensions</em>. This means that a memory location within an array can either store a single piece of data or store an entirely new array.</p>
+	</li>
+	<li>
+	<p><em>Hashes</em> are much like arrays, except that rather than using only an integer to look up a memory location, any variable can be used as a key.</p>
+	</li>
+</ul>
+</section>
+
+<section data-type="sect2" id="sixdot4dot2_key_definitions">
+<h2>6.4.2 Key Definitions</h2>
+
+<ul>
+	<li>
+	<p><em>Array</em>: A consecutively numbered list of variables.</p>
+	</li>
+	<li>
+	<p><em>Element</em>: A variable contained within an array.</p>
+	</li>
+	<li>
+	<p><em>Multidimensional array</em>: An array whose elements are also arrays.</p>
+	</li>
+	<li>
+	<p><em>Index</em>: The number associated with a certain element within an array.</p>
+	</li>
+	<li>
+	<p><em>Traverse</em>: To move from one element to another within an array.</p>
+	</li>
+	<li>
+	<p><em>Hash</em>: A data structure that can map any data type (key) to a value.</p>
+	</li>
+</ul>
+</section>
+</section>
+
+<section data-type="sect1" id="sixdot5_exercises">
+<h1>6.5 Exercises</h1>
+
+<ol class="qonly">
+	<li>
+	<p>Using the array <code>arr</code> with value <code>a[0] = 9, a[1] = 2, a[2] = 5, a[3] = 4, a[4] = 3,</code> determine the output of the code in .</p>
+
+	<div data-type="example" id="code_for_exercise_6dot1">
+	<h5>Code for Exercise 1</h5>
+
+	<pre data-code-language="ruby" data-type="programlisting">
+    1 i = 0
     2 
     3 while (i &lt; a.size)
     4 	puts a[i]
     5 	i = i + 1
     6 end
-</pre></div></li><li><p>The code in <a href="#code_for_exercise_6dot2" data-type="xref"/> looks for
-        the first two elements that are out of order and swaps them; however,
-        it is not producing the correct results. Fix the code so that it works
-        correctly.</p><div id="code_for_exercise_6dot2" data-type="example"><h5>Code for Exercise 2</h5><pre data-type="programlisting" data-code-language="ruby">    1 arr = [5, 22, 29, 39, 19, 51, 78, 96, 84]
+</pre>
+	</div>
+	</li>
+	<li>
+	<p>The code in looks for the first two elements that are out of order and swaps them; however, it is not producing the correct results. Fix the code so that it works correctly.</p>
+
+	<div data-type="example" id="code_for_exercise_6dot2">
+	<h5>Code for Exercise 2</h5>
+
+	<pre data-code-language="ruby" data-type="programlisting">
+    1 arr = [5, 22, 29, 39, 19, 51, 78, 96, 84]
     2 i = 0 
     3 while (i &lt; arr.size - 1 and arr[i] &lt; arr[i + 1])
     4     i = i + 1 
@@ -336,131 +621,87 @@ The highest score is: 98</pre><p>Note that the entries in this hash differ from 
     7 
     8 arr[i] = arr[i + 1]
     9 arr[i + 1] = arr[i]
-</pre></div></li><li><p>Write a program that splits an array into two arrays where any
-        element in one array is smaller than any element in the other array.
-        Solutions are not unique, but equally sized splits are desirable. The
-        input can be any size array less than 100.</p><p>Example input: <code>[6, 45, 23, 65, 17, 48,
-        97, 32, 18, 9, 88]</code></p><p>Example output: <code>[6, 23, 17, 18 , 9]
-        &lt; [45, 65, 48, 97, 32, 88]</code></p></li><li><p>There are many ways to store image data. One way is to store
-        pixel data in a two-dimensional array. The pixel data is itself a
-        three-element array that describes the amount of red, green, and blue
-        in the pixel. The amount of red, green, or blue is a number from 0 to
-        255. Here are a few example RGB values:</p><pre id="pro_id00048" data-type="programlisting" data-code-language="ruby">red = [255, 0, 0]
+</pre>
+	</div>
+	</li>
+	<li>
+	<p>Write a program that splits an array into two arrays where any element in one array is smaller than any element in the other array. Solutions are not unique, but equally sized splits are desirable. The input can be any size array less than 100.</p>
+
+	<p>Example input: <code>[6, 45, 23, 65, 17, 48, 97, 32, 18, 9, 88]</code></p>
+
+	<p>Example output: <code>[6, 23, 17, 18 , 9] &lt; [45, 65, 48, 97, 32, 88]</code></p>
+	</li>
+	<li>
+	<p>There are many ways to store image data. One way is to store pixel data in a two-dimensional array. The pixel data is itself a three-element array that describes the amount of red, green, and blue in the pixel. The amount of red, green, or blue is a number from 0 to 255. Here are a few example RGB values:</p>
+
+	<pre data-code-language="ruby" data-type="programlisting" id="pro_id00048">
+red = [255, 0, 0]
 green = [0, 255, 0]
 blue = [0, 0, 255]
 black = [0, 0, 0]
 white = [255, 255, 255]
-yellow = [255, 255, 0]</pre><p>Suppose you have a picture and need to count red pixels. For a
-        pixel to be red, it must be within the following RGB
-        constraints:</p><ol><li><p>The <code>R</code> value must be
-            greater than 100.</p></li><li><p>The <code>G</code> and <code>B</code> values must each be less than the
-            <code>R</code> value divided by 4.</p></li></ol><?hard-pagebreak?><p>Write this program. Use this sample data to test your
-        program:</p><pre id="pro_id00049" data-type="programlisting" data-code-language="ruby">sample =
+yellow = [255, 255, 0]</pre>
+
+	<p>Suppose you have a picture and need to count red pixels. For a pixel to be red, it must be within the following RGB constraints:</p>
+
+	<ol>
+		<li>
+		<p>The <code>R</code> value must be greater than 100.</p>
+		</li>
+		<li>
+		<p>The <code>G</code> and <code>B</code> values must each be less than the <code>R</code> value divided by 4.</p>
+		</li>
+	</ol>
+	<!--?hard-pagebreak?-->
+
+	<p>Write this program. Use this sample data to test your program:</p>
+
+	<pre data-code-language="ruby" data-type="programlisting" id="pro_id00049">
+sample =
 [[[ 65, 67, 23], [234,176,  0], [143,  0,  0]],
  [[255, 30, 51], [156, 41, 38], [  3,243,176]],
  [[255,255,255], [  0,  0,  0], [133, 28, 13]],
- [[ 26, 43,255], [ 48,  2,  2], [ 57, 89,202]]]</pre><p>This sample has three red pixels.</p></li><li><p>Function-plotting software must calculate a function at many
-        points to plot it. Given the function:</p><div id="ch06equ01" data-type="equation"><math xmlns="http://www.w3.org/1998/Math/MathML">
-            <mml:mrow xmlns:mml="http://www.w3.org/1998/Math/MathML">
-              <mml:mrow>
-                <mml:mi>f</mml:mi>
+ [[ 26, 43,255], [ 48,  2,  2], [ 57, 89,202]]]</pre>
 
-                <mml:mrow>
-                  <mml:mrow>
-                    <mml:mo>(</mml:mo>
+	<p>This sample has three red pixels.</p>
+	</li>
+	<li>
+	<p>Function-plotting software must calculate a function at many points to plot it. Given the function:</p>
 
-                    <mml:mi>x</mml:mi>
+	<div data-type="equation" id="ch06equ01"><math xmlns="http://www.w3.org/1998/Math/MathML"> <mml:mrow xmlns:mml="http://www.w3.org/1998/Math/MathML"> <mml:mrow> <mml:mi>f</mml:mi> <mml:mrow> <mml:mrow> <mml:mo>(</mml:mo> <mml:mi>x</mml:mi> <mml:mo>)</mml:mo> </mml:mrow> </mml:mrow> <mml:mo>=</mml:mo> <mml:mfrac> <mml:mrow> <mml:mstyle displaystyle="true" scriptlevel="0"> <mml:mrow> <mml:msup> <mml:mrow> <mml:mi>x</mml:mi> </mml:mrow> <mml:mrow> <mml:mn>4</mml:mn> </mml:mrow> </mml:msup> <mml:mo>+</mml:mo> <mml:mn>17</mml:mn> <mml:mo>&times;</mml:mo> <mml:msup> <mml:mrow> <mml:mi>x</mml:mi> </mml:mrow> <mml:mrow> <mml:mn>3</mml:mn> </mml:mrow> </mml:msup> <mml:mo>&minus;</mml:mo> <mml:mn>416</mml:mn> <mml:mo>&times;</mml:mo> <mml:msup> <mml:mrow> <mml:mi>x</mml:mi> </mml:mrow> <mml:mrow> <mml:mn>2</mml:mn> </mml:mrow> </mml:msup> <mml:mo>&minus;</mml:mo> <mml:mn>612</mml:mn> <mml:mo>&times;</mml:mo> <mml:mi>x</mml:mi> <mml:mo>+</mml:mo> <mml:mn>2500</mml:mn> </mml:mrow> </mml:mstyle> </mml:mrow> <mml:mrow> <mml:mstyle displaystyle="true" scriptlevel="0"> <mml:mrow> <mml:mn>500</mml:mn> </mml:mrow> </mml:mstyle> </mml:mrow> </mml:mfrac> </mml:mrow> </mml:mrow> </math></div>
 
-                    <mml:mo>)</mml:mo>
-                  </mml:mrow>
-                </mml:mrow>
+	<ol type="a">
+		<li>
+		<p>Write a program that calculates and stores 100,000 values for <em>f</em> (<em>x</em>) between <span class="keep-together"><em>x</em> = &ndash;50 and <em>x</em> = 50.</span></p>
+		</li>
+		<li>
+		<p>Extend the program so that it searches for values for <em>x</em> that are very close to, or are, zero. How many <em>x</em> values between &ndash;50 and 50 make <em>f</em>(<em>x</em>) zero? What are they?</p>
+		</li>
+	</ol>
+	</li>
+	<li>
+	<p>The three witches in <em>Hamlet</em> can brew any potion provided they have the right ingredients. Suppose that five ingredients are necessary in making a health potion: eye of newt (eon), toe of frog (tof), wool of bat (wob), adder&rsquo;s fork (af), and tooth of wolf (tow). Four reactions can occur between these ingredients:</p>
 
-                <mml:mo>=</mml:mo>
+	<ul>
+		<li>
+		<p>4 eon + 2 wob = 3 af + 4 tow</p>
+		</li>
+		<li>
+		<p>3 tow + 1 tof = 2 eon</p>
+		</li>
+		<li>
+		<p>1 wob + 2 af = 1 tof</p>
+		</li>
+		<li>
+		<p>4 tof + 7 tow + 2 af = 1 health potion</p>
 
-                <mml:mfrac>
-                  <mml:mrow>
-                    <mml:mstyle displaystyle="true" scriptlevel="0">
-                      <mml:mrow>
-                        <mml:msup>
-                          <mml:mrow>
-                            <mml:mi>x</mml:mi>
-                          </mml:mrow>
+		<p>Assuming you can control the order of reactions, write a program that can calculate the maximum number of health potions one can brew with a given amount of ingredients. Here is example output:</p>
 
-                          <mml:mrow>
-                            <mml:mn>4</mml:mn>
-                          </mml:mrow>
-                        </mml:msup>
-
-                        <mml:mo>+</mml:mo>
-
-                        <mml:mn>17</mml:mn>
-
-                        <mml:mo>×</mml:mo>
-
-                        <mml:msup>
-                          <mml:mrow>
-                            <mml:mi>x</mml:mi>
-                          </mml:mrow>
-
-                          <mml:mrow>
-                            <mml:mn>3</mml:mn>
-                          </mml:mrow>
-                        </mml:msup>
-
-                        <mml:mo>−</mml:mo>
-
-                        <mml:mn>416</mml:mn>
-
-                        <mml:mo>×</mml:mo>
-
-                        <mml:msup>
-                          <mml:mrow>
-                            <mml:mi>x</mml:mi>
-                          </mml:mrow>
-
-                          <mml:mrow>
-                            <mml:mn>2</mml:mn>
-                          </mml:mrow>
-                        </mml:msup>
-
-                        <mml:mo>−</mml:mo>
-
-                        <mml:mn>612</mml:mn>
-
-                        <mml:mo>×</mml:mo>
-
-                        <mml:mi>x</mml:mi>
-
-                        <mml:mo>+</mml:mo>
-
-                        <mml:mn>2500</mml:mn>
-                      </mml:mrow>
-                    </mml:mstyle>
-                  </mml:mrow>
-
-                  <mml:mrow>
-                    <mml:mstyle displaystyle="true" scriptlevel="0">
-                      <mml:mrow>
-                        <mml:mn>500</mml:mn>
-                      </mml:mrow>
-                    </mml:mstyle>
-                  </mml:mrow>
-                </mml:mfrac>
-              </mml:mrow>
-            </mml:mrow>
-          </math></div><ol type="a"><li><p>Write a program that calculates and stores 100,000 values
-            for <em>f</em> (<em>x</em>) between
-            <span class="keep-together"><em>x</em> = –50 and
-            <em>x</em> = 50.</span></p></li><li><p>Extend the program so that it searches for values for
-            <em>x</em> that are very close to, or are, zero. How
-            many <em>x</em> values between –50 and 50 make
-            <em>f</em>(<em>x</em>) zero? What are
-            they?</p></li></ol></li><li><p>The three witches in <em>Hamlet</em> can brew any
-        potion provided they have the right ingredients. Suppose that five
-        ingredients are necessary in making a health potion: eye of newt
-        (eon), toe of frog (tof), wool of bat (wob), adder’s fork (af), and
-        tooth of wolf (tow). Four reactions can occur between these
-        ingredients:</p><ul><li><p>4 eon + 2 wob = 3 af + 4 tow</p></li><li><p>3 tow + 1 tof = 2 eon</p></li><li><p>1 wob + 2 af = 1 tof</p></li><li><p>4 tof + 7 tow + 2 af = 1 health potion</p><p>Assuming you can control the order of reactions, write a
-            program that can calculate the maximum number of health potions
-            one can brew with a given amount of ingredients. Here is example
-            output:</p><pre data-type="programlisting" data-code-language="ruby">If I have 34 eon, 59 tof, 20 wob, 5 af, and 20 tow, I can make seven health potions.</pre></li></ul></li></ol></section></section>
+		<pre data-code-language="ruby" data-type="programlisting">
+If I have 34 eon, 59 tof, 20 wob, 5 af, and 20 tow, I can make seven health potions.</pre>
+		</li>
+	</ul>
+	</li>
+</ol>
+</section>
+</section>
