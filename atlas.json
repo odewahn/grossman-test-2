@@ -21,7 +21,8 @@
     },
     "html": {
       "toc": true,
-      "index": false
+      "index": false,
+      "pygments": false
     }
   },
   "theme": "oreillymedia/animal_theme",
