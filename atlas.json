@@ -1,7 +1,8 @@
 {
   "branch": "master",
   "files": [
-    "ch05.html"
+    "ch05.html",
+    "ch06.html"
   ],
   "formats": {
     "pdf": {
