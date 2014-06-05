@@ -34,21 +34,25 @@ puts &quot;Hello World.&quot;
 put &quot;Welcome to Black Jack&quot;
 </pre>
 
-<p>You'll get the following (which should send confusing thoughts to your brain and make you less sure that learning how to program is going to be so fun).&nbsp;</p>
+<p>You'll get the following (which should send confusing thoughts to your brain and make you less sure that learning how to program is going to be so fun).&nbsp;&nbsp; Trust us, its an awesome feeling when you get something to work that you thought at the start that you might not be able to get it work.&nbsp;&nbsp;</p>
 
 <p class="p1"><strong>NoMethodError: undefined method `put' for main:Object</strong></p>
 
 <p>You'll get a nice message of &quot;NoMethodError: undefined method for put&quot;. &nbsp; It is amazing anyone thinks computers are so smart.&nbsp; &nbsp; People are far more resilient.&nbsp; One little character. &nbsp;</p>
 
-<p>So annoying that computers have to always care about every last little letter. &nbsp; &nbsp;Notice that it starts speaking greek immediately. &nbsp;</p>
+<p>It is annoying that computers have to always care about every last little letter. &nbsp;&nbsp;</p>
 
-<p>Well first it tells you the type of error you have followed by a colon. &nbsp;In this case you have a <strong>NoMethodError</strong>. &nbsp; What on earth is a method and why in heavens is it bad to not have one? &nbsp;</p>
+<p>Lets take this error message piece by piece.</p>
 
-<p>Well it turns out a method is piece of code that you might want to repeat. &nbsp;Terrific name isn't it. &nbsp; We will talk about this more later.&nbsp; Some languages call it a function. &nbsp;Bet that doesn't help either, but if you remember in math, functions are used to make life easier to express equations. &nbsp;You could say y = x + 2 but if you define a function on x you'd have f(x) = x + 2 and then you could then say y &nbsp;= f(x) . &nbsp;For really long equations y=f(x) is way easier to look at then the whole equation.</p>
+<p>Well first it tells you the type of error you have followed by a colon. &nbsp;In this case you have a <strong>NoMethodError</strong>. &nbsp;</p>
 
-<p>Anyway, &nbsp;you simplify your computer programs with methods and we'll get to all that later. &nbsp;We just wanted you to know its a thing that comes in handy to make it so you don't have to write the same programming code over and over. So Ruby has a way to make it so you can define new methods. &nbsp;When you entered <strong>puts</strong>, that actually referenced a method the people who invented ruby built to output whatever you put &nbsp;in quotes to the screen. &nbsp;</p>
+<p>Well it turns out a <em>method</em> is piece of code that you might want to repeat. &nbsp;Terrific name isn't it. &nbsp; We will talk about this more later.&nbsp; Some languages call it a <em>function</em> based on the mathmatical definition of a function.&nbsp;&nbsp; In Math and in Computer Science, functions are used to make life easier to express equations. &nbsp; A simple function is <strong>f(x) = x + 2</strong>.&nbsp; This means whenever we send the <strong>f&nbsp;</strong> function a value for <strong>x, </strong>we want it to return a value that adds two to the value we sent.&nbsp; So if we ask for f(4), the result of the function is 6.&nbsp;</p>
 
-<p>When you got rid of the S, the ruby interpreter (the thing that processes each Ruby command) decided you must have written your own grand method called PUT and it looked for it. &nbsp;It couldn't find it so it threw up its hands and said, HEY you must be so SMART that you have written your very own method and now sadly I can't find it. &nbsp;</p>
+<p>Anyway, &nbsp;you simplify your computer programs with methods and we'll get to all that later. &nbsp;We just wanted you to know its a thing that comes in handy to make it so you don't have to write the same programming code over and over.</p>
+
+<p>So Ruby has a way to make it so you can define new methods. &nbsp;When you entered <strong>puts</strong>, that referenced a method that was written by the people who invented Ruby and its job is to output the string that follows to the screen.&nbsp;&nbsp;</p>
+
+<p>When you got rid of the <em>s</em> in <em><strong>puts </strong></em>and just entered <strong>put</strong>, the ruby interpreter (the thing that processes each Ruby command) decided you must have written a new method called <strong>put.&nbsp; </strong>It looked for it and couldn't find it and gave you a <strong>NoMethodError. </strong></p>
 
 <p>Now fix your PUT to PUTS and get it to work again. &nbsp; What a relief that is.</p>
 
@@ -67,32 +71,10 @@ Now you get a new error message
 
 <p class="p1"><strong>NameError: undefined local variable or method `blackjack' for main:Object</strong></p>
 
-<p>Aren't you glad you are doing this with such friendly error messages? &nbsp;Well now the Ruby interpreter says you entered PUTS correctly so it was thinking you would follow it with a nice piece of text in quotes so that Ruby (and a lot of other languages) would think you were referring to a thing called a STRING. &nbsp;A STRING is a type of data that can be output nicely to the screen and it can include numbers and letters. &nbsp;You can't do math on a string like ask the computer to divide one string by another string.&nbsp;</p>
+<p>Well now the Ruby interpreter says you entered PUTS correctly so it was thinking you would follow it with a nice <strong>string. </strong>&nbsp; With quotes, the string has a value that is inside of the quotes, without quotes the string is assumed to be in a variable.&nbsp;</p>
 
-<p>The truth is the Ruby interpreter when using the&nbsp;<strong>puts&nbsp;</strong>method looks for a variable that is of type STRING to come next. &nbsp;</p>
-
-<p>So you could say puts &quot;hello&quot; and that assigns &quot;hello&quot; to a variable (a thing that hold different values over time) and then displays it.&nbsp;</p>
-
-<p>if you said&nbsp;</p>
-
-<pre class="pre " data-type="programlisting">
-x = &quot;hello&quot;
-
-puts x</pre>
-
-<p>that will assign &quot;hello&quot; to the variable named x and then output x.&nbsp;</p>
-
-<p>When you took off the quotes around <em>Welcome to blackjack</em> -- ruby thought you were referring to a variable named <em>WELCOME</em>. &nbsp;It thought somewhere you must have been trying to to assign it a value. &nbsp;So it looked in its entire lexicon of variables for welcome and didn't find it so it gave you a NAME ERROR thinking you must have mis-spelled the variable. &nbsp;Then it said undefined local variable. &nbsp; In Ruby you can use a method to obtain values so either a variable or method would work so it went ahead and looked for methods named blackjack as well. &nbsp;It didn't find one so it said &quot;undefined local variable or method&quot; then it was nice enough to tell you what it couldn't find -- it was hunting for blackjack and it didn't find it and so it even told you what it was hunting for (and we just put it in italic).&nbsp;</p>
-
-<p><strong>NameError: undefined local variable or method <em>`blackjack' </em>for main:Object</strong></p>
-
-<p>Ruby uses a thing called OBJECTS and they are just containers that &nbsp;contain methods and variables -- we'll be using them for various things in the game. &nbsp;CARD, DEALER, PLAYER are all good objects, but we'll &nbsp;talk more about that later.&nbsp;</p>
-
-<p>Anyway the Ruby interpreter hunted in the current object called MAIN and couldn't find anything so it told you where it was looking in main:object.&nbsp;</p>
-
-<p>So the Ruby interpreter spat out a bunch of gibberish but if you take a deep breath and read it slowly it can often contains hints on how to fix things. &nbsp;Most people new to programming see an error message and it has stuff in it that makes zero sense and so they just skip it and ask the teacher how to fix the problem.&nbsp;&nbsp; So don't panic when you get an error message and just read them and check and see if some little error is the problem.&nbsp;</p>
-
-<p>Sometimes you won't find the error because its a little like looking for spelling errors in your own e-mails (without a spell checker).&nbsp; You don't see the mistake because you are thinking you got it right.&nbsp; Sometimes it helps to take a break, go do something else for a few minutes, come back and look for the error again.</p>
+<p>When you took off the quotes around <em>Welcome to blackjack</em> -- ruby thought you were referring to a variable named <em>WELCOME</em>.&nbsp;&nbsp; We never defined this variable so it then said <strong>undefined local variable</strong>. &nbsp;</p>
+We showed you these two error messages for a reason. So if you end up getting one, you will have seen it before and you will know that probably it is some small issue that you have mistyped something.&nbsp; Sometimes you won't find the error because its a little like looking for spelling errors in your own e-mails (without a spell checker).&nbsp; You don't see the mistake because you are thinking you got it right.&nbsp; Sometimes it helps to take a break, go do something else for a few minutes, come back and look for the error again.
 
 <p>Also, remember everything you type into a program should make sense to you.&nbsp; Don't just type something because its in a book or someone told you to do it, make sure it makes sense before you type it and you know what you are trying to accomplish.&nbsp;</p>
 
