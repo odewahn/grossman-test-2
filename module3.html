@@ -1,5 +1,102 @@
 <section data-type="chapter">
 <h1>Module 3 - Deciding what to do next.&nbsp;</h1>
 
-<h1><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em; color: rgb(51, 51, 51);">At this point the user has&nbsp;This is some text.</span></h1>
+<p>At this point, the user has been asked if they want to play and the user has responded. We now need to check and see if what the user wants to do.&nbsp;</p>
+
+<p>The&nbsp;<strong>puts&nbsp;</strong>&nbsp;statement outputs the question. &nbsp;The&nbsp;<strong>gets&nbsp;</strong>statement obtains the answer. &nbsp;The&nbsp;<strong>if-then</strong>&nbsp;statement will test for a condition and if the condition is true it will execute one or more commands and if the condition is false, it will execute other commands.&nbsp;</p>
+
+<p>Up to now, a program just executed each step one after the other starting at the top and going to the bottom. &nbsp;Think of it like a recipe.&nbsp;</p>
+
+<p>Obtain ingredients for making&nbsp;chocolate chip cookies that come with a mix where you need to add oil and eggs.&nbsp;</p>
+
+<ol>
+	<li>Break eggs and put eggs into mixing bowl</li>
+	<li>measure oil and pour into mixing bowl</li>
+	<li>pour cookie mix into mixing bowl</li>
+	<li>mix the contents</li>
+	<li>scoop contents into cookie sheet, one cookie at a time</li>
+	<li>put sheet into oven</li>
+	<li>bake</li>
+	<li>remove cookies</li>
+	<li>eat cookies</li>
+</ol>
+
+<p>Each step happens one after the other. &nbsp;Now imagine if we wanted to ask if someone wanted to make the cookies. &nbsp;So we would have a&nbsp;<strong>puts&nbsp;</strong>statement to ask the question and a&nbsp;<strong>gets&nbsp;</strong>statement to obtain the answer. &nbsp;</p>
+
+<p>We need an&nbsp;<strong>if-then</strong>&nbsp;statement to find out if the user wants to make cookies and if so, go ahead and make them. &nbsp;Otherwise we can just display a message that says &quot;Fine, forget about the cookies.&quot;&nbsp;</p>
+
+<p>The structure of an&nbsp;<strong>if-then</strong>&nbsp;statement in Ruby is:</p>
+
+<p>if (condition) &nbsp;then</p>
+
+<p>&nbsp; &nbsp; &nbsp;statements to do if the condition is true</p>
+
+<p>else</p>
+
+<p>&nbsp; &nbsp; &nbsp;statements to do if the condition is false</p>
+
+<p>end</p>
+
+<p>&nbsp;</p>
+
+<p>A condition is a comparison of a variable to a value and it is either true or false. &nbsp;If the condition is true, the statements after the&nbsp;<strong>then&nbsp;</strong>&nbsp;get executed, if it is false, the statements in the true part are skipped and only the statements after the&nbsp;<strong>else&nbsp;</strong>are executed.&nbsp;</p>
+
+<p>In our current case we simply have to find out if the user wishes to make cookies so we would say</p>
+
+<p>puts &quot;Want to make cookies&quot;</p>
+
+<p>x = gets.chop</p>
+
+<p>if (x == &quot;yes&quot;) then</p>
+
+<p>&nbsp; &nbsp; all the making cookie statements go here</p>
+
+<p>else</p>
+
+<p>&nbsp; &nbsp; puts &quot;its OK if you do not wish to make cookies.&quot;</p>
+
+<p>end</p>
+
+<p>&nbsp;</p>
+
+<p>One type of condition is a direct comparison if a variable equals a value. The comparison operator in Ruby is two equal signs next to one another (==). &nbsp; Other comparison operators that allow you to test is a variable is less then or greater than a value are given <a href="http://comparisonoperators">here.</a>&nbsp;So here when we say (x == &quot;yes&quot;) we are asking if the variable&nbsp;<strong>x&nbsp;</strong>has the value &quot;yes&quot;. &nbsp;If it does we go to the cookie making section, if not we display a message that the user does not wish to make cookies.&nbsp;</p>
+
+<p>For blackjack our growing program now looks like this:&nbsp; &nbsp;</p>
+
+<pre class="pre " data-type="programlisting">
+
+&nbsp; &nbsp; puts &nbsp; &quot;\nReady to Deal (y = yes, q = quit)&quot;
+&nbsp; &nbsp; input = gets.chop
+&nbsp; &nbsp; if &nbsp;(input == 'y') then
+&nbsp; &nbsp; &nbsp; &nbsp;player = Player.new(deck)
+&nbsp; &nbsp; &nbsp; &nbsp;dealer = Dealer.new(deck)
+&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;# now draw until stick
+&nbsp; &nbsp; &nbsp; &nbsp;player.draw_remaining_cards
+
+       if (player.is_busted?)
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;dealer.draw_remaining_cards
+&nbsp; &nbsp; &nbsp; &nbsp;end
+&nbsp;   else
+       puts &quot;Thanks for playing today.&quot;
+&nbsp;   end
+
+
+
+&nbsp; &nbsp; &nbsp; &nbsp;
+</pre>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>scoop out cookie dough and put</p>
+
+<p>ou have just been able to display some output to the screen telling the user that you want to play Blackjack.&nbsp;</p>
+
+<p>Now, it's time to ask the user for input.</p>
+
+<p>Consider the following Ruby code:</p>
 </section>
