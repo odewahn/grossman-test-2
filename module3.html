@@ -76,7 +76,7 @@
 &nbsp; &nbsp; &nbsp; &nbsp;# now draw until stick
 &nbsp; &nbsp; &nbsp; &nbsp;player.draw_remaining_cards
 
-       if (player.is_busted?)
+       if (player.is_not_busted?)
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;dealer.draw_remaining_cards
 &nbsp; &nbsp; &nbsp; &nbsp;end
 &nbsp;   else
@@ -88,7 +88,23 @@
 &nbsp; &nbsp; &nbsp; &nbsp;
 </pre>
 
-<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line one is our friendly message to the user.&nbsp;</span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line two is where we get the response and chop off the newline with a &quot;\n&quot;.&nbsp;</span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Now we get to our new thing for this module which is our&nbsp;<strong>if-then&nbsp;</strong>statement. &nbsp;We test te condition if&nbsp;<em>(input == 'y') . &nbsp;</em>This compares the variable named&nbsp;<em>input&nbsp;</em>&nbsp;which was populated in line two with the value 'y'. &nbsp;'y' is in quotes so we are making it clear taht we are comparing to the character 'y' and not a variable named 'y'. &nbsp;The two equal signs are critical (instead of one which is a common error made every day by very experienced programmers) as they indicate that a comparison is to be made. &nbsp;</span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 3-12 are the core of the black jack game. &nbsp;</span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 4 initializes a deck of cards. &nbsp;</span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 5 initializes a player.&nbsp;</span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 6 initalizes a dealer.&nbsp;</span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 7 has the player keep drawing cards until they elect to choose no more cards (e.gl; they decide to stick with their hand).&nbsp;</span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 8 has another if statement to see if the player has busted. &nbsp;If so, the game is over, if not the dealer needs some cards which is handled in line&nbsp;They initialize a deck of cards, initialize a player and a dealer objec&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
 
 <p>&nbsp;</p>
 
