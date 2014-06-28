@@ -32,15 +32,7 @@ input = gets
 
 <p>and this would assign the value 5 to the variable x.&nbsp; Think of a variable as just being a place in the computers memory that has an address just like your mailbox at home.&nbsp; Inside of that mailbox is a value.&nbsp;&nbsp; At a given point in time, the mailbox has one value.&nbsp; Since we can change the value in the mailbox the mailbox is called a <strong>variable </strong>since the value can <strong>change </strong>or <strong>vary.&nbsp; </strong>Variables get used all the time in Math, so if you are used to using them in math they will be familiar here.</p>
 
-<p>Some people see an equal sign and think that this means some kind of equation is happening.&nbsp; It really isn't.</p>
-
-<div data-nickname="petrycki" data-type="comment">
-<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
-<div spellcheck="false">petrycki</div>
-<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
-
-<p>Be careful about being vague. It's not an equation. I'd be direct and write. &quot;It's not.&quot; Watch for this type of issue when writing. I know it's hard to put yourself in the head of someone not knowing concepts you think of as basic information.</p>
-</div>
+<p>Some people see an equal sign and think that this means some kind of equation is happening.&nbsp; It really is not an equation.&nbsp;</p>
 
 <p>&nbsp; Its just an assignment of the right hand side of the equal sign to the left hand side.&nbsp;</p>
 
@@ -64,15 +56,7 @@ input = gets
 
 <p>and the user enters YES and then hits enter, the value &quot;YES\n&quot; is now stored in <strong>x </strong>where the <strong>\n </strong>indicates a new line character.</p>
 
-<p>This <strong>\n </strong>is usually going to get in your way, so a handy Ruby method called <strong>chop </strong>is used to chop off the newline character.</p>
-
-<div data-nickname="petrycki" data-type="comment">
-<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
-<div spellcheck="false">petrycki</div>
-<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
-
-<p>Don't forget to explain why and any alternatives. In this instance why \n will get in the way and when might you need the newline character.</p>
-</div>
+<p>This <strong>\n </strong>is usually going to get in your way, so a handy Ruby method called <strong>chop </strong>is used to chop off the newline character. &nbsp; If we did not use chop any time we wanted to compare the user response we would have to include the &quot;\n&quot; which is time consuming and clutters up our program. &nbsp;So we chop off the &quot;\n&quot; and we can focus on the core user response. &nbsp; Sometimes we do need to care if a newline exists and in those cases we would not chop off the &quot;\n&quot;.&nbsp;</p>
 
 <p>The command <strong>x = gets.chop </strong>will take the user input string, remove the <strong>\n </strong>and then store the rest in the variable <strong>x. </strong></p>
 
