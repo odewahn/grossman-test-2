@@ -79,6 +79,9 @@
        if (player.is_not_busted?)
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;dealer.draw_remaining_cards
 &nbsp; &nbsp; &nbsp; &nbsp;end
+
+       scoreboard.update_scoreboard(player.get_best_total, &nbsp;dealer.get_best_total)
+
 &nbsp;   else
        puts &quot;Thanks for playing today.&quot;
 &nbsp;   end
@@ -104,7 +107,7 @@
 
 <p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 7 has the player keep drawing cards until they elect to choose no more cards (e.gl; they decide to stick with their hand).&nbsp;</span></p>
 
-<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 8 has another if statement to see if the player has busted. &nbsp;If so, the game is over, if not the dealer needs some cards which is handled in line&nbsp;They initialize a deck of cards, initialize a player and a dealer objec&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 8 has another if statement to see if the player has busted or not. &nbsp;If the player has not busted then the dealer needs some cards which is handled in Line 9. &nbsp;</span></p>
 
 <p>&nbsp;</p>
 
