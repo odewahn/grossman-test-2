@@ -65,9 +65,11 @@
 
 <pre class="pre " data-type="programlisting">
 
-&nbsp; &nbsp; puts &nbsp; &quot;\nReady to Deal (y = yes, q = quit)&quot;
+&nbsp; &nbsp; 
+&nbsp;   puts &nbsp; &quot;Ready to Deal (y = yes, q = quit)&quot;
 &nbsp; &nbsp; input = gets.chop
 &nbsp; &nbsp; if &nbsp;(input == 'y') then
+&nbsp;      deck = Deck.new
 &nbsp; &nbsp; &nbsp; &nbsp;player = Player.new(deck)
 &nbsp; &nbsp; &nbsp; &nbsp;dealer = Dealer.new(deck)
 &nbsp; &nbsp; &nbsp; &nbsp;
