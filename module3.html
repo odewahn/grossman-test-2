@@ -61,7 +61,47 @@
 
 <p>&nbsp;</p>
 
-<p>One type of condition is a direct comparison if a variable equals a value. The comparison operator in Ruby is two equal signs next to one another (==). &nbsp; Other comparison operators that allow you to test is a variable is less then or greater than a value are given <a href="http://comparisonoperators">here.</a>&nbsp;So here when we say (x == &quot;yes&quot;) we are asking if the variable&nbsp;<strong>x&nbsp;</strong>has the value &quot;yes&quot;. &nbsp;If it does we go to the cookie making section, if not we display a message that the user does not wish to make cookies.&nbsp;</p>
+<p>One type of condition is a direct comparison if a variable equals a value. The comparison operator in Ruby is two equal signs next to one another (==). &nbsp; Other comparison operators that allow you to test is a variable is less then or greater than a value are given <a href="http://comparisonoperators">here.</a>&nbsp;So here when we say (x == &quot;y&quot;) we are asking if the variable&nbsp;<strong>x&nbsp;</strong>has the value &quot;yes&quot;.&nbsp;</p>
+Try the following:
+
+<pre data-type="programlisting">
+puts &quot;Ready to Deal (y = yes, q = quit)&quot;
+input = gets.chop
+
+if&nbsp; (input == 'y') then
+&nbsp;&nbsp;&nbsp; puts &quot;OK lets play.&quot;
+else
+&nbsp;&nbsp;&nbsp; puts &quot;Fine we will play again another time.&quot;
+end
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+</pre>
+
+<p>Line 3 will be true if the user enters a &quot;y&quot; and if it is true then line 4 is executed. If the user enters something other than a &quot;y&quot; then line 6 is executed.&nbsp;&nbsp; Try it for both cases.</p>
+
+<p>Line 3 really has the new thing for this module which is our&nbsp;<strong>if-then&nbsp;</strong>statement. &nbsp;We test the condition if&nbsp;<em>(input == 'y') . &nbsp;</em>This compares the variable named&nbsp;<em>input&nbsp;</em>&nbsp;whichwas populated in line two with the value 'y'. &nbsp;'y' is in quotes so we are making it clear that we are comparing to the character 'y' and not a variable named 'y'. &nbsp;The two equal signs are critical (instead of one).&nbsp;</p>
+
+<p>Once you get the example above working, lets mess it up with a classic mistake.&nbsp; Lets leave out an equal sign.&nbsp; Amazing how picky this stuff can be?</p>
+
+<pre data-type="programlisting">
+puts &quot;Ready to Deal (y = yes, q = quit)&quot;
+input = gets.chop
+
+if&nbsp; (input = 'y') then
+&nbsp;&nbsp;&nbsp; puts &quot;OK lets play.&quot;
+else
+&nbsp;&nbsp;&nbsp; puts &quot;Fine we will play again another time.&quot;
+end
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</pre>
+
+<p>Try it.&nbsp; Notice that you get no error message as the Ruby syntax is all correct.&nbsp; Unfortunately, the condition is now not correct.&nbsp; It turns out Ruby allows you do an assignment inside of a condition.&nbsp; So you could do something like</p>
+
+<p>if ( x=5</p>
+
+<p>&nbsp;</p>
 
 <p>For blackjack our growing program now looks like this:&nbsp; &nbsp;</p>
 
@@ -118,6 +158,24 @@ puts &quot;Have a good day.&quot;
 <p>Next after dealing the dealer cards we check the player total and compare to the dealer total in line 17. Notice the (&gt;) or greater than sign used in this comparison to see if the player has a higher total than the dealer. &nbsp;If the player does have a higher total the player wins, otherwise the dealer wins.&nbsp;</p>
 
 <p>One thing we didn't emphasize is that an IF statement can have another IF statement in the middle of it.&nbsp;&nbsp; Notice that we have one IF statement in line 3 that checks to see the users input and then if the user did want to play blackjack we then execute the ruby commands in lines 4-20, otherwise we execute the ruby commands after the <strong>ELSE </strong>which is in line 22 and 23.</p>
+
+<p>Do not try typing this in yet as we have not defined all the methods.&nbsp; In the coming modules we will define and test each method and then we will come back and put in this code (lines 1-24) and the whole game will be done.</p>
+
+<p>For now, just to give you the feel of an if statement, enter the following:</p>
+
+<pre data-type="programlisting">
+puts &quot;Ready to Deal (y = yes, q = quit)&quot;
+input = gets.chop
+
+if&nbsp; (input == 'y') then
+&nbsp;&nbsp;&nbsp; puts &quot;OK lets play.&quot;
+else
+&nbsp;&nbsp;&nbsp; puts &quot;Fine we will play again another time.&quot;
+end
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+</pre>
 
 <p>Another thing to mention is that in this module we have basically described all the components needed to play Blackjack and the statements in line 4-20 are what is called the <strong>main driver</strong> of this program.&nbsp; These statements call other methods to get things done but the high level steps are all here.&nbsp;&nbsp; Essentially, if we were writing our &quot;bake cookies&quot; steps we would have:</p>
 
