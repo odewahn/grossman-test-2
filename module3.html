@@ -124,7 +124,11 @@ if (input == 'y')</pre>
 
 <p>will tell the Ruby interpreter that we wish to compare 'y' to input and the evaluate to TRUE or FALSE based on the comparison -- no assignment is being made.&nbsp; The problem occurs because assignments are allowed in the condition being compared and the equal sign (single =) is the assignment operator and the double equal sign (==) is the comparison operator.&nbsp;</p>
 
-<p>The hard part about this example is that everything appears to work well -- it is only when you try different input that you identify the problem.&nbsp;</p>
+<p>The hard part about this example is that everything appears to work well -- it is only when you try different input that you identify the problem.&nbsp; The good news is that the Ruby interpreter does give you a warning:&nbsp;</p>
+
+<p><strong>warning: found = in conditional, should be ==</strong></p>
+
+<p>That is a nice hint, you do not always get such good hints, so please remember to use a double equal sign (==) for the condition.&nbsp;</p>
 
 <p>Lets try one more error that is easier, lets mis-spell the ELSE</p>
 
