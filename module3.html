@@ -119,6 +119,33 @@ puts &quot;Have a good day.&quot;
 
 <p>One thing we didn't emphasize is that an IF statement can have another IF statement in the middle of it.&nbsp;&nbsp; Notice that we have one IF statement in line 3 that checks to see the users input and then if the user did want to play blackjack we then execute the ruby commands in lines 4-20, otherwise we execute the ruby commands after the <strong>ELSE </strong>which is in line 22 and 23.</p>
 
+<p>Another thing to mention is that in this module we have basically described all the components needed to play Blackjack and the statements in line 4-20 are what is called the <strong>main driver</strong> of this program.&nbsp; These statements call other methods to get things done but the high level steps are all here.&nbsp;&nbsp; Essentially, if we were writing our &quot;bake cookies&quot; steps we would have:</p>
+
+<p>See if User wants to Play</p>
+
+<ol>
+	<li>If user wishes to play THEN</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Initialize a Player</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Initialize a Dealer</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Draw all the cards for the Player</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp; If player_score is less then 21 then</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Draw all the cards for the dealer</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp; If the player has a higher score than the dealer</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Output &quot;Player Wins&quot;</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp; Else</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Output &quot;Dealer Wins&quot;</li>
+	<li>&nbsp;&nbsp;&nbsp;&nbsp; end</li>
+	<li>End</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p>The steps 1-12 we have just listed here are called psuedo-code as they are mostly in English and not meant to be specific to any programming language.&nbsp; This step by step listing of how to solve a problem (e.g.; the problem here is to make the computer play blackjack) is called an <strong>algorithm </strong>(pronounced ALG-OH-rhythm).&nbsp;&nbsp; The study of Computer Science is really all about the study of algorithms.&nbsp; For any algorithm you can always compute how many steps the computer will take.&nbsp; A big part of Computer Science is finding more efficient algorithms to solve the same problem.&nbsp; For some problems, a faster algorithm can be shown to do more good and make the problem go away thousands of times faster than buying a much more expensive and faster computer.&nbsp;</p>
+
+<p>People tend to focus on learning a programming language, but Computer Science doesn't get all wrapped up in a particular programming language.&nbsp; Programming languages come and programming languages go -- but good algorithms prevail. &nbsp; We think Ruby is a good programming language to teach algorithm development as much of Ruby reads a good bit like pseudocode, but you should always remember that a good program really should only be written once you have a good algorithm. &nbsp;&nbsp; Hence, the first thing you should do before typing in a program is to writeout the algorithm in pseudocode and make sure you have thought threw all the different things that can happen.&nbsp; For instance, if our algorithm left out step 10, then we would end up with no output i the dealer wins and the program would only work when the player wins. &nbsp; So check your algorithm and make sure you have thought about the different things that can heppen.&nbsp; Then implement your algorithm with a programming language and then test the software that implements the algorithm. &nbsp;</p>
+
+<p>&nbsp;</p>
+
 <p>&nbsp;</p>
 
 <p>&nbsp;</p>
