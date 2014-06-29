@@ -27,19 +27,21 @@
 
 <p>The structure of an&nbsp;<strong>if-then</strong>&nbsp;statement in Ruby is:</p>
 
-<p>if (condition) &nbsp;then</p>
+<p><strong>if</strong> (condition) &nbsp;<strong>then</strong></p>
 
-<p>&nbsp; &nbsp; &nbsp;statements to do if the condition is true</p>
-
-<p>else</p>
-
-<p>&nbsp; &nbsp; &nbsp;statements to do if the condition is false</p>
-
-<p>end</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; statements to do if the condition is true</p>
 
 <p>&nbsp;</p>
 
-<p>A condition is a comparison of a variable to a value and it is either true or false. &nbsp;If the condition is true, the statements after the&nbsp;<strong>then&nbsp;</strong>&nbsp;get executed, if it is false, the statements in the true part are skipped and only the statements after the&nbsp;<strong>else&nbsp;</strong>are executed.&nbsp;</p>
+<p><strong>else</strong></p>
+
+<p>&nbsp; &nbsp; &nbsp;statements to do if the condition is false</p>
+
+<p><strong>end</strong></p>
+
+<p>&nbsp;</p>
+
+<p>A condition is a comparison of a variable to a value and it is either true or false. &nbsp;If the condition is true, the statements after the&nbsp;<strong>then&nbsp;</strong>&nbsp;get executed, if it is false, the statements in the true part are skipped and only the statements after the&nbsp;<strong>else&nbsp;</strong>are executed.&nbsp;&nbsp; Note that any condition can only be <strong>true </strong>or <strong>false.&nbsp; </strong>We can test for equal, not equal, less then, greater than and many others.&nbsp; For an full discussion of the <strong>if-then-else </strong>statement click <a href="http://here">http://here.</a></p>
 
 <p>In our current case we simply have to find out if the user wishes to make cookies so we would say</p>
 
@@ -111,9 +113,13 @@ puts &quot;Have a good day.&quot;
 
 <p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 7 has the player keep drawing cards until they elect to choose no more cards (e.gl; they decide to stick with their hand).&nbsp;</span></p>
 
-<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 8 has another if statement to see if the player has busted (gone over 21) or not. &nbsp;If the player has not busted then the dealer needs some cards which is handled by the method <strong>draw_remaining_cards </strong>in Line 9.&nbsp; A method is a sequence of steps that are defined separately.&nbsp; Imagine if we had a <strong>make_cookies</strong> method that had our numbered steps&nbsp; </span>from before -- then instead of repeating those 9 steps every time we wanted to have the program make cookies, we would just say <strong>make_cookies.&nbsp; </strong>Similarly, the steps to draw remaining cards have been stored in a <strong>method </strong>called <strong>draw_reamaining_cards. </strong></p>
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 8 has another if statement to see if the player has busted (gone over 21) or not. &nbsp;If the player has not busted then the dealer needs some cards which is handled by the method <strong>draw_remaining_cards </strong>in Line 9.&nbsp; A method is a sequence of steps that are defined separately.&nbsp; Imagine if we had a <strong>make_cookies</strong> method that had our numbered steps&nbsp; </span>from before -- then instead of repeating those 9 steps every time we wanted to have the program make cookies, we would just say <strong>make_cookies.&nbsp; </strong>Similarly, the steps to draw remaining cards have been stored in a <strong>method </strong>called <strong>draw_remaining_cards. </strong></p>
 
 <p>Next after dealing the dealer cards we check the player total and compare to the dealer total in line 17. Notice the (&gt;) or greater than sign used in this comparison to see if the player has a higher total than the dealer. &nbsp;If the player does have a higher total the player wins, otherwise the dealer wins.&nbsp;</p>
+
+<p>One thing we didn't emphasize is that an IF statement can have another IF statement in the middle of it.&nbsp;&nbsp; Notice that we have one IF statement in line 3 that checks to see the users input and then if the user did want to play blackjack we then execute the ruby commands in lines 4-20, otherwise we execute the ruby commands after the <strong>ELSE </strong>which is in line 22 and 23.</p>
+
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 </section>
