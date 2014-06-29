@@ -84,7 +84,7 @@ end
 
 <p>Once you get the example above working, lets mess it up with a classic mistake.&nbsp; Lets leave out an equal sign.&nbsp; Amazing how picky this stuff can be?</p>
 
-<pre data-type="programlisting">
+<pre class="drop-out-of-bounds drop-out-of-bounds-top drop-element-attached-top drop-element-attached-center drop-target-attached-bottom drop-target-attached-center" data-type="programlisting">
 puts &quot;Ready to Deal (y = yes, q = quit)&quot;
 input = gets.chop
 
@@ -130,9 +130,9 @@ if (input == 'y')</pre>
 
 <p>That is a nice hint, you do not always get such good hints, so please remember to use a double equal sign (==) for the condition inside of an <strong>IF </strong>statement.</p>
 
-<p>Lets try one more error that is easier, lets mis-spell the ELSE</p>
+<p>Lets try one more error that is easier, lets misspell the ELSE</p>
 
-<pre data-type="programlisting">
+<pre class="pre " data-type="programlisting">
 puts &quot;Ready to Deal (y = yes, q = quit)&quot;
 input = gets.chop
 
@@ -149,9 +149,15 @@ end
 
 <p>We have just interchanged the 'l' and the 's' in <strong>else.&nbsp; </strong></p>
 
-<p>&nbsp;</p>
+<p>When we try this we get:</p>
+
+<p><strong>in ` ': undefined local variable or method `esle' for main:Object (NameError)</strong></p>
 
 <p>&nbsp;</p>
+
+<p>The ruby interpreter thinks we are now referring to a variable called <strong>esle</strong> and says that variable has not been defined.&nbsp; Now spell else correctly, use a double equal (==) and try it again.</p>
+
+<p>To run the whole game of blackjack we will need the following IF statement:</p>
 
 <p>&nbsp;</p>
 
