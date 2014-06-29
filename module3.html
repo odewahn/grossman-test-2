@@ -84,7 +84,7 @@ end
 
 <p>Once you get the example above working, lets mess it up with a classic mistake.&nbsp; Lets leave out an equal sign.&nbsp; Amazing how picky this stuff can be?</p>
 
-<pre class="pre " data-type="programlisting">
+<pre data-type="programlisting">
 puts &quot;Ready to Deal (y = yes, q = quit)&quot;
 input = gets.chop
 
@@ -112,7 +112,38 @@ if (x &gt; 7) then puts &quot;x is big&quot;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 </pre>
 
+<p>However, since Ruby allows you to assign a variable and then compare it the statement</p>
+
+<pre data-type="programlisting">
+if (input = 'y')</pre>
+
+<p>will simply assign 'y' to input and not COMPARE 'y' to input.&nbsp; Once it is assigned, Ruby sees no harm in having the expression evaluate to TRUE as no comparison exists, so it may as well be true.&nbsp; Hence, the if statement will now be TRUE in all cases.&nbsp; Adding the double equal sign as in</p>
+
+<pre data-type="programlisting">
+if (input == 'y')</pre>
+
+<p>will tell the Ruby interpreter that we wish to compare 'y' to input and the evaluate to TRUE or FALSE based on the comparison -- no assignment is being made.&nbsp; The problem occurs because assignments are allowed in the condition being compared and the equal sign (single =) is the assignment operator and the double equal sign (==) is the comparison operator.&nbsp;</p>
+
+<p>The hard part about this example is that everything appears to work well -- it is only when you try different input that you identify the problem.&nbsp;</p>
+
+<p>Lets try one more error that is easier, lets mis-spell the ELSE</p>
+
+<pre data-type="programlisting">
+puts &quot;Ready to Deal (y = yes, q = quit)&quot;
+input = gets.chop
+
+if&nbsp; (input = 'y') then
+&nbsp;&nbsp;&nbsp; puts &quot;OK lets play.&quot;
+esle
+&nbsp;&nbsp;&nbsp; puts &quot;Fine we will play again another time.&quot;
+end
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</pre>
+
 <p>&nbsp;</p>
+
+<p>We have just interchanged the 'l' and the 's' in <strong>else.&nbsp; </strong></p>
 
 <p>&nbsp;</p>
 
