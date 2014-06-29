@@ -84,7 +84,7 @@ end
 
 <p>Once you get the example above working, lets mess it up with a classic mistake.&nbsp; Lets leave out an equal sign.&nbsp; Amazing how picky this stuff can be?</p>
 
-<pre data-type="programlisting">
+<pre class="pre " data-type="programlisting">
 puts &quot;Ready to Deal (y = yes, q = quit)&quot;
 input = gets.chop
 
@@ -97,9 +97,30 @@ end
 
 </pre>
 
-<p>Try it.&nbsp; Notice that you get no error message as the Ruby syntax is all correct.&nbsp; Unfortunately, the condition is now not correct.&nbsp; It turns out Ruby allows you do an assignment inside of a condition.&nbsp; So you could do something like</p>
+<p>Try it.&nbsp; Notice that you get no error message as the Ruby syntax is all correct.&nbsp; Unfortunately, the condition is now not correct.&nbsp; It turns out Ruby allows you do an assignment inside of a condition.&nbsp; So you could do something like<br />
+&nbsp;</p>
 
-<p>if ( x=5</p>
+<pre data-type="programlisting">
+if ((x = 5) &gt; 7) then puts &quot;x is big&quot;
+</pre>
+
+<p>This statement will assign 5 to x and then compare it with 7.&nbsp; We do not recommend doing this as it can be confusing to read.&nbsp; Instead just break it into two statements:</p>
+
+<pre data-type="programlisting">
+x = 5
+if (x &gt; 7) then puts &quot;x is big&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 
