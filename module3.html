@@ -3,7 +3,9 @@
 
 <p>At this point, the user has been asked if they want to play and the user has responded. We now need to check and see if what the user wants to do.&nbsp;</p>
 
-<p>The&nbsp;<strong>puts&nbsp;</strong>&nbsp;statement outputs the question. &nbsp;The&nbsp;<strong>gets&nbsp;</strong>statement obtains the answer. &nbsp;The&nbsp;<strong>if-then</strong>&nbsp;statement will test for a condition and if the condition is true it will execute one or more commands and if the condition is false, it will execute other commands.&nbsp;</p>
+<p>The&nbsp;<strong>puts&nbsp;</strong>&nbsp;statement outputs the question &quot;do you want to play?&quot;. &nbsp;The&nbsp;<strong>gets&nbsp;</strong>statement obtains the answer ('y' for yes and 'q' for quit). &nbsp;</p>
+
+<p>Our new statement:&nbsp; the&nbsp;<strong>if-then</strong>&nbsp;statement will contain a comparison of a value to a variable.&nbsp; The comparison will either return <strong>true </strong>or <strong>false</strong>.&nbsp;</p>
 
 <p>Up to now, a program just executed each step one after the other starting at the top and going to the bottom. &nbsp;Think of it like a recipe.&nbsp;</p>
 
@@ -27,42 +29,49 @@
 
 <p>The structure of an&nbsp;<strong>if-then</strong>&nbsp;statement in Ruby is:</p>
 
-<p><strong>if</strong> (condition) &nbsp;<strong>then</strong></p>
+<p><strong>if</strong> (comparison of a variable to a value) &nbsp;<strong>then</strong></p>
 
-<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; statements to do if the condition is true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; statements to do if the comparison is true</p>
 
 <p>&nbsp;</p>
 
 <p><strong>else</strong></p>
 
-<p>&nbsp; &nbsp; &nbsp;statements to do if the condition is false</p>
+<p>&nbsp; &nbsp; &nbsp;statements to do if the comparison is false</p>
 
 <p><strong>end</strong></p>
 
 <p>&nbsp;</p>
 
-<p>A condition is a comparison of a variable to a value and it is either true or false. &nbsp;If the condition is true, the statements after the&nbsp;<strong>then&nbsp;</strong>&nbsp;get executed, if it is false, the statements in the true part are skipped and only the statements after the&nbsp;<strong>else&nbsp;</strong>are executed.&nbsp;&nbsp; Note that any condition can only be <strong>true </strong>or <strong>false.&nbsp; </strong>We can test for equal, not equal, less then, greater than and many others.&nbsp; For an full discussion of the <strong>if-then-else </strong>statement click <a href="http://herehttps://atlas.oreilly.com/oreillymedia/computer-science-programming-basics-in-ruby-course/editor/master/ch04.html">here.</a></p>
+<p>If the comparison is true, the statements after the&nbsp;<strong>then&nbsp;</strong>&nbsp;get executed, if it is false, the statements in the true part are skipped and only the statements after the&nbsp;<strong>else&nbsp;</strong>are executed.&nbsp;&nbsp;&nbsp;<strong> </strong>Ruby allows you to do the following types of comparisons:&nbsp;&nbsp; equal, not equal, less then,&nbsp; greater than and many others.&nbsp; For an full discussion of the <strong>if-then-else </strong>statement click <a href="http://herehttps://atlas.oreilly.com/oreillymedia/computer-science-programming-basics-in-ruby-course/editor/master/ch04.html">here.</a></p>
 
 <p>In our current case we simply have to find out if the user wishes to make cookies so we would say</p>
 
-<p>puts &quot;Want to make cookies&quot;</p>
-
-<p>x = gets.chop</p>
-
-<p>if (x == &quot;yes&quot;) then</p>
-
-<p>&nbsp; &nbsp; all the making cookie statements go here</p>
-
-<p>else</p>
-
-<p>&nbsp; &nbsp; puts &quot;its OK if you do not wish to make cookies.&quot;</p>
-
-<p>end</p>
-
 <p>&nbsp;</p>
 
-<p>One type of condition is a direct comparison if a variable equals a value. The comparison operator in Ruby is two equal signs next to one another (==). &nbsp; Other comparison operators that allow you to test is a variable is less then or greater than a value are given <a href="http://comparisonoperators">here.</a>&nbsp;So here when we say (x == &quot;y&quot;) we are asking if the variable&nbsp;<strong>x&nbsp;</strong>has the value &quot;yes&quot;.&nbsp;</p>
-Try the following:
+<pre class="pre " data-type="programlisting">
+puts &quot;Want to make cookies&quot;
+x = gets.chop
+if (x == &quot;yes&quot;) then
+&nbsp; &nbsp; all the making cookie statements go here
+else
+&nbsp; &nbsp; puts &quot;its OK if you do not wish to make cookies.&quot;
+end
+
+
+
+
+</pre>
+
+<p>The simplest comparison is one that checks to see if a variable equals a particular value.&nbsp; The comparison operator in Ruby is two equal signs next to one another (==). &nbsp; The reason a comparison is two equal signs is that one equal sign is already taken by the assignment operator. &nbsp; If you remember the <strong>gets </strong>statement in which we assigned the result of the <strong>gets </strong>to the variable <strong>x </strong>with the statement:</p>
+
+<pre data-type="programlisting">
+x = gets</pre>
+
+<p>Here, a single equal sign means to assign the result of the gets to the value of <strong>x.&nbsp; </strong></p>
+
+<p><br />
+Try the following:</p>
 
 <pre data-type="programlisting">
 puts &quot;Ready to Deal (y = yes, q = quit)&quot;
@@ -80,14 +89,13 @@ end
 
 <p>Line 3 will be true if the user enters a &quot;y&quot; and if it is true then line 4 is executed. If the user enters something other than a &quot;y&quot; then line 6 is executed.&nbsp;&nbsp; Try it for both cases.</p>
 
-<p>Line 3 really has the new thing for this module which is our&nbsp;<strong>if-then&nbsp;</strong>statement. &nbsp;We test the condition if&nbsp;<em>(input == 'y') . &nbsp;</em>This compares the variable named&nbsp;<em>input&nbsp;</em>&nbsp;whichwas populated in line two with the value 'y'. &nbsp;'y' is in quotes so we are making it clear that we are comparing to the character 'y' and not a variable named 'y'. &nbsp;The two equal signs are critical (instead of one).&nbsp;</p>
+<p>Line 3 really has the new thing for this module which is our&nbsp;<strong>if-then&nbsp;</strong>statement. &nbsp;We test the condition if&nbsp;<em>(input == 'y') . &nbsp;</em>This compares the variable named&nbsp;<em>input&nbsp;</em>&nbsp;which is populated in line two with the value 'y'. &nbsp;'y' is in quotes so we are making it clear that we are comparing to the character 'y' and not a variable named 'y'. &nbsp;The two equal signs are critical (instead of one).&nbsp;</p>
 
-<p>Once you get the example above working, lets mess it up with a classic mistake.&nbsp; Lets leave out an equal sign.&nbsp; Amazing how picky this stuff can be?</p>
+<p>Once you get the example above working, lets mess it up with a classic mistake.&nbsp; Lets leave out an equal sign.&nbsp;</p>
 
-<pre class="drop-out-of-bounds drop-out-of-bounds-top drop-element-attached-top drop-element-attached-center drop-target-attached-bottom drop-target-attached-center" data-type="programlisting">
+<pre data-type="programlisting">
 puts &quot;Ready to Deal (y = yes, q = quit)&quot;
 input = gets.chop
-
 if&nbsp; (input = 'y') then
 &nbsp;&nbsp;&nbsp; puts &quot;OK lets play.&quot;
 else
@@ -97,8 +105,9 @@ end
 
 </pre>
 
-<p>Try it.&nbsp; Notice that you get no error message as the Ruby syntax is all correct.&nbsp; Unfortunately, the condition is now not correct.&nbsp; It turns out Ruby allows you do an assignment inside of a condition.&nbsp; So you could do something like<br />
-&nbsp;</p>
+<p>Try it.&nbsp; Unfortunately, the condition no longer works properly.&nbsp; You can enter 'y' or 'n' or 'anything' and the &quot;OK lets play&quot; message will always be displayed.&nbsp;&nbsp; The reason is that the single equal sign was used to simply assign the value 'y' to the variable <strong>input</strong> since the single equal sign (=) assignment operator was used and not the symbol for a comparison.&nbsp;&nbsp;</p>
+
+<p>The following statement is valid Ruby syntax.&nbsp; It contain an assignment followed by a comparison.&nbsp; The assignment is done with the equal sign and the comparison is done the greater than (&gt;) symbol.&nbsp;</p>
 
 <pre data-type="programlisting">
 if ((x = 5) &gt; 7) then puts &quot;x is big&quot;
@@ -112,12 +121,12 @@ if (x &gt; 7) then puts &quot;x is big&quot;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 </pre>
 
-<p>However, since Ruby allows you to assign a variable and then compare it the statement</p>
+<p>However, since Ruby allows you to assign a variable and then compare it in :the statement, the following statement will simply execute an assignment of moving 'y' to the variable <strong>input. </strong></p>
 
 <pre data-type="programlisting">
 if (input = 'y')</pre>
 
-<p>will simply assign 'y' to input and not COMPARE 'y' to input.&nbsp; Once it is assigned, Ruby sees no harm in having the expression evaluate to TRUE as no comparison exists, so it may as well be true.&nbsp; Hence, the if statement will now be TRUE in all cases.&nbsp; Adding the double equal sign as in</p>
+<p>Again, this will simply assign 'y' to input and not COMPARE 'y' to input.&nbsp; Once it is assigned, Ruby sees no harm in having the expression evaluate to TRUE as no comparison exists, so it may as well be true.&nbsp; Hence, the if statement will now be TRUE in all cases.&nbsp; Adding the double equal sign as in</p>
 
 <pre data-type="programlisting">
 if (input == 'y')</pre>
@@ -130,7 +139,7 @@ if (input == 'y')</pre>
 
 <p>That is a nice hint, you do not always get such good hints, so please remember to use a double equal sign (==) for the condition inside of an <strong>IF </strong>statement.</p>
 
-<p>Lets try one more error that is easier, lets misspell the ELSE</p>
+<p>Now, try one more error that is easier. Go ahead and misspell&nbsp; the ELSE (may as well get used to this type of error as every programmer has done it a few zillion times).&nbsp;</p>
 
 <pre data-type="programlisting">
 puts &quot;Ready to Deal (y = yes, q = quit)&quot;
@@ -152,8 +161,6 @@ end
 <p>When we try this we get:</p>
 
 <p><strong>in ` ': undefined local variable or method `esle' for main:Object (NameError)</strong></p>
-
-<p>&nbsp;</p>
 
 <p>The ruby interpreter thinks we are now referring to a variable called <strong>esle</strong> and says that variable has not been defined.&nbsp; Now spell else correctly, use a double equal (==) and try it again.</p>
 
