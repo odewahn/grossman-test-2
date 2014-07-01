@@ -244,11 +244,17 @@ end
 
 <p>The ruby interpreter thinks we are now referring to a variable called <strong>esle</strong> and says that variable has not been defined.&nbsp; Now spell else correctly, use a double equal (==) and try it again.</p>
 
-<p>To run the whole game of blackjack we will need the following IF statement:</p>
+<p>To run the whole game of blackjack we need the following IF statement:</p>
 
 <p>&nbsp;</p>
 
-<p>&nbsp;</p>
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>Once again, watch your &quot;will&quot;s. ;-) When you read back your text always try to read it without the &quot;will.&quot; 99% of the time your text reads better.</p>
+</div>
 
 <p>&nbsp;</p>
 
@@ -272,10 +278,10 @@ end
 &nbsp; &nbsp; &nbsp; &nbsp;if player.score &gt; dealer.score&nbsp;
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; puts &quot;Congratulations! You won.&quot;
 &nbsp; &nbsp; &nbsp; &nbsp;else
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; puts &quot;Sorry you lost.&quot;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; puts &quot;Sorry. You lost.&quot;
 &nbsp; &nbsp; &nbsp; &nbsp;end
 &nbsp; &nbsp; else
-&nbsp; &nbsp; &nbsp; &nbsp;puts &quot;Sorry you didn't want to play.&quot;&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;puts &quot;Sorry. You didn't want to play.&quot;&nbsp;
 &nbsp; &nbsp; end
 end
 
@@ -288,7 +294,15 @@ puts &quot;Have a good day.&quot;
 
 <p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line two is where we get the response and chop off the newline with a &quot;\n&quot;.&nbsp;</span></p>
 
-<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Now we get to our new thing for this module which is our&nbsp;<strong>if-then&nbsp;</strong>statement. &nbsp;We test te condition if&nbsp;<em>(input == 'y') . &nbsp;</em>This compares the variable named&nbsp;<em>input&nbsp;</em>&nbsp;which was populated in line two with the value 'y'. &nbsp;'y' is in quotes so we are making it clear taht we are comparing to the character 'y' and not a variable named 'y'. &nbsp;The two equal signs are critical (instead of one which is a common error made every day by very experienced programmers) as they indicate that a comparison is to be made. &nbsp;</span></p>
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>I'm feeling the rollovers again. What if we were able to read the text about each line on mouseover? Crazy or good idea? That could be additive rather than replacing the text.</p>
+</div>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Now we get to our new thing for this module which is our&nbsp;<strong>if-then&nbsp;</strong>statement. &nbsp;We test te condition if&nbsp;<em>(input == 'y') . &nbsp;</em>This compares the variable named&nbsp;<em>input&nbsp;</em>&nbsp;which was populated in line two with the value 'y'. &nbsp;'y' is in quotes so we are making it clear that we are comparing to the character 'y' and not a variable named 'y'. &nbsp;The two equal signs are critical (instead of one which is a common error made every day by very experienced programmers) as they indicate that a comparison is to be made. &nbsp;</span></p>
 
 <p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 3-12 are the core of the black jack game. &nbsp;</span></p>
 
@@ -298,15 +312,25 @@ puts &quot;Have a good day.&quot;
 
 <p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 6 initializes a dealer.&nbsp;</span></p>
 
-<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 7 has the player keep drawing cards until they elect to choose no more cards (e.gl; they decide to stick with their hand).&nbsp;</span></p>
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 7 has the player keep drawing cards until they elect to choose no more cards in other words&nbsp;they decide to stick with their hand.&nbsp;</span></p>
 
 <p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 8 has another if statement to see if the player has busted (gone over 21) or not. &nbsp;If the player has not busted then the dealer needs some cards which is handled by the method <strong>draw_remaining_cards </strong>in Line 9.&nbsp; A method is a sequence of steps that are defined separately.&nbsp; Imagine if we had a <strong>make_cookies</strong> method that had our numbered steps&nbsp; </span>from before -- then instead of repeating those 9 steps every time we wanted to have the program make cookies, we would just say <strong>make_cookies.&nbsp; </strong>Similarly, the steps to draw remaining cards have been stored in a <strong>method </strong>called <strong>draw_remaining_cards. </strong></p>
 
-<p>Next after dealing the dealer cards we check the player total and compare to the dealer total in line 17. Notice the (&gt;) or greater than sign used in this comparison to see if the player has a higher total than the dealer. &nbsp;If the player does have a higher total the player wins, otherwise the dealer wins.&nbsp;</p>
+<p>After dealing the dealer her cards we check the player's&nbsp;total and compare to the dealer total in line 17. Notice the (&gt;) or greater than sign used in this comparison to see if the player has a higher total than the dealer. &nbsp;If the player does have a higher total the player wins, otherwise the dealer wins.&nbsp;</p>
 
 <p>One thing we didn't emphasize is that an IF statement can have another IF statement in the middle of it.&nbsp;&nbsp; Notice that we have one IF statement in line 3 that checks to see the users input and then if the user did want to play blackjack we then execute the ruby commands in lines 4-20, otherwise we execute the ruby commands after the <strong>ELSE </strong>which is in line 22 and 23.</p>
 
-<p>Do not try typing this in yet as we have not defined all the methods.&nbsp; In the coming modules we will define and test each method and then we will come back and put in this code (lines 1-24) and the whole game will be done.</p>
+<p>Do not try typing this in yet as we have not defined all the methods.</p>
+
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>That's a downer. Can you give our new programmer a copy and past cheat so they can run the code now?</p>
+</div>
+
+<p>&nbsp; In the coming modules we will define and test each method and then we will come back and put in this code (lines 1-24) and the whole game will be done.</p>
 
 <p>For now, just to give you the feel of an if statement, enter the following:</p>
 
@@ -315,9 +339,9 @@ puts &quot;Ready to Deal (y = yes, q = quit)&quot;
 input = gets.chop
 
 if&nbsp; (input == 'y') then
-&nbsp;&nbsp;&nbsp; puts &quot;OK lets play.&quot;
+&nbsp;&nbsp;&nbsp; puts &quot;OK. Let's play.&quot;
 else
-&nbsp;&nbsp;&nbsp; puts &quot;Fine we will play again another time.&quot;
+&nbsp;&nbsp;&nbsp; puts &quot;Fine. We will play again another time.&quot;
 end
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -347,9 +371,23 @@ end
 
 <p>The steps 1-12 we have just listed here are called psuedocode as they are mostly in English and not meant to be specific to any programming language.&nbsp; This step by step listing of how to solve a problem (e.g.; the problem here is to make the computer play blackjack) is called an <strong>algorithm </strong>(pronounced ALG-OH-rhythm).&nbsp;&nbsp; The study of Computer Science is really all about the study of algorithms.&nbsp; For any algorithm you can always compute how many steps the computer will take.&nbsp; A big part of Computer Science is finding more efficient algorithms to solve the same problem.&nbsp; For some problems, a faster algorithm can be shown to do more good and make the problem go away thousands of times faster than buying a much more expensive and faster computer.&nbsp;</p>
 
-<p>People tend to focus on learning a programming language, but Computer Science doesn't get all wrapped up in a particular programming language.&nbsp; Programming languages come and programming languages go -- but good algorithms prevail. &nbsp; We think Ruby is a good programming language to teach algorithm development as much of Ruby reads a good bit like pseudocode, but you should always remember that a good program really should only be written once you have a good algorithm. &nbsp;&nbsp; Hence, the first thing you should do before typing in a program is to write out the algorithm in pseudocode and make sure you have thought threw all the different things that can happen.&nbsp; For instance, if our algorithm left out step 10, then we would end up with no output i the dealer wins and the program would only work when the player wins. &nbsp; So check your algorithm and make sure you have thought about the different things that can happen.&nbsp; Then implement your algorithm with a programming language and then test the software that implements the algorithm. &nbsp; For more on algorithms and pseudocode click</p>
+<p>People tend to focus on learning a programming language, but Computer Science doesn't get all wrapped up in a particular programming language.&nbsp; Programming languages come and programming languages go -- but good algorithms prevail. &nbsp; We think Ruby is a good programming language to teach algorithm development as much of Ruby reads a good bit like pseudocode, but you should always remember that a good program really should only be written once you have a good algorithm. &nbsp;&nbsp; Hence, the first thing you should do before typing in a program is to write out the algorithm in pseudocode and make sure you have thought through&nbsp;all the different things that can happen.&nbsp; For instance, if our algorithm left out step 10, then we would end up with no output,&nbsp;the dealer wins, and the program would only work when the player wins. &nbsp; So check your algorithm and make sure you have thought about the different things that can happen.&nbsp; Then implement your algorithm with a programming language and then test the software that implements the algorithm. &nbsp; For more on algorithms and pseudocode click</p>
 
-<p>&nbsp;</p>
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>Another click here kind of thing... &lt;link&gt;Module x&lt;/link&gt; gives you more information about algorithms and pseudocode.</p>
+</div>
+
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>Like I said, the flow is good. What I'd like to see is chunking and labeling. For example, how about setting aside the initial if-then-else description, both pitfall/error sections or assignment vs. compare, main driver,&nbsp;discussions of algorithms, pseudocode description. It will help when you want to refer to those sections or the learner returns to the material. I would simply use standard headings.</p>
+</div>
 
 <p>&nbsp;</p>
 
