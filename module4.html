@@ -194,7 +194,13 @@ end
 king_of_spades = Card.new(&quot;King&quot;, &quot;spades&quot;
 puts &quot;King of Spades Name ==&gt; &quot; + king_of_spades.name + &quot; Suit ==&gt;&nbsp; &quot; + king_of_spades.suit</pre>
 
-<p>Line 9 calls the <strong>initialize </strong>method with the <strong>new </strong>keyword and sends two arguments along, but does not include the closing parenthesis.</p>
+<p>Line 11 calls the <strong>initialize </strong>method with the <strong>new </strong>keyword and sends two arguments along, but does not include the closing parenthesis.</p>
+
+<p><strong>SyntaxError: card.rb:11: syntax error, unexpected tIDENTIFIER, expecting ')'</strong></p>
+
+<p>This is a great error message as we get the core problem of &quot;expecting a ')'&quot; and the Ruby interpreter tells us exactly what line contains the problem.&nbsp; Notice where it says <strong>card.rb:11.&nbsp; </strong>This says the problem is in line 11.&nbsp;</p>
+
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 
