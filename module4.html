@@ -18,9 +18,9 @@
 		<li>either hearts, clubs, spades or diamonds</li>
 	</ul>
 	</li>
-	<li>been_played
+	<li>value
 	<ul>
-		<li>this is an indicator that this card has already been played.&nbsp;&nbsp; We don't want to be able to deal a player the same Ace of Diamonds twice in one hand</li>
+		<li>this says the point value of a card.&nbsp; Face cards all have a value of 10 in blackjack and numeric cards have a value equal to their number. The Ace may be either one or eleven but we are not going to worry about that right now.&nbsp;</li>
 	</ul>
 	</li>
 </ul>
@@ -31,7 +31,7 @@
 
 <p>&nbsp;</p>
 
-<p>The following Ruby code defines the <strong>Card</strong> object.&nbsp; Think of the <strong>object</strong> like a design of a playing card and an <strong>instance </strong>as an actual playing card.&nbsp; The object simply says playing cards have a suit and a value and an indicator as to whether or not the card has been played.&nbsp; The actual instance is an actual playing card.&nbsp;&nbsp; The code below in line 1 has the special keyword <strong>class</strong> which tells ruby we are defining an object named <strong>Card.&nbsp;&nbsp; </strong>The special name <strong>attr_accessor </strong>is short for <em>attribute accessor </em>as <em>attribute</em> is another name for a variable associated with an object.&nbsp;&nbsp;&nbsp; Line 2 says you can view the values of the data in&nbsp;the variable <strong>name, </strong><strong>suit, </strong>and <strong>been_played</strong> once you create an <strong>instance</strong> of this object.&nbsp;</p>
+<p>The following Ruby code defines the <strong>Card</strong> object.&nbsp; Think of the <strong>object</strong> like a design of a playing card and an <strong>instance </strong>as an actual playing card.&nbsp; The object simply says playing cards have a suit and a value and an indicator as to whether or not the card has been played.&nbsp; The actual instance is an actual playing card.&nbsp;&nbsp; The code below in line 1 has the special keyword <strong>class</strong> which tells ruby we are defining an object named <strong>Card.&nbsp;&nbsp; </strong>The special name <strong>attr_accessor </strong>is short for <em>attribute accessor </em>as <em>attribute</em> is another name for a variable associated with an object.&nbsp;&nbsp;&nbsp; Line 2 says you can view the values of the data in&nbsp;the variable <strong>name, </strong><strong>suit, </strong>and <strong>value</strong> once you create an <strong>instance</strong> of this object.&nbsp;</p>
 
 <h1>ASSOCIATE DATA WITH THE OBJECT</h1>
 
@@ -39,14 +39,14 @@
 
 <pre data-type="programlisting">
 class Card
-&nbsp;&nbsp;&nbsp; attr_accessor :name, :suit, :been_played&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp; attr_accessor :name, :suit, :value&nbsp;&nbsp; &nbsp;
 end
 
 </pre>
 
 <p>Once you have this code, you can launch the interactive ruby interpreter <strong>irb </strong>and get a feel for the object.&nbsp;</p>
 
-<pre class="pre " data-type="programlisting">
+<pre data-type="programlisting">
 irb(main):005:0&gt;my_first_card = Card.new
 =&gt; #&lt;Card:0x007fe259af
 irb(main):006:0&gt; my_first_card.name
@@ -65,7 +65,7 @@ irb(main):007:0&gt; my_first_card.suit
 
 <p>So the object we just looked at with the statement <strong>x&nbsp; = Card.new </strong>ended up with a card object being assigned to the <strong>x, </strong>but the values of <strong>name </strong>and <strong>suit </strong>were empty (e.g.; <strong>nil)</strong></p>
 
-<p>&nbsp;</p>
+<p>To play blackjack, you need to be able to create a card like the King</p>
 
 <p>&nbsp;</p>
 
