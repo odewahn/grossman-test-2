@@ -156,13 +156,45 @@ puts &quot;King of Spades Name ==&gt; &quot; + king_of_spades.name + &quot; Suit
 
 <p>Notice after line 7 we have a nice <strong>end </strong>to match up with our definition of the <strong>initialize </strong>method, but we have no additional <strong>end </strong>to end our class definition.</p>
 
-<p>&nbsp;</p>
+<p>We now get the&nbsp; error:</p>
+
+<p><strong>syntax error, unexpected end-of-input, expecting keyword_end</strong></p>
+
+<p>The Ruby interpreter tells us that it was expecting a keyword end, but it's not clear where to put the missing end.&nbsp; Usually the interpreter gives you a line number to start looking and that can be helpful.&nbsp;&nbsp; This can be a tough error to fix when you have thousands of lines of code and shows why it's a really good practice to include plenty of whitespace in your code.&nbsp; Hit enter at the end of blocks to add vertical space and <strong>INDENT </strong>when you are writing code inside of a block.&nbsp; Imagine if your code above looked like:</p>
+
+<pre class="pre " data-type="programlisting">
+class Card
+attr_accessor :name, :suit, :value&nbsp;&nbsp; 
+def initialize (name, suit)
+@name = name
+@suit = suit
+end
+king_of_spades = Card.new(&quot;King&quot;, &quot;spades&quot;)
+puts &quot;King of Spades Name ==&gt; &quot; + king_of_spades.name + &quot; Suit ==&gt;&nbsp; &quot; + king_of_spades.suit
+</pre>
+
+<p>New programmers often write code this way because they are struggling to get the hang of everything and they think indenting and adding more whitespace just adds to the time it takes to type things in.&nbsp; Professional programmers always beautifully indent their code because they know what its like to try to find things like a missing <strong>end. </strong></p>
 
 <p>&nbsp;</p>
 
-<p>&nbsp;</p>
+<h1>Common Mistake: Leaving out a Parethensis</h1>
 
-<p>&nbsp;</p>
+<p>Another common mistake is to not close your parenthesis.&nbsp; Try this:</p>
+
+<pre data-type="programlisting">
+class Card
+&nbsp;&nbsp;&nbsp; attr_accessor :name, :suit, :value&nbsp;&nbsp; &nbsp;
+
+&nbsp;&nbsp;&nbsp; def initialize (name, suit)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @name = name
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @suit = suit
+&nbsp;&nbsp;&nbsp; end
+end
+
+king_of_spades = Card.new(&quot;King&quot;, &quot;spades&quot;
+puts &quot;King of Spades Name ==&gt; &quot; + king_of_spades.name + &quot; Suit ==&gt;&nbsp; &quot; + king_of_spades.suit</pre>
+
+<p>Line 9 calls the <strong>initialize </strong>method with the <strong>new </strong>keyword and sends two arguments along, but does not include the closing parenthesis.</p>
 
 <p>&nbsp;</p>
 
