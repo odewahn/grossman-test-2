@@ -77,7 +77,9 @@ class Card
 end
 </pre>
 
-<p>Line 4 This is our first <strong>method.&nbsp; </strong>A method is a piece of code that can do something to an object.&nbsp;&nbsp; Once you define a method, the rest of your program&nbsp; that wishes to modify an object uses the method to do it.&nbsp; This makes it so if there are any problems with an object, you know they had to have been caused by one of the objects method.&nbsp; This may not sound like a big deal on a project with only 20-30 lines of Ruby code, but once you get to a project with many thousands of lines of code you will be very grateful to be able to know where to focus your efforts when the program does not work.&nbsp; Line four contains <strong>name </strong>and <strong>suit </strong>in parenthesis ().&nbsp;&nbsp; This is so the calling program can indicate the name and suit at the time of initialization.&nbsp; The value for name and the value for suit may be sent to the initialize method.&nbsp; The variables that are sent to a method are called <em>parameters</em> because the in mathematics the exact definition of a&nbsp; <em>parameter&nbsp; </em>in dictionary.com is:</p>
+<p>Line 4 This is our first <strong>method.&nbsp; </strong>A method is a piece of code that is associated with an object.&nbsp;&nbsp; Once you define a method, the rest of your program&nbsp; that wishes to modify an object uses the method to do it.&nbsp; This makes it so if there are any problems with an object, you know they had to have been caused by one of the objects method.&nbsp; This may not sound like a big deal on a project with only 20-30 lines of Ruby code, but once you get to a project with many thousands of lines of code you will be very grateful to be able to know where to focus your efforts when the program does not work.&nbsp;</p>
+
+<p>Line four contains <strong>name </strong>and <strong>suit </strong>in parenthesis ().&nbsp;&nbsp; This is so the calling program can indicate the name and suit at the time of initialization.&nbsp; The value for name and the value for suit may be sent to the initialize method.&nbsp; The variables that are sent to a method are called <em>parameters</em> because the in mathematics the exact definition of a&nbsp; <em>parameter&nbsp; </em>in dictionary.com is:</p>
 
 <blockquote>
 <p><em><span class="hwc" id="hotword" name="hotword">a</span> <span class="hwc" id="hotword" name="hotword">constant</span> <span class="hwc" id="hotword" name="hotword">or</span> <span class="hwc" id="hotword" name="hotword">variable</span> <span class="hwc" id="hotword" name="hotword">term</span> <span class="hwc" id="hotword" name="hotword">in</span> <span class="hwc" id="hotword" name="hotword">a</span> <span class="hwc" id="hotword" name="hotword">function</span> <span class="hwc" id="hotword" name="hotword">that</span> <span class="hwc" id="hotword" name="hotword">determines</span> <span class="hwc" id="hotword" name="hotword">the</span> <span class="hwc" id="hotword" name="hotword">specific</span> <span class="hwc" id="hotword" name="hotword">form</span> <span class="hwc" id="hotword" name="hotword">of</span> <span class="hwc" id="hotword" name="hotword">the</span> <span class="hwc" id="hotword" name="hotword">function</span> <span class="hwc" id="hotword" name="hotword">but</span> <span class="hwc" id="hotword" name="hotword">not</span> <span class="hwc" id="hotword" name="hotword">its</span> <span class="hwc" id="hotword" name="hotword">general</span> nature</em></p>
@@ -106,7 +108,7 @@ puts &quot;King of Spades ==&gt; &quot; + king_of_spades.name + &quot; &quot; + 
 
 <p>Essentially in lines 1-8 you define the class for the general nature of a playing card and line 7 <strong>instantiates </strong>(e.g.; create an instance of) a playing card called with a name of King and a Suit of Spades.</p>
 
-<p>At this point we can create any type of playing card we want.&nbsp; If we want to create three different playing cards we would do the following:</p>
+<p>At this point you can create any type of playing card you want.&nbsp; If you want to create three different playing cards, do the following:</p>
 
 <p>Try the following:</p>
 
@@ -116,9 +118,9 @@ queen_of_hearts = Card.new(&quot;Queen&quot;, &quot;hearts&quot;)
 jack_of_diamonds = Card.new(&quot;Jack&quot;, &quot;diamonds&quot;)
 </pre>
 
-<p>At least now you know how to create a single playing card and you know a little about what an object is and you know how to use the <strong>class </strong>keyword, the <strong>initialize </strong>keyword and what it means to send parameters to a method.&nbsp;&nbsp; At this point we need to talk about a DECK of playing cards.&nbsp; Once we do that we talk about how to DEAL a playing card and then we are mostly done with the game.&nbsp;</p>
+<p>Now you know how to create a single playing card and you know a little about what an object is and you know how to use the <strong>class </strong>keyword, the <strong>initialize </strong>keyword and what it means to send parameters to a method.&nbsp;&nbsp; At this point we need to talk about a DECK of playing cards.&nbsp; Once we do that we talk about how to DEAL a playing card and then we are mostly done with the game.&nbsp;</p>
 
-<p>Before we do all that, lets talk about some common mistakes before we move on.&nbsp;</p>
+<p>Lets talk about some common mistakes before we move on.&nbsp;</p>
 
 <h1>Common Mistake:&nbsp; Wrong number of parameters</h1>
 
