@@ -114,11 +114,8 @@ end
 
 </pre>
 
-<p>The structure of the IF statement is:</p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>For our game of black jack we need to compare a VARIABLE to a VALUE.&nbsp;<br />
+A <em>comparison operator</em> is used to determine how we would like to compare the Variable to the Value.&nbsp; Do we want to know if they are the same, if one is bigger than the other, or one is smaller than the other?&nbsp; To do this a <em>comparison operator</em> is used.&nbsp;&nbsp; The only comparison operator we need right now is <strong>equality</strong> -- is the variable equal to the value.&nbsp; It is done using two equal signs (==).&nbsp; We will explain why it's not one equal sign later.&nbsp;&nbsp;&nbsp; See the <a href="http://ch03">list of comparison operators</a> for some other comparison operators.</p>
 
 <p>The simplest comparison is one that checks to see if a variable equals a particular value.&nbsp; The comparison operator in Ruby is two equal signs next to one another (==). &nbsp; The reason a comparison is two equal signs is that one equal sign is already taken by the assignment operator. &nbsp; If you remember the <strong>gets </strong>statement in which we assigned the result of the <strong>gets </strong>to the variable <strong>x </strong>with the statement:</p>
 
@@ -151,7 +148,7 @@ end&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 <section data-type="sect1">
 <h1>&nbsp;</h1>
-COMMON MISTAKE #1:&nbsp; ONE EQUAL SIGN INSTEAD OF TWO</section>
+COMMON MISTAKE #1:&nbsp; WRONG COMPARISON OPERATOR -- ONE EQUAL SIGN INSTEAD OF TWO</section>
 
 <p>&nbsp;</p>
 
@@ -185,7 +182,7 @@ end
 
 </pre>
 
-<p>Try it.&nbsp; Unfortunately, the condition no longer works properly.&nbsp; You can enter 'y' or 'n' or 'anything' and the &quot;OK lets play&quot; message will always be displayed.&nbsp;&nbsp; The reason is that the single equal sign was used to simply assign the value 'y' to the variable <strong>input</strong> since the single equal sign (=) assignment operator was used and not the symbol for a comparison.&nbsp;&nbsp;</p>
+<p>Try it.&nbsp; Unfortunately, the condition no longer works properly.&nbsp; You can enter 'y' or 'n' or 'anything' and the &quot;OK lets play&quot; message will always be displayed.&nbsp;&nbsp; The reason is that the single equal sign is an assignment operator and not a comparison operator.&nbsp; It is just used&nbsp; used to simply assign the value 'y' to the variable <strong>input</strong> since the single equal sign (=) assignment operator was used and not the symbol for a comparison.&nbsp;&nbsp;</p>
 
 <p>The following statement is valid Ruby syntax.&nbsp; It contain an assignment followed by a comparison.&nbsp; The assignment is done with the equal sign and the comparison is done the greater than (&gt;) symbol.&nbsp;</p>
 
@@ -197,7 +194,7 @@ else
 end
 </pre>
 
-<p>This statement will first assign <em>input </em>to the result of gets.chop and then compare it to the value of y.&nbsp; So you can combine two steps into one.&nbsp; This kind of thing makes some programmers feel good as they are saving the time it takes to type things, but it is often confusing to read.&nbsp; We very much do not recommend doing this (we are sure to hear complaints from people who do it all the time) as it can be really confusing to read.&nbsp; Instead just break it into two statements:</p>
+<p>This statement will first assign <em>input </em>to the result of gets.chop and then compare it to the value of y.&nbsp; So you can combine two steps into one.&nbsp; We very much do not recommend doing this as it can be really confusing to read.&nbsp; Instead just break it into two statements:</p>
 
 <pre data-type="programlisting">
 input = gets.chop
@@ -246,7 +243,7 @@ if (input = gets.chop)</pre>
 <p>&nbsp;</p>
 </div>
 
-<p>Again, this will simply do the assignment and no comparison is specified since no comparison operator (e.g.; ==)&nbsp; is found,&nbsp; no comparison is done.&nbsp;&nbsp; Once it is assigned, Ruby sees no harm in having the expression evaluate to TRUE as no comparison exists, so it may as well be true.&nbsp; Hence, the <strong>IF</strong> statement will now be TRUE in all cases.&nbsp; Adding the double equal sign as in</p>
+<p>Again, this will simply do the assignment and no comparison is specified since no comparison operator (e.g.; ==)&nbsp; is found,&nbsp; no comparison is done.&nbsp;&nbsp; Once it is assigned, Ruby sees no harm in having the expression evaluate to TRUE as no comparison exists, so it may as well be true.&nbsp; Hence, the <strong>IF</strong> statement will now be TRUE in all cases.&nbsp; Adding the correct <em>comparison operator </em>double equal sign as in</p>
 
 <pre data-type="programlisting">
 if (input == 'y')</pre>
@@ -281,6 +278,16 @@ if (input == 'y')</pre>
 
 <p>That is a nice hint, you do not always get such good hints, so please remember to use a double equal sign (==) for the condition inside of an <strong>IF </strong>statement.</p>
 
+<p>&nbsp;</p>
+
+<section data-type="sect1">
+<h1>COMMON MISTAKE #2:&nbsp; Misspell a ELSE</h1>
+
+<p>&nbsp;</p>
+</section>
+
+<p>&nbsp;</p>
+
 <p>Now, try one more error that is easier. Go ahead and misspell&nbsp; the ELSE (may as well get used to this type of error as every programmer has done it a few zillion times).&nbsp;</p>
 
 <pre data-type="programlisting">
@@ -305,6 +312,14 @@ end
 <p><strong>in ` ': undefined local variable or method `esle' for main:Object (NameError)</strong></p>
 
 <p>The ruby interpreter thinks we are now referring to a variable called <strong>esle</strong> and says that variable has not been defined.&nbsp; Now spell else correctly, use a double equal (==) and try it again.</p>
+
+<section data-type="sect1">
+<h1>MAIN DRIVER</h1>
+</section>
+
+<h1>&nbsp;</h1>
+
+<p>&nbsp;</p>
 
 <p>To run the whole game of blackjack we need the following IF statement:</p>
 
@@ -362,6 +377,16 @@ puts &quot;Have a good day.&quot;
 <i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
 
 <p>I'm feeling the rollovers again. What if we were able to read the text about each line on mouseover? Crazy or good idea? That could be additive rather than replacing the text.</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f" />
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>Yep, rollovers of even a line-by-line animation where we show a line, talk about it and then have a new line type in or fly in.&nbsp; I would be glad to try different things. Showing the code and then going line by line is really what you are forced to do with a book -- not sure we have to stick to it.&nbsp; Also when we have a thing that runs the code, making it so the students can see all the variables referenced and their current value would be a huge thing.&nbsp; I constantly and drawing boxes of variables when I step through things with students.</p>
+</div>
+
+<p>&nbsp;</p>
 </div>
 
 <p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Now we get to our new thing for this module which is our&nbsp;<strong>if-then&nbsp;</strong>statement. &nbsp;We test te condition if&nbsp;<em>(input == 'y') . &nbsp;</em>This compares the variable named&nbsp;<em>input&nbsp;</em>&nbsp;which was populated in line two with the value 'y'. &nbsp;'y' is in quotes so we are making it clear that we are comparing to the character 'y' and not a variable named 'y'. &nbsp;The two equal signs are critical (instead of one which is a common error made every day by very experienced programmers) as they indicate that a comparison is to be made. &nbsp;</span></p>
@@ -390,6 +415,16 @@ puts &quot;Have a good day.&quot;
 <i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
 
 <p>That's a downer. Can you give our new programmer a copy and past cheat so they can run the code now?</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f" />
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>we have two options, we could go through and stub out all the methods and have them a run a shell of blackjack -- i almost did that, but that forces us into a big discussion of objects that i don't want to do right now.&nbsp; Or we just have the whole thing ready to go and hit run and we say we'll explain all the other modules later.&nbsp; I'm open to both ideas, i know its a downer and I didn't like it when I wrote&nbsp; the sentence (DON'T TRY IT).</p>
+</div>
+
+<p>&nbsp;</p>
 </div>
 
 <p>&nbsp; In the coming modules we will define and test each method and then we will come back and put in this code (lines 1-24) and the whole game will be done.</p>
@@ -412,6 +447,16 @@ end
 
 <p>Another thing to mention is that in this module we have basically described all the components needed to play Blackjack and the statements in line 4-20 are what is called the <strong>main driver</strong> of this program.&nbsp; These statements call other methods to get things done but the high level steps are all here.&nbsp;&nbsp; Essentially, if we were writing our &quot;bake cookies&quot; steps we would have:</p>
 
+<section data-type="sect1">
+<h1>A little more on Algorithms</h1>
+
+<p>&nbsp;</p>
+</section>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
 <p>See if User wants to Play</p>
 
 <ol>
@@ -433,7 +478,7 @@ end
 
 <p>The steps 1-12 we have just listed here are called psuedocode as they are mostly in English and not meant to be specific to any programming language.&nbsp; This step by step listing of how to solve a problem (e.g.; the problem here is to make the computer play blackjack) is called an <strong>algorithm </strong>(pronounced ALG-OH-rhythm).&nbsp;&nbsp; The study of Computer Science is really all about the study of algorithms.&nbsp; For any algorithm you can always compute how many steps the computer will take.&nbsp; A big part of Computer Science is finding more efficient algorithms to solve the same problem.&nbsp; For some problems, a faster algorithm can be shown to do more good and make the problem go away thousands of times faster than buying a much more expensive and faster computer.&nbsp;</p>
 
-<p>People tend to focus on learning a programming language, but Computer Science doesn't get all wrapped up in a particular programming language.&nbsp; Programming languages come and programming languages go -- but good algorithms prevail. &nbsp; We think Ruby is a good programming language to teach algorithm development as much of Ruby reads a good bit like pseudocode, but you should always remember that a good program really should only be written once you have a good algorithm. &nbsp;&nbsp; Hence, the first thing you should do before typing in a program is to write out the algorithm in pseudocode and make sure you have thought through&nbsp;all the different things that can happen.&nbsp; For instance, if our algorithm left out step 10, then we would end up with no output,&nbsp;the dealer wins, and the program would only work when the player wins. &nbsp; So check your algorithm and make sure you have thought about the different things that can happen.&nbsp; Then implement your algorithm with a programming language and then test the software that implements the algorithm. &nbsp; For more on algorithms and pseudocode click</p>
+<p>People tend to focus on learning a programming language, but Computer Science doesn't get all wrapped up in a particular programming language.&nbsp; Programming languages come and programming languages go -- but good algorithms prevail. &nbsp; We think Ruby is a good programming language to teach algorithm development as much of Ruby reads a good bit like pseudocode, but you should always remember that a good program really should only be written once you have a good algorithm. &nbsp;&nbsp; Hence, the first thing you should do before typing in a program is to write out the algorithm in pseudocode and make sure you have thought through&nbsp;all the different things that can happen.&nbsp; For instance, if our algorithm left out step 10, then we would end up with no output,&nbsp;the dealer wins, and the program would only work when the player wins. &nbsp; So check your algorithm and make sure you have thought about the different things that can happen.&nbsp; Then implement your algorithm with a programming language and then test the software that implements the algorithm. &nbsp; Module <a href="http://ch01">xxx </a>gives you more information about algorithms and pseudocode.</p>
 
 <div data-nickname="petrycki" data-type="comment">
 <div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
@@ -449,6 +494,16 @@ end
 <i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
 
 <p>Like I said, the flow is good. What I'd like to see is chunking and labeling. For example, how about setting aside the initial if-then-else description, both pitfall/error sections or assignment vs. compare, main driver,&nbsp;discussions of algorithms, pseudocode description. It will help when you want to refer to those sections or the learner returns to the material. I would simply use standard headings.</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f" />
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>I put in sections but I can change the headings -not sure which is best.&nbsp; Clearly a good thing to do to break this up into chunks.&nbsp;</p>
+</div>
+
+<p>&nbsp;</p>
 </div>
 
 <p>&nbsp;</p>
