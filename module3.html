@@ -94,7 +94,9 @@ Obtain ingredients for making&nbsp;chocolate chip cookies that come with a mix w
 
 <p>&nbsp;</p>
 
-<section data-type="sect1">PART 2:&nbsp; IF-THEN in RUBY</section>
+<section data-type="sect1">
+<h1>IF-THEN IN RUBY</h1>
+</section>
 
 <p>&nbsp;</p>
 
@@ -111,6 +113,12 @@ end
 
 
 </pre>
+
+<p>The structure of the IF statement is:</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
 <p>The simplest comparison is one that checks to see if a variable equals a particular value.&nbsp; The comparison operator in Ruby is two equal signs next to one another (==). &nbsp; The reason a comparison is two equal signs is that one equal sign is already taken by the assignment operator. &nbsp; If you remember the <strong>gets </strong>statement in which we assigned the result of the <strong>gets </strong>to the variable <strong>x </strong>with the statement:</p>
 
@@ -130,10 +138,7 @@ if&nbsp; (input == 'y') then
 &nbsp;&nbsp;&nbsp; puts &quot;OK. Let's play.&quot;
 else
 &nbsp;&nbsp;&nbsp; puts &quot;Fine. We will play again another time.&quot;
-end
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
+end&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </pre>
 
 <p>Line 3 will be true if the user enters a &quot;y&quot; and if it is true then line 4 is executed. If the user enters something other than a &quot;y&quot; then line 6 is executed.&nbsp;&nbsp; Try it for both cases.</p>
@@ -144,7 +149,9 @@ end
 
 <p>&nbsp;</p>
 
-<h1>COMMON MISTAKE #1:&nbsp; ONE EQUAL INSTEAD OF TWO</h1>
+<section data-type="sect1">
+<h1>&nbsp;</h1>
+COMMON MISTAKE #1:&nbsp; ONE EQUAL SIGN INSTEAD OF TWO</section>
 
 <p>&nbsp;</p>
 
@@ -216,10 +223,10 @@ if (input == 'y') then puts &quot;x is big&quot;
 <p>&nbsp;</p>
 </div>
 
-<p>However, since Ruby allows you to assign a variable and then compare it in the same statement, the following statement will simply execute an assignment of moving 'y' to the variable <strong>input. </strong></p>
+<p>However, since Ruby allows you to assign a variable and then compare it in the same statement, accidentally using a single equal sign instead of two simply looks like an assignment to Ruby inside of the IF statement.&nbsp; Hence, the following statement will simply execute an assignment of moving the result of gets.chop to the variable <strong>input. </strong></p>
 
 <pre data-type="programlisting">
-if (input = 'y')</pre>
+if (input = gets.chop)</pre>
 
 <div data-nickname="petrycki" data-type="comment">
 <div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
@@ -239,7 +246,7 @@ if (input = 'y')</pre>
 <p>&nbsp;</p>
 </div>
 
-<p>Again, this will simply assign 'y' to input and not COMPARE 'y' to input.&nbsp; Once it is assigned, Ruby sees no harm in having the expression evaluate to TRUE as no comparison exists, so it may as well be true.&nbsp; Hence, the <strong>IF</strong> statement will now be TRUE in all cases.&nbsp; Adding the double equal sign as in</p>
+<p>Again, this will simply do the assignment and no comparison is specified since no comparison operator (e.g.; ==)&nbsp; is found,&nbsp; no comparison is done.&nbsp;&nbsp; Once it is assigned, Ruby sees no harm in having the expression evaluate to TRUE as no comparison exists, so it may as well be true.&nbsp; Hence, the <strong>IF</strong> statement will now be TRUE in all cases.&nbsp; Adding the double equal sign as in</p>
 
 <pre data-type="programlisting">
 if (input == 'y')</pre>
