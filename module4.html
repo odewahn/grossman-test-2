@@ -18,14 +18,9 @@
 		<li>either hearts, clubs, spades or diamonds</li>
 	</ul>
 	</li>
-	<li>value
-	<ul>
-		<li>this says the point value of a card.&nbsp; Face cards all have a value of 10 in blackjack and numeric cards have a value equal to their number. The Ace may be either one or eleven but we are not going to worry about that right now.&nbsp;</li>
-	</ul>
-	</li>
 </ul>
 
-<p>So when we crate a new card it will have a home for these three variables.&nbsp; These will be the <strong>data </strong>associated with each card.&nbsp;</p>
+<p>So when we crate a new card it will have a home for these two variables.&nbsp; These will be the <strong>data </strong>associated with each card.&nbsp;</p>
 
 <h1>DEFINE AN OBJECT</h1>
 
@@ -39,7 +34,7 @@
 
 <pre data-type="programlisting">
 class Card
-&nbsp;&nbsp;&nbsp; attr_accessor :name, :suit, :value&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp; attr_accessor :name, :suit&nbsp; &nbsp;
 end
 
 </pre>
@@ -75,17 +70,16 @@ irb(main):007:0&gt; my_first_card.suit
 class Card
 &nbsp;&nbsp;&nbsp; attr_accessor :name, :suit, :value&nbsp;&nbsp; &nbsp;
 
-&nbsp;&nbsp;&nbsp; def initialize (name, suit, value)
+&nbsp;&nbsp;&nbsp; def initialize (name, suit)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @name = name
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @suit = suit
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @value = value
 &nbsp;&nbsp;&nbsp; end
 end
 </pre>
 
 <p>Line 4 This is our first <strong>method.&nbsp; </strong>A method is a piece of code that can do something to an object.&nbsp;&nbsp; Once you define a method, the rest of your program&nbsp; that wishes to modify an object uses the method to do it.&nbsp; This makes it so if there are any problems with an object, you know they had to have been caused by one of the objects method.&nbsp; This may not sound like a big deal on a project with only 20-30 lines of Ruby code, but once you get to a project with many thousands of lines of code you will be very grateful to be able to know where to focus your efforts when the program does not work.</p>
 
-<p>A special method called <strong>initialize </strong>is started whenever the <strong>new </strong>keyword is used.&nbsp; The part of the program that creates a new object usually wants the object initialized with particular values.&nbsp;</p>
+<p>A special method called <strong>initialize </strong>is started whenever the <strong>new </strong>keyword is used.&nbsp; The part of the program that creates a new object usually wants the object initialized with particular values.&nbsp;&nbsp;&nbsp; You need to create an actual instance of a playing card, not a plan for a playing card.&nbsp; To do this you would use the following statement</p>
 
 <p>&nbsp;</p>
 
