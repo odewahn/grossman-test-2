@@ -87,7 +87,7 @@ end
 
 <p>The <strong>initialize </strong>method defined in line 3 accepts two parameters:&nbsp; <strong>name and suit.&nbsp; </strong>To create a specific playing card try the following Ruby code:</p>
 
-<pre class="pre " data-type="programlisting">
+<pre data-type="programlisting">
 class Card
 &nbsp;&nbsp;&nbsp; attr_accessor :name, :suit, :value&nbsp;&nbsp; &nbsp;
 
@@ -99,6 +99,48 @@ end
 
 king_of_spades = Card.new(&quot;King&quot;, &quot;spades&quot;)
 puts &quot;King of Spades ==&gt; &quot; + king_of_spades.name + &quot; &quot; + king_of_spades.suit</pre>
+
+<p>The output you get should be:</p>
+
+<p><strong>King of Spades Name ==&gt; King Suit ==&gt;&nbsp; spades</strong></p>
+
+<p>Essentially in lines 1-8 you define the class for the general nature of a playing card and line 7 <strong>instantiates </strong>(e.g.; create an instance of) a playing card called with a name of King and a Suit of Spades.</p>
+
+<p>At this point we can create any type of playing card we want.&nbsp; If we want to create three different playing cards we would do the following:</p>
+
+<p>Try the following:</p>
+
+<pre data-type="programlisting">
+king_of_spades = Card.new(&quot;King&quot;, &quot;spades&quot;)
+queen_of_hearts = Card.new(&quot;Queen&quot;, &quot;hearts&quot;)
+jack_of_diamonds = Card.new(&quot;Jack&quot;, &quot;diamonds&quot;)
+</pre>
+
+<p>At least now you know how to create a single playing card and you know a little about what an object is and you know how to use the <strong>class </strong>keyword, the <strong>initialize </strong>keyword and what it means to send parameters to a method.&nbsp;&nbsp; At this point we need to talk about a DECK of playing cards.&nbsp; Once we do that we talk about how to DEAL a playing card and then we are mostly done with the game.&nbsp;</p>
+
+<p>Before we do all that, lets talk about some common mistakes before we move on.&nbsp;</p>
+
+<h1>Common Mistake:&nbsp; Wrong number of parameters</h1>
+
+<p>So we have defined an initialize method that takes two parameters and the Ruby interpreter was happy when we sent it &quot;King&quot; for name and &quot;spades&quot; for suit.</p>
+
+<p>Try sending three parameters as in:</p>
+
+<pre data-type="programlisting">
+king_of_spades = Card.new(&quot;King&quot;, &quot;spades&quot;, &quot;extra parameter&quot;)
+</pre>
+
+<p>You should get an error message something like this:</p>
+
+<p><strong>ArgumentError: wrong number of arguments (3 for 2)</strong></p>
+
+<p>Sometimes parameters are called <strong>arguments </strong>and so the Ruby interpreter is telling you that you have sent the &quot;wrong number of arguments&quot; and it even tells you it was expecting three and you sent 2 (e.g.; <strong>3 for 2)</strong></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 
