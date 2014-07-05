@@ -1,3 +1,42 @@
 <section data-type="chapter">
 <h1>Module 4 - Defining and Using Playing Cards</h1>
+
+<p>Since blackjack is a game with playing cards, you now have to tell the Ruby interpreter what it needs to know about them. &nbsp;</p>
+
+<p>To do this you first have to define an object called CARD.&nbsp; This CARD object is a thing that the rest of your blackjack program can use.&nbsp;&nbsp; An object can contain data and methods.&nbsp; Data are just a group of variables related to that object and methods are things that the object can do. &nbsp;</p>
+
+<p>The data for a playing card is:</p>
+
+<ul>
+	<li>name
+	<ul>
+		<li>name of the card as in Ace, Jack, Queen, King, 10, 9, 8, &hellip; 1</li>
+	</ul>
+	</li>
+	<li>suit
+	<ul>
+		<li>either hearts, clubs, spades or diamonds</li>
+	</ul>
+	</li>
+	<li>been_played
+	<ul>
+		<li>this is an indicator that this card has already been played.&nbsp;&nbsp; We don't want to be able to deal a player the same Ace of Diamonds twice in one hand</li>
+	</ul>
+	</li>
+</ul>
+
+<p>So when we crate a new card it will have a home for these three variables.&nbsp; These will be the <strong>data </strong>associated with each card.&nbsp;</p>
+
+<p>The following Ruby code defines the <strong>Card</strong> object and indicates that you can view the values of the data in&nbsp;the variable <strong>name, </strong><strong>suit, </strong>and <strong>been_played</strong> once you create an <strong>instance</strong> of this object.&nbsp; Think of the <strong>object</strong> like a design of a playing card and an <strong>instance </strong>as an actual playing card.&nbsp; The object simply says playing cards have a suit and a value and an indicator as to whether or not the card has been played. The actual instance is an actual playing card.&nbsp;&nbsp; The code below has the special keyword <strong>class</strong> which tells ruby we are defining an object named <strong>Card.&nbsp; </strong></p>
+
+<pre class="pre " data-type="programlisting">
+class Card
+&nbsp;&nbsp;&nbsp; attr_accessor :name, :suit, :been_played&nbsp;&nbsp; &nbsp;
+end
+
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
 </section>
