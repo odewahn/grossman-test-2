@@ -65,7 +65,21 @@ irb(main):007:0&gt; my_first_card.suit
 
 <p>So the object we just looked at with the statement <strong>x&nbsp; = Card.new </strong>ended up with a card object being assigned to the <strong>x, </strong>but the values of <strong>name </strong>and <strong>suit </strong>were empty (e.g.; <strong>nil)</strong></p>
 
-<p>To play blackjack, you need to be able to create a card like the King</p>
+<p>To play blackjack, you need to be able to create a card like the King of Spades.&nbsp; To do this, use the<strong> initialize </strong>method for the object.</p>
+
+<pre data-type="programlisting">
+class Card
+&nbsp;&nbsp;&nbsp; attr_accessor :name, :suit, :value&nbsp;&nbsp; &nbsp;
+
+&nbsp;&nbsp;&nbsp; def initialize (name, suit, value)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @name = name
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @suit = suit
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @value = value
+&nbsp;&nbsp;&nbsp; end
+end
+</pre>
+
+<p>Line 4 The method <strong>initialize </strong></p>
 
 <p>&nbsp;</p>
 
