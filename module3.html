@@ -1,65 +1,48 @@
 <section data-type="chapter">
 <h1>Module 3 - Deciding what to do next.&nbsp;</h1>
 
-<div data-nickname="petrycki" data-type="comment">
-<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
-<div spellcheck="false">petrycki</div>
-<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
-
-<p>I've always hated &quot;user.&quot; I remember David Pogue saying only two industries call their customers &quot;users:&quot; software developers and drug dealers. ;-) We can find better more conversational ways to talk about the people&nbsp;trying out &nbsp;or developing&nbsp;our blackjack game. I made some suggestions.</p>
-</div>
-
 <p>At this point, our blackjack player&nbsp;has been asked if they want to play and whether he&nbsp;responded. We now need to check and see if what that person wants to do.&nbsp;</p>
 
 <p>The&nbsp;<strong>puts&nbsp;</strong>&nbsp;statement outputs the question &quot;do you want to play?&quot;. &nbsp;The&nbsp;<strong>gets&nbsp;</strong>statement obtains the answer ('y' for yes and 'q' for quit). &nbsp;</p>
 
-<p>Our new statement:&nbsp; the&nbsp;<strong>if-then</strong>&nbsp;statement will contain a comparison of a value to a variable.&nbsp; The comparison will either return <strong>true </strong>or <strong>false</strong>.&nbsp;</p>
-
-<div data-nickname="petrycki" data-type="comment">
-<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
-<div spellcheck="false">petrycki</div>
-<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
-
-<p>Let's rethink passive voice. The active version sounds much better to me.&nbsp;</p>
-
-<p>Our new statement:&nbsp; the&nbsp;<strong>if-then</strong>&nbsp;statement&nbsp;contains&nbsp;a comparison of a value to a variable.&nbsp; The comparison either returns&nbsp;<strong>true&nbsp;</strong>or&nbsp;<strong>false</strong>.&nbsp;</p>
-</div>
+<p>Our new statement:&nbsp; the&nbsp;<strong>if-then</strong>&nbsp;statement contains a comparison of a value to a variable.&nbsp; The comparison either return <strong>true </strong>or <strong>false</strong>.&nbsp;</p>
 
 <p>Up to now, a program just executed each step one after the other starting at the top and going to the bottom. &nbsp;Think of it like a recipe.&nbsp;</p>
 
-<p>Obtain ingredients for making&nbsp;chocolate chip cookies that come with a mix where you need to add oil and eggs.&nbsp;</p>
+<p>Suppose we want to play a video game.&nbsp; The steps are as follows:</p>
+
+<ol>
+	<li>Pick out the video game you want to play</li>
+	<li>Turn the video game player on</li>
+	<li>Insert the game into the player</li>
+	<li>Select the options you want</li>
+	<li>Play the game</li>
+</ol>
+
+<p>These steps happen one after a another and are called an <em>algorithm (AL-GOH-ri-thm). </em></p>
+Obtain ingredients for making&nbsp;chocolate chip cookies that come with a mix where you need to add oil and eggs.&nbsp;
 
 <ol>
 	<li>Break eggs and put eggs into mixing bowl</li>
-	<li>measure oil and pour into mixing bowl</li>
-	<li>pour cookie mix into mixing bowl</li>
-	<li>mix the contents</li>
-	<li>scoop contents into cookie sheet, one cookie at a time</li>
-	<li>put sheet into oven</li>
-	<li>bake</li>
-	<li>remove cookies</li>
-	<li>eat cookies</li>
+	<li>Measure oil and pour into mixing bowl</li>
+	<li>Pour cookie mix into mixing bowl</li>
+	<li>Mix the contents</li>
+	<li>Scoop contents into cookie sheet, one cookie at a time</li>
+	<li>Put sheet into oven</li>
+	<li>Bake</li>
+	<li>Remove cookies</li>
+	<li>Eat cookies</li>
 </ol>
 
 <p>Each step happens one after the other. &nbsp;Now imagine if we wanted to ask if someone wanted to make the cookies. &nbsp;So we would have a&nbsp;<strong>puts&nbsp;</strong>statement to ask the question and a&nbsp;<strong>gets&nbsp;</strong>statement to obtain the answer. &nbsp;</p>
 
 <p>We need an&nbsp;<strong>if-then</strong>&nbsp;statement to find out if the user wants to make cookies and if so, go ahead and make them. &nbsp;Otherwise we can just display a message that says &quot;Fine, forget about the cookies and instead&nbsp;head to the bakery.&quot;&nbsp;</p>
 
-<div data-nickname="petrycki" data-type="comment">
-<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
-<div spellcheck="false">petrycki</div>
-<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
-
-<p>Added an else condition. Also, do you want&nbsp;hipper examples, such as a task a 20-something guy might want to do? Ask someone on a date? Play a video game? Go to a movie? Send a text to the girl you like? You're not&nbsp;writing for the 30-something mom (for the most part).</p>
-</div>
-
 <p>The structure of an&nbsp;<strong>if-then</strong>&nbsp;statement in Ruby is:</p>
 
 <p><strong>if</strong> (comparison of a variable to a value) &nbsp;<strong>then</strong></p>
 
 <p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; statements to do if the comparison is true</p>
-
-<p>&nbsp;</p>
 
 <p><strong>else</strong></p>
 
@@ -69,23 +52,9 @@
 
 <p>&nbsp;</p>
 
-<p>If the comparison is true, the statements after the&nbsp;<strong>then&nbsp;</strong>&nbsp;get executed, if it is false, the statements in the true part are skipped and only the statements after the&nbsp;<strong>else&nbsp;</strong>are executed.&nbsp;&nbsp;&nbsp;<strong> </strong>Ruby allows you to do the following types of comparisons:&nbsp;&nbsp; equal, not equal, less then,&nbsp; greater than and many others.&nbsp; For an full discussion of the <strong>if-then-else </strong>statement click <a href="http://herehttps://atlas.oreilly.com/oreillymedia/computer-science-programming-basics-in-ruby-course/editor/master/ch04.html">here.</a></p>
-
-<div data-nickname="petrycki" data-type="comment">
-<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
-<div spellcheck="false">petrycki</div>
-<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
-
-<p>I'm assuming you're going to talk about Boolean logic, nested if-then statements, and when it's best to use another option, such as arrays in the jump.</p>
-
-<p>Another pet peeve of mine: highlight &quot;here&quot; as a link. How about &quot;We have more &lt;link&gt;if-then-else&lt;/link&gt; information about nested statements, logic, and so on.&quot;</p>
-</div>
-
-<p>&nbsp;</p>
+<p>If the comparison is true, the statements after the&nbsp;<strong>then&nbsp;</strong>&nbsp;get executed, if it is false, the statements in the true part are skipped and only the statements after the&nbsp;<strong>else&nbsp;</strong>are executed.&nbsp;&nbsp;&nbsp;<strong> </strong>Ruby allows you to do the following types of comparisons:&nbsp;&nbsp; equal, not equal, less then,&nbsp; greater than and many others.&nbsp; We have more <a href="http://ch04">if-then-else </a>information about nested statements, logic, and so on.</p>
 
 <p>In our current case we simply have to find out if the user wishes to make cookies so we would say</p>
-
-<p>&nbsp;</p>
 
 <pre data-type="programlisting">
 puts &quot;Want to make cookies&quot;
