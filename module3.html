@@ -5,7 +5,11 @@
 
 <p>The&nbsp;<strong>puts&nbsp;</strong>&nbsp;statement outputs the question &quot;do you want to play?&quot;. &nbsp;The&nbsp;<strong>gets&nbsp;</strong>statement obtains the answer ('y' for yes and 'q' for quit). &nbsp;</p>
 
-<p>Our new statement:&nbsp; the&nbsp;<strong>if-then</strong>&nbsp;statement contains a comparison of a value to a variable.&nbsp; The comparison either return <strong>true </strong>or <strong>false</strong>.&nbsp;</p>
+<p>Our new statement:&nbsp; the&nbsp;<strong>if-then</strong>&nbsp;statement contains a comparison of a value to a variable.&nbsp; The comparison either return <strong>true </strong>or <strong>false</strong>.&nbsp;&nbsp;</p>
+
+<h1>PART 1:&nbsp;&nbsp; IF-THEN-LOGIC</h1>
+
+<p>&nbsp;</p>
 
 <p>Up to now, a program just executed each step one after the other starting at the top and going to the bottom. &nbsp;Think of it like a recipe.&nbsp;</p>
 
@@ -86,6 +90,12 @@ Obtain ingredients for making&nbsp;chocolate chip cookies that come with a mix w
 
 <p>In our current case we simply have to find out if the user wishes to make cookies so we would say</p>
 
+<p>&nbsp;</p>
+
+<h1>PART 2:&nbsp; IF-THEN in RUBY</h1>
+
+<p>&nbsp;</p>
+
 <pre data-type="programlisting">
 puts &quot;Want to make cookies&quot;
 x = gets.chop
@@ -129,6 +139,12 @@ end
 <p>Line 3 really has the new thing for this module which is our&nbsp;<strong>if-then&nbsp;</strong>statement. &nbsp;We test the condition if&nbsp;<em>(input == 'y') . &nbsp;</em>This compares the variable named&nbsp;<em>input&nbsp;</em>&nbsp;which is populated in line two with the value 'y'. &nbsp;'y' is in quotes so we are making it clear that we are comparing to the character 'y' and not a variable named 'y'. &nbsp;The two equal signs are critical (instead of one).&nbsp; Note that we never had to actually test for 'q' as in this case we really do not care if the human player actually hits a 'q' or not.&nbsp; As long as they hit something other than a 'y' we are happy and they can just stop playing the game.</p>
 
 <p>Once you get the example above working, lets mess it up with a classic mistake.&nbsp; Lets leave out an equal sign.&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h1>COMMON MISTAKE #1:&nbsp; ONE EQUAL INSTEAD OF TWO</h1>
+
+<p>&nbsp;</p>
 
 <div data-nickname="petrycki" data-type="comment">
 <div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
@@ -198,7 +214,7 @@ if (input == 'y') then puts &quot;x is big&quot;
 <p>&nbsp;</p>
 </div>
 
-<p>However, since Ruby allows you to assign a variable and then compare it in :the statement, the following statement will simply execute an assignment of moving 'y' to the variable <strong>input. </strong></p>
+<p>However, since Ruby allows you to assign a variable and then compare it in the same statement, the following statement will simply execute an assignment of moving 'y' to the variable <strong>input. </strong></p>
 
 <pre data-type="programlisting">
 if (input = 'y')</pre>
@@ -209,14 +225,26 @@ if (input = 'y')</pre>
 <i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
 
 <p>While I'm liking the flow. You need to segment the text with some sort of structure. More later on that idea.</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f" />
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>I just tried putting in PARTS -- kind of like your chunks -- let me know what you think.</p>
 </div>
 
-<p>Again, this will simply assign 'y' to input and not COMPARE 'y' to input.&nbsp; Once it is assigned, Ruby sees no harm in having the expression evaluate to TRUE as no comparison exists, so it may as well be true.&nbsp; Hence, the if statement will now be TRUE in all cases.&nbsp; Adding the double equal sign as in</p>
+<p>&nbsp;</p>
+</div>
+
+<p>Again, this will simply assign 'y' to input and not COMPARE 'y' to input.&nbsp; Once it is assigned, Ruby sees no harm in having the expression evaluate to TRUE as no comparison exists, so it may as well be true.&nbsp; Hence, the <strong>IF</strong> statement will now be TRUE in all cases.&nbsp; Adding the double equal sign as in</p>
 
 <pre data-type="programlisting">
 if (input == 'y')</pre>
 
-<p>will tell the Ruby interpreter that we wish to compare 'y' to input and the evaluate to TRUE or FALSE based on the comparison -- no assignment is being made.&nbsp; The</p>
+<p>will tell the Ruby interpreter that we wish to compare 'y' to the input and then evaluate to TRUE or FALSE based on the comparison -- no assignment is being made.&nbsp;</p>
+
+<p>The real cause of the need to put in two equal signs for a comparison is</p>
 
 <div data-nickname="petrycki" data-type="comment">
 <div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
@@ -224,9 +252,19 @@ if (input == 'y')</pre>
 <i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
 
 <p>What problem? Assigning of comparing? Say that. Don't leave the reader guessing. You're interweaving examples and losing the reader in this section.</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f" />
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>True, I have redone it.</p>
 </div>
 
-<p>problem occurs because assignments are allowed in the condition being compared and the equal sign (single =) is the assignment operator and the double equal sign (==) is the comparison operator.&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+<p>reason this problem occurs because assignments are allowed in the condition being compared and the equal sign (single =) is the assignment operator and the double equal sign (==) is the comparison operator.&nbsp;</p>
 
 <p>The hard part about this example is that everything appears to work well -- it is only when you try different input that you identify the problem.&nbsp; The good news is that the Ruby interpreter does give you a warning:&nbsp;</p>
 
