@@ -165,14 +165,18 @@ end
 <p>The following statement is valid Ruby syntax.&nbsp; It contain an assignment followed by a comparison.&nbsp; The assignment is done with the equal sign and the comparison is done the greater than (&gt;) symbol.&nbsp;</p>
 
 <pre data-type="programlisting">
-if ((x = 5) &gt; 7) then puts &quot;x is big&quot;
+if ((input = gets.chop) == 'y') then 
+    puts &quot;OK. Let's play.&quot;
+else 
+    puts &quot;Fine. We will play again another time.&quot;
+end
 </pre>
 
-<p>This statement will assign 5 to x and then compare it with 7.&nbsp; We do not recommend doing this as it can be confusing to read.&nbsp; Instead just break it into two statements:</p>
+<p>This statement will first assign <em>input </em>to the result of gets.chop and then compare it to the value of y.&nbsp; So you can combine two steps into one.&nbsp; This kind of thing makes some programmers feel good as they are saving the time it takes to type things, but it is often confusing to read.&nbsp; We very much do not recommend doing this (we are sure to hear complaints from people who do it all the time) as it can be really confusing to read.&nbsp; Instead just break it into two statements:</p>
 
 <pre data-type="programlisting">
-x = 5
-if (x &gt; 7) then puts &quot;x is big&quot;
+input = gets.chop
+if (input == 'y') then puts &quot;x is big&quot;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 </pre>
 
@@ -182,6 +186,16 @@ if (x &gt; 7) then puts &quot;x is big&quot;
 <i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
 
 <p>Whoa. I didn't get that aside. You jumped back to the y example after the assignment presentation. And why would you want to do a direct assignment then a conditional test? Make sure the examples make sense.&nbsp;</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f" />
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
+
+<p>You were so RIGHT -- I didn't realize my running example was the perfect case to show what I wanted to show ---I have no idea why I decided I had to do something weird.&nbsp; Many thanks!</p>
+</div>
+
+<p>&nbsp;</p>
 </div>
 
 <p>However, since Ruby allows you to assign a variable and then compare it in :the statement, the following statement will simply execute an assignment of moving 'y' to the variable <strong>input. </strong></p>
