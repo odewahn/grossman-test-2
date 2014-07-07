@@ -48,15 +48,15 @@ input = gets
 
 <p>&nbsp;</p>
 
-<p>The Ruby interpreter sees the equal sign after the number 5 and realizes that you are trying to move some value in an actual number or literal value.&nbsp; A literal cannot be changed, it only has the value of 5.&nbsp;&nbsp; So the Ruby interpreter says it was expecting you to be done when it found the equal sign and you were not done so syntax error is generated.&nbsp;</p>
+<p>The Ruby interpreter sees the equal sign after the number 5 and realizes that you are trying to move some value into an actual number or literal value.&nbsp; A literal, in this case&nbsp;a number, cannot be changed;&nbsp;it only has the value of 5.&nbsp;&nbsp; So, the Ruby interpreter states that it was expecting you to be done when it encountered the equal sign. &nbsp;Since&nbsp;you were not, a&nbsp;syntax error message was generated.&nbsp;</p>
 
-<p>When you hit the enter key, a newline character is added to the input. So if you just says</p>
+<p>When you hit the enter key, a newline character is added to the input. &nbsp;If you just type</p>
 
 <p><strong>x = gets</strong></p>
 
 <p>and the user enters YES and then hits enter, the value &quot;YES\n&quot; is now stored in <strong>x </strong>where the <strong>\n </strong>indicates a new line character.</p>
 
-<p>This <strong>\n </strong>is usually going to get in your way, so a handy Ruby method called <strong>chop </strong>is used to chop off the newline character. &nbsp; If we did not use chop any time we wanted to compare the user response we would have to include the &quot;\n&quot; which is time consuming and clutters up our program. &nbsp;So we chop off the &quot;\n&quot; and we can focus on the core user response. &nbsp; Sometimes we do need to care if a newline exists and in those cases we would not chop off the &quot;\n&quot;.&nbsp;</p>
+<p>This <strong>\n </strong>is usually going to get in your way, so a handy Ruby method called <strong>chop </strong>is used to chop off the newline character. &nbsp; If we fail to use chop, any time we wanted to compare the user response, we would need&nbsp;to include the &quot;\n&quot;, confusing program understanding. &nbsp;By &quot;<strong>chop</strong>&quot;ping off the &quot;\n&quot;, we can focus on the core user response. &nbsp;</p>
 
 <p>The command <strong>x = gets.chop </strong>will take the user input string, remove the <strong>\n </strong>and then store the rest in the variable <strong>x. </strong></p>
 
@@ -66,7 +66,7 @@ input = gets
 puts &quot;Ready to Deal (y = yes, q = quit)&quot;
 input = gets.chop</pre>
 
-<p>You are now ready to see if the user has entered a <strong>y </strong>for YES to play Blackjack or a <strong>q </strong>to indicate they are done with the game and the <strong>chop </strong>method makes it so you do not have to worry about matching the <strong>\n </strong>character when determining if the user entered a <strong>q </strong>or a <strong>y. </strong></p>
+<p>You are now ready to see if the user has entered a <strong>y </strong>for YES to play Blackjack or a <strong>q </strong>to indicate that s/he is done with the game. &nbsp;The <strong>chop </strong>method forgoes the need&nbsp;to worry about matching the <strong>\n </strong>character when determining if the user entered a <strong>q </strong>or a <strong>y. </strong></p>
 
 <p>&nbsp;</p>
 </section>
