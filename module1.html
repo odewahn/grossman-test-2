@@ -74,9 +74,9 @@ put &quot;Welcome to Blackjack&quot;
 
 <p>Ready for one more typo and its impact?</p>
 
-<p>Lets get rid of the double quotes.&nbsp;</p>
+<p>Let's get rid of the double quotes.&nbsp;</p>
 
-<p>so your code will now look like</p>
+<p>Your code will now look like:</p>
 
 <pre data-type="programlisting">
 puts Welcome to Blackjack
@@ -85,20 +85,22 @@ puts Welcome to Blackjack
 <p>&nbsp;</p>
 Now you get a new error message
 
-<p class="p1"><strong>NameError: undefined local variable or method `blackjack' for main:Object</strong></p>
+<p class="p1"><strong>NameError: undefined local variable or method `blackjack'&nbsp;for main:Object</strong></p>
 
-<p>Well now the Ruby interpreter says you entered PUTS correctly so it was thinking you would follow it with a nice <strong>string. </strong>&nbsp; With quotes, the string has a value that is inside of the quotes, without quotes the string is assumed to be the name of an item that changes called a&nbsp;<strong>variable. &nbsp;</strong>&nbsp;&nbsp;There will be more on variables in <a href="http://module2">module 2.</a> &nbsp;&nbsp;</p>
-
-<div data-nickname="petrycki" data-type="comment">
-<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e" />
-<div spellcheck="false">petrycki</div>
+<div data-nickname="ophirfrieder" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/05709fcdca3c601800012a6267ca9a6d" />
+<div spellcheck="false">ophirfrieder</div>
 <i class="delete_comment glyphicons remove_2">&nbsp;</i></div>
 
-<p>Be careful when introducing new terms. As a reader, I may not know about variables. You don't define it until Module 2.</p>
+<p>OF: &nbsp;Check that blackjack is indeed lower-cased; &nbsp;please rerun and verify error.</p>
 </div>
 
-<p>When you took off the quotes around <em>Welcome to blackjack</em> -- ruby thought you were referring to a variable named <em>WELCOME</em>.&nbsp;&nbsp; We never defined this variable so it then said <strong>undefined local variable</strong>. &nbsp;</p>
-We showed you these two error messages for a reason. So if you end up getting one, you will have seen it before and you will know that probably it is some small issue that you have mistyped something.&nbsp; Sometimes you won't find the error because its a little like looking for spelling errors in your own e-mails (without a spell checker).&nbsp; You don't see the mistake because you are thinking you got it right.&nbsp; Sometimes it helps to take a break, go do something else for a few minutes, come back and look for the error again.
+<p class="p1">&nbsp;</p>
+
+<p>Well now the Ruby interpreter says you entered PUTS correctly so it was thinking you would follow it with a nice <strong>string. </strong>&nbsp; With quotes, the string has a value that is inside of the quotes, without quotes the string is assumed to be the name of an item that changes called a&nbsp;<strong>variable. &nbsp;</strong>&nbsp;&nbsp;In a simplified view, a variable is a construct that stores values that can change over time. &nbsp;There will be more on variables in <a href="http://module2">module 2.</a>&nbsp; &nbsp;</p>
+
+<p>When you removed the quotes surrounding&nbsp;<em>Welcome to Blackjack</em> -- Ruby thought you were referring to a variable named <em>Welcome</em>.&nbsp;&nbsp; We never defined this variable; so, the interpreter&nbsp;responded with&nbsp;<strong>undefined local variable</strong>. &nbsp;</p>
+We showed you these two error messages for a reason. &nbsp;If you end up getting such an error, you will not be surprised. &nbsp;You will know that probably it is some small issue involving mistyping something.&nbsp; Sometimes you won't easily find the error because it's a little like looking for spelling errors in your own e-mails (without a spell checker).&nbsp; You don't see the mistake because you are thinking you got it right.&nbsp; Sometimes it helps to take a break, go do something else for a few minutes, come back and look for the error again.
 
 <p>Also, remember everything you type into a program should make sense to you.&nbsp; Don't just type something because its in a book or someone told you to do it, make sure it makes sense before you type it and you know what you are trying to accomplish.&nbsp;</p>
 
