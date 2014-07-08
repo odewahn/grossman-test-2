@@ -1,175 +1,406 @@
-<section xmlns="http://www.w3.org/1999/xhtml" id="introduction_to_computer_science" data-type="chapter" class="pagenumrestart"><h1>Introduction to Computer Science</h1><aside data-type="sidebar"><h5>In This Chapter</h5><ul><li><p>Defining computer science</p></li><li><p>Programming techniques</p></li><li><p>Algorithms and algorithm efficiency</p></li></ul></aside><section id="onedot1_what_is_computer_sciencequestion" data-type="sect1"><h1>1.1 Introduction</h1><p>Introductory students often confuse programming with computer
-    science, but programming is merely a strategy to implement computer
-    science concepts. We introduce the basics of computer science using the
-    Ruby programming language. Given our goal, we intentionally forgo many of
-    the intricacies of the language.</p><p>Computer science is never tied to a programming language; it is tied
-    to the task of solving problems efficiently using a computer. A computer
-    comes with some resources, which will be discussed in <a href="#how_does_the_computer_really_work" data-type="xref"/>, such as internal memory
-    for short-term storage, processing capability, and long-term storage
-    devices. A <em>complete program</em> is a set of instructions
-    that use the computer to solve a real problem. The tool for producing
-    these instructions is called a <em>programming language</em>.
-    The goal is to develop solutions that use these resources efficiently to
-    solve real problems.</p><p>Programming languages come and go, but the essence of computer
-    science stays the same. If we need to sort a sequence of numbers, for
-    example, it is immaterial if we sort them using programming language A or
-    B. The steps the program will follow, commonly referred to as the
-    <em>algorithm</em>, will remain the same. Hence, the core goal
-    of computer science is to study algorithms that solve real problems.
-    Computer scientists strive to create a correct sequence of steps that
-    minimize resource demands, operate in a timely fashion, and yield correct
-    results.</p><p>Algorithms are typically specified using pseudocode. Pseudocode,
-    which may itself be simply written in plain language, specifies the
-    logical, conceptual steps that must occur without specifying the necessary
-    details needed to actually execute each step. However, we think that a
-    properly selected subset of Ruby is sufficiently simple to introduce the
-    algorithms. So, instead of creating an algorithm by writing it in plain
-    language, generating equivalent pseudocode, and transforming it into a
-    programming language, we go straight from the plain-language definition of
-    an algorithm to Ruby code.</p></section><section id="onedot2_application_development" data-type="sect1"><h1>1.2 Application Development</h1><p>When writing a program, it is important to keep in mind that the
-    computer will do exactly what you tell it to do. It cannot think as a
-    human would, so you must provide clear instructions for every step.</p><p>When giving instructions to others, people will often fill in blanks
-    in logic without even realizing it. For example, if you instruct someone
-    to “go to the bank,” you may not say what mode of transportation should be
-    used. A computer, however, does not have the ability to “fill in the
-    blanks.” A computer will only do exactly what you tell it to do.</p><p>Imagine, for example, explaining to a person and to a computer how
-    to make a peanut butter and jelly sandwich. To the person, all you might
-    need to say is, “Spread the peanut butter on one slice of bread, the jelly
-    on the other slice of bread, and then put the pieces of bread together.”
-    If these instructions were given to a computer, however, the computer
-    would not know where to start. Implied in these instructions are many
-    logical steps that a human can automatically infer and the computer
-    cannot. For example, the human would know that the jar must first be
-    opened to scoop peanut butter out before you can spread it onto a slice of
-    bread. The computer might try to spread the actual jar across the bread,
-    without taking the peanut butter or jelly out—assuming it could even find
-    them!</p><p>Computer science is ultimately about problem solving. The following
-    is a basic approach to solving problems:</p><ul class="simplelist"><li>Step 1: Understand the problem.</li><li>Step 2: Write out a solution in plain language.</li><li>Step 3: Translate the language into code.</li><li>Step 4: Test the code in the computer.</li></ul><section id="step_1_understanding_the_problem" data-type="sect2"><h2>Step 1: Understand the Problem</h2><p>During this step, you try to answer all questions about the
-      problem at hand. For example, you may be asked to create a program that
-      stores a list of names, like a directory. Instead of just creating this
-      program with little forethought, it is important to know all the details
-      of the problem. Here are some examples:</p><ul><li><p>How many names will be stored?</p></li><li><p>Do first and last names need to be stored separately?</p></li><li><p>Are middle names needed?</p></li><li><p>What is the maximum length that a name can be?</p></li></ul></section><section id="step_2_write_out_the_solution_in_plain_l" data-type="sect2"><h2>Step 2: Write Out the Solution in Plain Language</h2><p>Once the problem is understood, the next step is to write an
-      outline of how you will solve it. An example of the process of storing a
-      name might look like a sequence of sentences:</p><table><tbody><tr><td><p>Ask for the first name.</p></td><td/></tr><tr><td/><td><p>Store the first name.</p></td></tr><tr><td><p>Ask for the last name.</p></td><td/></tr><tr><td/><td><p>Store the last name.</p></td></tr><tr><td><p>Optionally, ask for the middle
-              initial.</p></td><td/></tr><tr><td/><td><p>Store the middle
-              initial.</p></td></tr></tbody></table></section><section id="step_3_translate_the_language_into_code" data-type="sect2"><h2>Step 3: Translate the Language into Code</h2><p>Once the plain-language version is written, it is time to
-      translate it into actual code. The Ruby code for the preceding example
-      is shown in <a href="#english_rarr_ruby_code" data-type="xref"/>, but you are
-      certainly not expected to understand it yet.</p><p>Note the pound sign (#) on the righthand side. This sign means
-      that the remainder of the line is a <em>comment</em>. A
-      comment is not part of the instructions given to the computer. That is,
-      a comment is a nonexecutable segment of code. Typically, comments are
-      used to explain what the code does. Not only is it critical to comment
-      code for the sake of readability and understanding, but using comments
-      is considered good programming style, and the liberal use of comments is
-      essential. Always remember that you (or someone else) may have to fix
-      errors—colloquially referred to as bugs—years after you write a program;
-      comments will help you understand what your code does years after you
-      initially wrote it.</p><div id="english_rarr_ruby_code" data-type="example"><h5>Plain language → Ruby code</h5><pre data-type="programlisting" data-code-language="ruby">        1 puts "Enter first name: "	# Ask for the first name
-        2 first_name = gets		# Store the first name
-        3 puts "Enter last name: "	# Ask for the last name
-        4 last_name = gets		# Store the last name
-        5 puts "Enter middle initial: "	# Ask for the middle initial
-        6 middle_initial = gets		# Store the middle initial
-</pre></div></section><section id="step_4_test_the_code_in_the_computer" data-type="sect2"><h2>Step 4: Test the Code in the Computer</h2><p>This step entails running the program you created and seeing that
-      it runs properly. It is best to test portions of your code as you write
-      them, instead of writing an entire program only to find out that none of
-      it works.</p></section></section><section id="onedot3_algorithms" data-type="sect1"><h1>1.3 Algorithms</h1><p>Algorithms are step-by-step methods of solving problems. The process
-    of reading in names previously described is an example of an algorithm,
-    though a very simple one. Some are extremely complicated, and many vary
-    their execution depending on input. Often algorithms take input and
-    generate output, but not always. However, all algorithms have something in
-    common: they all do something.</p><div id="ch01note01" data-type="note"><h1>Gem of Wisdom</h1><p>Algorithms are the core of computer science. Correct and efficient
-      algorithms guarantee that the computer works smart rather than only
-      hard. Thus, think about the problem, come up with a good algorithm, and
-      then determine how many steps the computer needs to complete the
-      task.</p></div><p>Imagine a website like Google Maps, which has an algorithm to get
-    directions from one point to another in either North America or Europe. It
-    typically requires two inputs: a source and a destination. It also gives
-    two outputs: the narrative directions to get from the source to the
-    destination, and a map of the route.</p><p>The directions produced are also an algorithm; they accomplish the
-    task of getting from the source to the destination. Imagine getting the
-    directions to your friend’s house shown on the map in <a href="#directions_quotation_markalgorithmquotat" data-type="xref"/>.</p><ol><li><p>Start going south on River Road.</p></li><li><p>Turn left (east) on Main Street.</p></li><li><p>Take a right (south) on Ruby Lane.</p></li><li><p>Turn left (east) toward Algorithm Circle.</p></li><li><p>Continue until you come to 345 Algorithm Circle (your friend’s
-        house).</p></li></ol><figure id="directions_quotation_markalgorithmquotat" style="float: 0"><img src="figs/cspr_0102.png"/><figcaption>Directions “algorithm”</figcaption></figure><p>First notice that the directions are numbered; each step happens in
-    sequential order. Additionally, it describes general steps like, “Turn
-    left (east) on Main Street.” It does not say, “Turn on your left turn
-    signal and wait for the light to turn green, and then turn left on Main
-    Street.” That is not the point of an algorithm. An algorithm does not need
-    to write out every single detail, but it needs to have all the important
-    parts.</p><section id="onedot3dot1_algorithm_efficiency" data-type="sect2"><h2>1.3.1 Algorithm Efficiency</h2><p>Different algorithms may accomplish the same task, but some will
-      do it much faster than others. Consider the algorithm just described for
-      going to your friend’s house, which certainly is not the only route to
-      her or his home. Instead of getting on Ruby Lane, you could have hopped
-      on the expressway, gone to the airport, and then taken a cab from the
-      airport to your friend’s house—but that would be extremely inefficient.
-      Likewise, there may be a more efficient route to your friend’s house
-      than the one described. Just because you have created an algorithm does
-      not make it efficient, and being able to create efficient algorithms is
-      one of the factors that distinguishes a good computer scientist. For
-      example, imagine receiving the following set of directions to your
-      friend’s house instead of the ones shown in the previous section,
-      illustrated on the map in <a href="#directions_quotation_markalgorit-id00001" data-type="xref"/>:</p><ol><li><p>Start going south on River Road.</p></li><li><p>Turn left (east) one block south of Main Street onto Algorithm
-          Circle.</p></li><li><p>Continue until you come to 345 Algorithm Circle (your friend’s
-          house).</p></li></ol><figure id="directions_quotation_markalgorit-id00001" style="float: 0"><img src="figs/cspr_0103.png"/><figcaption>Directions “efficient algorithm”</figcaption></figure><p>Here we use a different algorithm that accomplishes the same task,
-      and it does so slightly more efficiently. That is, fewer turns are
-      involved.</p></section></section><section id="onedot4_summary" data-type="sect1"><h1>1.4 Summary</h1><p>You now understand the core foundations of computer science, namely
-    the use of algorithms to solve real-world problems. Ruby, as used
-    throughout the remainder of the book, is a powerful, yet relatively easy
-    to understand, programming language that can be used to implement these
-    algorithms. It is, however, critical to remember that independent of the
-    programming language used, without a good algorithm, your solution will be
-    ineffective.</p><section id="onedot4dot1_key_concepts" data-type="sect2"><h2>1.4.1 Key Concepts</h2><ul><li><p>The essence of computer science is problem solving. Computer
-          science involves using the computer as a tool to model or solve
-          various problems, from storing names in a database to finding
-          efficient directions to a friend’s house.</p></li><li><p>When programming, it is important to understand that the
-          computer is never wrong. It is merely following the directions you
-          have given it.</p></li><li><p>The following are basic steps for solving a computer science
-          problem:</p><ul class="simplelist"><li>Step 1: Understand the problem.</li><li>Step 2: Write out a solution in plain language.</li><li>Step 3: Translate the language into code.</li><li>Step 4: Test the code in the computer.</li></ul></li><li><p>Algorithms are step-by-step methods for solving problems. When
-          writing an algorithm, it is important to keep in mind the
-          algorithm’s efficiency.</p></li></ul><div id="ch01note02" data-type="note"><h1>Gem of Wisdom</h1><p>Once we have an algorithm, we can compare it to other algorithms
-        and pick the best one for the job. Once the algorithm is done, we can
-        write a program to implement it.</p></div></section><section id="onedot4dot2_key_definitions" data-type="sect2"><h2>1.4.2 Key Definitions</h2><ul><li><p><em>Algorithm:</em> A step-by-step method for
-          solving problems.</p></li><li><p><em>Algorithm efficiency:</em> A measurement that
-          determines how efficient one algorithm is compared with
-          another.</p></li></ul></section></section><section id="onedot5_exercises" data-type="sect1"><h1>1.5 Exercises</h1><ol class="qonly"><li><p>Imagine that you are creating a pocket calculator. You have
-        created the functionality for all the buttons except
-        <em>x</em><sup>2</sup>, the button that
-        squares a number, and <em>exp</em>, which allows you to
-        calculate base<sup>exponent</sup>, where
-        <em>exponent</em> is an integer. You may use any other
-        functionality a calculator would normally have: for example, (+, -, *,
-        /, =).</p><ol type="a"><li><p>Create the functionality for the
-            <em>x</em><sup>2</sup> button.</p></li><li><p>Create the functionality for the <em>exp</em>
-            button.</p></li></ol></li><li><p>In the third-grade math class of French mathematician Carl
-        Gauss, the teacher needed to give the students some busywork. She
-        asked the class to compute the sum of the first 100 numbers (1 to
-        100). Long before the rest of the class had finished. Carl raised his
-        hand and told his teacher that he had the answer: 5,050.</p><ol type="a"><li><p>Craft an algorithm that will sum the first
-            <em>n</em> numbers (assuming <em>n</em> ≥
-            1). How many steps does your algorithm take to complete when
-            <em>n</em> = 100? How many steps does it take when
-            <em>n</em> = 1,000?</p></li><li><p>Can you create an algorithm like Gauss’s where the number of
-            steps does not depend on <em>n</em>?</p></li></ol></li><li><p>A palindrome is a word or phrase that reads the same way forward
-        and backward, like “racecar.” Describe a sequence of steps that
-        determines if a word or phrase is a palindrome.</p></li><li><p>Consider the three mazes shown in <a href="#three_mazes_em_dash_problem_1dot6" data-type="xref"/>. Describe two different
-        algorithms for solving a maze. Discuss advantages and disadvantages of
-        each algorithm. Then look at the maze and predict which algorithm will
-        complete first. See if your predictions were correct by applying your
-        algorithms to the mazes.</p><figure id="three_mazes_em_dash_problem_1dot6" style="float: 0"><img src="figs/cspr_0106.png"/><figcaption>Three mazes for Exercise 4</figcaption></figure></li><li><p><a href="#algorithm_alternative_em_dash_problem_1d" data-type="xref"/>
-        shows an alternative way to represent an algorithm. (Note: we
-        introduce this construct in detail later on. If it looks too
-        intimidating, skip it until after you’ve read <a href="#conditional_structures" data-type="xref"/>.)</p><ol type="a"><li><p>Starting at the circle labeled “Start” work your way through
-            the figure. What is the purpose of this algorithm?</p></li><li><p>Translate the figure into simple language. Note that a
-            diamond in the figure represents a condition that may be true or
-            false.</p></li></ol><figure id="algorithm_alternative_em_dash_problem_1d" style="float: 0"><img src="figs/cspr_0104.png"/><figcaption>Alternative representation of an algorithm for Exercise
-          5</figcaption></figure></li><li><p>A cable company must use cables to connect 15 homes together so
-        that every home is reachable by every other home. The company has
-        estimated the costs of different cable routes (<a href="#cable_company_dilemma_em_dash_problem_1d" data-type="xref"/> shows the
-        numbers associated with each link). One engineer provides an
-        algorithm, shown in <a href="#cable_company_dilemma_em_dash_problem_1d" data-type="xref"/>, that will find
-        the cheapest set of routes to pick. Does the engineer’s algorithm work
-        for this case? Why or why not?</p><figure id="cable_company_dilemma_em_dash_problem_1d" style="float: 0"><img src="figs/cspr_0105.png"/><figcaption>Cable company dilemma for Exercise 6</figcaption></figure><p><strong>Engineer’s Algorithm:</strong></p><ol><li><p>Pick one cable route with the lowest cost not already
-            picked. Add this route to the set of cheapest routes.</p></li><li><p>Check if every house is connected to every other house
-            through any series of cables. If it isn’t, go back to step 1. If
-            every house is connected, then the cheapest set of routes has been
-            found.</p></li></ol></li></ol></section></section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" ng-app="console" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>atlas book skeleton</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css"> </link>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+
+    <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+
+
+   <!-- Includes for codemirror and jsrepl -->
+   <script src="theme/html/javascripts/jquery-2.1.1.min.js"> </script>
+   <script src="theme/html/javascripts/angular.min.js"> </script>
+   <script src="theme/html/javascripts/jqconsole.min.js"> </script>
+   <script src="theme/html/javascripts/jsrepl/jsrepl.js" id="jsrepl-script"> </script>
+   <script src="theme/html/javascripts/codemirror.js"> </script>
+
+
+   <!-- Includes for angular and the angular app -->
+   <script src="theme/html/app.js"> </script>
+
+   <!-- General stylesheet -->
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/coderunner.css"/>
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/codemirror.css"/>
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/console.css"/>
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/html.css"/>
+
+
+    <script type="text/javascript">
+      $(function() {
+        $("#link-toc").click(function(e) {
+          e.preventDefault();
+          $("#sidebar").toggle();
+        });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="theme/html/html.css"/>
+  </head>
+  <body data-type="book">
+    
+    <header>
+      <div id="buttons">
+        <a href="#" id="link-toc">☰</a>
+      </div>
+      <img class="logo" src="http://orm-logo-service.herokuapp.com//logo.svg"/>
+      <h1>atlas book skeleton</h1>
+      </header>
+      <div id="flex-box">
+        <section id="sidebar">
+          <nav data-type="toc" id="idp84400"><ol><li data-type="chapter"><a href="ch01.html#idm4743872">Module 1 - Display a Welcome Message</a></li><li data-type="chapter"><a href="ch02.html#idp274560">Module 2: Get Input</a></li><li data-type="chapter"><a href="ch03.html#idp393424">Module 3 - Deciding what to do next. </a><ol>
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp397360">IF-THEN-LOGIC</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Obtain ingredients for making chocolate chip cookies that come with a mix where you need to add oil and eggs. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp302496">IF-THEN IN RUBY</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp843184"> </a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp949920">COMMON MISTAKE #2:  Misspell a ELSE</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp997712">MAIN DRIVER</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp1221824">A little more on Algorithms</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ol></li></ol></nav>
+        </section>
+        <section id="content">
+          <section id="content-body">
+            <ul class="page-navigation">              
+              <li/>
+              <li><a href="ch02.html">Next</a></li>
+            </ul>
+            <section data-type="chapter" data-pdf-bookmark="Chapter 1. Module 1 - Display a Welcome Message" id="idm4743872">
+<h1>Module 1 - Display a Welcome Message</h1>
+
+<p>Let’s make a game of Blackjack.   If you don’t know how to play the rules are <a href="blackjack.html">here:</a></p>
+
+<p>Computers understand programming languages and <a data-type="link" href="#ruby_background">Ruby</a> is a good place for you to start. </p>
+
+<p>Let’s start by showing you how to communicate with the computer using Ruby.  You must be precise, and if we misspell a word, well the computer is not going to understand it. </p>
+
+<p>We want to display a welcome message. The command to do this is <strong>puts </strong>which is a shortened name for <strong>put string.  </strong></p>
+
+<p>Strings are sequences of characters or numbers that can be displayed on a screen, written to a file, or printed on a printer.  You cannot add two strings together or divide by them.  Think about it:  4 divided by 2 makes sense.  “A” divided by “B” doesn’t.  In many programming languages, double quotes (“) are used to indicate that something is a string.</p>
+
+<p>So now it’s time to do it:</p>
+
+<p>Type:<br/>
+ </p>
+
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="nb">puts</code> <code class="s2">"Welcome to Blackjack"</code></pre>
+
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="err"> </code></pre>
+
+<p> </p>
+
+<p>inside of an environment that lets you enter Ruby commands.   Eventually, it is going to be helpful if your own computer has Ruby installed.  Detailed directions for installing the Ruby environment are included <a href="appb.html">here</a>.</p>
+
+<p>You should see the message:  Welcome to Blackjack.</p>
+
+<p>In many programming languages books, the first thing they tell you to do is have the computer says HELLO WORLD.   To do that we just use the same puts command:</p>
+
+<pre data-type="programlisting">
+puts "HELLO WORLD."
+</pre>
+
+<p>Now that we showed you how to do it and you have it working, it’s a good time to show you the kinds of things that can go wrong when writing programs.</p>
+
+<p>Change your <strong>puts </strong>command to <strong>put</strong> as in:</p>
+
+<pre data-type="programlisting">
+put "Welcome to Blackjack"
+</pre>
+
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e"/>
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>You’re going to need to change the flow based on the student having experienced the error. You don’t have to tell them.</p>
+</div>
+
+<p>You’ll get the following:  </p>
+
+<p class="p1"><strong>NoMethodError: undefined method `put’ for main:Object</strong></p>
+
+<p>This message of “NoMethodError: undefined method for put" is likely to confuse you.   You might start to question why anyone thinks computers are so smart.    People are far more resilient.  All we were was off by one little character.  It is annoying that computers care about every last little letter.   Trust us, however, the frustration will disappear.  It will be immensely gratifying at the end when you will complete an effort you initially think to be not achievable.    </p>
+
+<p>Let’s take this error message piece by piece.</p>
+
+<p>Well first it tells you the type of error you have followed by a colon.  In this case you have a <strong>NoMethodError</strong>.  </p>
+
+<p>Well it turns out a <em>method</em> is piece of code that you might want to repeat.  Terrific name isn’t it?   We will talk about this more later.   If you want to jump to the section on methods just click here <a href="http://methodmodule">http://methodmodule.</a></p>
+
+<p>Some languages call methods a <em>function</em> based on the mathematical definition of a function.   In Math and in Computer Science, functions are used to make life easier to express equations.   A simple function is <strong>f(x) = x + 2</strong>.  This means that whenever we send the <strong>f </strong> function a value for <strong>x, </strong>we want it to return a value that adds two to the value we sent.  So, if we ask for f(4), the result of the function is 6. </p>
+
+<p>For now, all you need to know is that  you simplify your computer programs with methods, and that we’ll get to all that later.  We just wanted you to know it’s a thing that comes in handy to make it so you must not write the same programming code over and over.</p>
+
+<p>Ruby makes it so you can define new methods.  When you entered <strong>puts</strong>, that referenced a method that was written by the people who invented Ruby, and its job is to output the string that follows to the screen.  </p>
+
+<p>When you got rid of the <em>s</em> in <em><strong>puts </strong></em>and just entered <strong>put</strong>, the ruby interpreter (the thing that processes each Ruby command) decided you must have written a new method called <strong>put.  </strong>It looked for it, couldn’t find it, and gave you a <strong>NoMethodError. </strong></p>
+
+<p>Now fix your PUT to PUTS and get it to work again.   What a relief that is.</p>
+
+<p>Ready for one more typo and its impact?</p>
+
+<p>Let’s get rid of the double quotes. </p>
+
+<p>Your code will now look like:</p>
+
+<pre data-type="programlisting">
+puts Welcome to Blackjack
+</pre>
+
+<p><span style="line-height: 1.5em;">Now you get a new error message</span></p>
+
+<p class="p1"><strong>NameError: undefined local variable or method `blackjack' for main:Object</strong></p>
+
+<div data-nickname="ophirfrieder" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/05709fcdca3c601800012a6267ca9a6d"/>
+<div spellcheck="false">ophirfrieder</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>OF:  Check that blackjack is indeed lower-cased;  please rerun and verify error.</p>
+</div>
+
+<p class="p1"> </p>
+
+<p>Well now the Ruby interpreter says you entered PUTS correctly so it was thinking you would follow it with a nice <strong>string. </strong>  With quotes, the string has a value that is inside of the quotes, without quotes the string is assumed to be the name of an item that changes called a <strong>variable.  </strong>  In a simplified view, a variable is a construct that stores values that can change over time.  There will be more on variables in <a href="http://module2">module 2.</a>   </p>
+
+<p>When you removed the quotes surrounding <em>Welcome to Blackjack</em> -- Ruby thought you were referring to a variable named <em>Welcome</em>.   We never defined this variable; so, the interpreter responded with <strong>undefined local variable</strong>.  </p>
+We showed you these two error messages for a reason.  If you end up getting such an error, you will not be surprised.  You will know that probably it is some small issue involving mistyping something.  Sometimes you won’t easily find the error because it’s a little like looking for spelling errors in your own e-mails (without a spell checker).  You don’t see the mistake because you are thinking you got it right.  Sometimes it helps to take a break, go do something else for a few minutes, come back and look for the error again.
+
+<p>Also, remember everything you type into a program should make sense to you.  Don’t just type something because it’s in a book or someone told you to do it; make sure it makes sense before you type it and that you know what you are trying to accomplish. </p>
+
+<p>So fix the program you have written, and we are ready to move on and get this game working. </p>
+
+<pre data-code-language="ruby" data-executable="" data-type="programlisting">
+<code class="nb">puts</code> <code class="s2">"Welcome to Blackjack"</code>
+</pre>
+ 
+
+<p> </p>
+
+<p> </p>
+</section>
+            <ul class="page-navigation">
+              <li/>
+              <li><a href="ch02.html">Next</a></li>
+            </ul>
+          </section>
+        </section>
+      </div>
+  </body>
+</html>

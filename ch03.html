@@ -1,832 +1,802 @@
-<section class="pagenumrestart" data-type="chapter" id="core_programming_elements" xmlns="http://www.w3.org/1999/xhtml">
-<h1>Core Programming Elements</h1>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" ng-app="console" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>atlas book skeleton</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css"> </link>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
 
-<aside data-type="sidebar">
-<h5>In This Chapter</h5>
+    <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
 
-<ul>
-	<li>
-	<p>How to install Ruby and save files</p>
-	</li>
-	<li>
-	<p>Defining variables</p>
-	</li>
-	<li>
-	<p>Data classes (types):</p>
 
-	<ul>
-		<li>
-		<p>Integer</p>
-		</li>
-		<li>
-		<p>Float</p>
-		</li>
-		<li>
-		<p>String</p>
-		</li>
-		<li>
-		<p>Boolean</p>
-		</li>
-	</ul>
-	</li>
-	<li>
-	<p>Input and output</p>
-	</li>
-	<li>
-	<p>Common programming errors</p>
-	</li>
-</ul>
-</aside>
+   <!-- Includes for codemirror and jsrepl -->
+   <script src="theme/html/javascripts/jquery-2.1.1.min.js"> </script>
+   <script src="theme/html/javascripts/angular.min.js"> </script>
+   <script src="theme/html/javascripts/jqconsole.min.js"> </script>
+   <script src="theme/html/javascripts/jsrepl/jsrepl.js" id="jsrepl-script"> </script>
+   <script src="theme/html/javascripts/codemirror.js"> </script>
 
-<section data-type="sect1" id="threedot1_introduction">
-<h1>3.1 Introduction</h1>
 
-<p>Ready for our next nail? &nbsp;We have to ask the user if they want to play or not?</p>
+   <!-- Includes for angular and the angular app -->
+   <script src="theme/html/app.js"> </script>
 
-<p>&nbsp;</p>
+   <!-- General stylesheet -->
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/coderunner.css"/>
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/codemirror.css"/>
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/console.css"/>
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/html.css"/>
+
+
+    <script type="text/javascript">
+      $(function() {
+        $("#link-toc").click(function(e) {
+          e.preventDefault();
+          $("#sidebar").toggle();
+        });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="theme/html/html.css"/>
+  </head>
+  <body data-type="book">
+    
+    <header>
+      <div id="buttons">
+        <a href="#" id="link-toc">☰</a>
+      </div>
+      <img class="logo" src="http://orm-logo-service.herokuapp.com//logo.svg"/>
+      <h1>atlas book skeleton</h1>
+      </header>
+      <div id="flex-box">
+        <section id="sidebar">
+          <nav data-type="toc" id="idp84400"><ol><li data-type="chapter"><a href="ch01.html#idm4743872">Module 1 - Display a Welcome Message</a></li><li data-type="chapter"><a href="ch02.html#idp274560">Module 2: Get Input</a></li><li data-type="chapter"><a href="ch03.html#idp393424">Module 3 - Deciding what to do next. </a><ol>
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp397360">IF-THEN-LOGIC</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Obtain ingredients for making chocolate chip cookies that come with a mix where you need to add oil and eggs. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp302496">IF-THEN IN RUBY</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp843184"> </a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp949920">COMMON MISTAKE #2:  Misspell a ELSE</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp997712">MAIN DRIVER</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp1221824">A little more on Algorithms</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ol></li></ol></nav>
+        </section>
+        <section id="content">
+          <section id="content-body">
+            <ul class="page-navigation">              
+              <li><a href="ch02.html">Previous</a></li>
+              <li/>
+            </ul>
+            <section data-type="chapter" data-pdf-bookmark="Chapter 3. Module 3 - Deciding what to do next. " id="idp393424">
+<h1>Module 3 - Deciding what to do next. </h1>
+
+<p>At this point, our blackjack player has been asked if they want to play and whether he responded. We now need to check and see if what that person wants to do. </p>
+
+<p>The <strong>puts </strong> statement outputs the question “do you want to play?”.  The <strong>gets </strong>statement obtains the answer ('y’ for yes and ‘q’ for quit).  </p>
+
+<p>Our new statement:  the <strong>if-then</strong> statement contains a comparison of a value to a variable.  The comparison either return <strong>true </strong>or <strong>false</strong>.  </p>
+
+<section data-type="sect1" data-pdf-bookmark="IF-THEN-LOGIC" id="idp397360">
+<h1>IF-THEN-LOGIC</h1>
 </section>
 
-<section data-type="sect1" id="threedot2_getting_started">
-<h1>3.2 Getting Started</h1>
+<p> </p>
 
-<section data-type="sect2" id="how_to_install_ruby">
-<h2>How to Install Ruby</h2>
+<p>Up to now, a program just executed each step one after the other starting at the top and going to the bottom.  Think of it like a recipe. </p>
 
-<p>The time has come for you to begin writing simple programs. Before you can do that, you need to install Ruby. This is explained in at the back of the book.</p>
-</section>
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f"/>
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
 
-<section data-type="sect2" id="how_to_save_programs">
-<h2>How to Save Programs</h2>
-
-<p>The next thing to learn is how to save your work. When writing a computer program (informally called <em>code</em>), it is often important to be able to save it as a plain text file, which can be opened and used later.</p>
-
-<p>To save a program, you must first open a piece of software that allows you to create, save, and edit text files. These programs are called <em>text editors</em>, and examples include Notepad, Scite (included in the one-click installation of Ruby), and many others we discuss in . For more advanced editors, you may want to look into <code>vim</code> and <code>emacs</code>. There is also a version of the integrated development environment (IDE) Eclipse that works with Ruby. Eclipse includes a plain text editor. Once a text editor is open, be sure it is set to save as an unformatted text file (<em>FileName.txt</em>). Most word processors, such as Word, add special characters for document formatting, so these should not be used for writing programs. If special characters are turned off by saving the document as a plain text file (<em>.txt</em>), you can use various word processing programs, such as Word.</p>
-
-<p>Now you are ready to write and save programs.</p>
-
-<div data-type="note" id="ch03note01">
-<h1>Gem of Wisdom</h1>
-
-<p>Plain text files (sometimes seen with the extension <em>.txt</em>) are stored as a simple sequence of characters in memory. For example, files created with Notepad on Windows are plain text files. Try to open a Microsoft Word document in Notepad and observe the results. Non-plain text files are commonly called <em>binary files</em>.</p>
+<p>I added an example on video games --don’t want to do dating as kids age 12 and under won’t want to do it --or least my ten year old would be sickened.  Video games is excellent.  I did cookies because kids LOVE cookies.   Was debating between that and hot chocolate.  I think we do need a recipe as I really think the best analogy for an algorithm is a recipe.  Open to more ideas....</p>
 </div>
-</section>
-</section>
 
-<section data-type="sect1" id="threedot3_what_is_a_variablequestion_mar">
-<h1>3.3 What Is a Variable?</h1>
-
-<p>A <em>variable</em> is a piece of data attached to a name. In algebra, a variable like <em>x</em> in the equation <em>x</em> = <em>y</em> + 2 indicates that <em>x</em> and <em>y</em> can take on many different values. In most programming languages, variables are defined just as in algebra and can be assigned different values at different times. In a computer, they refer to a location in memory. Although this is a simple concept, variables are the heart of almost every program you write. The Pythagorean theorem is shown in , and it uses three variables: <em>A</em>, <em>B</em>, and <em>C</em>.</p>
-
-<figure id="pythagorean_theorem" style="float: 0"><img src="images/cspr_0301.png" />
-<figcaption>Pythagorean theorem</figcaption>
-</figure>
-
-<p><em>A</em>, <em>B</em>, and <em>C</em> are the variable names, and they each represent a number. To create a variable in Ruby, simply use the format <em>variable_name</em> = <em>value</em>, where <em>variable_name</em> is the name of your variable and <em>value</em> is the value you would like it to have. The equal sign (=) behaves differently in Ruby from the way it does in algebra. In Ruby, = means &acirc;assign the RHS (righthand side) to the variables in the (LHS) lefthand side.&acirc; The code snippet <code>y = x + 2</code> means compute the value of <code>x + 2</code> and store the result into the variable <code>y</code>. In algebra, <em>y</em> = <em>x</em> + 2 simply explains a relationship between variables <em>x</em> and <em>y</em>.</p>
-
-<p>An easy way to test things in Ruby is with <em>irb</em> (once Ruby is properly installed), the Interactive Ruby Shell. Enter <code>irb</code> from a command prompt; you can see that it is very easy to create variables. The following example shows several variables being created and assigned values.</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00001">
-irb(main):001:0&gt; a = 4
-=&gt; 4
-irb(main):002:0&gt; b = 3
-=&gt; 3
-irb(main):003:0&gt; c = 5
-=&gt; 5</pre>
-
-<p>This example creates three variables named <em>a</em>, <em>b</em>, and <em>c</em> and initializes their data to 4, 3, and 5, respectively. While these variables were given simple names, variables can be given almost any name you wish. However, it is poor style to create variable names that are unclear (e.g., <em>x1</em>, <em>x2</em>, <em>zxy</em>). Variable names should explain the data they represent. When naming variables, avoid special characters (%, $, #, @, etc.) because these characters often carry specific meaning. Also note that variables cannot begin with integers. Ruby is case-sensitive, so <code>myName</code> is different from <code>myname</code>. Variable names should start with a lowercase letter, while constants (to be explained shortly) start with an uppercase letter. Additionally, people who write programs tend to be concerned about readability. Ruby users tend to name long variables with underscores (_). For example, instead of naming a variable <code>primenumber</code> or <code>primeNumber</code>, in Ruby it is named <code>prime_number</code>, although the former are both acceptable. This is simply a stylistic pattern, not a <span class="keep-together">requirement</span>.</p>
-
-<p>A variable refers to a section of memory that has been set aside to hold whatever data you specify. Every location in memory has an address that can be accessed by a program. Instead of asking you to write a program to store the value <em>xx</em> into memory location <em>yy</em>, most programming languages allow you to identify a variable and assign a value to it. The picture in further illustrates the concept of variables and memory. <code>variable_1</code> has a value of 5 stored at location 10, while <code>variable_2</code> is stored at location 20 with a value of 8.</p>
-
-<figure id="memory_diagram" style="float: 0"><img src="images/cspr_0302.png" />
-<figcaption>Memory diagram</figcaption>
-</figure>
-
-<p>Variables store different types of data, not just numbers. They can hold user-created data, words, numbers, and more. Depending on what type of data the variable is holding, it will have a different <em>data type</em>.</p>
-
-<section data-type="sect2" id="constants_variables_that_never_change">
-<h2>Constants: Variables That Never Change</h2>
-
-<p>If a variable does not change, it is called a <em>constant</em>. For example, 3.14159 is commonly understood as <em>&Iuml;</em> or simply pi. By creating a variable called PI and never changing it, that is, making the variable into a constant, one can use PI throughout the program instead of repeatedly typing the numeral string. By following this convention, fewer errors are likely to occur as this value is only entered one time, namely when the constant value is assigned. Typing the value of <em>&Iuml;</em> multiple times might lead to typing errors. Furthermore, readability is enhanced. For example, it is far more intuitive to describe an algorithm that computes the area of a circle as one that squares the radius and multiplies the result by PI than one that squares the radius and multiplies by 3.14159. As noted before, constant names start with a capital letter, and by convention are all uppercase.</p>
-</section>
-
-<section data-type="sect2" id="data_types">
-<h2>Data Types</h2>
-
-<p>Data types indicate the nature of the variable and the range of valid values for that variable. Data types also indicate how much memory to allocate for each type of data. It is important to know that specific types of data have specific sizes in memory. As will be evident later, data types also define the meanings of allowed operators.</p>
-
-<p>Ruby refers to data types as classes. In Ruby, as in other object-oriented languages, a class is a description of objects. A detailed discussion of objects takes place in . For now, the relevant Ruby classes are Fixnum, Bignum, Float, Boolean, and String.</p>
-</section>
-
-<section data-type="sect2" id="integer">
-<h2>Integer</h2>
-
-<p>An <em>integer</em> is defined as any natural number (0, 1, 2, . . . ) or its negative (0, -1, -2, . . . ). The integer data type is simply a subset of the infinite mathematical integers. In a 32-bit system, integers range in value from -2,147,483,648 to 2,147,483,647. Note that if the number of bits used differs, so will the range.</p>
-
-<p>Consider the following:</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00002">
-irb(main):01:0&gt; x = 5
-=&gt; 5</pre>
-
-<p>When we type in <code>x = 5</code>, we are doing two things. First, we are creating a variable <code>x</code> that stores an integer of the class Fixnum. Second, we are assigning the value of 5 to <code>x</code>. In some languages, variables must be explicitly assigned to a type before they are used. In Ruby, the class of the variable is either explicitly stated or inferred in every assignment of the variable. In this case, Ruby infers the Fixnum class.</p>
-
-<p>Imagine creating a huge number, out of the range of supported integers:</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00003">
-irb(main):02:0&gt; x = 1_000_000_000_000_000
-=&gt; 1000000000000000</pre>
-
-<p>The Bignum class is used by Ruby for very large integers not contained within the previously stated integer range. This class enables the creation of integers outside the range of those possible in Fixnum.</p>
-
-<div data-type="note" id="ch03note02">
-<h1>Gem of Wisdom</h1>
-
-<p>Ruby (along with many other programming languages) does not allow commas in numbers. Underscores, however, can be used in their place. Use an underscore in place of a comma if you need to mark your thousands so that larger numbers are more readable.</p>
-</div>
-</section>
-
-<section data-type="sect2" id="float">
-<h2>Float</h2>
-
-<p>Simply put, a <em>float</em> is a decimal number. In Ruby, floats can be defined either with numbers containing a decimal place or in scientific notation.</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00004">
-irb(main):001:0&gt; x = 5.0
-=&gt; 5.0
-irb(main):002:0&gt; x = -3.14159
-=&gt; -3.14159
-irb(main):003:0&gt; x = 3.5e2
-=&gt; 350.0</pre>
-
-<p>Similar to the integers example, when we execute <code>x = 3.14159</code>, we create a variable <code>x</code> that stores a float. We then assign the value of 3.14159 to <code>x</code>. Negative values are expressed with a leading negative sign (<code>-</code>).</p>
-
-<p>For scientific notation, values are expressed in powers of 10 following the symbol <em>e</em>. Hence, 3.5<em>e</em>2 indicates 3.5 &Atilde; 10<sup>2</sup> = 350. Very small numbers can be represented as negative powers of 10. You may find that the designation <em>real</em> is used in other languages to denote <em>float</em>.</p>
-</section>
-
-<section data-type="sect2" id="strings">
-<h2>Strings</h2>
-
-<p>Strings are simply one or more characters surrounded by quotes. Both double quotes (<code>&quot;</code>) and single quotes (<code>'</code>) can be used, but if you need to use a single quote inside your string, you must bound your string with double quotes (e.g., &acirc;The computer said, &acirc;Hello World!&acirc;&acirc;&acirc;).</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00005">
-irb(main):001:0&gt; x = &quot;hello world&quot;
-=&gt; hello world
-irb(main):002:0&gt; y = &quot;hello, 'world'&quot;
-=&gt; hello, 'world'</pre>
-
-<p>To store characters (such as letters and symbols), a character encoding scheme, as discussed in , is used. For example, to encode the English alphabet, we need to represent 26 uppercase letters, 26 lowercase letters, and a variety of special characters. Using eight bits (one byte) per character allows us to encode 256 characters, a number more than sufficient to represent English. Each character is assigned a unique number from 0 to 255.</p>
-</section>
-
-<section data-type="sect2" id="booleans">
-<h2>Booleans</h2>
-
-<p>Booleans can hold only two different values: <code>true</code> and <code>false</code>. They are sometimes referred to as <em>flags</em>.</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00006">
-irb(main):001:0&gt; x = true
-=&gt; true
-irb(main):002:0&gt; y = false
-=&gt; false</pre>
-</section>
-</section>
-
-<section data-type="sect1" id="threedot4_basic_arithmetic_operators">
-<h1>3.4 Basic Arithmetic Operators</h1>
-
-<p>Now that some of the classes that define various data types have been introduced, what can you do with them? Like all other programming languages, Ruby is able to perform many mathematical operations. In , we illustrate how to use Ruby as a <span class="keep-together">calculator</span>.</p>
-
-<table id="basic_arithmetic_operators">
-	<caption>Basic arithmetic operators</caption>
-	<thead>
-		<tr>
-			<th>Symbol</th>
-			<th>Operation</th>
-			<th>Example</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>
-			<p><code>+</code></p>
-			</td>
-			<td>
-			<p>Addition</p>
-			</td>
-			<td>
-			<p><code>x = 6 + 2</code></p>
-
-			<p>8</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p><code>-</code></p>
-			</td>
-			<td>
-			<p>Subtraction</p>
-			</td>
-			<td>
-			<p><code>x = 3 - 2</code></p>
-
-			<p>1</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p><code>*</code></p>
-			</td>
-			<td>
-			<p>Multiplication</p>
-			</td>
-			<td>
-			<p><code>x = 5 * 2</code></p>
-
-			<p>10</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p><code>/</code></p>
-			</td>
-			<td>
-			<p>Division</p>
-			</td>
-			<td>
-			<p><code>x = 16/8</code></p>
-
-			<p>2</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p><code>%</code></p>
-			</td>
-			<td>
-			<p>Modulus</p>
-			</td>
-			<td>
-			<p><code>x = 5 % 3</code></p>
-
-			<p>2</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p><code>**</code></p>
-			</td>
-			<td>
-			<p>Power</p>
-			</td>
-			<td>
-			<p><code>x = 2 ** 4</code></p>
-
-			<p>16</p>
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-<p>All of the operators listed are binary operators, meaning the operator has two operands. For example, the command <code>A + B</code> is a binary operation, where A and B are the two operands and + is the operator.</p>
-
-<p>When typing mathematical operations in the Ruby interpreter, the order of operations is taken into account. To change the order of operations, use parentheses. Try typing the following in the command line:</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00007">
-irb(main):001:0&gt; x = 10 + 4 / 2</pre>
-
-<p>What result did you get? Now try entering the following into the prompt:</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00008">
-irb(main):001:0&gt; x = (10 + 4) / 2</pre>
-
-<p>Most of the operators should look familiar. The one that might not is the modulus operator (<code>%</code>). The purpose of this operator is to find the remainder produced by dividing two numbers. For example, 4 modulo 2, abbreviated 4 mod 2, would produce the result 0. This is because 4 / 2 is exactly 2. On the other hand, 2 mod 4 produces a result of 2. This is because 2 / 4 is 0, with a remainder of 2. Let&acirc;s try to solve a few easy problems using the modulus operator.</p>
+<p>Suppose we want to play a video game.  The steps are as follows:</p>
 
 <ol>
-	<li>
-	<p>Using the mod operator, determine if a number is even. This should be fairly easy. We know that <em>n</em> is even if, when divided by 2, it produces a remainder of 0. So, if <em>n</em> mod 2 equals 0, then <em>n</em> is even.</p>
-
-	<pre data-code-language="ruby" data-type="programlisting" id="pro_id00009">
-irb(main):001:0&gt; x = 5%2
-=&gt; 1
-irb(main):002:0&gt; x = 6%2
-=&gt; 0</pre>
-	</li>
-	<li>
-	<p>Given a number as input, determine if the number is prime. That is, the given number must not have any factors other than 1 and itself. For example, 1, 3, 5, and 7 are prime numbers. The number 2 is the only even prime number since all other even numbers have 2 as a factor. Likewise, for example, the number 9 is also not prime since 3 divides it evenly. As an aside, finding prime numbers is one of the classic problems used to teach any programming language. Furthermore, prime numbers play a significant role in information security. For example, SSL (Secure Sockets Layer), which is what you use when you go to a website and type &quot;https&quot;, uses an algorithm called public key encryption. This algorithm relies heavily on prime numbers. The intuition behind the use of prime numbers is that for long numbers (those that comprise hundreds of digits) it takes a computer a very long time to determine their factors. Thus, it is safe to publicly present these numbers.</p>
-
-	<p>Although we may not be able to program this yet, we can come up with an algorithm to solve this problem. Namely, we can do the following:</p>
-
-	<p>If <em>n</em> is equal to 2, then <em>n</em> is prime. Otherwise, take each number <em>x</em> in the range 2 to <em>n</em> &acirc; 1. If <em>n</em> mod <em>x</em> is equal to 0 for any of these numbers <em>x</em>, then the number <em>n</em> is not prime. If <em>n</em> mod <em>x</em> is not equal to 0 for every number in the range 2 to <em>n</em> &acirc; 1, then the number <em>n</em> is prime.</p>
-
-	<p>Note that this is not an efficient algorithm, but it is correct. Can you think of a more efficient approach? Hint: Do we really need to check all the way up to <em>n</em> &acirc; 1?</p>
-	</li>
+	<li>Pick out the video game you want to play</li>
+	<li>Turn the video game player on</li>
+	<li>Insert the game into the player</li>
+	<li>Select the options you want</li>
+	<li>Play the game</li>
 </ol>
 
-<div data-type="note" id="ch03note03">
-<h1>Gem of Wisdom</h1>
-
-<p>Components of a mathematical expression can usually be broken into operands and operators. For example, in the expression 2 + 3, 2 and 3 are operands, and + is the operator. Operands are usually values, and operators are the actions to be performed.</p>
-</div>
-
-<p>Now that we have discussed the basics, we will describe some slightly more advanced operations. Ruby has many built-in modules; a <em>module</em> is simply a <em>group of methods</em> for a particular domain. There are methods that accomplish many different tasks. We will discuss methods in great detail starting with . For example, Ruby has a built-in module for mathematics, the <code>Math</code> module. lists some of the more advanced mathematical functions in Ruby. These functions are referred to as <em>methods</em>.</p>
-
-<table id="advanced_arithmetic_operations">
-	<caption>Advanced arithmetic operations</caption>
-	<thead>
-		<tr>
-			<th>Method</th>
-			<th>Operation</th>
-			<th>Example</th>
-			<th>&nbsp;</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>
-			<p><code>sqrt()</code></p>
-			</td>
-			<td>
-			<p>Square root</p>
-			</td>
-			<td>
-			<p><code>x = Math.sqrt(9)</code></p>
-			</td>
-			<td>3.0</td>
-		</tr>
-		<tr>
-			<td>
-			<p><code>sin()</code></p>
-			</td>
-			<td>
-			<p>Sine</p>
-			</td>
-			<td>
-			<p><code>x = Math.sin(0)</code></p>
-			</td>
-			<td>0.0</td>
-		</tr>
-		<tr>
-			<td>
-			<p><code>cos()</code></p>
-			</td>
-			<td>
-			<p>Cosine</p>
-			</td>
-			<td>
-			<p><code>x = Math.cos(0)</code></p>
-			</td>
-			<td>1.0</td>
-		</tr>
-		<tr>
-			<td>
-			<p><code>tan()</code></p>
-			</td>
-			<td>
-			<p>Tangent</p>
-			</td>
-			<td>
-			<p><code>x = Math.tan(0.7854)</code></p>
-			</td>
-			<td>1.0</td>
-		</tr>
-		<tr>
-			<td>
-			<p><code>log()</code></p>
-			</td>
-			<td>
-			<p>Natural log (ln)</p>
-			</td>
-			<td>
-			<p><code>x = Math.log(5)</code></p>
-			</td>
-			<td>1.609</td>
-		</tr>
-		<tr>
-			<td>
-			<p><code>log10()</code></p>
-			</td>
-			<td>
-			<p>Log (base 10)</p>
-			</td>
-			<td>
-			<p><code>x = Math.log10(10)</code></p>
-			</td>
-			<td>1.0</td>
-		</tr>
-	</tbody>
-</table>
-
-<p>When trying to perform these operations, we specify the <code>Math</code> module, followed by a period (.), then the method (type of operation). For example, to find the square root of 16, type:</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00010">
-irb(main):001:0&gt; x = Math.sqrt(16)
-=&gt; 4.0</pre>
-
-<p>To appreciate the power of the <code>Math</code> module and understand the order of operations in Ruby, try creating a program that performs the following operation:</p>
-
-<div data-type="equation" id="ch03equ01"><math xmlns="http://www.w3.org/1998/Math/MathML"> <mml:mrow xmlns:mml="http://www.w3.org/1998/Math/MathML"> <mml:mrow> <mml:mi>x</mml:mi> <mml:mo>=</mml:mo> <mml:mfrac> <mml:mrow> <mml:mstyle displaystyle="true" scriptlevel="0"> <mml:mrow> <mml:mn>5</mml:mn> <mml:mo>+</mml:mo> <mml:msqrt> <mml:mrow> <mml:mn>9</mml:mn> </mml:mrow> </mml:msqrt> </mml:mrow> </mml:mstyle> </mml:mrow> <mml:mrow> <mml:mstyle displaystyle="true" scriptlevel="0"> <mml:mrow> <mml:mn>2</mml:mn> </mml:mrow> </mml:mstyle> </mml:mrow> </mml:mfrac> </mml:mrow> </mml:mrow> </math></div>
-
-<p>The result should look similar to this:</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00011">
-irb(main):001:0&gt; x = (5 + Math.sqrt(9)) / 2
-=&gt; 4.0</pre>
-
-<p>Make sure you obtain 4.0 as a result. If you do not, try again. With computers there is <em>no point in repeating failure</em> precisely. Often, novice programmers state: &acirc;Well, I tried it 500 times!&acirc; If no input was changed, rest assured that no output will change either. So <em>change something</em> and then try again! Be patient, check things carefully, and keep working until the result is 4.0. If you obtained 4.0 the first time, try some variations (e.g., misspell the word <em>Math</em>), and become familiar with some error messages. It is important to start being methodical about implementing programs on a computer on the very first day. Take your time, go slowly, and think about everything you enter. Sometimes with programming languages even the smallest detail can be the difference between success and failure.</p>
-
-<div data-type="note" id="ch03note04">
-<h1>Gem of Wisdom</h1>
-
-<p>Ruby comes with many built-in functions called <em>methods</em> to make your life easier. shows a few of them. Without a square root (i.e., <code>sqrt()</code>) function you would need to write a program to compute the square root by repeated division. For any programming language, make sure you learn about all the built-in functions, as they can save you significant time.</p>
-</div>
-</section>
-
-<section data-type="sect1" id="threedot5_input_and_output">
-<h1>3.5 Input and Output</h1>
-
-<section data-type="sect2" id="output_using_variables">
-<h2>Output Using Variables</h2>
-
-<p>Displaying text in Ruby is simple. Try entering the following at the command prompt:</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00012">
-irb(main):001:0&gt; puts &quot;Hello World&quot;</pre>
-
-<p>The <code>puts</code> method (short for outPUT a String) simply displays a string on the screen. Notice the string is contained in quotation marks; otherwise, both <code>Hello</code> and <code>World</code> would be interpreted as variables. Variables are displayed on the screen using similar syntax, except without quotation marks:</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00013">
-irb(main):002:0&gt; text = &quot;Hello World&quot;
-=&gt; &quot;Hello World&quot;
-irb(main):003:0&gt; puts text
-=&gt; Hello World</pre>
-
-<p>This example stores the string <code>&acirc;Hello World&acirc;</code> in a variable named <code>text</code> and then displays the value stored in the <code>text</code> variable using the <code>puts</code> method. This method is not limited to strings and can be used with other classes including integers, floats, and Booleans.</p>
-
-<p>The use of classes to define data types means a variety of methods can be done for each type. For example, <code>x.length</code> indicates the size of a string when <code>x</code> is defined as a string.</p>
-</section>
-
-<section data-type="sect2" id="display_user_input">
-<h2>Display User Input</h2>
-
-<p>Displaying user input in Ruby is almost as easy as displaying output. Try entering the following in the command prompt:</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00014">
-irb(main):001:0&gt; age_input = gets</pre>
-
-<p>The <code>gets</code> method (short for GET a String from the user) stops the program and waits for the user to type some text and then press Enter. The text typed by the user will be stored as a string in a variable called <code>age_input</code>. Due to the nature of the <code>gets</code> method, the value stored in <code>age_input</code> will be a string, but you need an integer if you wish to mathematically manipulate it. We create another variable <code>age</code> and set it equal to the integer value of the user&acirc;s input by converting the string <code>age_input</code> to an integer. This is done by issuing the following command:</p>
-
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00015">
-irb(main):002:0&gt; age = age_input.to_i</pre>
-
-<p>The method <code>to_i</code> converts <code>age_input</code> to an integer.</p>
-</section>
-
-<section data-type="sect2" id="basic_programs">
-<h2>Basic Programs</h2>
-
-<p>Now that you have learned how to display text and request user input, you can develop a program that calculates the area of a rectangle. Try using the problem-solving approach discussed in to create this program.</p>
-</section>
-
-<section data-type="sect2" id="step_1_understanding_the_problem-id00002">
-<h2>Step 1: Understanding the Problem</h2>
-
-<p>Ask yourself key questions that must be answered to properly design the program:</p>
-
-<ul>
-	<li>
-	<p>How do you find the area of a rectangle?</p>
-	</li>
-	<li>
-	<p>How many variables do you need to represent that area?</p>
-	</li>
-	<li>
-	<p>What data type do the variables need to be?</p>
-	</li>
-</ul>
-</section>
-
-<section data-type="sect2" id="step_2_write_out_the_problem_in_plain_la">
-<h2>Step 2: Write Out the Problem in Plain Language</h2>
-
-<p>Before writing out the problem, remember that the input method stores user input as strings, so we need to convert the lengths (which are stored as strings) to integers before performing mathematical operations with them.</p>
+<p>These steps happen one after a another and are called an <em>algorithm (AL-GOH-ri-thm).  </em>The reason for an IF-THEN statement happens if you need to do some things some of the time and other things on other occasions.  Imagine if we had different sets of instructions for each video game.</p>
 
 <ol>
-	<li>
-	<p>Ask for the length.</p>
+	<li>Pick out the video game you want to play</li>
+	<li>Turn the video game player on</li>
+	<li>Insert the game into the player</li>
+	<li>IF the video game is FOOTBALL then
+	<ol>
+		<li>PLAY FOOTBALL</li>
+	</ol>
 	</li>
-	<li>
-	<p>Store the length.</p>
+	<li>ELSE
+	<ol>
+		<li>PLAY ANOTHER GAME</li>
+	</ol>
 	</li>
-	<li>
-	<p>Ask for the width.</p>
-	</li>
-	<li>
-	<p>Store the width.</p>
-	</li>
-	<li>
-	<p>Convert the length to an integer.</p>
-	</li>
-	<li>
-	<p>Convert the width to an integer.</p>
-	</li>
-	<li>
-	<p>Calculate rectangle area (area = length &Atilde; width).</p>
-	</li>
-	<li>
-	<p>Display area.</p>
-	</li>
+	<li>Select the options you want</li>
+	<li>Play the game</li>
 </ol>
 
-<p>The equation for the area of a rectangle is the product of its length and width. Although it does not affect this equation, remember that the rules for order of operations apply in Ruby. To change the order of operations, use parentheses.</p>
+<p>If statement, number four checks to see if the game we are playing is football. So we are going to play football <em>on the condition</em> that the game we have selected is football.  Hence, the test to see if we have selected a video game is called a <em>condition</em> and it is either true or false.    The IF statement in this algorithm above tests the condition <em>does-selected-game-equal-football  </em>and the selected game either does equal football or it does not.  If it does, then the next thing we do in the algorithm is step 4.1 which says PLAY FOOTBALL.  If it does not then we do whatever is in the ELSE part of the statement.</p>
+
+<p>Consider another algorithm -- one for making quite tasty chocolate chip cookies.</p>
+Obtain ingredients for making chocolate chip cookies that come with a mix where you need to add oil and eggs. 
+
+<ol>
+	<li>Break eggs and put eggs into mixing bowl</li>
+	<li>Measure oil and pour into mixing bowl</li>
+	<li>Pour cookie mix into mixing bowl</li>
+	<li>Mix the contents</li>
+	<li>Scoop contents into cookie sheet, one cookie at a time</li>
+	<li>Put sheet into oven</li>
+	<li>Bake</li>
+	<li>Remove cookies</li>
+	<li>Eat cookies</li>
+</ol>
+
+<p>Each step happens one after the other.  Now imagine if we wanted to ask if someone wanted to make the cookies.  So we would have a <strong>puts </strong>statement to ask the question and a <strong>gets </strong>statement to obtain the answer.  </p>
+
+<p>We need an <strong>if-then</strong> statement to find out if the user wants to make cookies and if so, go ahead and make them.  Otherwise we can just display a message that says “Fine, forget about the cookies and instead head to the bakery." </p>
+
+<p>The structure of an <strong>if-then</strong> statement in Ruby is:</p>
+
+<p><strong>if</strong> (comparison of a variable to a value)  <strong>then</strong></p>
+
+<p>         statements to do if the comparison is true</p>
+
+<p><strong>else</strong></p>
+
+<p>     statements to do if the comparison is false</p>
+
+<p><strong>end</strong></p>
+
+<p> </p>
+
+<p>If the comparison is true, the statements after the <strong>then </strong> get executed, if it is false, the statements in the true part are skipped and only the statements after the <strong>else </strong>are executed.   <strong> </strong>Ruby allows you to do the following types of comparisons:   equal, not equal, less then,  greater than and many others.  We have more <a href="http://ch04">if-then-else </a>information about nested statements, logic, and so on.</p>
+
+<p>In our current case we simply have to find out if the user wishes to make cookies so we would say</p>
+
+<p> </p>
+
+<section data-type="sect1" data-pdf-bookmark="IF-THEN IN RUBY" id="idp302496">
+<h1>IF-THEN IN RUBY</h1>
 </section>
 
-<section data-type="sect2" id="step_3_rewrite_the_plain_language_into_c">
-<h2>Step 3: Rewrite the Plain Language into Code</h2>
+<p> </p>
 
-<p>See . In the figure, as with all other program illustrations, the line numbers are not part of the code; they are added strictly for explanatory purposes. In line 8, we are printing an integer represented in the variable <code>area</code>. This differs from the printing of character strings in lines 1 and 3. Ruby automatically determines the data type, if it can. This is called dynamic or &acirc;duck&acirc; typing. This functionality is helpful; however, as you will see, automatic type determination can introduce problems. In this example, though, it helps in that <code>puts area</code> is mapped to <code>puts area.to_s</code>. Note that generally speaking, the <code>.to_*</code> method is a type conversion operation where the target type is represented by the <code>*</code> (a wildcard). For example, you have now seen conversion to integer (<code>to_i</code>) and to string (<code>to_s</code>).</p>
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="nb">puts</code> <code class="s2">"Want to make cookies"</code>
+<code class="n">x</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
+<code class="k">if</code> <code class="p">(</code><code class="n">x</code> <code class="o">==</code> <code class="s2">"yes"</code><code class="p">)</code> <code class="k">then</code>
+<code class="err"> </code> <code class="err"> </code> <code class="n">all</code> <code class="n">the</code> <code class="n">making</code> <code class="n">cookie</code> <code class="n">statements</code> <code class="n">go</code> <code class="n">here</code>
+<code class="k">else</code>
+<code class="err"> </code> <code class="err"> </code> <code class="nb">puts</code> <code class="s2">"Make time to stop at a bakery."</code>
+<code class="k">end</code>
 
-<div data-type="example" id="code_with_comments">
-<h5>Code with comments</h5>
 
-<pre data-code-language="ruby" data-type="programlisting">
-    1 puts &quot;What is the length?&quot;	# Ask for the length 
-    2 length_input = gets		# Stores the length 
-    3 puts &quot;What is the width?&quot;	# Ask for the width 
-    4 width_input = gets		# Stores the width 
-    5 length  = length_input.to_i	# Convert length to integer 
-    6 width = width_input.to_i	# Convert width to integer 
-    7 area = length * width		# Calculate rectangle area 
-    8 puts area			# Display area 
+
+
 </pre>
-</div>
-</section>
 
-<section data-type="sect2" id="step_4_test_the_code_in_the_comp-id00003">
-<h2>Step 4: Test the Code in the Computer</h2>
+<p>For our game of black jack we need to compare a VARIABLE to a VALUE. <br/>
+A <em>comparison operator</em> is used to determine how we would like to compare the Variable to the Value.  Do we want to know if they are the same, if one is bigger than the other, or one is smaller than the other?  To do this a <em>comparison operator</em> is used.   The only comparison operator we need right now is <strong>equality</strong> -- is the variable equal to the value.  It is done using two equal signs (==).  We will explain why it’s not one equal sign later.    See the <a href="http://ch03">list of comparison operators</a> for some other comparison operators.</p>
 
-<p>Similarly those who are adventurous can type the code lines from step 3 into a file and run the code from there. For those who are unsure, no worries; we address files later on. For now, simply see if you get the desired results; if not, make sure you typed <span class="keep-together">everything</span> correctly.</p>
+<p>The simplest comparison is one that checks to see if a variable equals a particular value.  The comparison operator in Ruby is two equal signs next to one another (==).   The reason a comparison is two equal signs is that one equal sign is already taken by the assignment operator.   If you remember the <strong>gets </strong>statement in which we assigned the result of the <strong>gets </strong>to the variable <strong>x </strong>with the statement:</p>
 
-<p>If it works, congratulations! You have just created a program that calculates the area of a rectangle.</p>
-</section>
-</section>
+<pre data-type="programlisting">
+x = gets</pre>
 
-<section data-type="sect1" id="threedot6_common_programming_errors">
-<h1>3.6 Common Programming Errors</h1>
+<p>Here, a single equal sign means to assign the result of the gets to the value of <strong>x.  </strong></p>
 
-<section data-type="sect2" id="syntax_errors">
-<h2>Syntax Errors</h2>
+<p><br/>
+Try the following:</p>
 
-<p>As a programmer, it is important for you to become comfortable with error messages. Even the most experienced computer programmers will have a typo or forget a quotation mark regularly. When you first start, error messages will seem incomprehensible. Later, they will help you fix the problem quickly.</p>
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
+<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
 
-<div data-type="note" id="ch03note05">
-<h1>Gem of Wisdom</h1>
+<code class="k">if</code><code class="err"> </code> <code class="p">(</code><code class="n">input</code> <code class="o">==</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code>
+<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"OK. Let's play."</code>
+<code class="k">else</code>
+<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"Fine. We will play again another time."</code>
+<code class="k">end</code><code class="err">      </code>
+</pre>
 
-<p>When you get an error message, do not just try the program again. This may work with your toaster, where you just unplug it and plug it back in, but with software development, it rarely, if ever, works. Figure out the problem, make a correction, and then see if it works.</p>
-</div>
+<p>Line 3 will be true if the user enters a “y” and if it is true then line 4 is executed. If the user enters something other than a “y” then line 6 is executed.   Try it for both cases.</p>
 
-<p>Try the following command in <code>irb</code>:</p>
+<p>Line 3 really has the new thing for this module which is our <strong>if-then </strong>statement.  We test the condition if <em>(input == ‘y') .  </em>This compares the variable named <em>input </em> which is populated in line two with the value ‘y’.  ‘y’ is in quotes so we are making it clear that we are comparing to the character ‘y’ and not a variable named ‘y’.  The two equal signs are critical (instead of one).  Note that we never had to actually test for ‘q’ as in this case we really do not care if the human player actually hits a ‘q’ or not.  As long as they hit something other than a ‘y’ we are happy and they can just stop playing the game.</p>
 
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00016">
-irb(main):001:0&gt; x = 1 + &quot;hello&quot;
-TypeError: String can't be coerced into Fixnum
-     from (irb):1:in '+'
-     from (irb):1</pre>
+<p>Once you get the example above working, lets mess it up with a classic mistake.  Lets leave out an equal sign. </p>
 
-<p>Syntax errors refer to code that Ruby cannot actually execute. Since it does not make sense for Ruby to add an integer to a string, it stops execution and informs you of the location where it had to stop.</p>
+<p> </p>
 
-<p>Let&acirc;s move on to a more realistic example. When entering strings, we are likely to forget quotes once in a while.</p>
+<section data-type="sect1" data-pdf-bookmark=" " id="idp843184">
+<h1> </h1>
+COMMON MISTAKE #1:  WRONG COMPARISON OPERATOR -- ONE EQUAL SIGN INSTEAD OF TWO</section>
 
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00017">
-irb(main):002:0&gt; x = hello
-NameError: undefined local variable or method 'hello' for
-main:Object
-from (irb):2</pre>
+<p> </p>
 
-<p>Wait! Why does the Ruby interpreter not just tell us that we forgot quotes? Ruby must guess what we intended. All Ruby knows is that we tried assigning <code>hello</code> to <code>x</code>. Since any string not contained in quotes is the name of a variable or a command, Ruby tries to find the value stored in a variable named <code>hello</code>. Since Ruby cannot find any variable named <code>hello</code>, it prints an error. It is important to start viewing code in terms of how Ruby might interpret it, but this is a skill that will take time to develop. Meanwhile, realize that errors will happen, and expect to be learning from them.</p>
-</section>
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e"/>
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
 
-<section data-type="sect2" id="logic_errors">
-<h2>Logic Errors</h2>
+<p>I’m thinking the design and therefore the tagging should highlight bad examples. It might be nice to look for pitfalls visually. What do you think? </p>
 
-<p>Errors that Ruby cannot catch are logic errors. They are problems with a program that cause it to return the wrong or undesired result. For example, if you are trying to find the area of a rectangle, but you multiplied the height by itself instead of by the width, that would be a logic error.</p>
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f"/>
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
 
-<p>The Ruby interpreter, the program that executes the Ruby instructions input by the user, does not try to guess that we meant to use a different variable. Logic errors are often much harder to trace than syntax errors because of this. To avoid them, it is often useful to look at your program and &acirc;play computer.&acirc; That is, pretend that you are the Ruby interpreter, and follow the steps that will be implemented as the program is executed. From this point on, we&acirc;ll use the words <em>Ruby</em> and <em>Ruby interpreter</em> interchangeably.</p>
-
-<div data-type="note" id="ch03note06">
-<h1>Gem of Wisdom</h1>
-
-<p>Truncation refers to limiting the number of significant digits by discarding extra digits. Unlike rounding, truncation simply throws the extra digits away.</p>
+<p>I think that would be FABULOUS.  Give me hints how to do it and we’ll do it.  Might be neat to have the text appear to be typed one character at a time and then pause right when the typo occurs. </p>
 </div>
 
-<p>A more common error involves integer division. Arithmetic expressions that operate on integers will always evaluate to integer form. This happens even with division, where the result would otherwise be a decimal. Ruby does this by truncating the arithmetic result (chopping off the decimal place and all the digits to the right of it). For example, 5 divided by 2 will evaluate to 2 instead of to 2.5.</p>
+<p> </p>
+</div>
 
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00018">
-irb(main):003:0&gt; 5 / 2
-=&gt; 2</pre>
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
+<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
+<code class="k">if</code><code class="err"> </code> <code class="p">(</code><code class="n">input</code> <code class="o">=</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code>
+<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"OK. Let's play."</code>
+<code class="k">else</code>
+<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"Fine. We will play again another time."</code>
+<code class="k">end</code>
+<code class="err">      </code>
 
-<p>If you get a wrong value using this computation in a program, then your final result will likely be erroneous, too.</p>
+</pre>
+
+<p>Try it.  Unfortunately, the condition no longer works properly.  You can enter ‘y’ or ‘n’ or ‘anything’ and the “OK lets play” message will always be displayed.   The reason is that the single equal sign is an assignment operator and not a comparison operator.  It is just used  used to simply assign the value ‘y’ to the variable <strong>input</strong> since the single equal sign (=) assignment operator was used and not the symbol for a comparison.  </p>
+
+<p>The following statement is valid Ruby syntax.  It contain an assignment followed by a comparison.  The assignment is done with the equal sign and the comparison is done the greater than (&gt;) symbol. </p>
+
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="k">if</code> <code class="p">((</code><code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code><code class="p">)</code> <code class="o">==</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code> 
+    <code class="nb">puts</code> <code class="s2">"OK. Let's play."</code>
+<code class="k">else</code> 
+    <code class="nb">puts</code> <code class="s2">"Fine. We will play again another time."</code>
+<code class="k">end</code>
+</pre>
+
+<p>This statement will first assign <em>input </em>to the result of gets.chop and then compare it to the value of y.  So you can combine two steps into one.  We very much do not recommend doing this as it can be really confusing to read.  Instead just break it into two statements:</p>
+
+<pre data-type="programlisting">
+input = gets.chop
+if (input == 'y') then puts "x is big"
+      
+</pre>
+
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e"/>
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>Whoa. I didn’t get that aside. You jumped back to the y example after the assignment presentation. And why would you want to do a direct assignment then a conditional test? Make sure the examples make sense. </p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f"/>
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>You were so RIGHT -- I didn’t realize my running example was the perfect case to show what I wanted to show ---I have no idea why I decided I had to do something weird.  Many thanks!</p>
+</div>
+
+<p> </p>
+</div>
+
+<p>However, since Ruby allows you to assign a variable and then compare it in the same statement, accidentally using a single equal sign instead of two simply looks like an assignment to Ruby inside of the IF statement.  Hence, the following statement will simply execute an assignment of moving the result of gets.chop to the variable <strong>input. </strong></p>
+
+<pre data-type="programlisting">
+if (input = gets.chop)</pre>
+
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e"/>
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>While I’m liking the flow. You need to segment the text with some sort of structure. More later on that idea.</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f"/>
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>I just tried putting in PARTS -- kind of like your chunks -- let me know what you think.</p>
+</div>
+
+<p> </p>
+</div>
+
+<p>Again, this will simply do the assignment and no comparison is specified since no comparison operator (e.g.; ==)  is found,  no comparison is done.   Once it is assigned, Ruby sees no harm in having the expression evaluate to TRUE as no comparison exists, so it may as well be true.  Hence, the <strong>IF</strong> statement will now be TRUE in all cases.  Adding the correct <em>comparison operator </em>double equal sign as in</p>
+
+<pre data-type="programlisting">
+if (input == 'y')</pre>
+
+<p>will tell the Ruby interpreter that we wish to compare ‘y’ to the input and then evaluate to TRUE or FALSE based on the comparison -- no assignment is being made. </p>
+
+<p>The real cause of the need to put in two equal signs for a comparison is</p>
+
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e"/>
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>What problem? Assigning of comparing? Say that. Don’t leave the reader guessing. You’re interweaving examples and losing the reader in this section.</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f"/>
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>True, I have redone it.</p>
+</div>
+
+<p> </p>
+</div>
+
+<p>reason this problem occurs because assignments are allowed in the condition being compared and the equal sign (single =) is the assignment operator and the double equal sign (==) is the comparison operator. </p>
+
+<p>The hard part about this example is that everything appears to work well -- it is only when you try different input that you identify the problem.  The good news is that the Ruby interpreter does give you a warning: </p>
+
+<p><strong>warning: found = in conditional, should be ==</strong></p>
+
+<p>That is a nice hint, you do not always get such good hints, so please remember to use a double equal sign (==) for the condition inside of an <strong>IF </strong>statement.</p>
+
+<p> </p>
+
+<section data-type="sect1" data-pdf-bookmark="COMMON MISTAKE #2:  Misspell a ELSE" id="idp949920">
+<h1>COMMON MISTAKE #2:  Misspell a ELSE</h1>
+
+<p> </p>
 </section>
+
+<p> </p>
+
+<p>Now, try one more error that is easier. Go ahead and misspell  the ELSE (may as well get used to this type of error as every programmer has done it a few zillion times). </p>
+
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
+<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
+
+<code class="k">if</code><code class="err"> </code> <code class="p">(</code><code class="n">input</code> <code class="o">=</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code>
+<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"OK lets play."</code>
+<code class="n">esle</code>
+<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"Fine we will play again another time."</code>
+<code class="k">end</code>
+<code class="err">      </code>
+
+</pre>
+
+<p> </p>
+
+<p>We have just interchanged the ‘l’ and the ’s’ in <strong>else.  </strong></p>
+
+<p>When we try this we get:</p>
+
+<p><strong>in ` ': undefined local variable or method `esle’ for main:Object (NameError)</strong></p>
+
+<p>The ruby interpreter thinks we are now referring to a variable called <strong>esle</strong> and says that variable has not been defined.  Now spell else correctly, use a double equal (==) and try it again.</p>
+
+<section data-type="sect1" data-pdf-bookmark="MAIN DRIVER" id="idp997712">
+<h1>MAIN DRIVER</h1>
 </section>
 
-<section data-type="sect1" id="threedot7_mixing_data_types">
-<h1>3.7 Mixing Data Types</h1>
+<h1> </h1>
 
-<p>Ruby will always try to remain in the same data type as its operands. For example, if the integers 2 and 3 are added in Ruby, the result will also be an integer.</p>
+<p> </p>
 
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00019">
-irb(main):001:0&gt; 2 + 3
-=&gt; 5</pre>
+<p>To run the whole game of blackjack we need the following IF statement:</p>
 
-<p>Likewise, when adding two floats, the result will also be a float.</p>
+<p> </p>
 
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00020">
-irb(main):002:0&gt; 2.0 + 3.0
-=&gt; 5.0</pre>
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e"/>
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
 
-<p>When Ruby encounters two operands of different data types, it will convert them to match where possible.</p>
+<p>Once again, watch your “will"s. ;-) When you read back your text always try to read it without the “will.” 99% of the time your text reads better.</p>
+</div>
 
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00021">
-irb(main):003:0&gt; 2 + 3.0
-=&gt; 5.0</pre>
+<p> </p>
 
-<p>The issue of dividing integers like 5 / 2 can finally be resolved. We are able to force Ruby to convert integer expressions into float expressions. Simply throw a float into the mix.</p>
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="err"> </code> <code class="err"> </code> 
+<code class="err"> </code>   <code class="nb">puts</code> <code class="err"> </code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
+<code class="err"> </code> <code class="err"> </code> <code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
+<code class="err"> </code> <code class="err"> </code> <code class="k">if</code> <code class="err"> </code><code class="p">(</code><code class="n">input</code> <code class="o">==</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code>
+<code class="err"> </code>      <code class="n">deck</code> <code class="o">=</code> <code class="no">Deck</code><code class="o">.</code><code class="n">new</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="n">player</code> <code class="o">=</code> <code class="no">Player</code><code class="o">.</code><code class="n">new</code><code class="p">(</code><code class="n">deck</code><code class="p">)</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="n">dealer</code> <code class="o">=</code> <code class="no">Dealer</code><code class="o">.</code><code class="n">new</code><code class="p">(</code><code class="n">deck</code><code class="p">)</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="c1"># now draw until stick</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="n">player</code><code class="o">.</code><code class="n">draw_remaining_cards</code>
 
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00022">
-irb(main):004:0&gt; 1.0 * 5 / 2
-=&gt; 2.5</pre>
+       <code class="k">if</code> <code class="p">(</code><code class="n">player</code><code class="o">.</code><code class="n">is_not_busted?</code><code class="p">)</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="n">dealer</code><code class="o">.</code><code class="n">draw_remaining_cards</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="k">end</code>
 
-<p>Of course, it is sometimes impossible to convert the data types to match. In this case, Ruby will output a <code>TypeError</code>.</p>
+      <code class="err"> </code><code class="nb">puts</code> <code class="s2">"Player: "</code> <code class="o">+</code> <code class="n">player</code><code class="o">.</code><code class="n">score</code> <code class="s2">"Dealer: "</code> <code class="o">+</code> <code class="n">dealer</code><code class="o">.</code><code class="n">score</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="k">if</code> <code class="n">player</code><code class="o">.</code><code class="n">score</code> <code class="o">&gt;</code> <code class="n">dealer</code><code class="o">.</code><code class="n">score</code><code class="err"> </code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="nb">puts</code> <code class="s2">"Congratulations! You won."</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="k">else</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="nb">puts</code> <code class="s2">"Sorry. You lost."</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="k">end</code>
+<code class="err"> </code> <code class="err"> </code> <code class="k">else</code>
+<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="nb">puts</code> <code class="s2">"Sorry. You didn't want to play."</code><code class="err"> </code>
+<code class="err"> </code> <code class="err"> </code> <code class="k">end</code>
+<code class="k">end</code>
 
-<pre data-code-language="ruby" data-type="programlisting" id="pro_id00023">
-irb(main):005:0&gt; x = 1 + &quot;hello&quot;
-TypeError: String can't be coerced into Fixnum
-     from (irb):4:in '+'
-     from (irb):4</pre>
+<code class="nb">puts</code> <code class="s2">"Have a good day."</code>
+
+
+</pre>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line one is our friendly message to the user. </span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line two is where we get the response and chop off the newline with a “\n”. </span></p>
+
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e"/>
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>I’m feeling the rollovers again. What if we were able to read the text about each line on mouseover? Crazy or good idea? That could be additive rather than replacing the text.</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f"/>
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>Yep, rollovers of even a line-by-line animation where we show a line, talk about it and then have a new line type in or fly in.  I would be glad to try different things. Showing the code and then going line by line is really what you are forced to do with a book -- not sure we have to stick to it.  Also when we have a thing that runs the code, making it so the students can see all the variables referenced and their current value would be a huge thing.  I constantly and drawing boxes of variables when I step through things with students.</p>
+</div>
+
+<p> </p>
+</div>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Now we get to our new thing for this module which is our <strong>if-then </strong>statement.  We test te condition if <em>(input == ‘y') .  </em>This compares the variable named <em>input </em> which was populated in line two with the value ‘y’.  ‘y’ is in quotes so we are making it clear that we are comparing to the character ‘y’ and not a variable named ‘y’.  The two equal signs are critical (instead of one which is a common error made every day by very experienced programmers) as they indicate that a comparison is to be made.  </span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 3-12 are the core of the black jack game.  </span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 4 initializes a deck of cards.  </span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 5 initializes a player. </span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 6 initializes a dealer. </span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 7 has the player keep drawing cards until they elect to choose no more cards in other words they decide to stick with their hand. </span></p>
+
+<p><span style="font-family: Georgia, serif; font-size: 17px; line-height: 1.5em;">Line 8 has another if statement to see if the player has busted (gone over 21) or not.  If the player has not busted then the dealer needs some cards which is handled by the method <strong>draw_remaining_cards </strong>in Line 9.  A method is a sequence of steps that are defined separately.  Imagine if we had a <strong>make_cookies</strong> method that had our numbered steps  </span>from before -- then instead of repeating those 9 steps every time we wanted to have the program make cookies, we would just say <strong>make_cookies.  </strong>Similarly, the steps to draw remaining cards have been stored in a <strong>method </strong>called <strong>draw_remaining_cards. </strong></p>
+
+<p>After dealing the dealer her cards we check the player’s total and compare to the dealer total in line 17. Notice the (&gt;) or greater than sign used in this comparison to see if the player has a higher total than the dealer.  If the player does have a higher total the player wins, otherwise the dealer wins. </p>
+
+<p>One thing we didn’t emphasize is that an IF statement can have another IF statement in the middle of it.   Notice that we have one IF statement in line 3 that checks to see the users input and then if the user did want to play blackjack we then execute the ruby commands in lines 4-20, otherwise we execute the ruby commands after the <strong>ELSE </strong>which is in line 22 and 23.</p>
+
+<p>Do not try typing this in yet as we have not defined all the methods.</p>
+
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e"/>
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>That’s a downer. Can you give our new programmer a copy and past cheat so they can run the code now?</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f"/>
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>we have two options, we could go through and stub out all the methods and have them a run a shell of blackjack -- i almost did that, but that forces us into a big discussion of objects that i don’t want to do right now.  Or we just have the whole thing ready to go and hit run and we say we’ll explain all the other modules later.  I’m open to both ideas, i know its a downer and I didn’t like it when I wrote  the sentence (DON’T TRY IT).</p>
+</div>
+
+<p> </p>
+</div>
+
+<p>  In the coming modules we will define and test each method and then we will come back and put in this code (lines 1-24) and the whole game will be done.</p>
+
+<p>For now, just to give you the feel of an if statement, enter the following:</p>
+
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
+<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
+
+<code class="k">if</code><code class="err"> </code> <code class="p">(</code><code class="n">input</code> <code class="o">==</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code>
+<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"OK. Let's play."</code>
+<code class="k">else</code>
+<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"Fine. We will play again another time."</code>
+<code class="k">end</code>
+<code class="err">      </code>
+
+
+</pre>
+
+<p>Another thing to mention is that in this module we have basically described all the components needed to play Blackjack and the statements in line 4-20 are what is called the <strong>main driver</strong> of this program.  These statements call other methods to get things done but the high level steps are all here.   Essentially, if we were writing our “bake cookies” steps we would have:</p>
+
+<section data-type="sect1" data-pdf-bookmark="A little more on Algorithms" id="idp1221824">
+<h1>A little more on Algorithms</h1>
+
+<p> </p>
 </section>
 
-<section data-type="sect1" id="threedot8_summary">
-<h1>3.8 Summary</h1>
+<p> </p>
 
-<p>We discussed classes, variables, constants, and key data types such as strings and integers. At this point, you should know how to create a variable in Ruby and how to assign values to your newly created variable.</p>
+<p> </p>
 
-<section data-type="sect2" id="threedot8dot1_key_concepts">
-<h2>3.8.1 Key Concepts</h2>
+<p>See if User wants to Play</p>
 
-<ul>
-	<li>
-	<p>Ruby programs can be created/edited in any text editor (as defined previously), so long as the editor can save files as plain text. It is <em>highly</em> recommended that you use an editor suited for writing programs.</p>
-	</li>
-	<li>
-	<p>When naming <em>variables</em>, it is a common practice to separate each word in a variable name with an underscore (_).</p>
-	</li>
-	<li>
-	<p>Programming languages use various data types to perform various operations. Ruby uses many data types, including <em>integer</em> (<em>Fixnum</em> and <em>Bignum</em>), <em>float</em>, <em>string</em>, and <em>Boolean</em>.</p>
-	</li>
-	<li>
-	<p>It is important to understand the syntax behind simple mathematical operators. Mathematical operators will often be used when programming. Pay attention to the order of operation.</p>
-	</li>
-	<li>
-	<p>To output information onto the screen, use the <code>puts</code> command. To input information from the user, use the <code>gets</code> command.</p>
-	</li>
-	<li>
-	<p>The three types of programming errors are <em>syntax errors</em>, <em>logic errors</em>, and <em>type errors</em>. Type errors often arise from mixing data types that cannot be mixed, such as integers and strings.</p>
-	</li>
-	<li>
-	<p><em>Conversion errors</em> are a subset of <em>type errors</em>.</p>
-	</li>
-</ul>
-</section>
-
-<section data-type="sect2" id="threedot8dot2_key_definitions">
-<h2>3.8.2 Key Definitions</h2>
-
-<ul>
-	<li>
-	<p><em>Variable</em>: A piece of data attached to a name, class, and memory location.</p>
-	</li>
-	<li>
-	<p><em>Instantiate</em>: In this simple initial presentation, creating a variable. See for more information.</p>
-	</li>
-	<li>
-	<p><em>Constant</em>: A variable that is set once and never changed.</p>
-	</li>
-	<li>
-	<p><em>Initialize</em>: To assign a value to a variable when the variable is created.</p>
-	</li>
-	<li>
-	<p><em>Data class</em>: Information about the variable that defines the possible values a variable can have and what operations can be performed using it. A more complete description is presented in .</p>
-	</li>
-	<li>
-	<p><em>Integer</em>: A class that defines a whole number. Ruby recognizes two classes:</p>
-
-	<ul>
-		<li>
-		<p><em>Fixnum</em>: An integer with a limited range. In 32-bit systems, the range <span class="keep-together">&acirc;2,147,483,648 to 2,147,483,647.</span></p>
-		</li>
-		<li>
-		<p><em>Bignum</em>: An integer outside the range of Fixnum.</p>
-		</li>
-	</ul>
-	</li>
-	<li>
-	<p><em>Float</em>: A class that defines a decimal number.</p>
-	</li>
-	<li>
-	<p><em>String</em>: A class that defines a sequence of characters.</p>
-	</li>
-	<li>
-	<p><em>Boolean</em>: A class that defines a value of either <code>true</code> or <code>false</code>.</p>
-	</li>
-	<li>
-	<p><em>Syntax errors</em>: Errors produced by incorrect syntax for the programming language.</p>
-	</li>
-	<li>
-	<p><em>Logic errors</em>: Errors produced by bad logic.</p>
-	</li>
-	<li>
-	<p><em>Type errors</em>: Errors produced by mixing data types that cannot be mixed.</p>
-	</li>
-</ul>
-</section>
-</section>
-<!--?hard-pagebreak?-->
-
-<section data-type="sect1" id="threedot9_exercises">
-<h1>3.9 Exercises</h1>
-
-<ol class="qonly">
-	<li>
-	<p>You saw that Ruby does not allow addition of floats and strings. For example:</p>
-
-	<pre data-code-language="ruby" data-type="programlisting" id="pro_id00024">
-irb(main):005:0&gt; 1.1 + &quot;string&quot;
-TypeError: String can't be coerced into Float
-     from /Users/leland/.irbrc:73(irb):1:in '+'
-     from (irb):14</pre>
-
-	<p>What type combinations does Ruby allow to be added?</p>
-	</li>
-	<li>
-	<p>Using <code>irb</code>, initialize three variables, <code>x</code>, <code>y</code>, and <code>z</code>, each to some number less than 10. Design an equation with these variables using at least one multiplication, one division, and one addition or subtraction element. Have the computer do it once without parentheses, and then add parentheses to the equation and try it again. Are the answers the same? If not, why not?</p>
-	</li>
-	<li>
-	<p>Earlier in the chapter, we saw the following:</p>
-
-	<pre data-code-language="ruby" data-type="programlisting" id="pro_id00025">
-irb(main):001:0&gt; 1.0 * 5 / 2
-=&gt; 2.5</pre>
-
-	<p>Now, try typing the following code into <code>irb</code>:</p>
-
-	<pre data-code-language="ruby" data-type="programlisting" id="pro_id00026">
-irb(main):002:0&gt; 5 / 2*1.0</pre>
-
-	<p>This should have produced a value of 2.0. Why does it produce the value 2.0, and not 2.5, like we saw earlier?</p>
-	</li>
-	<li>
-	<p>Write the expected value of <code>x</code> after both lines are executed.</p>
-
-	<ol type="a">
-		<li>
-		<pre data-code-language="ruby" data-type="programlisting" id="pro_id00027">
-irb(main):001:0&gt; x = 9
-irb(main):002:0&gt; x = x/2</pre>
-		</li>
-		<li>
-		<pre data-code-language="ruby" data-type="programlisting" id="pro_id00028">
-irb(main):003:0&gt; x = 9
-irb(main):004:0&gt; x = x/2.0</pre>
-		</li>
-	</ol>
-	</li>
-	<li>
-	<p>What is the expected result of <code>c</code> for each code group?</p>
-
-	<ol type="a">
-		<li>
-		<pre data-code-language="ruby" data-type="programlisting" id="pro_id00029">
-irb(main):001:0&gt; a = Math.sqrt(9)
-irb(main):002:0&gt; b = 2
-irb(main):003:0&gt; c = a/b</pre>
-		</li>
-		<li>
-		<pre data-code-language="ruby" data-type="programlisting" id="pro_id00030">
-irb(main):001:0&gt; a = 5
-irb(main):002:0&gt; b = 2
-irb(main):003:0&gt; c = a/b</pre>
-		</li>
-	</ol>
-	</li>
-	<li>
-	<p>Suppose a program finds the average temperature for a given year. A user of the program is prompted to enter the average temperature values for each season of the year: winter, spring, summer, and fall. The program stores these values as floats in variables <code>temp_winter</code>, <code>temp_spring</code>, <code>temp_summer</code>, and <code>temp_fall</code>, respectively. The final result is stored in the variable <code>avg_temp</code>. The program calculates the average temperature with the following line:</p>
-
-	<pre data-code-language="ruby" data-type="programlisting" id="pro_id00031">
-avg_temp = temp_winter + temp_spring + temp_summer + temp_f/4</pre>
-
-	<p>However, when the program runs, the value of <code>avg_temp</code> is always incorrect. Briefly describe what is wrong with this line and what changes you would make to correct this error.</p>
-	</li>
-	<li>
-	<p>What is the difference between logic and syntax errors? Give an example of each.</p>
-	</li>
+<ol>
+	<li>If user wishes to play THEN</li>
+	<li>      Initialize a Player</li>
+	<li>      Initialize a Dealer</li>
+	<li>      Draw all the cards for the Player</li>
+	<li>     If player_score is less then 21 then</li>
+	<li>             Draw all the cards for the dealer</li>
+	<li>     If the player has a higher score than the dealer</li>
+	<li>             Output “Player Wins”</li>
+	<li>     Else</li>
+	<li>            Output “Dealer Wins”</li>
+	<li>     end</li>
+	<li>End</li>
 </ol>
+
+<p> </p>
+
+<p>The steps 1-12 we have just listed here are called psuedocode as they are mostly in English and not meant to be specific to any programming language.  This step by step listing of how to solve a problem (e.g.; the problem here is to make the computer play blackjack) is called an <strong>algorithm </strong>(pronounced ALG-OH-rhythm).   The study of Computer Science is really all about the study of algorithms.  For any algorithm you can always compute how many steps the computer will take.  A big part of Computer Science is finding more efficient algorithms to solve the same problem.  For some problems, a faster algorithm can be shown to do more good and make the problem go away thousands of times faster than buying a much more expensive and faster computer. </p>
+
+<p>People tend to focus on learning a programming language, but Computer Science doesn’t get all wrapped up in a particular programming language.  Programming languages come and programming languages go -- but good algorithms prevail.   We think Ruby is a good programming language to teach algorithm development as much of Ruby reads a good bit like pseudocode, but you should always remember that a good program really should only be written once you have a good algorithm.    Hence, the first thing you should do before typing in a program is to write out the algorithm in pseudocode and make sure you have thought through all the different things that can happen.  For instance, if our algorithm left out step 10, then we would end up with no output, the dealer wins, and the program would only work when the player wins.   So check your algorithm and make sure you have thought about the different things that can happen.  Then implement your algorithm with a programming language and then test the software that implements the algorithm.   Module <a href="http://ch01">xxx </a>gives you more information about algorithms and pseudocode.</p>
+
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e"/>
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>Another click here kind of thing... &lt;link&gt;Module x&lt;/link&gt; gives you more information about algorithms and pseudocode.</p>
+</div>
+
+<div data-nickname="petrycki" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/d4945bdcb61d40753a9fc1142633ff9e"/>
+<div spellcheck="false">petrycki</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>Like I said, the flow is good. What I’d like to see is chunking and labeling. For example, how about setting aside the initial if-then-else description, both pitfall/error sections or assignment vs. compare, main driver, discussions of algorithms, pseudocode description. It will help when you want to refer to those sections or the learner returns to the material. I would simply use standard headings.</p>
+
+<div data-nickname="dagr1234" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/aac3dd6128e307df756933f6a5be9e1f"/>
+<div spellcheck="false">dagr1234</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>I put in sections but I can change the headings -not sure which is best.  Clearly a good thing to do to break this up into chunks. </p>
+</div>
+
+<p> </p>
+</div>
+
+<p> </p>
+
+<p> </p>
 </section>
-</section>
+            <ul class="page-navigation">
+              <li><a href="ch02.html">Previous</a></li>
+              <li/>
+            </ul>
+          </section>
+        </section>
+      </div>
+  </body>
+</html>

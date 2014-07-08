@@ -1,588 +1,362 @@
-<section class="pagenumrestart" data-type="chapter" id="how_does_the_computer_really_work" xmlns="http://www.w3.org/1999/xhtml">
-<h1>How Does the Computer Really Work?</h1>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" ng-app="console" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>atlas book skeleton</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css"> </link>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
 
-<aside data-type="sidebar">
-<h5>In This Chapter</h5>
+    <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
 
-<ul>
-	<li>
-	<p>Basic nomenclature and components of a computer system</p>
-	</li>
-	<li>
-	<p>Bit strings and their meaning</p>
-	</li>
-</ul>
-</aside>
 
-<section data-type="sect1" id="twodot1_introduction">
-<h1>2.1 Introduction</h1>
+   <!-- Includes for codemirror and jsrepl -->
+   <script src="theme/html/javascripts/jquery-2.1.1.min.js"> </script>
+   <script src="theme/html/javascripts/angular.min.js"> </script>
+   <script src="theme/html/javascripts/jqconsole.min.js"> </script>
+   <script src="theme/html/javascripts/jsrepl/jsrepl.js" id="jsrepl-script"> </script>
+   <script src="theme/html/javascripts/codemirror.js"> </script>
 
-<p>Well we aren't quite ready for the next nail. &nbsp;Remember when we said puts &quot;Welcome to Blackjack&quot; and we said&nbsp;<strong>puts&nbsp;</strong>is followed by a STRING.&nbsp;</p>
 
-<p>It turns out the reason for the need to make some variables STRINGS and other INTEGER comes from the very way computer work. &nbsp;This section has a lot of information about that and we really think you should read it as it will help you as you run into various things and wonder &quot;So WHY DO WE DO IT THIS WAY&quot;.&nbsp;</p>
+   <!-- Includes for angular and the angular app -->
+   <script src="theme/html/app.js"> </script>
 
-<p>Numbers are stored in BINARY as thats all computers really understand. &nbsp;They work in terms of ones and zeroes. &nbsp;Any number in our decimal number system can be easily represented in binary. &nbsp; Probably the only reason we use base 10 for our numbering is that we have ten fingers. &nbsp;If we ever run into aliens that have two fingers --well they will probably use BINARY numbers and will be better at Computer Science.&nbsp;</p>
+   <!-- General stylesheet -->
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/coderunner.css"/>
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/codemirror.css"/>
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/console.css"/>
+   <link rel="stylesheet" type="text/css" href="theme/html/stylesheets/html.css"/>
 
-<p>So when we say 128 in base 10 that means we have a 1 in the hundred's place a 2 in the ten's and an eight in the units place. &nbsp;Each decimal place is a power of 10. &nbsp;Units is 10^0, ten's place is 10^1 and hundreds place is 10^2. &nbsp;Nothing stopping us from using base 2 where we would have a 1's place, a 2's place, a 4'place, etc. &nbsp;Representing 128 in binary just means we put a 1 in the 128 place and a 0 in the rest so it looks like 1000000 in base 2. &nbsp;</p>
 
-<p>This book is about the basics of computer science in which algorithms are expressed by software; it is not about computer hardware. However, as software is the tool by which we use the computer, a rudimentary knowledge of the properties of computers is desirable to understand the attributes, properties, limitations, and sometimes idiosyncrasies, of software.</p>
-</section>
+    <script type="text/javascript">
+      $(function() {
+        $("#link-toc").click(function(e) {
+          e.preventDefault();
+          $("#sidebar").toggle();
+        });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="theme/html/html.css"/>
+  </head>
+  <body data-type="book">
+    
+    <header>
+      <div id="buttons">
+        <a href="#" id="link-toc">☰</a>
+      </div>
+      <img class="logo" src="http://orm-logo-service.herokuapp.com//logo.svg"/>
+      <h1>atlas book skeleton</h1>
+      </header>
+      <div id="flex-box">
+        <section id="sidebar">
+          <nav data-type="toc" id="idp84400"><ol><li data-type="chapter"><a href="ch01.html#idm4743872">Module 1 - Display a Welcome Message</a></li><li data-type="chapter"><a href="ch02.html#idp274560">Module 2: Get Input</a></li><li data-type="chapter"><a href="ch03.html#idp393424">Module 3 - Deciding what to do next. </a><ol>
 
-<section data-type="sect1" id="twodot2_basic_nomenclature_and_component">
-<h1>2.2 Basic Nomenclature and Components of a <span class="keep-together">Computer System</span></h1>
 
-<p>You may say WHO CARES about how the computer works. &nbsp;It turns out that the computer has become a utilitarian device, to be used by people who are nontechnical the same way that a car can be used by all people, without any need to understand the workings of the engine, the various support systems, and the energy management of the car. This is true, but only partially.</p>
 
-<p>Consider a hybrid car, such as the Toyota Prius. It is designed to be just like any other car: drivable without the intricate understanding needed to grasp the concept of the synergy drive of a car where multiple modes of propulsion cooperate to optimize the energy usage of this essentially electric car. However, the actual energy consumption differs between drivers. Those who understand the working of this car will get better energy efficiency than the casual driver&acirc;in our experience sometimes as high as a 15% difference.</p>
 
-<p>We argue that the same concept is true for software. Understanding the underlying machinery (the computer system) enables more efficient software development. This may not be important for small tasks, but it may be crucial for very large ones.</p>
 
-<p>A <em>digital computer</em>&acirc;and we limit ourselves to these only&acirc;is a device that has three main parts: at least one processing unit, called the central processing unit or CPU, at least one memory unit, and a control unit. A <em>computer system</em> has, in addition to a computer, a set of peripheral devices that can be roughly divided into three categories: user interface devices, mass storage devices, and communication devices.</p>
 
-<p>Most of the computers today are based on the Von Neumann model of computing, which is as follows: the memory holds computer programs and all the data values that are necessary for the computer program. A <em>computer program</em> is built from instructions that are executed in a logical sequence. The computer operates by causing the control unit to select an instruction from memory. That instruction causes the control unit to fetch data from the memory to the processing unit. There may be one data item, more than one, or none. The processing unit then performs the function implied by the instruction, and the control unit saves the result in memory and selects the next instruction to be fetched from memory.</p>
 
-<p>This is the gist of the Von Neumann model. In reality, there are various types of memory, very complex control units, and optionally multiple processing units that can deal with many instructions in parallel. There are many other optimizations, but no matter how complex, logically, there is a strict serialization imposed by this model, and the instructions seem to be performing serially.</p>
 
-<p>The memory stores all its contents, be it instructions or data, as numbers. The representation of numbers that we use is called the <em>radix</em> or positional representation. To create such a representation, we choose a radix (sometimes called the <em>base</em>) of the representation, say, <em>r</em>. We select <em>r</em> symbols that have the values of 0 through <em>r</em> &acirc; 1. Numbers are then represented by a sequence of these symbols. Each position in the sequence has an ordinal (sequence position number), counted from right to left. Thus, the rightmost position has the ordinal 0, the next one has ordinal 1, and so on. The value of the represented number is then computed by multiplying the value of the symbol in position <em>n</em> by the weight or the factor of that position, that is, <em>r<sup>n</sup></em>, and adding all values together.</p>
+<li data-type="sect1"><a href="ch03.html#idp397360">IF-THEN-LOGIC</a></li>
 
-<p>In our familiar decimal system, the radix is 10. The 10 symbols that we use are 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. We call these symbols digits, carrying the values from zero to <em>r - 1</em> which is 9. For example, to see what is represented by a three-digit number, say, 123, we compute the weight of each position. Position 0 will have the factor 10<sup>0</sup>, which is 1, the second position has the factor 10<sup>1</sup>, which is 10, and the third has the factor 10<sup>2</sup>, which is 100. The value of the number is thus 3 &Atilde; 1 + 2 &Atilde; 10 + 1 &Atilde; 100 = 123, as expected.</p>
 
-<div data-type="note" id="ch02note01">
-<h1>Gem of Wisdom</h1>
 
-<p>A computer system has two types of memory: short-term random access memory (RAM) that is fast but limited (usually measured in gigabytes with access times in nanoseconds) and long-term that is thousands of times slower but far more vast (often measured in terabytes with access times in milliseconds). Additionally, a computer has a few small brains or central processing units (CPUs) that execute instructions, input and output mediums, and a network connection to support the exchange of information between machines.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Obtain ingredients for making chocolate chip cookies that come with a mix where you need to add oil and eggs. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp302496">IF-THEN IN RUBY</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp843184"> </a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp949920">COMMON MISTAKE #2:  Misspell a ELSE</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp997712">MAIN DRIVER</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li data-type="sect1"><a href="ch03.html#idp1221824">A little more on Algorithms</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ol></li></ol></nav>
+        </section>
+        <section id="content">
+          <section id="content-body">
+            <ul class="page-navigation">              
+              <li><a href="ch01.html">Previous</a></li>
+              <li><a href="ch03.html">Next</a></li>
+            </ul>
+            <section data-type="chapter" data-pdf-bookmark="Chapter 2. Module 2: Get Input" id="idp274560">
+<h1>Module 2: Get Input</h1>
+
+<p>At this point, you have just been able to display some output to the screen telling the user that you want to play Blackjack. </p>
+
+<p>Now, it’s time to ask the user for input.</p>
+
+<p>Consider the following Ruby code:</p>
+
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
+<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code>
+</pre>
+
+<p><span style="line-height: 1.5em;">Line 1 shows the user being prompted with the </span><strong style="line-height: 1.5em;">puts </strong><span style="line-height: 1.5em;">command we learned about in module 1.  Line 2 shows our new thing for today called the </span><strong style="line-height: 1.5em;">gets </strong><span style="line-height: 1.5em;">command.  This is short for get-string. </span></p>
+
+<p>Line 2 also has an important Ruby command called the <strong>Assignment operator</strong>.  The equal sign is used here to indicate to take the thing on the right hand side of the equal sign and move it to a <strong>variable </strong>on the left hand side of the equal sign.</p>
+
+<p>The general form of the assignment operator is:</p>
+
+<p><em>variable = value</em></p>
+
+<p>So we could issue the command:</p>
+
+<p>x = 5</p>
+
+<p>and this would assign the value 5 to the variable x.  Think of a variable as just being a place in the computers memory that has an address just like your mailbox at home.  Inside of that mailbox is a value.   At a given point in time, the mailbox has one value.  Since we can change the value in the mailbox, the mailbox is called a <strong>variable </strong>whose value can <strong>change </strong>or <strong>vary.  </strong>Variables get used all the time in Mathematics; so, if you are familiar with them in mathematics, you will be comfortable with them here.  For a full discussion of variables click <a href="https://atlas.oreilly.com/oreillymedia/computer-science-programming-basics-in-ruby-course/editor/master/ch03.html">here.</a></p>
+
+<p>Some people see an equal sign and immediately associate it with an equation; in our context, it is not an equation.  The equal sign indicates<span style="line-height: 1.5em;"> an assignment of the right hand side of the equal sign to the left hand side. </span></p>
+
+<p>If the statement were:</p>
+
+<p><strong>5 = x </strong></p>
+
+<p>(feel free to try it in the box below)</p>
+
+<div data-nickname="ophirfrieder" data-type="comment">
+<div class="comment-identifier" contenteditable="false"><img src="https://secure.gravatar.com/avatar/05709fcdca3c601800012a6267ca9a6d"/>
+<div spellcheck="false">ophirfrieder</div>
+<i class="delete_comment glyphicons remove_2"> </i></div>
+
+<p>Box missing!!!!</p>
 </div>
 
-<p>Assume now radix 4&acirc;that is, the base of our positional system is 4, usually called the quaternary system. We need four symbols that we choose to be 0, 1, 2, and 3, with the obvious values. These are our quaternary numerals.</p>
+<p>you would get the error message: <strong>syntax error, unexpected '=', expecting </strong></p>
 
-<p>What is the (decimal) value of our three-digit number 123<sub>4</sub>, where the subscript denotes that it is in base 4? The positions now have weights (factors) of 4<sup>0</sup> = 1, 4<sup>1</sup> = 4, and 4<sup>2</sup> = 16. The decimal value of our number is now 3 &Atilde; 1 + 2 &Atilde; 4 + 1 &Atilde; 16, which is, in decimal, 27.</p>
+<p><strong>end-of-input </strong></p>
 
-<p>Another quaternary system, used heavily in genetics, uses the symbols A, C, G, and T, expressing the sequence of DNA nucleotides (A C G T) as a quaternary number, sometimes using its decimal value.</p>
+<p> </p>
 
-<p>The prevalent numerical form used in our computers is based on the radix 2, and is called binary. In the binary system, every binary digit, called a bit, has one of two possible values, 0 or 1. The number stored in the memory is thus composed from a string of bits, each having a value of zero or one. The meaning of the string is decided by the way it is used; it may be interpreted in many ways, to be discussed later in this chapter.</p>
+<p>The Ruby interpreter sees the equal sign after the number 5 and realizes that you are trying to move some value into an actual number or literal value.  A literal, in this case a number, cannot be changed; it only has the value of 5.   So, the Ruby interpreter states that it was expecting you to be done when it encountered the equal sign.  Since you were not, a syntax error message was generated. </p>
 
-<p>Memory is built from cells, and each cell has its own unique address. Most computers use consecutive natural numbers, starting from zero, as addresses, sometimes called locations. In most computers, the addresses refer to cells that can hold eight bits&acirc;we refer to these cells as <em>bytes</em>. These bytes can be accessed in an arbitrary order, that is, the computer can select any address to read from or write into. For this reason, these memories are referred to as random access memories or RAM.</p>
+<p>When you hit the enter key, a newline character is added to the input.  If you just type</p>
 
-<p>Bytes can be grouped into larger strings and accessed as an ordered string of bits, as will be apparent throughout this book. Modern computers have memories that hold billions of bytes (we will discuss sizes in the following section).</p>
+<p><strong>x = gets</strong></p>
 
-<p>The peripheral devices that complement the computer to create a computer system are, as already mentioned, of three different categories. We sometimes also subdivide each category into input (to the computer), output (from the computer), or input/output or I/O devices.</p>
+<p>and the user enters YES and then hits enter, the value “YES\n” is now stored in <strong>x </strong>where the <strong>\n </strong>indicates a new line character.</p>
 
-<p>The user interface devices used for input are, for example, keyboards, touch screens, microphones, and various sensors. Examples of output devices in this category are printers, screens, drawing and typing devices, light and audio devices, and various signaling devices.</p>
+<p>This <strong>\n </strong>is usually going to get in your way, so a handy Ruby method called <strong>chop </strong>is used to chop off the newline character.   If we fail to use chop, any time we wanted to compare the user response, we would need to include the “\n”, confusing program understanding.  By "<strong>chop</strong>“ping off the “\n”, we can focus on the core user response.  </p>
 
-<p>Mass storage devices are designed to hold information many orders of magnitude larger than memories. They include various types of magnetic devices, such as disks, tapes, and memory cards, optical devices such as CD or DVD drives, and electromagnetic devices such as mass memories. Almost all of these fall in the I/O category, although many may be input only, such as nonwritable CDs and DVDs or read-only memories (referred to as ROM). The properties of all these devices are dramatically different from RAM.</p>
+<p>The command <strong>x = gets.chop </strong>will take the user input string, remove the <strong>\n </strong>and then store the rest in the variable <strong>x. </strong></p>
 
-<p>The development of new manufacturing technologies that enable large, low-power-consumption, solid-state memories, and the parallel development of novel, high-capacity batteries, is creating a shift in the structure of computer systems. The new <span class="keep-together">solid-state</span> memories are slowly replacing the traditional, magnetic-memory-based, mechanically powered disks and the optically based CD and DVD memory devices. As of 2012, tablets, mobile devices, and even laptop computers have no mechanical components, and thus no disk, DVD, or CD devices; all such devices are replaced by solid-state large memories. There are, however, external disk, CD, and DVD drives that can be connected to these new computing devices, thus providing both a transition path and backup capabilities for the computing devices. These drives are powered through the computer system itself (via their data connection interface&acirc;currently the USB); therefore, they do not require power connections of their own.</p>
+<p>For our blackjack game we use the following:</p>
 
-<p>Communication devices are typically I/O devices that connect the computer to a network, be it local in a room, or global. These may be without a physical connecting device (wireless, line-of-sight microwave, light of various spectrum, sound wave activator, or sensor) or wired (copper cable, fiber optics, or sound conduit).</p>
+<pre data-code-language="ruby" data-executable="true" data-type="programlisting">
+<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
+<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code></pre>
 
-<p>The peripheral devices are controlled by the I/O part of the control unit and require quite a sophisticated set of software programs to make them useful. The reader is referred to any basic book about operating systems to complement her or his knowledge of this subject. For a list of suggested reading, see .</p>
+<p>You are now ready to see if the user has entered a <strong>y </strong>for YES to play Blackjack or a <strong>q </strong>to indicate that s/he is done with the game.  The <strong>chop </strong>method forgoes the need to worry about matching the <strong>\n </strong>character when determining if the user entered a <strong>q </strong>or a <strong>y. </strong></p>
+
+<p> </p>
 </section>
-
-<section data-type="sect1" id="twodot3_scales_of_magnitude">
-<h1>2.3 Scales of Magnitude</h1>
-
-<p>Mass storage devices and memories are very large and thus measured with units that have names different from those used in everyday life. While we use the colloquial word <em>grand</em> to refer to $1,000, for amounts greater than $1,000 we use the names of the decimal system, such as <em>million</em>. These are not universally used&acirc;in the United States, one thousand million is called <em>billion</em>; in Europe it is called <em>milliard</em>. There is, however, an agreed upon nomenclature for powers of 10 so that one thousand is called <em>kilo</em>, one million is called <em>Mega</em>, and so on (see ). Note the lowercase in kilo, the uppercase in Mega, and all that follow. This comes from the fact that the letter <em>K</em> is reserved, in the decimal nomenclature, for the designation of the absolute temperature measure (degrees in Kelvin).<span data-type="footnote"><a href="http://en.wikipedia.org/wiki/Kelvin"><em class="hyperlink">http://en.wikipedia.org/wiki/Kelvin</em></a></span></p>
-
-<table id="unit_names_and_their_sizes">
-	<caption>Scales of magnitude</caption>
-	<thead>
-		<tr>
-			<th>Units</th>
-			<th>Actual size (bytes)</th>
-			<th>Other names</th>
-			<th>Real-world quantities</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>
-			<p>Megabyte (MB)</p>
-			</td>
-			<td>
-			<p>1,000,000</p>
-			</td>
-			<td>
-			<p>Million, 10<sup>6</sup></p>
-			</td>
-			<td>
-			<p>The King James version of the Bible contains approximately 5 million characters.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Mebibyte (MiB)</p>
-			</td>
-			<td>
-			<p>1,048,576</p>
-			</td>
-			<td>
-			<p>2<sup>20</sup></p>
-			</td>
-			<td>
-			<p>The speed of light is 300 million meters/second.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Gigabyte (GB)</p>
-			</td>
-			<td>
-			<p>1,000,000,000</p>
-			</td>
-			<td>
-			<p>Billion, 10<sup>9</sup></p>
-			</td>
-			<td>
-			<p>At 5% interest, $1 billion would return $50,000,000/year.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Gibibyte (GiB)</p>
-			</td>
-			<td>
-			<p>1,073,741,824</p>
-			</td>
-			<td>
-			<p>2<sup>30</sup></p>
-			</td>
-			<td>
-			<p>A billion $1 bills, end to end, would wrap the Earth at the equator 4.5 times.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Terabyte (TB)</p>
-			</td>
-			<td>
-			<p>1,000,000,000,000</p>
-			</td>
-			<td>
-			<p>Trillion, 10<sup>12</sup></p>
-			</td>
-			<td>
-			<p>The U.S. GDP for 2006 was $13 trillion.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Tebibyte (TiB)</p>
-			</td>
-			<td>
-			<p>1,099,511,627,776</p>
-			</td>
-			<td>
-			<p>2<sup>40</sup></p>
-			</td>
-			<td>
-			<p>Global GDP in 2006 was estimated by the World Bank to be $46 trillion.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Petabyte (PB)</p>
-			</td>
-			<td>
-			<p>1,000,000,000,000,000</p>
-			</td>
-			<td>
-			<p>Quadrillion, 10<sup>15</sup></p>
-			</td>
-			<td>
-			<p>108 &Atilde; 10<sup>15</sup> meters is the distance to the nearest star (excluding the sun), Alpha Centauri.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Pebibyte (PiB)</p>
-			</td>
-			<td>
-			<p>2<sup>50</sup></p>
-			</td>
-			<td>&nbsp;</td>
-			<td>
-			<p>Large multinational enterprises and massive scientific databases are in this neighborhood of storage.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Exabyte (EB)</p>
-			</td>
-			<td>
-			<p>10<sup>18</sup></p>
-			</td>
-			<td>
-			<p>Quintillion</p>
-			</td>
-			<td>
-			<p>The oceans on the Earth contain about 326 quintillion gallons of water.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Exbibyte (EiB)</p>
-			</td>
-			<td>
-			<p>2<sup>60</sup></p>
-			</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Zettabyte (ZB)</p>
-			</td>
-			<td>
-			<p>10<sup>21</sup></p>
-			</td>
-			<td>
-			<p>Sextillion</p>
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Zebibyte (ZiB)</p>
-			</td>
-			<td>
-			<p>2<sup>70</sup></p>
-			</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-	</tbody>
-</table>
-
-<p>The computer is not based on the radix 10; it is based on the radix 2. Inasmuch as 2<sup>10</sup> equals 1,024, which is close to 10<sup>3</sup>, it became customary in the past to refer to 2<sup>10</sup> as <em>kilo</em>. Thus, one kilobyte was approximately one thousand bytes, and the discrepancy was small. When we move from a kilobyte to a megabyte, which now stands for 2<sup>20</sup> bytes, the discrepancy between 10<sup>6</sup> and 2<sup>20</sup> is significant, as 10<sup>6</sup> = 1<em>,</em>000<em>,</em>000 and 2<sup>20</sup> = 1<em>,</em>048<em>,</em>576. This is not a small difference and cannot be ignored. Obviously, as we move toward larger scales, the discrepancy in sizes expressed as decimal names for binary-based quantities is increased, causing confusion and inconsistency in reporting sizes.</p>
-
-<p>For that reason, as of 2005, there is a standard that introduces new names for quantities expressed as powers of 2 and retains the familiar names for quantities expressed as powers of 10. has names, sizes, and observations about the real meaning of the sizes, starting with megabyte for the decimal meaning of the size in bytes and mebibytes for the binary meaning. As of the time of this writing (2013), sizes of mass storage devices are usually quoted in the decimal meanings, and sizes of RAM are quoted in the binary meaning, both using the decimal nomenclature. This confusion, well exploited in advertising, will hopefully disappear as the binary nomenclature becomes better used, or if the community will decide to report correctly when decimal nomenclature is used.</p>
-
-<p>Please refer to to make sense of what you just read. The binary prefixes were first proposed by the IEC (International Electrotechnical Commission) in January 1999 and expanded in 2005 to include all binary equivalents to the accepted decimal prefixes. All binary prefixes and names were codified by the IEEE (Institute of Electrical and Electronics Engineers) as a standard in 2005 (IEEE 1541-2002).</p>
-</section>
-
-<section data-type="sect1" id="twodot4_instruction_execution_en_dash_sp">
-<h1>2.4 Instruction Execution, Speed and Timing Scales</h1>
-
-<p>As explained earlier, programs operate by the control unit causing the central processing unit to execute instructions in a logically sequential manner. It is immaterial how many instructions are in a different execution phase at any point in time; their effect is transmitted in a serial fashion, one instruction at a time.</p>
-
-<p>Instructions are executed in phases that take time, each controlled by a timing mechanism called a clock. In reality, there may be several clocks, but suffice it to say that clocks operate in various frequencies that define the basic time step of the instruction execution phases. Clock speeds are measured in Hertz (Hz), where 1 Hz is one clock cycle per second.</p>
-
-<p>The scales of time and frequency are summarized in . It is important to realize the meaning of the scales represented there.</p>
-
-<p>Modern computers (in 2013) operate on a clock that is typically somewhere between 2 GHz and 1 THz. The way that clock speed translates into instructions executed per second is not trivial and depends heavily on the design and cost of the computer. Again, that is not the topic of this book. Here we just state that while there is a link between the clock speed and the instruction execution rate, it should not be inferred that computer A with a clock rate double that of computer B will perform at twice the speed of B. The complication arises partially from overlap between phases of instruction execution and from the fact that different instructions typically take a different number of clock steps to execute.</p>
-
-<p>To get a better handle on computer speeds, we measure them by the instruction rate rather than the time each instruction takes. These ratings are sometimes expressed in MIPS (Millions of Instructions Per Second) or FLOPS (FLoating-point Operations Per Second), and by multiples of these units such as MegaFLOPS or TeraFLOPS. To determine computer speeds, specially crafted programs are run and their execution times are recorded. This measures speed more realistically than simply using the processor&acirc;s clock speed.</p>
-
-<table id="scales_of_time_and_frequency">
-	<caption>Scales of time and frequency</caption>
-	<thead>
-		<tr>
-			<th>Units</th>
-			<th>Fraction of a second</th>
-			<th>Symbol</th>
-			<th>Real-world quantities</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>
-			<p>Second</p>
-			</td>
-			<td>
-			<p>1</p>
-			</td>
-			<td>
-			<p>sec</p>
-			</td>
-			<td>
-			<p>The speed of light is 300 million meters/sec.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Hertz</p>
-			</td>
-			<td>
-			<p>1</p>
-			</td>
-			<td>
-			<p>Hz</p>
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Millisecond</p>
-			</td>
-			<td>
-			<p>10<sup>&acirc;3</sup></p>
-			</td>
-			<td>
-			<p>msec</p>
-			</td>
-			<td>
-			<p>A high-speed disk rotates once in 10 msec.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Kilohertz</p>
-			</td>
-			<td>
-			<p>10<sup>3</sup></p>
-			</td>
-			<td>
-			<p>KHz</p>
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Microsecond</p>
-			</td>
-			<td>
-			<p>10<sup>&acirc;6</sup></p>
-			</td>
-			<td>
-			<p><em>&Icirc;&frac14;</em>sec</p>
-			</td>
-			<td>
-			<p>A typical laptop performs about 8,000 basic instructions in about one microsecond (Intel Core 2 Duo).</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Megahertz</p>
-			</td>
-			<td>
-			<p>10<sup>6</sup></p>
-			</td>
-			<td>
-			<p>MHz</p>
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Nanosecond</p>
-			</td>
-			<td>
-			<p>10<sup>&acirc;9</sup></p>
-			</td>
-			<td>
-			<p>nsec</p>
-			</td>
-			<td>
-			<p>Light traverses only 30 cm in one nanosecond.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Gigahertz</p>
-			</td>
-			<td>
-			<p>10<sup>9</sup></p>
-			</td>
-			<td>
-			<p>GHz</p>
-			</td>
-			<td>
-			<p>An instruction on a computer is done in several nanoseconds.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Picosecond</p>
-			</td>
-			<td>
-			<p>10<sup>&acirc;12</sup></p>
-			</td>
-			<td>
-			<p>psec</p>
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Terahertz</p>
-			</td>
-			<td>
-			<p>10<sup>12</sup></p>
-			</td>
-			<td>
-			<p>THz</p>
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>
-			<p>Femtosecond</p>
-			</td>
-			<td>
-			<p>10<sup>&acirc;15</sup></p>
-			</td>
-			<td>
-			<p>fsec</p>
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-	</tbody>
-</table>
-
-<p>As supercomputers increase in size and speed, the complexity of problems solved by them increases to a point that the access of data in memory dominates the speed of execution. This necessitates new approaches to speed evaluations. As an example, one of the newer approaches (in 2011) introduced a measure called gigateps, a billion traversed edges per second, based on the speed of solving an analysis of the connections, or edges, between points in a graph.</p>
-
-<p>Timing considerations are important not only for instruction execution, but also for the operation of peripheral devices and communication devices. These considerations, as with the previous ones relating to instruction speed, are beyond the scope of this book. Suffice it to say that the rotational speed of disks, measured in microseconds, is many orders of magnitude slower than the execution rate of instructions. Significant portions of operating systems are devoted to mitigate this difference so that the speed of execution will be minimally impacted by the slowness of the peripheral devices.</p>
-</section>
-
-<section data-type="sect1" id="twodot5_bit_strings_and_their_meaning">
-<h1>2.5 Bit Strings and Their Meaning</h1>
-
-<p>As discussed before, the contents of the memory consist of strings of bits. Most computers have these stored in individually addressable units of eight bits, called <em>bytes</em>. The bytes in turn can be strung together to form longer strings. For historical reasons, a group of two consecutive bytes is called a <em>half word</em>, four bytes (32 bits) are called a <em>word</em>, and 64 bytes are called a <em>double</em> or <em>long word</em>.</p>
-
-<p>The meaning of the strings of bits is just that&acirc;a string of bits. The interpretation of the meaning, however, is dependent on the usage of the string. One important usage is to code an instruction and its parameters. There are many types of instructions: numerical, like add and multiply, logical, control, program flow, and others. Again, this book is not devoted to hardware details, so we do not elaborate. Simply said, a string of bits can be interpreted as an instruction, and given the address of the proper byte in this string, the control unit will try to decode and execute that instruction. The instruction itself will cause the control unit to find the next instruction, and so on.</p>
-
-<p>Bit strings also can represent data. Here we have a wide variety of possibilities, so we restrict ourselves to the most prevalent data coding.</p>
-
-<p>The simplest one is the integer. In this interpretation, the bit string represents a positive numerical value in radix 2. This means that each string represents a binary number, where each digit is weighed by the proper power of two, starting from zero on the extreme right (end of the string) and proceeding to the left. Thus, the string 01011101 will have the meaning 1 &Atilde; 2<sup>0</sup> + 0 &Atilde; 2<sup>1</sup> + 1 &Atilde; 2<sup>2</sup> + 1 &Atilde; 2<sup>3</sup> + 1 &Atilde; 2<sup>4</sup> + 0 &Atilde; 2<sup>5</sup> + 1 &Atilde; 2<sup>6</sup> + 0 &Atilde; 2<sup>7</sup>, where &Atilde; is the multiplication sign. Evaluating this expression, the string 01011101 has the value of 1 + 0 + 4 + 8 + 16 + 0 + 64 + 0 or 93. We do not discuss here how negative values are represented, but they are available.</p>
-
-<p>Integer values are limited by the length of their string representations. Ruby recognizes two types of integers: regular and long. We discuss those (and other numeric representations) and their properties in a forthcoming chapter.</p>
-
-<p>To alleviate the limitation of size imposed on integers, a very important representation of data is available. It is called <em>floating point</em> or <em>real</em>. The former name is older and used primarily in discussing hardware concepts.</p>
-
-<p>In this interpretation, numbers are represented in scientific form, that is, as <em>x</em> &Atilde; 2<em><sup>y</sup></em>. Thus, part of the string is used to hold the value of <em>x</em> and part is used to hold the value of <em>y</em>. Both <em>x</em> and <em>y</em> are expressed by their binary values, derived in the same way that we presented in our discussion of integers, or in a complex form as negative values introduce additional difficulties. As you will see, there are different types of real numbers.</p>
-
-<p>The last interpretation that we discuss is that of characters.</p>
-
-<p>Character representation follows an international standard, codified under the name Unicode. The standard provides for a representation of both character and noncharacter-based texts (such as, for example, Far East languages) and for the representation of other items (such as, for example, mathematical symbols, control characters, etc.). The Unicode representation uses one to four bytes per item. The first 256 characters, digits, symbols, and codes are contained in one byte and are identical to the previous standard known as ASCII (American Standard for Character Information Interchange). Almost all English-based texts files belong to this category, so it is customary to state that characters are single bytes.</p>
-
-<p>For in-depth information on this important topic, the voluminous Unicode standard description (currently more than 600 pages) contains tables, descriptions, rules, and explanations for dozens of different scripts, languages, symbols, and so on.</p>
-
-<p>There is a difference between character representations and their meaning. For example, the character &acirc;9&acirc; is <em>not</em> the number 9. The number 9 is represented by the character &acirc;9.&acirc; This distinction will be very important in future chapters as we have input programs that read characters, but we wish to use them as numbers. In our former example, we have seen that the number 93 is stored as the string 01011101, but the character string &acirc;93&acirc; will be stored in a completely different way. To obtain the number 93 from the character string &acirc;93,&acirc; we need a process of conversion from the character to the numerical representation. Ruby provides such a process, as do all programming languages.</p>
-
-<p>These are the most important but by no means the only types of interpretations of bit strings. Some others may represent different types of data, be they components of colors for the display, controls for various devices, amplitudes for sound presentation, and <span class="keep-together">so on.</span></p>
-</section>
-
-<section data-type="sect1" id="twodot6_the_interpreter_process_and_ruby">
-<h1>2.6 The Interpreter Process and Ruby</h1>
-
-<p>We now have covered the general concepts of computer systems embodied in a Von Neumann&acirc;style machine. We stated that programs and the data used by them reside in central memory, which can be replenished by various peripheral devices. We also stated that the memory stores its content in bits&acirc;binary digits consisting of 1&acirc;s and 0&acirc;s.</p>
-
-<div data-type="note" id="ch02note02">
-<h1>Gem of Wisdom</h1>
-
-<p>Programs in Ruby or any other programming language are strictly human-readable. However, a computer only understands only instructions that are encoded as a sequence of 1s and 0s (binary digits). Thus, we use another program called an interpreter (done one step at a time) or a compiler (done for all steps) that translates the English-like programming language to binary machine instruction codes.</p>
-</div>
-
-<p>In the following chapters we will introduce various algorithms or processes designed to solve problems. Among all possible ways to introduce and express the algorithms, we have chosen the Ruby programming language. This language, and other programming languages, express the algorithms via sequences of unambiguous sentences called <em>statements</em>. These are written using the Latin character set, digits in decimal notation, and special symbols, such as <code>=</code>, <code>,</code>, <code>&gt;</code>, and others. Clearly, these are not binary digits, so these are not programs that can be directly executed by a computer. What procedure is used to accept programs written in a language like Ruby and causes them to be performed or, as we say, executed, by a computer?</p>
-
-<p>There are several methods to accomplish this task. We will dwell on two of these: <em>compilation</em> and <em>interpretation</em>. In the interpretation process, we will use two different approaches, so one can claim that we will introduce three methods.</p>
-
-<p>To begin, we will assume that the program to be executed is contained in a file produced, say, by a word processor such as Microsoft Word or a similar one. As a matter of fact, in this book we will advocate using a word processor that is directly geared toward writing Ruby programs, as opposed to a general-purpose word processor.</p>
-
-<p>It is important to bear in mind that this book does not intend to cover the areas of compilation and interpretation. All we do here is introduce the concepts so that the rest of this book will be better understood.</p>
-
-<p><em>Compilation</em> is a process that analyzes a program statement by statement, and for each statement produces the instructions that execute the algorithm steps implied by that statement. Once all the statements are analyzed and the instructions produced, the compilation process will create a file containing the executable code for that program. That file, in turn, is loaded into the memory to be executed.</p>
-
-<p>The compilation process is performed by a program called a <em>compiler</em>. Simply put, a compiler translates instructions written in a given computer language, call it X, to a format that can execute on a particular computer type, call it Y. Examples of X include C++, Java, and Ruby. Examples of Y include Intel&acirc;s Core 2, Motorola&acirc;s 68060, and NEC&acirc;s V20. So formally, a compiler for language X for a computer Y is typically (but not always) a program that is written in instructions executable on Y and, while executing and residing in the memory of Y, accepts as input a file containing statements in the language X and producing a file containing instructions for execution on computer Y.</p>
-
-<p>A modern computer system will typically have several compilers for several languages.</p>
-
-<p><em>Interpretation</em> is a horse of a different color. In this process, statements are analyzed one by one and executed as they are encountered. In the pure case of interpretation (there are variants not discussed here) <em>no</em> instructions for the computer are produced&acirc;only the effect of the statements is evident. There is, therefore, a program called an <em>interpreter</em> for language X (written for computer Y) that accepts, as input, statements in language X and executes them.</p>
-
-<p>There are essentially two main ways to do interpretation, and both are supported by the Ruby interpreter. The first one is called the <em>interactive mode</em>. In this mode, the programmer is prompted by the interpreter to enter one statement at a time, and the interpreter executes it. It can be viewed as a glorified calculator. It is very useful for such tasks as short programs, concept evaluation, and experimenting with options. It also is a good way to check and see if a statement does what you think it will do. It is often a good idea to try something out in the interactive interpreter before you put it in a program.</p>
-
-<p>The second mode is the so-called <em>batch mode</em> (the name has historical roots; do not worry about what it means). In this mode, the program is prepared the same way it is in compilation; it is prepared in its entirety and stored in a file. The file containing the program is used as the input to the interpreter that analyzes the file statement by statement and executes the statements one by one.</p>
-
-<p>Ruby is an interpretive language. It is beyond the scope of this book to say more on this subject, but as you dive into the language, and in particular as you run programs, how it all works will become increasingly evident.</p>
-</section>
-
-<section data-type="sect1" id="twodot7_summary">
-<h1>2.7 Summary</h1>
-
-<p>While algorithm design typically abstracts away the underlying target computer architecture, completely ignoring architecture in introductory computer science books unnecessarily limits the understanding of readers. Understanding computer architecture basics and accounting for such basics in the design of algorithms often reduces the running time of the algorithm on the target computer. Thus, in this chapter, the fundamental aspects of computer architecture were introduced. We described the basic components of a computer, the fundamentals of data representation, and various unit determinations.</p>
-
-<section data-type="sect2" id="twodot7dot1_key_concepts">
-<h2>2.7.1 Key Concepts</h2>
-
-<ul>
-	<li>
-	<p>The Von Neumann model of computing is the prevalent model in the architecture (structure) of computers, the one followed in this book.</p>
-	</li>
-	<li>
-	<p>A computer consists of a single or several central processing unit(s), memory(ies), and a control unit.</p>
-	</li>
-	<li>
-	<p>Both instructions and data reside in the memory.</p>
-	</li>
-	<li>
-	<p>Instructions are followed in a sequential manner, with some instructions capable of causing changes in the sequence.</p>
-	</li>
-	<li>
-	<p>A computer system includes a computer and peripheral devices of various types.</p>
-	</li>
-	<li>
-	<p>Peripheral devices, sometimes called input/output devices, are divided into user/computer interface (including sensors), communication, and mass memory <span class="keep-together">devices</span>.</p>
-	</li>
-	<li>
-	<p>All data are stored in binary form, but the interpretation of those data depends on their usage.</p>
-	</li>
-	<li>
-	<p>Two means to execute instructions are compilation and interpretation.</p>
-	</li>
-</ul>
-</section>
-
-<section data-type="sect2" id="twodot7dot2_key_definitions">
-<h2>2.7.2 Key Definitions</h2>
-
-<ul>
-	<li>
-	<p><em>Central Processing Unit (CPU)</em>: The part of a computer that executes instructions.</p>
-	</li>
-	<li>
-	<p><em>Random Access Memory (RAM)</em>: The main memory of the computer (there are also RAM units available as peripheral devices). RAM contents can be modified.</p>
-	</li>
-	<li>
-	<p><em>Read-Only Memory (ROM)</em>: Memory whose contents cannot be modified by computer instructions.</p>
-	</li>
-	<li>
-	<p><em>Radix (base)</em>: The base of a positional system.</p>
-	</li>
-	<li>
-	<p><em>Integer</em>: Interpretation of memory contents as a whole number of limited range.</p>
-	</li>
-	<li>
-	<p><em>Real (floating-point) number</em>: Interpretation of memory contents as containing two parts, man (mantissa) and exp (exponent), so that the number is expressed as<span><span class="keep-together"><em>man</em> &Atilde; 2<em><sup>exp</sup></em>.</span></span></p>
-	</li>
-	<li>
-	<p><em>Character</em>: Interpretation of memory contents as a literal (letter, number, symbol, etc.).</p>
-	</li>
-	<li>
-	<p><em>Compilation</em>: Translation of instructions written in a given language to the language of instruction for the target machine.</p>
-	</li>
-	<li>
-	<p><em>Interpretation</em>: Step-by-step execution of the specified instructions.</p>
-	</li>
-</ul>
-</section>
-</section>
-
-<section data-type="sect1" id="twodot8_exercises">
-<h1>2.8 Exercises</h1>
-
-<ol class="qonly">
-	<li>
-	<p>Write 208 in binary and in ternary (base 3). Hint: what are the ternary digits?</p>
-	</li>
-	<li>
-	<p>The octal system (base 8) uses the digits 0 through 7. The representation of the letter <em>A</em> in the ASCII encoding scheme is 1000001 in binary. What is it in octal?</p>
-	</li>
-	<li>
-	<p>Color pictures are built of pixels, each represented by three bytes of information. Each byte represents the intensity of the primary colors red, green, and blue (or RGB values). How many gigabytes of storage are required for a 1028 &Atilde; 1028&acirc;pixel color picture?</p>
-	</li>
-	<li>
-	<p>A communication device has the capacity to transfer one megabit of data per second. A 90-minute movie is recorded at 25 frames per second, each frame consisting of 720 <span>&acirc;&Atilde;</span> 600 pixels. How long would it take to transfer this movie across the previously described communication device? Would someone be able to stream the video over this communication device without experiencing jittery playback? Explain why or why not.</p>
-	</li>
-</ol>
-</section>
-</section>
+            <ul class="page-navigation">
+              <li><a href="ch01.html">Previous</a></li>
+              <li><a href="ch03.html">Next</a></li>
+            </ul>
+          </section>
+        </section>
+      </div>
+  </body>
+</html>

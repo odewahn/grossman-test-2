@@ -161,3 +161,7 @@ ul.page-navigation li:nth-child(2) {
 #content-body p {
   line-height: 1.6em;
 }
+
+div[data-type="comment"] {
+	display: none;
+}
