@@ -50,7 +50,7 @@
       </header>
       <div id="flex-box">
         <section id="sidebar">
-          <nav data-type="toc" id="idp84400"><ol><li data-type="chapter"><a href="ch01.html#idm4743872">Module 1 - Display a Welcome Message</a></li><li data-type="chapter"><a href="ch02.html#idp274560">Module 2: Get Input</a></li><li data-type="chapter"><a href="ch03.html#idp393424">Module 3 - Deciding what to do next. </a><ol>
+          <nav data-type="toc" id="idp77184"><ol><li data-type="chapter"><a href="ch01.html#idp476624">Module 1 - Display a Welcome Message</a></li><li data-type="chapter"><a href="ch02.html#idp478368">Module 2: Get Input</a></li><li data-type="chapter"><a href="ch03.html#idp606976">Module 3 - Deciding what to do next. </a><ol>
 
 
 
@@ -59,7 +59,7 @@
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp397360">IF-THEN-LOGIC</a></li>
+<li data-type="sect1"><a href="ch03.html#idp650304">IF-THEN-LOGIC</a></li>
 
 
 
@@ -106,7 +106,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp302496">IF-THEN IN RUBY</a></li>
+<li data-type="sect1"><a href="ch03.html#idp683376">IF-THEN IN RUBY</a></li>
 
 
 
@@ -132,7 +132,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp843184"> </a></li>
+<li data-type="sect1"><a href="ch03.html#idp708800"> </a></li>
 
 
 
@@ -178,7 +178,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp949920">COMMON MISTAKE #2:  Misspell a ELSE</a></li>
+<li data-type="sect1"><a href="ch03.html#idp751888">COMMON MISTAKE #2:  Misspell a ELSE</a></li>
 
 
 
@@ -196,7 +196,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp997712">MAIN DRIVER</a></li>
+<li data-type="sect1"><a href="ch03.html#idp761424">MAIN DRIVER</a></li>
 
 
 
@@ -248,7 +248,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp1221824">A little more on Algorithms</a></li>
+<li data-type="sect1"><a href="ch03.html#idp810816">A little more on Algorithms</a></li>
 
 
 
@@ -279,7 +279,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
               <li><a href="ch02.html">Previous</a></li>
               <li/>
             </ul>
-            <section data-type="chapter" data-pdf-bookmark="Chapter 3. Module 3 - Deciding what to do next. " id="idp393424">
+            <section data-type="chapter" data-pdf-bookmark="Chapter 3. Module 3 - Deciding what to do next. " id="idp606976">
 <h1>Module 3 - Deciding what to do next. </h1>
 
 <p>At this point, our blackjack player has been asked if they want to play and whether he responded. We now need to check and see if what that person wants to do. </p>
@@ -288,7 +288,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 <p>Our new statement:  the <strong>if-then</strong> statement contains a comparison of a value to a variable.  The comparison either return <strong>true </strong>or <strong>false</strong>.  </p>
 
-<section data-type="sect1" data-pdf-bookmark="IF-THEN-LOGIC" id="idp397360">
+<section data-type="sect1" data-pdf-bookmark="IF-THEN-LOGIC" id="idp650304">
 <h1>IF-THEN-LOGIC</h1>
 </section>
 
@@ -375,20 +375,20 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 <p> </p>
 
-<section data-type="sect1" data-pdf-bookmark="IF-THEN IN RUBY" id="idp302496">
+<section data-type="sect1" data-pdf-bookmark="IF-THEN IN RUBY" id="idp683376">
 <h1>IF-THEN IN RUBY</h1>
 </section>
 
 <p> </p>
 
 <pre data-code-language="ruby" data-executable="true" data-type="programlisting">
-<code class="nb">puts</code> <code class="s2">"Want to make cookies"</code>
-<code class="n">x</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
-<code class="k">if</code> <code class="p">(</code><code class="n">x</code> <code class="o">==</code> <code class="s2">"yes"</code><code class="p">)</code> <code class="k">then</code>
-<code class="err"> </code> <code class="err"> </code> <code class="n">all</code> <code class="n">the</code> <code class="n">making</code> <code class="n">cookie</code> <code class="n">statements</code> <code class="n">go</code> <code class="n">here</code>
-<code class="k">else</code>
-<code class="err"> </code> <code class="err"> </code> <code class="nb">puts</code> <code class="s2">"Make time to stop at a bakery."</code>
-<code class="k">end</code>
+puts "Want to make cookies"
+x = gets.chop
+if (x == "yes") then
+    all the making cookie statements go here
+else
+    puts "Make time to stop at a bakery."
+end
 
 
 
@@ -409,14 +409,14 @@ x = gets</pre>
 Try the following:</p>
 
 <pre data-code-language="ruby" data-executable="true" data-type="programlisting">
-<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
-<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
+puts "Ready to Deal (y = yes, q = quit)"
+input = gets.chop
 
-<code class="k">if</code><code class="err"> </code> <code class="p">(</code><code class="n">input</code> <code class="o">==</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code>
-<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"OK. Let's play."</code>
-<code class="k">else</code>
-<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"Fine. We will play again another time."</code>
-<code class="k">end</code><code class="err">      </code>
+if  (input == 'y') then
+    puts "OK. Let's play."
+else
+    puts "Fine. We will play again another time."
+end      
 </pre>
 
 <p>Line 3 will be true if the user enters a “y” and if it is true then line 4 is executed. If the user enters something other than a “y” then line 6 is executed.   Try it for both cases.</p>
@@ -427,7 +427,7 @@ Try the following:</p>
 
 <p> </p>
 
-<section data-type="sect1" data-pdf-bookmark=" " id="idp843184">
+<section data-type="sect1" data-pdf-bookmark=" " id="idp708800">
 <h1> </h1>
 COMMON MISTAKE #1:  WRONG COMPARISON OPERATOR -- ONE EQUAL SIGN INSTEAD OF TWO</section>
 
@@ -452,14 +452,14 @@ COMMON MISTAKE #1:  WRONG COMPARISON OPERATOR -- ONE EQUAL SIGN INSTEAD OF TWO<
 </div>
 
 <pre data-code-language="ruby" data-executable="true" data-type="programlisting">
-<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
-<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
-<code class="k">if</code><code class="err"> </code> <code class="p">(</code><code class="n">input</code> <code class="o">=</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code>
-<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"OK. Let's play."</code>
-<code class="k">else</code>
-<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"Fine. We will play again another time."</code>
-<code class="k">end</code>
-<code class="err">      </code>
+puts "Ready to Deal (y = yes, q = quit)"
+input = gets.chop
+if  (input = 'y') then
+    puts "OK. Let's play."
+else
+    puts "Fine. We will play again another time."
+end
+      
 
 </pre>
 
@@ -468,11 +468,11 @@ COMMON MISTAKE #1:  WRONG COMPARISON OPERATOR -- ONE EQUAL SIGN INSTEAD OF TWO<
 <p>The following statement is valid Ruby syntax.  It contain an assignment followed by a comparison.  The assignment is done with the equal sign and the comparison is done the greater than (&gt;) symbol. </p>
 
 <pre data-code-language="ruby" data-executable="true" data-type="programlisting">
-<code class="k">if</code> <code class="p">((</code><code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code><code class="p">)</code> <code class="o">==</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code> 
-    <code class="nb">puts</code> <code class="s2">"OK. Let's play."</code>
-<code class="k">else</code> 
-    <code class="nb">puts</code> <code class="s2">"Fine. We will play again another time."</code>
-<code class="k">end</code>
+if ((input = gets.chop) == 'y') then 
+    puts "OK. Let's play."
+else 
+    puts "Fine. We will play again another time."
+end
 </pre>
 
 <p>This statement will first assign <em>input </em>to the result of gets.chop and then compare it to the value of y.  So you can combine two steps into one.  We very much do not recommend doing this as it can be really confusing to read.  Instead just break it into two statements:</p>
@@ -561,7 +561,7 @@ if (input == 'y')</pre>
 
 <p> </p>
 
-<section data-type="sect1" data-pdf-bookmark="COMMON MISTAKE #2:  Misspell a ELSE" id="idp949920">
+<section data-type="sect1" data-pdf-bookmark="COMMON MISTAKE #2:  Misspell a ELSE" id="idp751888">
 <h1>COMMON MISTAKE #2:  Misspell a ELSE</h1>
 
 <p> </p>
@@ -572,15 +572,15 @@ if (input == 'y')</pre>
 <p>Now, try one more error that is easier. Go ahead and misspell  the ELSE (may as well get used to this type of error as every programmer has done it a few zillion times). </p>
 
 <pre data-code-language="ruby" data-executable="true" data-type="programlisting">
-<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
-<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
+puts "Ready to Deal (y = yes, q = quit)"
+input = gets.chop
 
-<code class="k">if</code><code class="err"> </code> <code class="p">(</code><code class="n">input</code> <code class="o">=</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code>
-<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"OK lets play."</code>
-<code class="n">esle</code>
-<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"Fine we will play again another time."</code>
-<code class="k">end</code>
-<code class="err">      </code>
+if  (input = 'y') then
+    puts "OK lets play."
+esle
+    puts "Fine we will play again another time."
+end
+      
 
 </pre>
 
@@ -594,7 +594,7 @@ if (input == 'y')</pre>
 
 <p>The ruby interpreter thinks we are now referring to a variable called <strong>esle</strong> and says that variable has not been defined.  Now spell else correctly, use a double equal (==) and try it again.</p>
 
-<section data-type="sect1" data-pdf-bookmark="MAIN DRIVER" id="idp997712">
+<section data-type="sect1" data-pdf-bookmark="MAIN DRIVER" id="idp761424">
 <h1>MAIN DRIVER</h1>
 </section>
 
@@ -617,33 +617,33 @@ if (input == 'y')</pre>
 <p> </p>
 
 <pre data-code-language="ruby" data-executable="true" data-type="programlisting">
-<code class="err"> </code> <code class="err"> </code> 
-<code class="err"> </code>   <code class="nb">puts</code> <code class="err"> </code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
-<code class="err"> </code> <code class="err"> </code> <code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
-<code class="err"> </code> <code class="err"> </code> <code class="k">if</code> <code class="err"> </code><code class="p">(</code><code class="n">input</code> <code class="o">==</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code>
-<code class="err"> </code>      <code class="n">deck</code> <code class="o">=</code> <code class="no">Deck</code><code class="o">.</code><code class="n">new</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="n">player</code> <code class="o">=</code> <code class="no">Player</code><code class="o">.</code><code class="n">new</code><code class="p">(</code><code class="n">deck</code><code class="p">)</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="n">dealer</code> <code class="o">=</code> <code class="no">Dealer</code><code class="o">.</code><code class="n">new</code><code class="p">(</code><code class="n">deck</code><code class="p">)</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="c1"># now draw until stick</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="n">player</code><code class="o">.</code><code class="n">draw_remaining_cards</code>
+    
+    puts   "Ready to Deal (y = yes, q = quit)"
+    input = gets.chop
+    if  (input == 'y') then
+       deck = Deck.new
+       player = Player.new(deck)
+       dealer = Dealer.new(deck)
+       
+       # now draw until stick
+       player.draw_remaining_cards
 
-       <code class="k">if</code> <code class="p">(</code><code class="n">player</code><code class="o">.</code><code class="n">is_not_busted?</code><code class="p">)</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="n">dealer</code><code class="o">.</code><code class="n">draw_remaining_cards</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="k">end</code>
+       if (player.is_not_busted?)
+           dealer.draw_remaining_cards
+       end
 
-      <code class="err"> </code><code class="nb">puts</code> <code class="s2">"Player: "</code> <code class="o">+</code> <code class="n">player</code><code class="o">.</code><code class="n">score</code> <code class="s2">"Dealer: "</code> <code class="o">+</code> <code class="n">dealer</code><code class="o">.</code><code class="n">score</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="k">if</code> <code class="n">player</code><code class="o">.</code><code class="n">score</code> <code class="o">&gt;</code> <code class="n">dealer</code><code class="o">.</code><code class="n">score</code><code class="err"> </code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="nb">puts</code> <code class="s2">"Congratulations! You won."</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="k">else</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="nb">puts</code> <code class="s2">"Sorry. You lost."</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="k">end</code>
-<code class="err"> </code> <code class="err"> </code> <code class="k">else</code>
-<code class="err"> </code> <code class="err"> </code> <code class="err"> </code> <code class="err"> </code><code class="nb">puts</code> <code class="s2">"Sorry. You didn't want to play."</code><code class="err"> </code>
-<code class="err"> </code> <code class="err"> </code> <code class="k">end</code>
-<code class="k">end</code>
+       puts "Player: " + player.score "Dealer: " + dealer.score
+       if player.score &gt; dealer.score 
+          puts "Congratulations! You won."
+       else
+          puts "Sorry. You lost."
+       end
+    else
+       puts "Sorry. You didn't want to play." 
+    end
+end
 
-<code class="nb">puts</code> <code class="s2">"Have a good day."</code>
+puts "Have a good day."
 
 
 </pre>
@@ -713,22 +713,22 @@ if (input == 'y')</pre>
 <p>For now, just to give you the feel of an if statement, enter the following:</p>
 
 <pre data-code-language="ruby" data-executable="true" data-type="programlisting">
-<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
-<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code>
+puts "Ready to Deal (y = yes, q = quit)"
+input = gets.chop
 
-<code class="k">if</code><code class="err"> </code> <code class="p">(</code><code class="n">input</code> <code class="o">==</code> <code class="s1">'y'</code><code class="p">)</code> <code class="k">then</code>
-<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"OK. Let's play."</code>
-<code class="k">else</code>
-<code class="err">   </code> <code class="nb">puts</code> <code class="s2">"Fine. We will play again another time."</code>
-<code class="k">end</code>
-<code class="err">      </code>
+if  (input == 'y') then
+    puts "OK. Let's play."
+else
+    puts "Fine. We will play again another time."
+end
+      
 
 
 </pre>
 
 <p>Another thing to mention is that in this module we have basically described all the components needed to play Blackjack and the statements in line 4-20 are what is called the <strong>main driver</strong> of this program.  These statements call other methods to get things done but the high level steps are all here.   Essentially, if we were writing our “bake cookies” steps we would have:</p>
 
-<section data-type="sect1" data-pdf-bookmark="A little more on Algorithms" id="idp1221824">
+<section data-type="sect1" data-pdf-bookmark="A little more on Algorithms" id="idp810816">
 <h1>A little more on Algorithms</h1>
 
 <p> </p>

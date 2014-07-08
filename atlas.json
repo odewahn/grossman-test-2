@@ -23,7 +23,7 @@
     "html": {
       "toc": true,
       "index": false,
-      "pygments": false
+      "syntaxhighlighting": false
     }
   },
   "theme": "",

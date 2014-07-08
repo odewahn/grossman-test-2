@@ -50,7 +50,7 @@
       </header>
       <div id="flex-box">
         <section id="sidebar">
-          <nav data-type="toc" id="idp84400"><ol><li data-type="chapter"><a href="ch01.html#idm4743872">Module 1 - Display a Welcome Message</a></li><li data-type="chapter"><a href="ch02.html#idp274560">Module 2: Get Input</a></li><li data-type="chapter"><a href="ch03.html#idp393424">Module 3 - Deciding what to do next. </a><ol>
+          <nav data-type="toc" id="idp77184"><ol><li data-type="chapter"><a href="ch01.html#idp476624">Module 1 - Display a Welcome Message</a></li><li data-type="chapter"><a href="ch02.html#idp478368">Module 2: Get Input</a></li><li data-type="chapter"><a href="ch03.html#idp606976">Module 3 - Deciding what to do next. </a><ol>
 
 
 
@@ -59,7 +59,7 @@
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp397360">IF-THEN-LOGIC</a></li>
+<li data-type="sect1"><a href="ch03.html#idp650304">IF-THEN-LOGIC</a></li>
 
 
 
@@ -106,7 +106,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp302496">IF-THEN IN RUBY</a></li>
+<li data-type="sect1"><a href="ch03.html#idp683376">IF-THEN IN RUBY</a></li>
 
 
 
@@ -132,7 +132,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp843184"> </a></li>
+<li data-type="sect1"><a href="ch03.html#idp708800"> </a></li>
 
 
 
@@ -178,7 +178,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp949920">COMMON MISTAKE #2:  Misspell a ELSE</a></li>
+<li data-type="sect1"><a href="ch03.html#idp751888">COMMON MISTAKE #2:  Misspell a ELSE</a></li>
 
 
 
@@ -196,7 +196,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp997712">MAIN DRIVER</a></li>
+<li data-type="sect1"><a href="ch03.html#idp761424">MAIN DRIVER</a></li>
 
 
 
@@ -248,7 +248,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 
 
 
-<li data-type="sect1"><a href="ch03.html#idp1221824">A little more on Algorithms</a></li>
+<li data-type="sect1"><a href="ch03.html#idp810816">A little more on Algorithms</a></li>
 
 
 
@@ -279,7 +279,7 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
               <li><a href="ch01.html">Previous</a></li>
               <li><a href="ch03.html">Next</a></li>
             </ul>
-            <section data-type="chapter" data-pdf-bookmark="Chapter 2. Module 2: Get Input" id="idp274560">
+            <section data-type="chapter" data-pdf-bookmark="Chapter 2. Module 2: Get Input" id="idp478368">
 <h1>Module 2: Get Input</h1>
 
 <p>At this point, you have just been able to display some output to the screen telling the user that you want to play Blackjack. </p>
@@ -289,8 +289,8 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 <p>Consider the following Ruby code:</p>
 
 <pre data-code-language="ruby" data-executable="true" data-type="programlisting">
-<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
-<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code>
+puts "Ready to Deal (y = yes, q = quit)"
+input = gets
 </pre>
 
 <p><span style="line-height: 1.5em;">Line 1 shows the user being prompted with the </span><strong style="line-height: 1.5em;">puts </strong><span style="line-height: 1.5em;">command we learned about in module 1.  Line 2 shows our new thing for today called the </span><strong style="line-height: 1.5em;">gets </strong><span style="line-height: 1.5em;">command.  This is short for get-string. </span></p>
@@ -344,8 +344,8 @@ Obtain ingredients for making chocolate chip cookies that come with a mix where
 <p>For our blackjack game we use the following:</p>
 
 <pre data-code-language="ruby" data-executable="true" data-type="programlisting">
-<code class="nb">puts</code> <code class="s2">"Ready to Deal (y = yes, q = quit)"</code>
-<code class="n">input</code> <code class="o">=</code> <code class="nb">gets</code><code class="o">.</code><code class="n">chop</code></pre>
+puts "Ready to Deal (y = yes, q = quit)"
+input = gets.chop</pre>
 
 <p>You are now ready to see if the user has entered a <strong>y </strong>for YES to play Blackjack or a <strong>q </strong>to indicate that s/he is done with the game.  The <strong>chop </strong>method forgoes the need to worry about matching the <strong>\n </strong>character when determining if the user entered a <strong>q </strong>or a <strong>y. </strong></p>
 
